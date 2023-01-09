@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Map.gd" type="Script" id=1]
+[ext_resource path="res://Game/BigStone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Theme.tres" type="Theme" id=3]
+[ext_resource path="res://Game/Turret/Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PhysicsTimer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/CursorFollower.gd" type="Script" id=6]
+[ext_resource path="res://Game/Builder.gd" type="Script" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -118.921, -120.11, 118.921, 120.11, 139, 182, -112, 68, 112, -68, 316, 96, -25, -32.5, 25, 32.5, 494, 127, 34, -50, -34, 50, 551, 284, -263, 21, 263, -21, 317, 240, 77, 89.5, -77, -89.5, 89, 292 )
+}
+
+[node name="Game" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+margin_right = 600.0
+margin_bottom = 320.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+margin_right = 25.0
+margin_bottom = 13.0
+focus_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 3 )
+text = "BUILD"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Map" type="Node2D" parent="."]
+script = ExtResource( 1 )
+enemy_scene = ExtResource( 2 )
+interval = 30
+
+[node name="HostilePaths" type="Node2D" parent="Map"]
+
+[node name="HostilePath" type="Path2D" parent="Map/HostilePaths"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Map/HostilePaths/HostilePath"]
+position = Vector2( 139, 182 )
+rotation = -6.28319
+rotate = false
+
+[node name="Stones" type="Node2D" parent="Map" groups=["stones"]]
+
+[node name="GenerationTimer" parent="Map" instance=ExtResource( 5 )]
+wait_time = 0.5
+autostart = true
+
+[node name="Turrets" type="Node2D" parent="." groups=["turrets"]]
+
+[node name="Turret2" parent="Turrets" instance=ExtResource( 4 )]
+position = Vector2( 142, 38 )
+
+[node name="Turret" parent="Turrets" instance=ExtResource( 4 )]
+position = Vector2( 335, 199 )
+
+[node name="CursorFollower" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="Builder" type="Node2D" parent="CursorFollower"]
+script = ExtResource( 7 )
+turret = ExtResource( 4 )
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Button" to="Map" method="generate"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Button" to="CursorFollower/Builder" method="start_build"]
+[connection signal="timeout" from="Map/GenerationTimer" to="Map" method="generate"]
