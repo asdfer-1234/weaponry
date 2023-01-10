@@ -1,12 +1,19 @@
 extends Node2D
 
+export(Color) var placable_color : Color
+export(Color) var blocked_color : Color
 export(PackedScene) var turret : PackedScene
 var hold : Node
 
 
 func _process(_delta):
-	if Input.is_action_pressed("place_turret") and hold != null:
-		place_build()
+	if hold != null:
+		if placable():
+			modulate = placable_color
+			if Input.is_action_pressed("place_turret") and hold != null:
+				place_build()
+		else:
+			modulate = blocked_color
 
 func start_build():
 	var instantiated : Node2D = turret.instance()
@@ -14,6 +21,10 @@ func start_build():
 	instantiated.set_physics_process(false)
 	hold = instantiated
 	add_child(instantiated)
+
+func placable():
+	return hold.get_overlapping_areas().size() == 0;
+	
 
 func place_build():
 	var new_parent = get_tree().get_nodes_in_group("turrets")[0]

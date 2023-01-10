@@ -1,4 +1,4 @@
-extends "res://Game/Stone.gd"
+extends "res://game/Stone.gd"
 
 export(PackedScene) var child_stone
 

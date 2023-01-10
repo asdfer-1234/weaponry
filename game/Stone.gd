@@ -17,8 +17,6 @@ func set_progress(set):
 		
 		if progress > path_follow.offset:
 			get_parent().remove_child(self)
-	if has_node("Sprite"):
-		$Sprite.z_index = progress
 
 func _ready():
 	set_progress(progress)

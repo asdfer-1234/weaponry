@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Map.gd" type="Script" id=1]
 [ext_resource path="res://Game/BigStone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Game/Turret/Turret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PhysicsTimer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Game/CursorFollower.gd" type="Script" id=6]
-[ext_resource path="res://Game/Builder.gd" type="Script" id=7]
+[ext_resource path="res://game/Builder.gd" type="Script" id=6]
+[ext_resource path="res://game/CursorFollower.gd" type="Script" id=7]
+[ext_resource path="res://game/turret/Turret.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -64,20 +65,29 @@ rotate = false
 wait_time = 0.5
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="Map"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Area2D"]
+polygon = PoolVector2Array( 88, 263, 177, 295, 251, 294, 217, 270, 233, 241, 311, 225, 415, 230, 422, 259, 386, 287, 483, 289, 543, 266, 538, 224, 467, 122, 418, 82, 342, 111, 280, 170, 247, 221, 216, 244, 172, 239, 108, 180, 139, 162, 200, 209, 212, 206, 258, 114, 334, 64, 397, 49, 457, 60, 531, 134, 584, 242, 567, 287, 515, 317, 374, 310, 340, 305, 269, 322, 193, 335, 124, 331, 71, 309 )
+
 [node name="Turrets" type="Node2D" parent="." groups=["turrets"]]
 
 [node name="Turret2" parent="Turrets" instance=ExtResource( 4 )]
-position = Vector2( 142, 38 )
+position = Vector2( 185, 136 )
 
 [node name="Turret" parent="Turrets" instance=ExtResource( 4 )]
 position = Vector2( 335, 199 )
 
 [node name="CursorFollower" type="Node2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="Builder" type="Node2D" parent="CursorFollower"]
-script = ExtResource( 7 )
-turret = ExtResource( 4 )
+script = ExtResource( 6 )
+placable_color = Color( 0, 1, 0, 1 )
+blocked_color = Color( 1, 0, 0, 1 )
+turret = ExtResource( 8 )
 
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Button" to="Map" method="generate"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Button" to="CursorFollower/Builder" method="start_build"]
