@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://scene_management/Quit.gd" type="Script" id=2]
+[ext_resource path="res://scene_management/ChangeScene.gd" type="Script" id=3]
+[ext_resource path="res://game/Game.tscn" type="PackedScene" id=4]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 600.0
+margin_bottom = 320.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 149.0
+margin_right = 600.0
+margin_bottom = 154.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 214.0
+margin_right = 386.0
+margin_bottom = 5.0
+size_flags_horizontal = 0
+theme = ExtResource( 1 )
+text = "WEAPONARY :  NOT A TYPO RATHER A SPELLING MISTAKE"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 158.0
+margin_right = 600.0
+margin_bottom = 171.0
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 274.0
+margin_right = 301.0
+margin_bottom = 13.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+text = "START"
+script = ExtResource( 3 )
+scene = ExtResource( 4 )
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 305.0
+margin_right = 326.0
+margin_bottom = 13.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+text = "QUIT"
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/StartButton" to="MarginContainer/VBoxContainer/HBoxContainer2/StartButton" method="change_scene"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/QuitButton" to="MarginContainer/VBoxContainer/HBoxContainer2/QuitButton" method="quit"]

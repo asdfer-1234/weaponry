@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://game/turret/weapon/Weapon.gd" type="Script" id=1]
+[ext_resource path="res://game/turret/weapon/bow/bow.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+attack_range = 100.0
+attack_speed = 0.7
+projectile_damage = 0
+projectile_speed = 200.0
+swivel_speed = 180.0
+sprite = ExtResource( 2 )
+slotCount = 0
