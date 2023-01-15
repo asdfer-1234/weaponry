@@ -1,16 +1,32 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
-[ext_resource path="res://game/turret/weapon/default_weapon/triangle.png" type="Texture" id=1]
-[ext_resource path="res://game/turret/weapon/Weapon.gd" type="Script" id=2]
-[ext_resource path="res://game/turret/weapon/Projectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/turret/weapon/AimWeapon.gd" type="Script" id=1]
+[ext_resource path="res://game/turret/weapon/attack/ProjectileAttack.gd" type="Script" id=2]
+[ext_resource path="res://game/turret/weapon/default_weapon/triangle.png" type="Texture" id=3]
+[ext_resource path="res://game/turret/weapon/ranger/default_weapon_ranger.tres" type="Resource" id=4]
+[ext_resource path="res://game/turret/weapon/targeter/FirstTargeter.gd" type="Script" id=5]
+[ext_resource path="res://game/turret/weapon/projectile/MovingProjectileBehaviour.gd" type="Script" id=6]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 6 )
+pierce = 1
+size = 1
+lifetime = 2
+speed = 200
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+projectile_behaviour_resource = SubResource( 1 )
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 5 )
 
 [resource]
-script = ExtResource( 2 )
-attack_range = 100.0
-attack_speed = 1.0
-projectile_speed = 400.0
-projectile_pierce = 2
-swivel_speed = 180.0
-sprite = ExtResource( 1 )
-projectile = ExtResource( 3 )
+script = ExtResource( 1 )
+sprite = ExtResource( 3 )
 slotCount = 0
+infinite_swivel = false
+swivel_speed = 360.0
+targeter_resource = SubResource( 4 )
+ranger_resource = ExtResource( 4 )
+attack_resource = SubResource( 2 )

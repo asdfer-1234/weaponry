@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name Stone
 onready var map = $"../../.."
 
 export var speed : float = 10;

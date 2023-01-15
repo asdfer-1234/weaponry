@@ -1,8 +1,8 @@
 extends Node2D
 
-export(Color) var placable_color : Color
-export(Color) var blocked_color : Color
-export(PackedScene) var turret : PackedScene
+export(Color) var placable_color
+export(Color) var blocked_color
+export(PackedScene) var turret
 var hold : Node
 
 signal start_build

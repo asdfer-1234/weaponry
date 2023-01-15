@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/turret/weapon/default_weapon/triangle.png" type="Texture" id=2]
 [ext_resource path="res://PhysicsTimer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/turret/Turret.gd" type="Script" id=4]
-[ext_resource path="res://game/turret/weapon/default_weapon/default_weapon.tres" type="Resource" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
@@ -16,7 +15,6 @@ process_priority = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 4 )
-default_weapon_resource = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

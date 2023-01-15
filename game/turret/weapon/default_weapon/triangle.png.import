@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/triangle.png-0cd24885c66796cb06af848b585a64dc.stex"
+path="res://.import/triangle.png-89edf7d2b81d681c250fb15a5d6e1707.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/default_weapon/triangle.png"
-dest_files=[ "res://.import/triangle.png-0cd24885c66796cb06af848b585a64dc.stex" ]
+source_file="res://Game/turret/weapon/default_weapon/triangle.png"
+dest_files=[ "res://.import/triangle.png-89edf7d2b81d681c250fb15a5d6e1707.stex" ]
 
 [params]
 
