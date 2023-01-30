@@ -1,32 +1,50 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=14 format=3 uid="uid://cy58l5uv2bo3"]
 
-[ext_resource path="res://game/turret/weapon/AimWeapon.gd" type="Script" id=1]
-[ext_resource path="res://game/turret/weapon/attack/ProjectileAttack.gd" type="Script" id=2]
-[ext_resource path="res://game/turret/weapon/default_weapon/triangle.png" type="Texture" id=3]
-[ext_resource path="res://game/turret/weapon/ranger/default_weapon_ranger.tres" type="Resource" id=4]
-[ext_resource path="res://game/turret/weapon/targeter/FirstTargeter.gd" type="Script" id=5]
-[ext_resource path="res://game/turret/weapon/projectile/MovingProjectileBehaviour.gd" type="Script" id=6]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="1"]
+[ext_resource type="Script" path="res://game/damage.gd" id="1_bky6f"]
+[ext_resource type="Script" path="res://game/turret/weapon/projectile/moving_projectile_behaviour.gd" id="1_xu475"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/projectile/projectile.png" id="2_uufef"]
+[ext_resource type="Texture2D" uid="uid://bo5y5kshcojkf" path="res://game/turret/weapon/default_weapon/default_weapon_turret.png" id="3"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="4_naimq"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="5"]
 
-[sub_resource type="Resource" id=1]
-script = ExtResource( 6 )
+[sub_resource type="Resource" id="Resource_lxvr7"]
+script = ExtResource("1_bky6f")
+type = 0
+damage = 10
+
+[sub_resource type="Resource" id="Resource_2fy77"]
+script = ExtResource("1_xu475")
+sprite = ExtResource("2_uufef")
+speed = 200.0
 pierce = 1
-size = 1
-lifetime = 2
-speed = 200
+size = 1.0
+damage = SubResource("Resource_lxvr7")
+lifetime = 2.0
 
-[sub_resource type="Resource" id=2]
-script = ExtResource( 2 )
-projectile_behaviour_resource = SubResource( 1 )
+[sub_resource type="Resource" id="Resource_1qtxw"]
+script = ExtResource("2")
+projectile_behaviour = SubResource("Resource_2fy77")
+spread = 0.0
+count = 1
 
-[sub_resource type="Resource" id=4]
-script = ExtResource( 5 )
+[sub_resource type="Resource" id="Resource_vlbws"]
+script = ExtResource("4_naimq")
+min_range = 0.0
+max_range = 50.0
+
+[sub_resource type="Resource" id="Resource_2fgmb"]
+script = ExtResource("5")
 
 [resource]
-script = ExtResource( 1 )
-sprite = ExtResource( 3 )
-slotCount = 0
+script = ExtResource("1")
 infinite_swivel = false
 swivel_speed = 360.0
-targeter_resource = SubResource( 4 )
-ranger_resource = ExtResource( 4 )
-attack_resource = SubResource( 2 )
+targeter = SubResource("Resource_2fgmb")
+ranger = SubResource("Resource_vlbws")
+attack_speed = 2.0
+attack = SubResource("Resource_1qtxw")
+sprite = ExtResource("3")
+slotCount = 0
+flip_mode = 0

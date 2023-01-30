@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2xs4wmk5vcj7"]
+
+[ext_resource type="Texture2D" uid="uid://dewnf5cuiyi1w" path="res://game/stone/stone.png" id="1"]
+[ext_resource type="Script" path="res://game/stone/stone.gd" id="2"]
+
+[sub_resource type="Shader" id="3"]
+code = "shader_type canvas_item;
+
+uniform vec4 outline_color;
+
+bool notAlpha(vec4 color){
+	return color.a > 0.5;
+}
+
+const vec2 adjacent[8] = {vec2(0, 1), vec2(0, -1), vec2(1, 0), vec2(-1, 0), vec2(1, 1), vec2(-1, 1), vec2(1, -1), vec2(-1, -1)};
+
+void fragment(){
+	
+	vec2 pixelSize = 1.0 / vec2(textureSize(TEXTURE, 0));
+	
+	if(notAlpha(texture(TEXTURE, UV))){
+		COLOR = texture(TEXTURE, UV);
+	}
+	else{
+		bool border = false;
+		for(int i = 0; i < 8; i++){
+			vec2 targetUV = UV;
+			targetUV += pixelSize * adjacent[i];
+			if(notAlpha(texture(TEXTURE, targetUV))){
+				border = true;
+				break;
+			}
+		}
+		if(border){
+			COLOR = outline_color;
+		}
+		else{
+			COLOR = texture(TEXTURE, UV);
+		}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="2"]
+shader = SubResource("3")
+shader_parameter/outline_color = Plane(0.29, 0.21, 0.3, 1)
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.0
+
+[node name="Stone" type="Area2D"]
+script = ExtResource("2")
+speed = 100.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("2")
+texture = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

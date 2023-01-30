@@ -6,58 +6,178 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
-_global_script_classes=[ {
-"base": "Resource",
-"class": "Damage",
-"language": "GDScript",
-"path": "res://game/Damage.gd"
+_global_script_classes=[{
+"base": "Weapon",
+"class": &"AimWeapon",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/aim_weapon.gd"
 }, {
 "base": "Resource",
-"class": "DamageMultiplier",
-"language": "GDScript",
-"path": "res://game/DamageMultiplier.gd"
+"class": &"Attack",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/attack/attack.gd"
 }, {
 "base": "Resource",
-"class": "DamageMultipliers",
-"language": "GDScript",
-"path": "res://game/DamageMultipliers.gd"
+"class": &"Behaviour",
+"language": &"GDScript",
+"path": "res://game/item/behaviour.gd"
+}, {
+"base": "Ranger",
+"class": &"CircularRanger",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/ranger/circular_ranger.gd"
 }, {
 "base": "Resource",
-"class": "Weapon",
-"language": "GDScript",
-"path": "res://game/turret/weapon/Weapon.gd"
-} ]
+"class": &"Damage",
+"language": &"GDScript",
+"path": "res://game/damage.gd"
+}, {
+"base": "Resource",
+"class": &"DamageMultiplier",
+"language": &"GDScript",
+"path": "res://game/damage_multiplier.gd"
+}, {
+"base": "Resource",
+"class": &"DamageMultipliers",
+"language": &"GDScript",
+"path": "res://game/damage_multipliers.gd"
+}, {
+"base": "ProjectileBehaviour",
+"class": &"Explosion",
+"language": &"GDScript",
+"path": "res://game/explosion/explosion.gd"
+}, {
+"base": "Targeter",
+"class": &"FirstTargeter",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/targeter/first_targeter.gd"
+}, {
+"base": "UpdateResource",
+"class": &"InformationResource",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/information_resource.gd"
+}, {
+"base": "Targeter",
+"class": &"LastTargeter",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/targeter/last_targeter.gd"
+}, {
+"base": "ProjectileBehaviour",
+"class": &"MovingProjectileBehaviour",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/projectile/moving_projectile_behaviour.gd"
+}, {
+"base": "Attack",
+"class": &"ProjectileAttack",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/attack/projectile_attack.gd"
+}, {
+"base": "Behaviour",
+"class": &"ProjectileBehaviour",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/projectile/projectile_behaviour.gd"
+}, {
+"base": "Resource",
+"class": &"Ranger",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/ranger/ranger.gd"
+}, {
+"base": "Sprite2D",
+"class": &"SpriteFlipper",
+"language": &"GDScript",
+"path": "res://game/turret/sprite_flipper.gd"
+}, {
+"base": "Item",
+"class": &"StackableItem",
+"language": &"GDScript",
+"path": "res://game/item/stackable_item.gd"
+}, {
+"base": "Area2D",
+"class": &"Stone",
+"language": &"GDScript",
+"path": "res://game/stone/stone.gd"
+}, {
+"base": "InformationResource",
+"class": &"Targeter",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/targeter/targeter.gd"
+}, {
+"base": "Resource",
+"class": &"UpdateResource",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/update_resource.gd"
+}, {
+"base": "Behaviour",
+"class": &"Weapon",
+"language": &"GDScript",
+"path": "res://game/turret/weapon/weapon.gd"
+}, {
+"base": "Node",
+"class": &"WeaponItem",
+"language": &"GDScript",
+"path": "res://game/item/weapon_item.gd"
+}]
 _global_script_class_icons={
+"AimWeapon": "",
+"Attack": "",
+"Behaviour": "",
+"CircularRanger": "",
 "Damage": "",
 "DamageMultiplier": "",
 "DamageMultipliers": "",
-"Weapon": ""
+"Explosion": "",
+"FirstTargeter": "",
+"InformationResource": "",
+"LastTargeter": "",
+"MovingProjectileBehaviour": "",
+"ProjectileAttack": "",
+"ProjectileBehaviour": "",
+"Ranger": "",
+"SpriteFlipper": "",
+"StackableItem": "",
+"Stone": "",
+"Targeter": "",
+"UpdateResource": "",
+"Weapon": "",
+"WeaponItem": ""
 }
 
 [application]
 
-config/name="Weaponary 2"
-config/description="A prequel to Weaponary. A school game jam submission."
-run/main_scene="res://scene_management/SceneManager.tscn"
+config/name="Weaponry 2"
+config/description="A prequel to Weaponry. A school game jam submission."
+run/main_scene="res://scene_management/scene_manager.tscn"
+config/features=PackedStringArray("4.0")
+boot_splash/bg_color=Color(0.286275, 0.211765, 0.301961, 1)
 config/icon="res://game/stone/stone.png"
+
+[autoload]
+
+Audio="*res://audio/audio.gd"
+Random="*res://random.gd"
+Palette="*res://graphics/palette.gd"
+RichTextBuilder="*res://graphics/rich_text_builder.gd"
 
 [debug]
 
-settings/fps/force_fps=144
-settings/stdout/print_fps=true
+gdscript/warnings/shadowed_variable=false
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
-window/size/width=640
-window/size/height=360
-window/size/resizable=false
-window/size/test_width=1280
-window/size/test_height=720
-window/vsync/use_vsync=false
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
+window/vsync/use_vsync=false
+
+[filesystem]
+
+import/blender/enabled=false
 
 [global]
 
@@ -91,18 +211,39 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+font_data_dynamic={
+"Compress": null,
+"Fallbacks": null,
+"Rendering": null,
+"allow_system_fallback": true,
+"antialiasing": 0,
+"compress": true,
+"fallbacks": [],
+"force_autohinter": false,
+"generate_mipmaps": false,
+"hinting": 1,
+"language_support": {},
+"msdf_pixel_range": 8,
+"msdf_size": 48,
+"multichannel_signed_distance_field": false,
+"opentype_features": {},
+"oversampling": 0.0,
+"preload": [],
+"script_support": {},
+"subpixel_positioning": 1
+}
 
 [input]
 
 place_turret={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
- ]
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
 }
 select_turret={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
- ]
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
 }
 
 [layer_names]
@@ -116,6 +257,9 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.286275, 0.211765, 0.301961, 1)
+textures/canvas_textures/default_texture_filter=0
 2d/snapping/use_gpu_pixel_snap=true
 2d/options/ninepatch_mode=0
-environment/default_clear_color=Color( 0.286275, 0.211765, 0.301961, 1 )
+environment/default_clear_color=Color(0.286275, 0.211765, 0.301961, 1)

@@ -1,8 +1,8 @@
 extends Node2D
 
-export(Color) var placable_color
-export(Color) var blocked_color
-export(PackedScene) var turret
+const placable_color = Palette.green
+const blocked_color = Palette.red
+const turret = preload("res://game/turret/turret.tscn")
 var hold : Node
 
 signal start_build
@@ -17,14 +17,14 @@ func _process(_delta):
 		else:
 			modulate = blocked_color
 
-func start_build():
+func _start_build():
 	var instantiated : Node2D = turret.instance()
 	instantiated.set_process(false)
 	instantiated.set_physics_process(false)
 	hold = instantiated
 	hold.building = true
 	add_child(instantiated)
-	emit_signal("start_build")
+	start_build.emit()
 
 func placable():
 	return hold.get_overlapping_areas().size() == 0;
@@ -38,4 +38,4 @@ func place_build():
 	hold.global_position = new_position
 	hold.building = false
 	hold = null
-	emit_signal("end_build")
+	end_build.emit()

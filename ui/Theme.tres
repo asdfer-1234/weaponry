@@ -1,20 +1,26 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://vxs3lu15fk42"]
 
-[ext_resource path="res://ui/button_normal.tres" type="StyleBox" id=1]
-[ext_resource path="res://ui/button_hover.tres" type="StyleBox" id=2]
-[ext_resource path="res://ui/button_pressed.tres" type="StyleBox" id=3]
-[ext_resource path="res://ui/5x3Sharp.tres" type="DynamicFont" id=4]
+[ext_resource type="StyleBox" uid="uid://bkpctlreagb4e" path="res://ui/button_normal.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://dtsv4pok5r5ld" path="res://ui/button_hover.tres" id="2"]
+[ext_resource type="StyleBox" path="res://ui/button_pressed.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://7fp18alxxjtw" path="res://ui/5x3Sharp.ttf" id="4_iibuk"]
 
 [resource]
-default_font = ExtResource( 4 )
-Button/colors/font_color = Color( 1, 0.952941, 0.764706, 1 )
-Button/colors/font_color_disabled = Color( 0.286275, 0.211765, 0.301961, 1 )
-Button/colors/font_color_focus = Color( 1, 0.952941, 0.764706, 1 )
-Button/colors/font_color_hover = Color( 1, 0.952941, 0.764706, 1 )
-Button/colors/font_color_pressed = Color( 0.286275, 0.211765, 0.301961, 1 )
-Button/styles/disabled = ExtResource( 3 )
-Button/styles/focus = ExtResource( 2 )
-Button/styles/hover = ExtResource( 2 )
-Button/styles/normal = ExtResource( 1 )
-Button/styles/pressed = ExtResource( 3 )
-Label/colors/font_color = Color( 1, 0.952941, 0.764706, 1 )
+default_font = ExtResource("4_iibuk")
+default_font_size = 5
+Button/colors/font_color = Color(1, 0.952941, 0.764706, 1)
+Button/colors/font_disabled_color = Color(0.286275, 0.211765, 0.301961, 1)
+Button/colors/font_focus_color = Color(1, 0.952941, 0.764706, 1)
+Button/colors/font_hover_color = Color(1, 0.952941, 0.764706, 1)
+Button/colors/font_hover_pressed_color = Color(1, 0.952941, 0.764706, 1)
+Button/styles/disabled = ExtResource("3")
+Button/styles/focus = ExtResource("2")
+Button/styles/hover = ExtResource("2")
+Button/styles/normal = ExtResource("1")
+Button/styles/pressed = ExtResource("3")
+Label/colors/font_color = Color(1, 0.952941, 0.764706, 1)
+MarginContainer/constants/margin_bottom = 8
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 8
+RichTextLabel/colors/default_color = Color(1, 0.952941, 0.764706, 1)

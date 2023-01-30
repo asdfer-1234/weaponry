@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://g7kkvklwykfr"]
+
+[ext_resource type="Script" path="res://game/turret/weapon/projectile/projectile.gd" id="1_rbotk"]
+[ext_resource type="Texture2D" uid="uid://cu75tx7tmesbb" path="res://game/explosion/explosion.png" id="3_vshgy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtyyi"]
+radius = 16.0
+
+[sub_resource type="Animation" id="Animation_xdbtf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="Animation" id="Animation_0inl5"]
+resource_name = "explosion_animation"
+length = 11.0001
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7vas0"]
+_data = {
+"RESET": SubResource("Animation_xdbtf"),
+"explosion_animation": SubResource("Animation_0inl5")
+}
+
+[node name="Explosion" type="Area2D"]
+position = Vector2(0, 1)
+collision_layer = 0
+script = ExtResource("1_rbotk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_vshgy")
+hframes = 12
+frame = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gtyyi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "explosion_animation"
+playback_speed = 24.0
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_7vas0")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_enter"]

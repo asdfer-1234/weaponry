@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://o381c1sr1xqw"]
+
+[ext_resource type="Script" path="res://game/turret/weapon/projectile/proj.gd" id="1_qeyr1"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/projectile/projectile.png" id="2_ftjus"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trg0e"]
+size = Vector2(16, 6)
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_qeyr1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ftjus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_trg0e")
+
+[connection signal="area_entered" from="." to="." method="_on_enter"]

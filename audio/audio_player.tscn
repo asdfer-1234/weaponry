@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm1op5kcetmsk"]
+
+[ext_resource type="Script" path="res://audio/temporary_audio.gd" id="1_hum8r"]
+[ext_resource type="AudioStream" uid="uid://djvwlr6vscqvc" path="res://game/explosion/noise_explosion.wav" id="1_us80p"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_us80p")
+autoplay = true
+script = ExtResource("1_hum8r")
+
+[connection signal="finished" from="." to="." method="_on_finish_audio"]
