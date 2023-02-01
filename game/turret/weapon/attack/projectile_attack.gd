@@ -8,4 +8,7 @@ class_name ProjectileAttack
 func attack(node):
 	for i in range(count):
 		var projectile = projectile_behaviour.projectile(node)
-		projectile.rotate(Random.randf_range(deg_to_rad(spread), -deg_to_rad(spread)))
+		projectile.rotate(randf_range(deg_to_rad(spread), -deg_to_rad(spread)))
+
+func tooltip():
+	return projectile_behaviour.tooltip()

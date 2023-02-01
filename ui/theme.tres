@@ -3,10 +3,10 @@
 [ext_resource type="StyleBox" uid="uid://bkpctlreagb4e" path="res://ui/button_normal.tres" id="1"]
 [ext_resource type="StyleBox" uid="uid://dtsv4pok5r5ld" path="res://ui/button_hover.tres" id="2"]
 [ext_resource type="StyleBox" path="res://ui/button_pressed.tres" id="3"]
-[ext_resource type="FontFile" uid="uid://7fp18alxxjtw" path="res://ui/5x3Sharp.ttf" id="4_iibuk"]
+[ext_resource type="FontFile" uid="uid://cxi5g61suyvlf" path="res://ui/CG pixel 3x5.ttf" id="4_62cf3"]
 
 [resource]
-default_font = ExtResource("4_iibuk")
+default_font = ExtResource("4_62cf3")
 default_font_size = 5
 Button/colors/font_color = Color(1, 0.952941, 0.764706, 1)
 Button/colors/font_disabled_color = Color(0.286275, 0.211765, 0.301961, 1)
@@ -24,3 +24,8 @@ MarginContainer/constants/margin_left = 8
 MarginContainer/constants/margin_right = 8
 MarginContainer/constants/margin_top = 8
 RichTextLabel/colors/default_color = Color(1, 0.952941, 0.764706, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.286275, 0.211765, 0.301961, 1)
+RichTextLabel/constants/line_separation = 2
+RichTextLabel/constants/shadow_offset_x = 0
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 3

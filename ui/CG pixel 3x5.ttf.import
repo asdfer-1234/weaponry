@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://7fp18alxxjtw"
-path="res://.godot/imported/5x3Sharp.ttf-26027e2cf057a5670b01952d70b1db7d.fontdata"
+uid="uid://cxi5g61suyvlf"
+path="res://.godot/imported/CG pixel 3x5.ttf-49113e823f5569076585f4857a7e2668.fontdata"
 
 [deps]
 
-source_file="res://ui/5x3Sharp.ttf"
-dest_files=["res://.godot/imported/5x3Sharp.ttf-26027e2cf057a5670b01952d70b1db7d.fontdata"]
+source_file="res://ui/CG pixel 3x5.ttf"
+dest_files=["res://.godot/imported/CG pixel 3x5.ttf-49113e823f5569076585f4857a7e2668.fontdata"]
 
 [params]
 
@@ -27,7 +27,13 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+"variation_transform": Transform2D(100, 100, 100, 100, 100, 100)
+}]
 language_support={}
 script_support={}
 opentype_features={}

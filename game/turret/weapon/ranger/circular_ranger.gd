@@ -12,6 +12,11 @@ func get_targets(node):
 			targets.append(i)
 	return targets
 
+func _draw(node):
+	if(min_range > 0):
+		node.draw_arc(Vector2.ZERO, min_range, 0, TAU, 36, Palette.foreground, 1)
+	node.draw_arc(Vector2.ZERO, max_range, 0, TAU, 36, Palette.foreground, 1)
+
 func tooltip():
 	if(min_range <= 0):
 		return "RANGE:" + RichTextBuilder.color_text(max_range, Palette.green) + "\n"

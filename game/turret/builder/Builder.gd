@@ -5,7 +5,7 @@ const blocked_color = Palette.red
 const turret = preload("res://game/turret/turret.tscn")
 var hold : Node
 
-signal start_build
+signal enter_build
 signal end_build
 
 func _process(_delta):
@@ -17,14 +17,13 @@ func _process(_delta):
 		else:
 			modulate = blocked_color
 
-func _start_build():
-	var instantiated : Node2D = turret.instance()
-	instantiated.set_process(false)
-	instantiated.set_physics_process(false)
+func start_build():
+	var instantiated : Node2D = turret.instantiate()
 	hold = instantiated
+	print(hold.get_parent())
 	hold.building = true
 	add_child(instantiated)
-	start_build.emit()
+	enter_build.emit()
 
 func placable():
 	return hold.get_overlapping_areas().size() == 0;

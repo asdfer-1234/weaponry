@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=14 format=3 uid="uid://c374q5ow0jst7"]
+[gd_resource type="Resource" load_steps=14 format=3]
 
-[ext_resource type="Script" path="res://game/damage.gd" id="1_cpk6s"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="1_cpk6s"]
 [ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="1_dqpwq"]
 [ext_resource type="Script" path="res://game/turret/weapon/projectile/moving_projectile_behaviour.gd" id="2_u3v48"]
 [ext_resource type="Texture2D" uid="uid://7y2oqu7ylmav" path="res://game/turret/weapon/shotgun/shotgun.png" id="2_ybafe"]

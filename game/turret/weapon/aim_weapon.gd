@@ -45,3 +45,17 @@ func _angle_difference(from, to):
 	if ans > PI:
 		ans -= TAU
 	return ans
+
+func _draw():
+	ranger._draw(node)
+
+func tooltip():
+	var text = ""
+	if not infinite_swivel:
+		text += RichTextBuilder.property_text("SWIVEL", RichTextBuilder.color_text(swivel_speed, Palette.green))
+	
+	text += RichTextBuilder.subproperty("RANGE", ranger.tooltip())
+	text += RichTextBuilder.subproperty("ATTACK", attack.tooltip())
+	text += RichTextBuilder.subproperty("TARGETING", targeter.tooltip())
+	text += RichTextBuilder.property_text("ATTACK SPEED", RichTextBuilder.color_text(attack_speed, Palette.green))
+	return text

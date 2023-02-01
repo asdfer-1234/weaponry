@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=18 format=3 uid="uid://crla8kwtjyy6d"]
+[gd_resource type="Resource" load_steps=18 format=3]
 
-[ext_resource type="Script" path="res://game/damage.gd" id="1_for25"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="1_for25"]
 [ext_resource type="Script" path="res://game/explosion/explosion.gd" id="1_mh6yl"]
 [ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="1_sku6v"]
 [ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="2_1kx5u"]
@@ -66,5 +66,5 @@ ranger = SubResource("Resource_cd45c")
 attack_speed = 1.0
 attack = SubResource("Resource_vm7bg")
 sprite = ExtResource("5_1sghb")
-slotCount = 0
-flip_mode = 0
+slotCount = null
+flip_mode = null

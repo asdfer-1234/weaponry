@@ -18,7 +18,7 @@ func _update():
 	timer.timeout.connect(_end_explosion)
 	Audio.play_audio(explosion_audio)
 	node.queue_redraw()
-	node.rotate(Random.randf_range(0, TAU))
+	node.rotate(randf_range(0, TAU))
 
 func _process(delta):
 	super._process(delta)
@@ -26,7 +26,6 @@ func _process(delta):
 
 func _end_explosion():
 	hit = true
-
 
 func _on_animation_finish(_string):
 	_finish_explosion()
@@ -44,3 +43,7 @@ func animation_progress():
 	var animation_player = node.get_node("AnimationPlayer")
 	return animation_player.current_animation_position / animation_player.current_animation_length
 
+func tooltip():
+	var text = super.tooltip()
+	text += RichTextBuilder.property_text("RADIUS", size)
+	return text

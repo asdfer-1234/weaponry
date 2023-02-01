@@ -1,8 +1,8 @@
-[gd_resource type="Resource" load_steps=14 format=3 uid="uid://dryxo6wwm7x6d"]
+[gd_resource type="Resource" load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="1_3qd0n"]
 [ext_resource type="Script" path="res://game/turret/weapon/projectile/moving_projectile_behaviour.gd" id="1_ntm3x"]
-[ext_resource type="Script" path="res://game/damage.gd" id="1_yycnq"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="1_yycnq"]
 [ext_resource type="Texture2D" uid="uid://bjrt64cv7oe75" path="res://game/turret/weapon/bow/bow.png" id="2"]
 [ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="3_mihhx"]
 [ext_resource type="Texture2D" uid="uid://4r5om4c7yhfr" path="res://game/turret/weapon/bow/arrow.png" id="3_sk5fl"]

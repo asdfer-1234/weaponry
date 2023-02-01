@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://u4cq125gjdyc"]
+
+[ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_0ynew"]
+[ext_resource type="StyleBox" uid="uid://dtsv4pok5r5ld" path="res://ui/button_hover.tres" id="2_egyx5"]
+[ext_resource type="Script" path="res://game/item/inventory_slot.gd" id="3_s88tu"]
+[ext_resource type="PackedScene" uid="uid://cl5mtd4ngo0oj" path="res://game/item/item_stack_display.tscn" id="4_2ojfc"]
+
+[node name="InventorySlot" type="Button"]
+custom_minimum_size = Vector2(22, 22)
+focus_mode = 0
+theme = ExtResource("1_0ynew")
+theme_override_styles/pressed = ExtResource("2_egyx5")
+script = ExtResource("3_s88tu")
+
+[node name="ItemStackDisplay" parent="." instance=ExtResource("4_2ojfc")]
+layout_mode = 1
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

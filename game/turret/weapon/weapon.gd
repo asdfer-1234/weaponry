@@ -21,3 +21,5 @@ func _mouse_enter():
 func _mouse_exit():
 	pass
 
+func tooltip():
+	pass

@@ -45,3 +45,11 @@ func _on_hit(target):
 		node.queue_free()
 	if attack_on_hit != null:
 		attack_on_hit.attack(node)
+
+func tooltip():
+	var text = ""
+	text += RichTextBuilder.property_text("PIERCE", RichTextBuilder.color_text(pierce, Palette.green))
+	text += damage.tooltip()
+	if attack_on_hit != null:
+		text += RichTextBuilder.subproperty("ON HIT", attack_on_hit.tooltip())
+	return text

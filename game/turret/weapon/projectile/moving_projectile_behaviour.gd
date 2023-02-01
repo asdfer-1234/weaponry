@@ -11,3 +11,6 @@ func _update():
 func _process(delta):
 	node.translate(Vector2(speed, 0).rotated(node.rotation) * delta)
 	pass
+
+func tooltip():
+	return super.tooltip() + RichTextBuilder.property_text("SPEED", RichTextBuilder.color_text(speed, Palette.green))

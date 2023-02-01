@@ -32,17 +32,17 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"Damage",
 "language": &"GDScript",
-"path": "res://game/damage.gd"
+"path": "res://game/damage/damage.gd"
 }, {
 "base": "Resource",
 "class": &"DamageMultiplier",
 "language": &"GDScript",
-"path": "res://game/damage_multiplier.gd"
+"path": "res://game/damage/damage_multiplier.gd"
 }, {
 "base": "Resource",
 "class": &"DamageMultipliers",
 "language": &"GDScript",
-"path": "res://game/damage_multipliers.gd"
+"path": "res://game/damage/damage_multipliers.gd"
 }, {
 "base": "ProjectileBehaviour",
 "class": &"Explosion",
@@ -58,6 +58,16 @@ _global_script_classes=[{
 "class": &"InformationResource",
 "language": &"GDScript",
 "path": "res://game/turret/weapon/information_resource.gd"
+}, {
+"base": "Resource",
+"class": &"Item",
+"language": &"GDScript",
+"path": "res://game/item/item.gd"
+}, {
+"base": "Resource",
+"class": &"ItemStack",
+"language": &"GDScript",
+"path": "res://game/item/item_stack.gd"
 }, {
 "base": "Targeter",
 "class": &"LastTargeter",
@@ -99,7 +109,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://game/stone/stone.gd"
 }, {
-"base": "InformationResource",
+"base": "Resource",
 "class": &"Targeter",
 "language": &"GDScript",
 "path": "res://game/turret/weapon/targeter/targeter.gd"
@@ -130,6 +140,8 @@ _global_script_class_icons={
 "Explosion": "",
 "FirstTargeter": "",
 "InformationResource": "",
+"Item": "",
+"ItemStack": "",
 "LastTargeter": "",
 "MovingProjectileBehaviour": "",
 "ProjectileAttack": "",
@@ -156,7 +168,6 @@ config/icon="res://game/stone/stone.png"
 [autoload]
 
 Audio="*res://audio/audio.gd"
-Random="*res://random.gd"
 Palette="*res://graphics/palette.gd"
 RichTextBuilder="*res://graphics/rich_text_builder.gd"
 

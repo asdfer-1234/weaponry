@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://e1l8qjjp5ufn"]
+
+[ext_resource type="Script" path="res://game/item/stackable_item.gd" id="1_l2hd7"]
+[ext_resource type="Texture2D" uid="uid://bc2wvjv2aekod" path="res://game/item/placeholder_item.png" id="2_c2qq3"]
+
+[resource]
+script = ExtResource("1_l2hd7")
+stack_size = 100
+name = "Item"
+description = "This is a placeholder item. If you see this please report this as a bug."
+sprite = ExtResource("2_c2qq3")

@@ -10,6 +10,7 @@ var died : bool = false
 var excluded_projectiles : Array = []
 const particle = preload("res://graphics/temporary_particle.tscn")
 
+
 func set_progress(value):
 	progress = value
 	if has_node("../../HostilePaths/HostilePath/PathFollow2D"):
@@ -17,7 +18,6 @@ func set_progress(value):
 		path_follow.progress = progress
 		position = path_follow.global_position
 		path_follow.progress_ratio = 1
-		
 		if progress > path_follow.progress:
 			queue_free()
 

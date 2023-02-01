@@ -1,6 +1,8 @@
 extends Resource
 
-@export var name : String = "ITEM"
+class_name Item
+
+@export var name : String = "Item"
 @export_multiline var description : String
 @export var sprite : Texture = preload("res://game/item/placeholder_item.png")
 

@@ -15,7 +15,7 @@ func mouse_exit(turret):
 	if mouse_turret == turret:
 		mouse_turret = null
 
-func select(turret):
+func select(_turret):
 	print("select")
 
 func _process(_delta):
@@ -41,8 +41,8 @@ func draw_range():
 	#draw_empty_circle(Vector2.ZERO, turret.get_node("Range/CollisionShape2D").shape.radius, Color(1, 0.95, 0.76))
 	pass
 
-func draw_empty_circle(position : Vector2, radius : float, color : Color, thickness : float = 1):
-	draw_arc(position, radius, 0, TAU, 36, color, thickness)
+func draw_empty_circle(center : Vector2, radius : float, color : Color, thickness : float = 1):
+	draw_arc(center, radius, 0, TAU, 36, color, thickness)
 
 
 func start_build():
