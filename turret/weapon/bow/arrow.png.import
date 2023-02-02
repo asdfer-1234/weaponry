@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4r5om4c7yhfr"
-path="res://.godot/imported/arrow.png-7d5b2f70688c8c79b739f52196eb7df7.ctex"
+path="res://.godot/imported/arrow.png-cc1162dcbb623ade9be54be7fa6e18d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/bow/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-7d5b2f70688c8c79b739f52196eb7df7.ctex"]
+source_file="res://turret/weapon/bow/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-cc1162dcbb623ade9be54be7fa6e18d5.ctex"]
 
 [params]
 

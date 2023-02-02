@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://byyojnp7a05uj"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bo5y5kshcojkf" path="res://game/turret/weapon/default_weapon/default_weapon_turret.png" id="3_fbfhr"]
-[ext_resource type="Script" path="res://game/turret/turret.gd" id="4"]
-[ext_resource type="Script" path="res://game/turret/sprite_flipper.gd" id="4_fmkah"]
+[ext_resource type="Texture2D" uid="uid://bo5y5kshcojkf" path="res://turret/weapon/default_weapon/default_weapon_turret.png" id="3_fbfhr"]
+[ext_resource type="Script" path="res://turret/turret.gd" id="4"]
+[ext_resource type="Script" path="res://turret/sprite_flipper.gd" id="4_fmkah"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wieyt"]
 radius = 8.0
