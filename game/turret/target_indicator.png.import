@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo5y5kshcojkf"
-path="res://.godot/imported/default_weapon_turret.png-b31b9fbd4f139538db751851dc4b0cee.ctex"
+uid="uid://cydt7u8g1lbd5"
+path="res://.godot/imported/target_indicator.png-c8ec64e472ecfc3f21ca891f489f2011.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://turret/weapon/default_weapon/default_weapon_turret.png"
-dest_files=["res://.godot/imported/default_weapon_turret.png-b31b9fbd4f139538db751851dc4b0cee.ctex"]
+source_file="res://game/turret/target_indicator.png"
+dest_files=["res://.godot/imported/target_indicator.png-c8ec64e472ecfc3f21ca891f489f2011.ctex"]
 
 [params]
 

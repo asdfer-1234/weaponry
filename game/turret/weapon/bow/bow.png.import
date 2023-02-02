@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpxk1cnu3l0ty"
-path="res://.godot/imported/projectile.png-edf263c37c0237cebd510545f9addce1.ctex"
+uid="uid://bjrt64cv7oe75"
+path="res://.godot/imported/bow.png-76e7ca66bfbd6c7050b4af298bb9f77a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://turret/weapon/projectile/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-edf263c37c0237cebd510545f9addce1.ctex"]
+source_file="res://game/turret/weapon/bow/bow.png"
+dest_files=["res://.godot/imported/bow.png-76e7ca66bfbd6c7050b4af298bb9f77a.ctex"]
 
 [params]
 
