@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3]
+[gd_scene load_steps=24 format=3 uid="uid://cm1t50qnhhj2l"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/inventory_slot.tscn" id="2_7gne5"]
 [ext_resource type="Shader" path="res://graphics/outline.gdshader" id="3_5rhxv"]
+[ext_resource type="Resource" uid="uid://b178aaqapi60u" path="res://game/item/bow.tres" id="3_ln6r1"]
 [ext_resource type="PackedScene" path="res://physics_timer.tscn" id="5"]
 [ext_resource type="Script" path="res://game/turret/turret_target_indicator.gd" id="5_svi0v"]
 [ext_resource type="Script" path="res://game/turret/builder/Builder.gd" id="6"]
@@ -13,10 +14,20 @@
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
 [ext_resource type="Texture2D" uid="uid://cydt7u8g1lbd5" path="res://game/turret/target_indicator.png" id="10"]
 [ext_resource type="PackedScene" path="res://game/turret/turret.tscn" id="10_nsc7n"]
-[ext_resource type="Resource" path="res://game/turret/weapon/cannon/cannon.tres" id="11_y53rj"]
+[ext_resource type="Resource" uid="uid://cxr8qob5asjgv" path="res://game/turret/weapon/cannon/cannon.tres" id="11_y53rj"]
 [ext_resource type="PackedScene" uid="uid://cl5mtd4ngo0oj" path="res://game/item/item_stack_display.tscn" id="14_egtcl"]
 [ext_resource type="Resource" uid="uid://e1l8qjjp5ufn" path="res://game/item/placeholder_item.tres" id="15_krjn3"]
 [ext_resource type="Script" path="res://game/item/item_stack.gd" id="17_fox0a"]
+
+[sub_resource type="Resource" id="Resource_48fto"]
+script = ExtResource("17_fox0a")
+item = ExtResource("3_ln6r1")
+count = null
+
+[sub_resource type="Resource" id="Resource_6wyep"]
+script = ExtResource("17_fox0a")
+item = ExtResource("3_ln6r1")
+count = 1
 
 [sub_resource type="ShaderMaterial" id="2"]
 shader = ExtResource("3_5rhxv")
@@ -79,6 +90,7 @@ layout_mode = 2
 
 [node name="InventorySlot2" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_48fto")
 
 [node name="InventorySlot3" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
@@ -94,6 +106,7 @@ layout_mode = 2
 
 [node name="InventorySlot7" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_6wyep")
 
 [node name="InventorySlot8" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
@@ -102,6 +115,36 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InventorySlot10" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 
 [node name="TurretSelection" type="Control" parent="CanvasLayer" groups=["turret_selection"]]
@@ -162,7 +205,7 @@ layer_0/tile_data = PackedInt32Array(524310, 1, 5, 589846, 1, 6, 589847, 1, 4, 6
 [node name="Turrets" type="Node2D" parent="." groups=["turrets"]]
 
 [node name="Turret" parent="Turrets" instance=ExtResource("10_nsc7n")]
-position = Vector2(200, 161)
+position = Vector2(200, 160)
 weapon = ExtResource("11_y53rj")
 
 [node name="CursorCanvas" type="CanvasLayer" parent="."]

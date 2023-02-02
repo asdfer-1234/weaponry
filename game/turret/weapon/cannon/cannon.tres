@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=18 format=3]
+[gd_resource type="Resource" load_steps=18 format=3 uid="uid://cxr8qob5asjgv"]
 
 [ext_resource type="Script" path="res://game/damage/damage.gd" id="1_for25"]
 [ext_resource type="Script" path="res://game/explosion/explosion.gd" id="1_mh6yl"]
