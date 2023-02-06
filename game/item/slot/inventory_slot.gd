@@ -16,9 +16,6 @@ var cursor:
 		return get_tree().get_first_node_in_group("item_cursor")
 
 
-@export var item_type
-
-
 signal changed
 
 

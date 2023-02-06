@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dd5ql4vs6u3ng"]
+
+[ext_resource type="Shader" path="res://graphics/outline.gdshader" id="1_nemgi"]
+
+[resource]
+shader = ExtResource("1_nemgi")
+shader_parameter/outline_color = Vector4(1, 0.31, 0.31, 1)

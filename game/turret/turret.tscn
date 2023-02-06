@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=11 format=3 uid="uid://5emjpu5gkguv"]
 
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_0x88a"]
 [ext_resource type="Texture2D" uid="uid://bo5y5kshcojkf" path="res://game/turret/weapon/default_weapon/default_weapon_turret.png" id="3_fbfhr"]
 [ext_resource type="Script" path="res://game/turret/turret.gd" id="4"]
 [ext_resource type="Script" path="res://game/turret/sprite_flipper.gd" id="4_fmkah"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wieyt"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6st7f"]
 radius = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqa6a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6am7r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxe5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4ma0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87wuw"]
 
 [node name="Turret" type="Area2D" groups=["turret"]]
 process_priority = 1
@@ -14,14 +25,14 @@ collision_mask = 2
 script = ExtResource("4")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_0x88a")
 texture = ExtResource("3_fbfhr")
 script = ExtResource("4_fmkah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_wieyt")
+shape = SubResource("CircleShape2D_6st7f")
 
-[node name="MouseHover" type="Control" parent="."]
-layout_mode = 3
+[node name="MouseHover" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,6 +44,13 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vqa6a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6am7r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxe5p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_r4ma0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_87wuw")
+action_mode = 0
 
 [connection signal="mouse_entered" from="MouseHover" to="." method="_mouse_enter"]
 [connection signal="mouse_exited" from="MouseHover" to="." method="_mouse_exit"]
+[connection signal="pressed" from="MouseHover" to="." method="_button_press"]

@@ -1,55 +1,61 @@
 extends Control
 
 var show = false
-var mouse_turret : Node
-var turret : Node
+var mouse_turret : Turret:
+	set(value):
+		if mouse_turret != null:
+			mouse_turret.highlighted = false
+		mouse_turret = value
+		if mouse_turret != null:
+			mouse_turret.highlighted = true
+var select_turret : Turret:
+	set(value):
+		if select_turret != null:
+			select_turret.selected = false
+		select_turret = value
+		if select_turret != null:
+			select_turret.selected = true
+		
+		
+		var container = get_tree().get_first_node_in_group("turret_item_slot_container")
+		for i in container.get_children():
+			i.queue_free()
+		if select_turret != null:
+			select_turret.set_weapon_slot()
+		
+		
 var building = false
-@onready var builder = $"../../CursorFollower/Builder"
+@onready var builder = $"../../CursorCanvas/CursorFollower/Builder"
 
 func mouse_enter(turret):
 	mouse_turret = turret
 	update_selection()
-	follow_turret()
 
 func mouse_exit(turret):
-	if mouse_turret == turret:
+	if turret == mouse_turret:
 		mouse_turret = null
 
-func select(_turret):
-	print("select")
-
-func _process(_delta):
-	#update_selection()
-	pass
+func button_press(turret):
+	select_turret = turret
 
 func update_selection():
 	if building:
-		turret = builder.hold
+		select_turret = builder.hold
 		follow_turret()
-	else:
-		turret = mouse_turret
 	queue_redraw()
 
+
 func follow_turret():
-	global_position = turret.global_position
-
-func _draw():
-	if turret != null:
-		draw_range()
-
-func draw_range():
-	#draw_empty_circle(Vector2.ZERO, turret.get_node("Range/CollisionShape2D").shape.radius, Color(1, 0.95, 0.76))
-	pass
-
-func draw_empty_circle(center : Vector2, radius : float, color : Color, thickness : float = 1):
-	draw_arc(center, radius, 0, TAU, 36, color, thickness)
-
+	global_position = select_turret.global_position
 
 func start_build():
-	turret = builder.hold
+	select_turret = builder.hold
 	building = true
 
-
 func end_build():
-	turret = null
+	select_turret = null
 	building = false
+
+func _input(event):
+	if event.is_action_pressed("deselect_turret"):
+		select_turret = null

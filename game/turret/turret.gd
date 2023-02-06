@@ -1,38 +1,70 @@
 extends Node2D
-
+class_name Turret
 var default_weapon = preload("res://game/turret/weapon/default_weapon/default_weapon.tres")
-@export var weapon : Weapon : set = set_weapon
 var building : bool = false
-var mouse_over = false
 
-signal mouse_enter
-signal mouse_exit
-signal select
+var highlighted = false:
+	set(value):
+		highlighted = value
+		update_mouse()
+var selected = false:
+	set(value):
+		selected = value
+		update_mouse()
+
+var draw_weapon_details = false:
+	set(value):
+		draw_weapon_details = value
+		queue_redraw()
+var weapon_slot : Node
+var weapon_stack : ItemStack:
+	set(value):
+		weapon_stack = value
+		if weapon_stack == null:
+			default_weapon.update(self)
+			
+		elif weapon_stack.item is WeaponItem:
+			weapon_stack.item.weapon = weapon_stack.item.weapon.duplicate()
+			weapon_stack.item.weapon.update(self)
+		queue_redraw()
+
+const normal_outline = preload("res://graphics/background_outline.tres")
+const highlight_outline = preload("res://graphics/red_outline.tres")
+const select_outline = preload("res://graphics/green_outline.tres")
+const inventory_slot = preload("res://game/item/inventory_slot.tscn")
+
+signal mouse_enter(turret)
+signal mouse_exit(turret)
+signal button_press(turret)
 
 # Getting the Weapons
 
-func set_weapon(value):
-	if value != null:
-		weapon = value.duplicate()
-	else:
-		weapon = null
-	get_active_weapon().update(self)
-
 func get_active_weapon():
-	if weapon == null:
+	if weapon_stack == null or weapon_stack.item == null or weapon_stack.item.weapon == null:
 		return default_weapon
-	return weapon
+	return weapon_stack.item.weapon
 
 func duplicate_default_weapon():
 	default_weapon = default_weapon.duplicate()
+	default_weapon.update(self)
 
 # processing the weapons
 
 func _ready():
 	duplicate_default_weapon()
-	set_weapon(weapon)
-	if not Engine.is_editor_hint():
-		_connect_turret_selection()
+	_connect_turret_selection()
+
+func set_weapon_slot():
+	weapon_slot = inventory_slot.instantiate()
+	get_tree().get_first_node_in_group("turret_item_slot_container").add_child(weapon_slot)
+	weapon_slot.changed.connect(set_weapon_stack_from_inventory_slot)
+	weapon_slot.item_stack = weapon_stack
+
+func set_weapon_stack_from_inventory_slot():
+	if weapon_slot.item_stack.item is WeaponItem:
+		weapon_stack = weapon_slot.item_stack
+	else:
+		weapon_stack = null
 
 func _physics_process(delta):
 	if not Engine.is_editor_hint() and not building:
@@ -41,30 +73,43 @@ func _physics_process(delta):
 func _turret_process(delta):
 	get_active_weapon()._process(delta)
 
-# Mouse Selection
-
+# Mouse Signal Conveying
 func _mouse_enter():
-	mouse_over = true
-	emit_signal("mouse_enter", self)
-	get_tree().get_nodes_in_group("tooltip")[0].text = tooltip()
-	queue_redraw()
+	if not building:
+		mouse_enter.emit(self)
 
 func _mouse_exit():
-	mouse_over = false
-	emit_signal("mouse_exit", self)
-	queue_redraw()
+	if not building:
+		mouse_exit.emit(self)
+
+func _button_press():
+	if not building:
+		button_press.emit(self)
+
+# Mouse Signal Receiving
+
+func update_mouse():
+	if selected:
+		draw_weapon_details = true
+		$Sprite.material = select_outline
+	elif highlighted:
+		draw_weapon_details = true
+		$Sprite.material = highlight_outline
+	else:
+		$Sprite.material = normal_outline
+		draw_weapon_details = false
+
 
 func _connect_turret_selection():
 	var turret_selection = get_tree().get_nodes_in_group("turret_selection")[0]
 	mouse_enter.connect(turret_selection.mouse_enter)
-	mouse_enter.connect(turret_selection.mouse_enter)
 	mouse_exit.connect(turret_selection.mouse_exit)
-	select.connect(turret_selection.select)
+	button_press.connect(turret_selection.button_press)
 
 # information drawing
 
 func _draw():
-	if mouse_over:
+	if draw_weapon_details:
 		get_active_weapon()._draw()
 
 func tooltip():

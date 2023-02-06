@@ -67,7 +67,7 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"ItemStack",
 "language": &"GDScript",
-"path": "res://game/item/item_stack.gd"
+"path": "res://game/item/slot/item_stack.gd"
 }, {
 "base": "Targeter",
 "class": &"LastTargeter",
@@ -119,6 +119,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://game/turret/weapon/targeter/targeter.gd"
 }, {
+"base": "Node2D",
+"class": &"Turret",
+"language": &"GDScript",
+"path": "res://game/turret/turret.gd"
+}, {
 "base": "Resource",
 "class": &"UpdateResource",
 "language": &"GDScript",
@@ -129,10 +134,10 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://game/turret/weapon/weapon.gd"
 }, {
-"base": "Node",
+"base": "Item",
 "class": &"WeaponItem",
 "language": &"GDScript",
-"path": "res://game/item/weapon_item.gd"
+"path": "res://game/item/weapon/weapon_item.gd"
 }]
 _global_script_class_icons={
 "AimWeapon": "",
@@ -157,6 +162,7 @@ _global_script_class_icons={
 "StackableItem": "",
 "Stone": "",
 "Targeter": "",
+"Turret": "",
 "UpdateResource": "",
 "Weapon": "",
 "WeaponItem": ""
@@ -260,6 +266,11 @@ place_turret={
 select_turret={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
+}
+deselect_turret={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"unicode":0,"echo":false,"script":null)
 ]
 }
 

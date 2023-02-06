@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=14 format=3]
+[gd_resource type="Resource" load_steps=14 format=3 uid="uid://butyuf40q7t4n"]
 
 [ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="1"]
 [ext_resource type="Script" path="res://game/damage/damage.gd" id="1_bky6f"]

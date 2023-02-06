@@ -4,3 +4,4 @@ extends Stone
 
 func on_die():
 	spawn_stone(child_stone, 2)
+

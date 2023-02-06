@@ -1,8 +1,6 @@
 extends Resource
 class_name ItemStack
 
-	
-
 @export var item : Item:
 	get:
 		return _item
@@ -12,6 +10,7 @@ class_name ItemStack
 			_count = 0
 		emit_changed()
 var _item : Item
+
 @export var count : int:
 	get:
 		return _count

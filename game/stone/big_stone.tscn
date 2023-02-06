@@ -1,13 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://yyqx4oqr57fu"]
+[gd_scene load_steps=6 format=3 uid="uid://yyqx4oqr57fu"]
 
 [ext_resource type="Texture2D" uid="uid://bxs1fbegbjwwl" path="res://game/stone/big_stone.png" id="1"]
 [ext_resource type="Script" path="res://game/stone/big_stone.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="3"]
-[ext_resource type="Shader" path="res://graphics/outline.gdshader" id="4"]
-
-[sub_resource type="ShaderMaterial" id="2"]
-shader = ExtResource("4")
-shader_parameter/outline_color = Plane(0.29, 0.21, 0.3, 1)
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="3_gf6ly"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 12.0
@@ -19,7 +15,7 @@ speed = 100.0
 health = 20
 
 [node name="Sprite" type="Sprite2D" parent="."]
-material = SubResource("2")
+material = ExtResource("3_gf6ly")
 texture = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

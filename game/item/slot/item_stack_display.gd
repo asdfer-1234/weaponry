@@ -5,8 +5,12 @@ extends Control
 		if value == null:
 			var new_item_stack = ItemStack.new()
 			new_item_stack.item = null
-			value = new_item_stack
-		_item_stack = value
+			_item_stack = new_item_stack
+		else:
+			_item_stack = value
+		for i in _item_stack.changed.get_connections():
+			_item_stack.changed.disconnect(i["callable"])
+		_item_stack.changed.connect(update_display)
 		update_display()
 	get:
 		return _item_stack

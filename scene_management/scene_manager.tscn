@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://c1q0mjnwkcu40"]
 
 [ext_resource type="Script" path="res://scene_management/scene_manager.gd" id="1"]
-[ext_resource type="PackedScene" path="res://ui/MainMenu.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://ui/main_menu.tscn" id="2_m54ps"]
 
 [node name="SceneManager" type="Node" groups=["scene_manager"]]
 script = ExtResource("1")
-start_scene = ExtResource("2")
+start_scene = ExtResource("2_m54ps")

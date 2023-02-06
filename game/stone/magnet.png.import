@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3b2n3qpiqtlp"
-path="res://.godot/imported/bow.png-5ca05b118ce1f7911f1d2eb8cd8dd82e.ctex"
+uid="uid://dv83q1qwjdoo0"
+path="res://.godot/imported/magnet.png-ff1c5fa84d5604460ab205ceafd841b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/item/bow.png"
-dest_files=["res://.godot/imported/bow.png-5ca05b118ce1f7911f1d2eb8cd8dd82e.ctex"]
+source_file="res://game/stone/magnet.png"
+dest_files=["res://.godot/imported/magnet.png-ff1c5fa84d5604460ab205ceafd841b9.ctex"]
 
 [params]
 
