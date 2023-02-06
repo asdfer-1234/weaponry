@@ -1,16 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://bd3hcl3658rvu"]
+[gd_scene load_steps=19 format=3 uid="uid://du5asvyjcnh2k"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
-[ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/inventory_slot.tscn" id="2_7gne5"]
-[ext_resource type="Shader" path="res://graphics/outline.gdshader" id="3_5rhxv"]
+[ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
 [ext_resource type="Resource" uid="uid://dkp5yku7kuyjv" path="res://game/item/weapon/bow.tres" id="3_qj531"]
 [ext_resource type="PackedScene" path="res://physics_timer.tscn" id="5"]
-[ext_resource type="Script" path="res://game/turret/turret_target_indicator.gd" id="5_svi0v"]
+[ext_resource type="PackedScene" uid="uid://d0nhoyjcgci0f" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
 [ext_resource type="Script" path="res://game/map.gd" id="6_q555l"]
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
-[ext_resource type="Texture2D" uid="uid://cydt7u8g1lbd5" path="res://game/turret/target_indicator.png" id="10"]
 [ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="10_7211e"]
 [ext_resource type="PackedScene" uid="uid://5emjpu5gkguv" path="res://game/turret/turret.tscn" id="10_nsc7n"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
@@ -22,10 +20,6 @@
 script = ExtResource("17_fox0a")
 item = ExtResource("3_qj531")
 count = 1
-
-[sub_resource type="ShaderMaterial" id="2"]
-shader = ExtResource("3_5rhxv")
-shader_parameter/outline_color = Plane(0.29, 0.21, 0.3, 1)
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -102,6 +96,9 @@ layout_mode = 2
 [node name="InventorySlot10" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 
+[node name="ItemSlot" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("5_7ufwh")]
+layout_mode = 2
+
 [node name="Container" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -127,19 +124,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 script = ExtResource("2_6iqjx")
-
-[node name="TargetIndicator" type="TextureRect" parent="CanvasLayer/TurretSelection"]
-material = SubResource("2")
-layout_mode = 2
-offset_right = 16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-texture = ExtResource("10")
-script = ExtResource("5_svi0v")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

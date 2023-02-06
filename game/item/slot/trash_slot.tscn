@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0nhoyjcgci0f"]
+
+[ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_kheqt"]
+[ext_resource type="StyleBox" uid="uid://dtsv4pok5r5ld" path="res://ui/button_hover.tres" id="2_sgk53"]
+[ext_resource type="Script" path="res://game/item/slot/trash_slot.gd" id="3_71sgw"]
+[ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="4_lfm5m"]
+
+[node name="ItemSlot" type="Button"]
+custom_minimum_size = Vector2(22, 22)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("1_kheqt")
+theme_override_styles/pressed = ExtResource("2_sgk53")
+script = ExtResource("3_71sgw")
+
+[node name="ItemStackDisplay" parent="." instance=ExtResource("4_lfm5m")]
+layout_mode = 1
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="left_pressed" from="." to="." method="_primary_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="right_pressed" from="." to="." method="_secondary_pressed"]

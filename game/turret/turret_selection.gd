@@ -58,4 +58,7 @@ func end_build():
 
 func _input(event):
 	if event.is_action_pressed("deselect_turret"):
-		select_turret = null
+		deselect()
+
+func deselect():
+	select_turret = null

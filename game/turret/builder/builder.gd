@@ -29,6 +29,7 @@ func start_build():
 	hold.building = true
 	add_child(instantiated)
 	enter_build.emit()
+	get_tree().get_first_node_in_group("turret_selection").deselect()
 
 func placable():
 	return hold.get_overlapping_areas().size() == 0;

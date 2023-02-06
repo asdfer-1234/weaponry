@@ -31,7 +31,7 @@ var weapon_stack : ItemStack:
 const normal_outline = preload("res://graphics/background_outline.tres")
 const highlight_outline = preload("res://graphics/red_outline.tres")
 const select_outline = preload("res://graphics/green_outline.tres")
-const inventory_slot = preload("res://game/item/inventory_slot.tscn")
+const inventory_slot = preload("res://game/item/slot/item_slot.tscn")
 
 signal mouse_enter(turret)
 signal mouse_exit(turret)
