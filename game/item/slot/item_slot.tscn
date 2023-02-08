@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://u4cq125gjdyc"]
+[gd_scene load_steps=7 format=3 uid="uid://u4cq125gjdyc"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_hvn1f"]
 [ext_resource type="StyleBox" uid="uid://dtsv4pok5r5ld" path="res://ui/button_hover.tres" id="2_0egoj"]
 [ext_resource type="Script" path="res://game/item/slot/item_slot.gd" id="3_b1su1"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="4_o65oa"]
+[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="5_2ni0q"]
+
+[sub_resource type="Resource" id="Resource_xacuh"]
+script = ExtResource("5_2ni0q")
+count = 0
 
 [node name="ItemSlot" type="Button"]
 custom_minimum_size = Vector2(22, 22)
@@ -20,6 +25,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
+item_stack = SubResource("Resource_xacuh")
 
 [connection signal="left_pressed" from="." to="." method="_primary_pressed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,19 +1,21 @@
 extends InventorySlot
 class_name ItemSlot
 
-func _primary_pressed():
-	if item_stack.item == cursor.item_stack.item and item_stack.item is StackableItem:
-		merge(cursor)
-	else:
-		swap_other(cursor)
 
-func _secondary_pressed():
-	if cursor.item_stack.empty:
-		get_one(cursor)
-	elif cursor.item_stack.item == item_stack.item or item_stack.empty:
-		drop_one(cursor)
+
+func primary(other):
+	if item_stack.item == cursor.item_stack.item and item_stack.item is StackableItem:
+		merge(other)
 	else:
-		swap_other(cursor)
+		swap_other(other)
+
+func secondary(other):
+	if other.item_stack.empty:
+		get_one(other)
+	elif other.item_stack.item == item_stack.item or item_stack.empty:
+		drop_one(other)
+	else:
+		swap_other(other)
 
 func swap_other(other):
 	var swapper = other.item_stack
@@ -46,6 +48,8 @@ func get_one(other):
 	other.item_stack.count += 1
 	item_stack.count -= 1
 
-func update_tooltip():
-	if item_stack.item != null:
-		get_tree().get_first_node_in_group("tooltip").text = item_stack.item.tooltip()
+func tooltip():
+	if item_stack.item == null:
+		return RichTextBuilder.color_text("EMPTY", Palette.secondary)
+	else:
+		return item_stack.item.tooltip()

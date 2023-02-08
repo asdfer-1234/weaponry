@@ -59,10 +59,10 @@ func spawn_particle():
 	instantiated.global_position = global_position
 	$"../..".add_child(instantiated)
 
-func get_nearby_stones_by_distance(range):
+func get_nearby_stones_by_distance(distance):
 	var result = []
 	for i in get_parent().get_children():
-		if position.distance_to(i.position) <= range:
+		if position.distance_to(i.position) <= distance:
 			result.append(i)
 	return result
 

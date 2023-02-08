@@ -9,7 +9,7 @@ enum Type {
 	FIRE,
 }
 
-var type_icon = [
+const type_icon = [
 	"res://game/damage/icon/physical.png",
 	"res://game/damage/icon/explosion.png",
 	"res://game/damage/icon/liquid.png",

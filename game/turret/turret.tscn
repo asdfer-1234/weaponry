@@ -5,18 +5,18 @@
 [ext_resource type="Script" path="res://game/turret/turret.gd" id="4"]
 [ext_resource type="Script" path="res://game/turret/sprite_flipper.gd" id="4_fmkah"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5f3oa"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wdius"]
 radius = 8.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1n74r"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7hyr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8e44t"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogrcq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wawl6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogo03"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1xne"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3do2t"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03bgg"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5ecj"]
 
 [node name="Turret" type="Area2D" groups=["turret"]]
 process_priority = 1
@@ -30,7 +30,7 @@ texture = ExtResource("3_fbfhr")
 script = ExtResource("4_fmkah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_5f3oa")
+shape = SubResource("CircleShape2D_wdius")
 
 [node name="MouseHover" type="Button" parent="."]
 anchors_preset = 8
@@ -44,11 +44,11 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1n74r")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8e44t")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_wawl6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_o1xne")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_03bgg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b7hyr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ogrcq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ogo03")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3do2t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a5ecj")
 action_mode = 0
 
 [connection signal="mouse_entered" from="MouseHover" to="." method="_mouse_enter"]

@@ -10,3 +10,4 @@ weapon = ExtResource("3_wo011")
 name = "Bow"
 description = "An old fashioned weapon"
 sprite = ExtResource("2_1pou8")
+type = 1

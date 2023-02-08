@@ -16,7 +16,7 @@ var draw_weapon_details = false:
 	set(value):
 		draw_weapon_details = value
 		queue_redraw()
-var weapon_slot : Node
+var weapon_slot : ItemSlot
 var weapon_stack : ItemStack:
 	set(value):
 		weapon_stack = value
@@ -58,6 +58,7 @@ func set_weapon_slot():
 	weapon_slot = inventory_slot.instantiate()
 	get_tree().get_first_node_in_group("turret_item_slot_container").add_child(weapon_slot)
 	weapon_slot.changed.connect(set_weapon_stack_from_inventory_slot)
+	weapon_slot.accept_type = Item.Type.WEAPON
 	weapon_slot.item_stack = weapon_stack
 
 func set_weapon_stack_from_inventory_slot():

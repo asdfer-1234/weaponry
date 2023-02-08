@@ -1,17 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0nhoyjcgci0f"]
+[gd_scene load_steps=9 format=3 uid="uid://beybo0dft6401"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_kheqt"]
-[ext_resource type="StyleBox" uid="uid://dtsv4pok5r5ld" path="res://ui/button_hover.tres" id="2_sgk53"]
+[ext_resource type="StyleBox" uid="uid://bxmcms2sp08sk" path="res://ui/trash_normal.tres" id="2_xn5gm"]
 [ext_resource type="Script" path="res://game/item/slot/trash_slot.gd" id="3_71sgw"]
+[ext_resource type="StyleBox" uid="uid://lw5cdos7qeq7" path="res://ui/trash_hover.tres" id="3_qp4f5"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="4_lfm5m"]
+[ext_resource type="Texture2D" uid="uid://5omq0fuyeja8" path="res://game/item/slot/placeholder/trash_placeholder.png" id="6_2wjga"]
+[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="6_qlgmt"]
 
-[node name="ItemSlot" type="Button"]
+[sub_resource type="Resource" id="Resource_a51he"]
+script = ExtResource("6_qlgmt")
+count = 0
+
+[node name="TrashSlot" type="Button"]
 custom_minimum_size = Vector2(22, 22)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 focus_mode = 0
 theme = ExtResource("1_kheqt")
-theme_override_styles/pressed = ExtResource("2_sgk53")
+theme_override_styles/normal = ExtResource("2_xn5gm")
+theme_override_styles/hover = ExtResource("3_qp4f5")
+theme_override_styles/pressed = ExtResource("3_qp4f5")
 script = ExtResource("3_71sgw")
 
 [node name="ItemStackDisplay" parent="." instance=ExtResource("4_lfm5m")]
@@ -20,6 +29,8 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
+placeholder = ExtResource("6_2wjga")
+item_stack = SubResource("Resource_a51he")
 
 [connection signal="left_pressed" from="." to="." method="_primary_pressed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
