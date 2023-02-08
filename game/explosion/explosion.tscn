@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://dypbpp8tdtk0m"]
 
 [ext_resource type="Script" path="res://game/turret/weapon/projectile/proj.gd" id="1_x5t5u"]
 [ext_resource type="Texture2D" uid="uid://cu75tx7tmesbb" path="res://game/explosion/explosion.png" id="3_vshgy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h728n"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5xre"]
 radius = 16.0
 
-[sub_resource type="Animation" id="Animation_m6mot"]
+[sub_resource type="Animation" id="Animation_66svl"]
 length = 0.001
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,13 +16,13 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.900513, 6.03084),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [11]
+"values": [11, 1]
 }
 
-[sub_resource type="Animation" id="Animation_o1v18"]
+[sub_resource type="Animation" id="Animation_20ado"]
 resource_name = "explosion_animation"
 length = 11.0001
 step = 1.0
@@ -38,10 +39,10 @@ tracks/0/keys = {
 "values": [0, 11]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfp67"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfta0"]
 _data = {
-"RESET": SubResource("Animation_m6mot"),
-"explosion_animation": SubResource("Animation_o1v18")
+"RESET": SubResource("Animation_66svl"),
+"explosion_animation": SubResource("Animation_20ado")
 }
 
 [node name="Explosion" type="Area2D"]
@@ -52,17 +53,16 @@ script = ExtResource("1_x5t5u")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_vshgy")
 hframes = 12
-frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_h728n")
+shape = SubResource("CircleShape2D_p5xre")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "explosion_animation"
-playback_speed = 24.0
+speed_scale = 24.0
 movie_quit_on_finish = true
 libraries = {
-"": SubResource("AnimationLibrary_qfp67")
+"": SubResource("AnimationLibrary_xfta0")
 }
 
 [connection signal="area_entered" from="." to="." method="_on_enter"]

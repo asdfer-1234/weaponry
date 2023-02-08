@@ -9,5 +9,5 @@ func multiply(damage : Damage):
 		damage = i.multiply(damage)
 	return damage
 
-func _init(array : Array):
+func _init(array : Array[DamageMultiplier]):
 	damage_multipliers = array

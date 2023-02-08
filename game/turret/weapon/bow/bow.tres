@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=14 format=3 uid="uid://ch87dwb2ga8oa"]
+[gd_resource type="Resource" script_class="AimWeapon" load_steps=14 format=3 uid="uid://ch87dwb2ga8oa"]
 
 [ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="1_3qd0n"]
 [ext_resource type="Script" path="res://game/turret/weapon/projectile/moving_projectile_behaviour.gd" id="1_ntm3x"]

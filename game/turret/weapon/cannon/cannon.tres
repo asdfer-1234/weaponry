@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=18 format=3 uid="uid://cxr8qob5asjgv"]
+[gd_resource type="Resource" script_class="AimWeapon" load_steps=18 format=3 uid="uid://cxr8qob5asjgv"]
 
 [ext_resource type="Script" path="res://game/damage/damage.gd" id="1_for25"]
 [ext_resource type="Script" path="res://game/explosion/explosion.gd" id="1_mh6yl"]
@@ -59,7 +59,7 @@ script = ExtResource("5_amhbe")
 
 [resource]
 script = ExtResource("1_sku6v")
-infinite_swivel = true
+infinite_swivel = false
 swivel_speed = 180.0
 targeter = SubResource("Resource_mtjbm")
 ranger = SubResource("Resource_cd45c")

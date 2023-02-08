@@ -36,7 +36,10 @@ func mouse_exit(turret):
 		mouse_turret = null
 
 func button_press(turret):
-	select_turret = turret
+	if select_turret == turret:
+		deselect()
+	else:
+		select_turret = turret
 
 func update_selection():
 	if building:

@@ -57,4 +57,3 @@ theme_override_constants/line_separation = 0
 bbcode_enabled = true
 text = "
 [right]64[/right]"
-fit_content_height = true

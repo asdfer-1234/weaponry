@@ -7,5 +7,4 @@ func _ready():
 
 func change_scene(scene : PackedScene):
 	get_child(0).queue_free()
-	
 	add_child(scene.instantiate())

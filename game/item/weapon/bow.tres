@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dkp5yku7kuyjv"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=4 format=3 uid="uid://dkp5yku7kuyjv"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_eonmo"]
 [ext_resource type="Texture2D" uid="uid://d3b2n3qpiqtlp" path="res://game/item/weapon/bow.png" id="2_1pou8"]

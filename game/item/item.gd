@@ -24,4 +24,4 @@ const placeholders = [
 
 
 func tooltip():
-	return name + "\n" + RichTextBuilder.color_text(description, Palette.secondary)
+	return name + "\n" + RichTextBuilder.color_text(description, Palette.secondary) + "\n"

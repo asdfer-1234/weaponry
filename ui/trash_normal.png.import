@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chwgglmqwdm08"
-path="res://.godot/imported/cannon.png-728e1b2bae46ad3a1993a850f4e531d2.ctex"
+uid="uid://cv8epe8ao018y"
+path="res://.godot/imported/trash_normal.png-62fdfa630c97318d58bc79337adcd207.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/cannon/cannon.png"
-dest_files=["res://.godot/imported/cannon.png-728e1b2bae46ad3a1993a850f4e531d2.ctex"]
+source_file="res://ui/trash_normal.png"
+dest_files=["res://.godot/imported/trash_normal.png-62fdfa630c97318d58bc79337adcd207.ctex"]
 
 [params]
 
 compress/mode=0
-compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
+compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

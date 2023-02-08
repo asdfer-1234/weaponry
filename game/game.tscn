@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://b2cffiboscp6a"]
+[gd_scene load_steps=21 format=3 uid="uid://dj0ilc2w4osc"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
-[ext_resource type="Resource" uid="uid://bff51eqf4icwy" path="res://game/item/weapon/cannon_item.tres" id="3_3nlgs"]
+[ext_resource type="Resource" uid="uid://bff51eqf4icwy" path="res://game/item/weapon/cannon_item.tres" id="3_6tu6f"]
 [ext_resource type="Resource" uid="uid://dkp5yku7kuyjv" path="res://game/item/weapon/bow.tres" id="3_wldsf"]
 [ext_resource type="PackedScene" path="res://physics_timer.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://beybo0dft6401" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
@@ -19,7 +19,7 @@
 
 [sub_resource type="Resource" id="Resource_rts70"]
 script = ExtResource("17_fox0a")
-item = ExtResource("3_3nlgs")
+item = ExtResource("3_6tu6f")
 count = 1
 
 [sub_resource type="Resource" id="Resource_m4vgd"]
@@ -118,7 +118,7 @@ mouse_filter = 2
 theme = ExtResource("1_bgo03")
 bbcode_enabled = true
 text = "asd asdf asdf"
-fit_content_height = true
+fit_content = true
 
 [node name="SlotContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Container" groups=["turret_item_slot_container"]]
 layout_mode = 2
