@@ -24,8 +24,8 @@ func _ready():
 
 func enter_tooltip(node):
 	hold = node
-	reload_tooltip()
 	visible = true
+	reload_tooltip()
 	hold.changed.connect(reload_tooltip)
 
 func exit_tooltip(node):
@@ -37,7 +37,10 @@ func exit_tooltip(node):
 	
 
 func reload_tooltip():
+	
 	text = hold.tooltip()
+	if text == "":
+		visible = false
 
 func _process(_delta):
 	update_tooltip_size()

@@ -49,7 +49,11 @@ func get_one(other):
 	item_stack.count -= 1
 
 func tooltip():
+	var build = super.tooltip()
+	
 	if item_stack.item == null:
-		return RichTextBuilder.color_text("EMPTY", Palette.secondary)
+		return build
 	else:
-		return item_stack.item.tooltip()
+		return build + item_stack.item.tooltip()
+
+

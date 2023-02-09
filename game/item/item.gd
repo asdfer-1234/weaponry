@@ -19,6 +19,13 @@ const placeholders = [
 	"res://game/item/slot/placeholder/ammunition_placeholder.png",
 	"res://game/item/slot/placeholder/accessory_placeholder.png",
 ]
+
+const type_name = [
+	"None",
+	"Weapon",
+	"Ammunition",
+	"Accessory",
+]
 @export var type : Type = Type.NONE
 
 

@@ -1,5 +1,5 @@
 extends Control
-
+class_name ItemStackDisplay
 @export var placeholder : Texture
 
 @export var item_stack : ItemStack:
@@ -18,6 +18,8 @@ extends Control
 
 
 func _ready():
+	if item_stack == null:
+		item_stack = null
 	item_stack = item_stack.duplicate()
 
 func update_display():
