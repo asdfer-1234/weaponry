@@ -41,10 +41,11 @@ func match_type(compare):
 
 
 func _on_mouse_entered():
-	update_tooltip()
+	get_tree().get_first_node_in_group("tooltip").enter_tooltip(self)
 
-func update_tooltip():
-	get_tree().get_first_node_in_group("tooltip").text = tooltip()
+func _on_mouse_exited():
+	get_tree().get_first_node_in_group("tooltip").exit_tooltip(self)
+
 
 func tooltip():
 	return "INVENTORY SLOT"

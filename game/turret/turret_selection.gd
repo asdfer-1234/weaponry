@@ -15,8 +15,6 @@ var select_turret : Turret:
 		select_turret = value
 		if select_turret != null:
 			select_turret.selected = true
-		
-		
 		var container = get_tree().get_first_node_in_group("turret_item_slot_container")
 		for i in container.get_children():
 			i.queue_free()
@@ -26,6 +24,7 @@ var select_turret : Turret:
 		
 var building = false
 @onready var builder = $"../../CursorCanvas/CursorFollower/Builder"
+
 
 func mouse_enter(turret):
 	mouse_turret = turret
@@ -60,7 +59,7 @@ func end_build():
 	building = false
 
 func _input(event):
-	if event.is_action_pressed("deselect_turret"):
+	if event.is_action_pressed("deselect_turret") or get_tree().get_first_node_in_group("background").mouse_over and event.is_action_pressed("select_turret"):
 		deselect()
 
 func deselect():

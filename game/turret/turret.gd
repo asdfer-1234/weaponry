@@ -14,8 +14,13 @@ var selected = false:
 
 var draw_weapon_details = false:
 	set(value):
+		if value != draw_weapon_details:
+			time_since_draw_weapon_details = 0
 		draw_weapon_details = value
 		queue_redraw()
+
+var time_since_draw_weapon_details : float = 0
+
 var weapon_slot : ItemSlot
 var weapon_stack : ItemStack:
 	set(value):
@@ -27,6 +32,7 @@ var weapon_stack : ItemStack:
 			weapon_stack.item.weapon = weapon_stack.item.weapon.duplicate()
 			weapon_stack.item.weapon.update(self)
 		queue_redraw()
+
 
 const normal_outline = preload("res://graphics/background_outline.tres")
 const highlight_outline = preload("res://graphics/red_outline.tres")
@@ -67,6 +73,11 @@ func set_weapon_stack_from_inventory_slot():
 	else:
 		weapon_stack = null
 
+func _process(delta):
+	time_since_draw_weapon_details += delta
+	if draw_weapon_details:
+		queue_redraw()
+
 func _physics_process(delta):
 	if not Engine.is_editor_hint() and not building:
 		_turret_process(delta)
@@ -97,9 +108,8 @@ func update_mouse():
 		draw_weapon_details = true
 		$Sprite.material = highlight_outline
 	else:
-		$Sprite.material = normal_outline
 		draw_weapon_details = false
-
+		$Sprite.material = normal_outline
 
 func _connect_turret_selection():
 	var turret_selection = get_tree().get_nodes_in_group("turret_selection")[0]

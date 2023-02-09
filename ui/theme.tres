@@ -2,8 +2,8 @@
 
 [ext_resource type="StyleBox" uid="uid://bkpctlreagb4e" path="res://ui/button_normal.tres" id="1"]
 [ext_resource type="StyleBox" uid="uid://dtsv4pok5r5ld" path="res://ui/button_hover.tres" id="2"]
-[ext_resource type="StyleBox" path="res://ui/button_pressed.tres" id="3"]
-[ext_resource type="FontFile" uid="uid://cxi5g61suyvlf" path="res://ui/CG pixel 3x5.ttf" id="4_62cf3"]
+[ext_resource type="StyleBox" uid="uid://coe2mcmmp585k" path="res://ui/button_pressed.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://bncajrsgxbrh2" path="res://ui/CG pixel 3x5.ttf" id="4_62cf3"]
 
 [resource]
 default_font = ExtResource("4_62cf3")

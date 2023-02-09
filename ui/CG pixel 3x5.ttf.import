@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cxi5g61suyvlf"
+uid="uid://bncajrsgxbrh2"
 path="res://.godot/imported/CG pixel 3x5.ttf-49113e823f5569076585f4857a7e2668.fontdata"
 
 [deps]
@@ -31,7 +31,8 @@ preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
+"size": Vector2i(5, 0),
+"variation_embolden": 0.0,
 "variation_transform": Transform2D(100, 100, 100, 100, 100, 100)
 }]
 language_support={}

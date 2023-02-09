@@ -21,7 +21,7 @@ func swap_other(other):
 	var swapper = other.item_stack
 	other.item_stack = item_stack
 	item_stack = swapper
-	update_tooltip()
+	changed.emit()
 
 func merge(other):
 	var total = other.item_stack.count + item_stack.count

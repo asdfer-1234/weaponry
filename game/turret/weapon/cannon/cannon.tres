@@ -68,3 +68,4 @@ attack = SubResource("Resource_vm7bg")
 sprite = ExtResource("5_1sghb")
 slotCount = null
 flip_mode = null
+ammunition_slot_count = 0

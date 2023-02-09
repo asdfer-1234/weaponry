@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj0ilc2w4osc"]
+[gd_scene load_steps=23 format=3 uid="uid://dj0ilc2w4osc"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
 [ext_resource type="Resource" uid="uid://e1l8qjjp5ufn" path="res://game/item/placeholder_item.tres" id="15_krjn3"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="17_fox0a"]
+[ext_resource type="Script" path="res://game/tooltip.gd" id="17_ksa57"]
+[ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="17_mys5v"]
 [ext_resource type="Script" path="res://game/turret/builder/builder.gd" id="17_ym512"]
 
 [sub_resource type="Resource" id="Resource_rts70"]
@@ -111,15 +113,6 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Tooltip" type="RichTextLabel" parent="CanvasLayer/MarginContainer/Container" groups=["tooltip"]]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme = ExtResource("1_bgo03")
-bbcode_enabled = true
-text = "asd asdf asdf"
-fit_content = true
-
 [node name="SlotContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Container" groups=["turret_item_slot_container"]]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -186,5 +179,41 @@ item_stack = SubResource("Resource_n3uyy")
 [node name="Builder" type="Node2D" parent="CursorCanvas/CursorFollower"]
 script = ExtResource("17_ym512")
 
+[node name="Tooltip" type="NinePatchRect" parent="CursorCanvas/CursorFollower" groups=["tooltip"]]
+offset_right = 100.0
+offset_bottom = 115.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_bgo03")
+texture = ExtResource("17_mys5v")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("17_ksa57")
+
+[node name="MarginContainer" type="MarginContainer" parent="CursorCanvas/CursorFollower/Tooltip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_bgo03")
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CursorCanvas/CursorFollower/Tooltip/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_bgo03")
+bbcode_enabled = true
+scroll_active = false
+
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Button" to="CursorCanvas/CursorFollower/Builder" method="start_build"]
 [connection signal="timeout" from="Map/GenerationTimer" to="Map" method="generate"]
+[connection signal="finished" from="CursorCanvas/CursorFollower/Tooltip/MarginContainer/RichTextLabel" to="CursorCanvas/CursorFollower/Tooltip" method="update_tooltip_size"]
