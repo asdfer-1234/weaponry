@@ -15,15 +15,26 @@ func _process(delta):
 	var target = targeter.get_target(node, self.ranger.get_targets(node))
 	if target != null:
 		swivel(node, delta, target.global_position)
-		if shootable and abs(_angle_difference(node.global_rotation, (target.global_position - node.global_position).angle())) < deg_to_rad(shoot_angle):
-			shoot(node)
+		if (shootable and
+				abs(_angle_difference(node.global_rotation,
+				(target.global_position - node.global_position).angle())) <
+				deg_to_rad(shoot_angle)):
+			shoot()
 
-func shoot(node):
-	attack.attack(node)
+func shoot():
+	attack.attack(node, get_damage_multiplier())
 	shootable = false
-	var timer = node.get_tree().create_timer(1 / attack_speed, true, true)
+	var timer = node.get_tree().create_timer(get_attack_delay(), true, true)
 	timer.timeout.connect(_timer_timeout)
-	
+	use_ammo()
+
+func get_attack_delay():
+	var delay = 1 / attack_speed
+	var ammunition = get_first_ammunition()
+	if ammunition != null:
+		delay /= ammunition.attack_speed_multiplier
+	return delay
+
 func _timer_timeout():
 	shootable = true
 	pass

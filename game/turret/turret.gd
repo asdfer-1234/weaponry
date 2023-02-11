@@ -23,16 +23,21 @@ var time_since_draw_weapon_details : float = 0
 
 var weapon_slot : ItemSlot
 var weapon_stack : ItemStack:
+	get:
+		return m_weapon_stack
 	set(value):
-		weapon_stack = value
-		if weapon_stack == null:
+		m_weapon_stack = value
+		if m_weapon_stack == null:
 			default_weapon.update(self)
 			
-		elif weapon_stack.item is WeaponItem:
-			weapon_stack.item.weapon = weapon_stack.item.weapon.duplicate()
-			weapon_stack.item.weapon.update(self)
+		elif m_weapon_stack.item is WeaponItem:
+			m_weapon_stack.item.weapon = m_weapon_stack.item.weapon.duplicate()
+			m_weapon_stack.item.weapon.update(self)
 		queue_redraw()
-
+		get_tree().get_first_node_in_group("turret_selection").update_slot_container()
+		
+		
+var m_weapon_stack : ItemStack
 
 const normal_outline = preload("res://graphics/background_outline.tres")
 const highlight_outline = preload("res://graphics/red_outline.tres")
@@ -45,7 +50,7 @@ signal button_press(turret)
 
 # Getting the Weapons
 
-func get_active_weapon():
+func get_active_weapon() -> Weapon:
 	if weapon_stack == null or weapon_stack.item == null or weapon_stack.item.weapon == null:
 		return default_weapon
 	return weapon_stack.item.weapon
@@ -63,9 +68,12 @@ func _ready():
 func set_weapon_slot():
 	weapon_slot = inventory_slot.instantiate()
 	get_tree().get_first_node_in_group("turret_item_slot_container").add_child(weapon_slot)
-	weapon_slot.changed.connect(set_weapon_stack_from_inventory_slot)
+	
 	weapon_slot.accept_type = Item.Type.WEAPON
 	weapon_slot.item_stack = weapon_stack
+	get_active_weapon().set_weapon_slot()
+	weapon_slot.changed.connect(set_weapon_stack_from_inventory_slot)
+	
 
 func set_weapon_stack_from_inventory_slot():
 	if weapon_slot.item_stack.item is WeaponItem:

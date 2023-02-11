@@ -15,13 +15,7 @@ var select_turret : Turret:
 		select_turret = value
 		if select_turret != null:
 			select_turret.selected = true
-		var container = get_tree().get_first_node_in_group("turret_item_slot_container")
-		for i in container.get_children():
-			i.queue_free()
-		if select_turret != null:
-			select_turret.set_weapon_slot()
-		
-		
+		update_slot_container()
 var building = false
 @onready var builder = $"../../CursorCanvas/CursorFollower/Builder"
 
@@ -59,8 +53,18 @@ func end_build():
 	building = false
 
 func _input(event):
-	if event.is_action_pressed("deselect_turret") or get_tree().get_first_node_in_group("background").mouse_over and event.is_action_pressed("select_turret"):
+	if (event.is_action_pressed("deselect_turret") or
+			get_tree().get_first_node_in_group("background").mouse_over and
+			event.is_action_pressed("select_turret")):
 		deselect()
 
 func deselect():
 	select_turret = null
+
+func update_slot_container():
+	var container = get_tree().get_first_node_in_group("turret_item_slot_container")
+	for i in container.get_children():
+		i.queue_free()
+	if select_turret != null:
+		select_turret.set_weapon_slot()
+

@@ -22,4 +22,7 @@ const type_icon = [
 
 
 func tooltip():
-	return RichTextBuilder.property_text("Damage", RichTextBuilder.color_text(RichTextBuilder.image(type_icon[int(type)]) + " " + str(damage), Palette.green))
+	return RichTextBuilder.property_text("Damage", minimal_tooltip())
+
+func minimal_tooltip():
+	return RichTextBuilder.color_text(RichTextBuilder.image(type_icon[int(type)]) + " " + str(damage), Palette.green)

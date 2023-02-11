@@ -44,5 +44,5 @@ func animation_progress():
 
 func tooltip():
 	var text = super.tooltip()
-	text += RichTextBuilder.property_text("RADIUS", size)
+	text += RichTextBuilder.property_text("Radius", str(size))
 	return text

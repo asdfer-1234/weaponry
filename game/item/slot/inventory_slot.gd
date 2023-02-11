@@ -12,6 +12,7 @@ class_name InventorySlot
 	set(value):
 		accept_type = value
 		$ItemStackDisplay.placeholder = load(Item.placeholders[value])
+		changed.emit()
 
 var cursor : ItemStackDisplay:
 	get:

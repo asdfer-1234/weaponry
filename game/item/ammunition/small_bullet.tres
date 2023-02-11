@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ammunition" load_steps=3 format=3 uid="uid://bhcwnfwbynh8n"]
+
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="1_ufoqq"]
+[ext_resource type="Texture2D" uid="uid://declqly6exg6s" path="res://game/item/ammunition/small_bullet.png" id="2_8hprx"]
+
+[resource]
+script = ExtResource("1_ufoqq")
+attack_speed_multiplier = 1.5
+damage_multiplier = 0.5
+stack_size = 1000
+name = "Small Bullet"
+description = "smol"
+sprite = ExtResource("2_8hprx")
+type = 2

@@ -48,4 +48,4 @@ attack = SubResource("Resource_msshv")
 sprite = ExtResource("2")
 slotCount = 0
 flip_mode = 1.0
-ammunition_slot_count = 0
+ammunition_slot_count = 10
