@@ -34,5 +34,5 @@ func update_display():
 			$Count.text = ""
 
 func _count_text(count : int) -> String:
-	return "\n" + RichTextBuilder.right(count);
+	return "\n" + RichTextBuilder.right(str(count))
 

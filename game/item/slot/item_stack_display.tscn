@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cglt2cpwbw18l"]
+[gd_scene load_steps=5 format=3 uid="uid://cglt2cpwbw18l"]
 
 [ext_resource type="Script" path="res://game/item/slot/item_stack_display.gd" id="1_4wm07"]
-[ext_resource type="Texture2D" uid="uid://d3b2n3qpiqtlp" path="res://game/item/weapon/bow.png" id="2_ddlhf"]
-[ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="3_i7whm"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_nh3we"]
+[ext_resource type="Texture2D" uid="uid://bc2wvjv2aekod" path="res://game/item/placeholder_item.png" id="3_gqr8p"]
+[ext_resource type="Theme" uid="uid://cvi5bb6plsvpo" path="res://ui/numeric_theme.tres" id="4_b23oh"]
 
 [node name="ItemStackDisplay" type="Control"]
 custom_minimum_size = Vector2(16, 16)
@@ -22,6 +23,7 @@ mouse_filter = 2
 script = ExtResource("1_4wm07")
 
 [node name="ItemTexture" type="TextureRect" parent="."]
+material = ExtResource("2_nh3we")
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 1
 anchors_preset = 8
@@ -36,7 +38,9 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_ddlhf")
+texture = ExtResource("3_gqr8p")
+expand_mode = 2
+stretch_mode = 3
 
 [node name="Count" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -52,8 +56,9 @@ offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
-theme = ExtResource("3_i7whm")
+theme = ExtResource("4_b23oh")
 theme_override_constants/line_separation = 0
 bbcode_enabled = true
 text = "
 [right]64[/right]"
+scroll_active = false

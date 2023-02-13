@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_ufoqq")
-attack_speed_multiplier = 1.5
+attack_speed_multiplier = 3.0
 damage_multiplier = 0.5
 stack_size = 1000
-name = "Small Bullet"
+name = "SMALL_BULLET"
 description = "smol"
 sprite = ExtResource("2_8hprx")
 type = 2

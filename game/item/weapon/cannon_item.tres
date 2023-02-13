@@ -1,13 +1,82 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=4 format=3 uid="uid://bff51eqf4icwy"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=21 format=3 uid="uid://bh8sh64sxssob"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_ugtql"]
 [ext_resource type="Texture2D" uid="uid://11yie08x43cr" path="res://game/item/weapon/cannon.png" id="2_2bbsa"]
-[ext_resource type="Resource" uid="uid://cxr8qob5asjgv" path="res://game/turret/weapon/cannon/cannon.tres" id="3_fbrnc"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_go407"]
+[ext_resource type="Script" path="res://game/explosion/explosion.gd" id="4_rp5fi"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="5_tcbxf"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="6_2lm7q"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/attack/projectile/projectile.png" id="7_xcsbs"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="8_kfksq"]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="9_fd1ed"]
+[ext_resource type="Texture2D" uid="uid://chwgglmqwdm08" path="res://game/item/weapon/cannon_turret.png" id="10_8opr8"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="11_8b036"]
+
+[sub_resource type="Resource" id="Resource_e6y6t"]
+script = ExtResource("3_go407")
+type = 1
+damage = 10
+
+[sub_resource type="Resource" id="Resource_edt2r"]
+script = ExtResource("4_rp5fi")
+pierce = 100
+size = 1.0
+damage = SubResource("Resource_e6y6t")
+lifetime = 2.0
+
+[sub_resource type="Resource" id="Resource_tattr"]
+script = ExtResource("5_tcbxf")
+projectile_behaviour = SubResource("Resource_edt2r")
+spread = null
+count = null
+
+[sub_resource type="Resource" id="Resource_venbm"]
+script = ExtResource("3_go407")
+type = 0
+damage = 10
+
+[sub_resource type="Resource" id="Resource_kdcch"]
+script = ExtResource("6_2lm7q")
+sprite = ExtResource("7_xcsbs")
+speed = 200.0
+pierce = 1
+size = 1.0
+damage = SubResource("Resource_venbm")
+lifetime = 2.0
+attack_on_hit = SubResource("Resource_tattr")
+
+[sub_resource type="Resource" id="Resource_vm7bg"]
+script = ExtResource("5_tcbxf")
+projectile_behaviour = SubResource("Resource_kdcch")
+spread = null
+count = null
+
+[sub_resource type="Resource" id="Resource_cd45c"]
+script = ExtResource("8_kfksq")
+min_range = 0.0
+max_range = 80.0
+
+[sub_resource type="Resource" id="Resource_mtjbm"]
+script = ExtResource("11_8b036")
+
+[sub_resource type="Resource" id="Resource_2x6kx"]
+script = ExtResource("9_fd1ed")
+infinite_swivel = false
+swivel_speed = 180.0
+targeter = SubResource("Resource_mtjbm")
+ranger = SubResource("Resource_cd45c")
+attack_speed = 1.0
+attack = SubResource("Resource_vm7bg")
+sprite = ExtResource("10_8opr8")
+slotCount = 0
+flip_mode = 0
+ammunition_slot_count = 2
+accessory_slot_count = 0
 
 [resource]
 script = ExtResource("1_ugtql")
-weapon = ExtResource("3_fbrnc")
-name = "Cannon"
+weapon = SubResource("Resource_2x6kx")
+name = "CANNON"
 description = "Simply a bigger gun"
 sprite = ExtResource("2_2bbsa")
 type = 1

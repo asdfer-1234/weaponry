@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="AimWeapon" load_steps=14 format=3 uid="uid://butyuf40q7t4n"]
+[gd_resource type="Resource" script_class="AimWeapon" load_steps=14 format=3 uid="uid://cci7p7sgn82o8"]
 
 [ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="1"]
 [ext_resource type="Script" path="res://game/damage/damage.gd" id="1_bky6f"]
-[ext_resource type="Script" path="res://game/turret/weapon/projectile/moving_projectile_behaviour.gd" id="1_xu475"]
 [ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/projectile/projectile.png" id="2_uufef"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="2_rjx3l"]
 [ext_resource type="Texture2D" uid="uid://bo5y5kshcojkf" path="res://game/turret/weapon/default_weapon/default_weapon_turret.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/attack/projectile/projectile.png" id="3_1m0gw"]
 [ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="4_naimq"]
 [ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="5"]
 
@@ -15,8 +15,8 @@ type = 0
 damage = 10
 
 [sub_resource type="Resource" id="Resource_2fy77"]
-script = ExtResource("1_xu475")
-sprite = ExtResource("2_uufef")
+script = ExtResource("2_rjx3l")
+sprite = ExtResource("3_1m0gw")
 speed = 200.0
 pierce = 1
 size = 1.0
@@ -49,3 +49,4 @@ sprite = ExtResource("3")
 slotCount = 0
 flip_mode = 0
 ammunition_slot_count = 0
+accessory_slot_count = 0

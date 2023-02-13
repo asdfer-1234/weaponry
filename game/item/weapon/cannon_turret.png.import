@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://njinhmjt3e0r"
-path="res://.godot/imported/physical.png-0841c6d42fbb3ababc35cd6a7351ff34.ctex"
+uid="uid://chwgglmqwdm08"
+path="res://.godot/imported/cannon_turret.png-393a4aaca5838f57137faf081fb48d54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/damage/icon/physical.png"
-dest_files=["res://.godot/imported/physical.png-0841c6d42fbb3ababc35cd6a7351ff34.ctex"]
+source_file="res://game/item/weapon/cannon_turret.png"
+dest_files=["res://.godot/imported/cannon_turret.png-393a4aaca5838f57137faf081fb48d54.ctex"]
 
 [params]
 

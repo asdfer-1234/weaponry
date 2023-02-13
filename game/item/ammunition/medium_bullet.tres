@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ammunition" load_steps=3 format=3 uid="uid://deqge5ma7xas"]
+
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="1_by1lh"]
+[ext_resource type="Texture2D" uid="uid://u2okd2ug1wvr" path="res://game/item/ammunition/medium_bullet.png" id="2_1lxkd"]
+
+[resource]
+script = ExtResource("1_by1lh")
+attack_speed_multiplier = 1.0
+damage_multiplier = 1.25
+stack_size = 250
+name = "MEDIUM_BULLET"
+description = "normal"
+sprite = ExtResource("2_1lxkd")
+type = 2

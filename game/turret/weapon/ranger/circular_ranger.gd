@@ -22,9 +22,12 @@ func _draw(node):
 
 func tooltip():
 	if(min_range <= 0):
-		return "RANGE:" + RichTextBuilder.color_text(max_range, Palette.green) + "\n"
+		return RichTextBuilder.property_text(tr("RANGE"), 
+				RichTextBuilder.color_text(str(max_range), Palette.green))
 	else:
-		return "RANGE:" + RichTextBuilder.color_text(min_range, Palette.red) + "-"+ RichTextBuilder.color_text(max_range, Palette.green) + "\n"
+		return RichTextBuilder.property_text(tr("RANGE"),
+				RichTextBuilder.color_text(str(min_range), Palette.red) + "-" + 
+				RichTextBuilder.color_text(str(max_range), Palette.green))
 
 func _draw_range_slowly(node, range, color):
 	var time = node.time_since_draw_weapon_details

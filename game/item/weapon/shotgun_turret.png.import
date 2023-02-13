@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://njinhmjt3e0r"
-path="res://.godot/imported/physical.png-0841c6d42fbb3ababc35cd6a7351ff34.ctex"
+uid="uid://7y2oqu7ylmav"
+path="res://.godot/imported/shotgun_turret.png-6569e5160274566b92407a30d53dafb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/damage/icon/physical.png"
-dest_files=["res://.godot/imported/physical.png-0841c6d42fbb3ababc35cd6a7351ff34.ctex"]
+source_file="res://game/item/weapon/shotgun_turret.png"
+dest_files=["res://.godot/imported/shotgun_turret.png-6569e5160274566b92407a30d53dafb3.ctex"]
 
 [params]
 

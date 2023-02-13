@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpxk1cnu3l0ty"
-path="res://.godot/imported/projectile.png-97bedd9b0a22bcef7ecb015a2894e2d8.ctex"
+uid="uid://u2okd2ug1wvr"
+path="res://.godot/imported/medium_bullet.png-826a4d322613d186a879b0fc97a4e385.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/projectile/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-97bedd9b0a22bcef7ecb015a2894e2d8.ctex"]
+source_file="res://game/item/ammunition/medium_bullet.png"
+dest_files=["res://.godot/imported/medium_bullet.png-826a4d322613d186a879b0fc97a4e385.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

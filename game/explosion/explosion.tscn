@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dypbpp8tdtk0m"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://game/turret/weapon/projectile/proj.gd" id="1_x5t5u"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/proj.gd" id="1_x5t5u"]
 [ext_resource type="Texture2D" uid="uid://cu75tx7tmesbb" path="res://game/explosion/explosion.png" id="3_vshgy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lteyy"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bytyj"]
 radius = 16.0
 
-[sub_resource type="Animation" id="Animation_6lav7"]
+[sub_resource type="Animation" id="Animation_enoih"]
 length = 0.001
 step = 1.0
 tracks/0/type = "value"
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [11, 1]
 }
 
-[sub_resource type="Animation" id="Animation_p78av"]
+[sub_resource type="Animation" id="Animation_q31tv"]
 resource_name = "explosion_animation"
 length = 11.0001
 step = 1.0
@@ -39,10 +39,10 @@ tracks/0/keys = {
 "values": [0, 11]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhban"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oeta6"]
 _data = {
-"RESET": SubResource("Animation_6lav7"),
-"explosion_animation": SubResource("Animation_p78av")
+"RESET": SubResource("Animation_enoih"),
+"explosion_animation": SubResource("Animation_q31tv")
 }
 
 [node name="Explosion" type="Area2D"]
@@ -55,14 +55,14 @@ texture = ExtResource("3_vshgy")
 hframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_lteyy")
+shape = SubResource("CircleShape2D_bytyj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "explosion_animation"
 speed_scale = 24.0
 movie_quit_on_finish = true
 libraries = {
-"": SubResource("AnimationLibrary_yhban")
+"": SubResource("AnimationLibrary_oeta6")
 }
 
 [connection signal="area_entered" from="." to="." method="_on_enter"]

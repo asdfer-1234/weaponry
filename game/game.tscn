@@ -1,14 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj0ilc2w4osc"]
+[gd_scene load_steps=25 format=3 uid="uid://dj0ilc2w4osc"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
-[ext_resource type="Resource" uid="uid://bff51eqf4icwy" path="res://game/item/weapon/cannon_item.tres" id="3_6tu6f"]
+[ext_resource type="Resource" uid="uid://bh8sh64sxssob" path="res://game/item/weapon/cannon_item.tres" id="3_6tu6f"]
 [ext_resource type="PackedScene" path="res://physics_timer.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://beybo0dft6401" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
 [ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="5_3445w"]
+[ext_resource type="Resource" uid="uid://deqge5ma7xas" path="res://game/item/ammunition/medium_bullet.tres" id="6_nfisv"]
 [ext_resource type="Script" path="res://game/map.gd" id="6_q555l"]
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
+[ext_resource type="Resource" uid="uid://6rhn5trwe8dh" path="res://game/item/ammunition/heavy_bullet.tres" id="7_16477"]
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
 [ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="10_7211e"]
 [ext_resource type="PackedScene" uid="uid://5emjpu5gkguv" path="res://game/turret/turret.tscn" id="10_nsc7n"]
@@ -27,6 +29,16 @@ count = 1
 script = ExtResource("17_fox0a")
 item = ExtResource("5_3445w")
 count = 100
+
+[sub_resource type="Resource" id="Resource_780pe"]
+script = ExtResource("17_fox0a")
+item = ExtResource("6_nfisv")
+count = 250
+
+[sub_resource type="Resource" id="Resource_om7la"]
+script = ExtResource("17_fox0a")
+item = ExtResource("7_16477")
+count = 10
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -57,7 +69,7 @@ size_flags_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_bgo03")
-text = "BUILD"
+text = "BUILD_TURRET"
 
 [node name="ReserveInventory" type="GridContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -77,9 +89,11 @@ item_stack = SubResource("Resource_b8psj")
 
 [node name="ItemSlot3" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_780pe")
 
 [node name="ItemSlot4" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_om7la")
 
 [node name="ItemSlot5" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2

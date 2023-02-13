@@ -73,4 +73,5 @@ func update_tooltip_size():
 		var text_size = label.get_theme_font("normal_font").get_multiline_string_size(label.get_parsed_text(), 0, 100000, label.get_theme_font_size("normal_font_size"))
 		var line_separation = label.theme.get_constant("line_separation", "RichTextLabel")
 		text_size.y += (label.get_visible_line_count() - 1) * line_separation
+		text_size.x += 100
 		size = text_size + Vector2.ONE * 6

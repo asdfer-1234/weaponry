@@ -2,7 +2,7 @@ extends Behaviour
 class_name ProjectileBehaviour
 
 
-const default_projectile = preload("res://game/turret/weapon/projectile/projectile.tscn")
+const default_projectile = preload("res://game/turret/weapon/attack/projectile/projectile.tscn")
 
 @export var pierce = 1
 @export var size : float = 1
@@ -50,8 +50,8 @@ func _on_hit(target):
 
 func tooltip():
 	var text = ""
-	text += RichTextBuilder.property_text("PIERCE", RichTextBuilder.color_text(pierce, Palette.green))
+	text += RichTextBuilder.property_text(tr("PIERCE"), RichTextBuilder.color_text(str(pierce), Palette.green))
 	text += damage.tooltip()
 	if attack_on_hit != null:
-		text += RichTextBuilder.subproperty("ON HIT", attack_on_hit.tooltip())
+		text += RichTextBuilder.subproperty(tr("ON_HIT"), attack_on_hit.tooltip())
 	return text

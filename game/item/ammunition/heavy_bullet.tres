@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ammunition" load_steps=3 format=3 uid="uid://6rhn5trwe8dh"]
+
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="1_yyp3t"]
+[ext_resource type="Texture2D" uid="uid://c1u5d8k0nh37t" path="res://game/item/ammunition/heavy_bullet.png" id="2_2du6q"]
+
+[resource]
+script = ExtResource("1_yyp3t")
+attack_speed_multiplier = 0.3
+damage_multiplier = 5.0
+stack_size = 100
+name = "HEAVY_BULLET"
+description = "big"
+sprite = ExtResource("2_2du6q")
+type = 2

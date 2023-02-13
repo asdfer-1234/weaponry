@@ -10,4 +10,4 @@ func get_target(node, targets):
 	return target
 
 func tooltip():
-	return "TARGETS LAST\n"
+	return tr("LAST_TARGETER_TOOLTIP") + "\n"

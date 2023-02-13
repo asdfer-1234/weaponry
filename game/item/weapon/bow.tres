@@ -1,12 +1,61 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=4 format=3 uid="uid://dkp5yku7kuyjv"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_eonmo"]
 [ext_resource type="Texture2D" uid="uid://d3b2n3qpiqtlp" path="res://game/item/weapon/bow.png" id="2_1pou8"]
-[ext_resource type="Resource" uid="uid://ch87dwb2ga8oa" path="res://game/turret/weapon/bow/bow.tres" id="3_wo011"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_r5uxa"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="4_4uki1"]
+[ext_resource type="Texture2D" uid="uid://4r5om4c7yhfr" path="res://game/turret/weapon/attack/projectile/arrow.png" id="5_hyc0o"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="6_uketn"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_vu3e3"]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_oqp3d"]
+[ext_resource type="Texture2D" uid="uid://bjrt64cv7oe75" path="res://game/item/weapon/bow_turret.png" id="9_pae7o"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="10_5w8vk"]
+
+[sub_resource type="Resource" id="Resource_tsl24"]
+script = ExtResource("3_r5uxa")
+type = 0
+damage = 10
+
+[sub_resource type="Resource" id="Resource_rbdhb"]
+script = ExtResource("4_4uki1")
+sprite = ExtResource("5_hyc0o")
+speed = 200.0
+pierce = 10
+size = 1.0
+damage = SubResource("Resource_tsl24")
+lifetime = 2.0
+
+[sub_resource type="Resource" id="Resource_msshv"]
+script = ExtResource("6_uketn")
+projectile_behaviour = SubResource("Resource_rbdhb")
+spread = 2.0
+count = 1
+
+[sub_resource type="Resource" id="Resource_mf8yx"]
+script = ExtResource("7_vu3e3")
+min_range = 0.0
+max_range = 100.0
+
+[sub_resource type="Resource" id="Resource_xtowc"]
+script = ExtResource("10_5w8vk")
+
+[sub_resource type="Resource" id="Resource_y2g54"]
+script = ExtResource("8_oqp3d")
+infinite_swivel = false
+swivel_speed = 360.0
+targeter = SubResource("Resource_xtowc")
+ranger = SubResource("Resource_mf8yx")
+attack_speed = 2.0
+attack = SubResource("Resource_msshv")
+sprite = ExtResource("9_pae7o")
+slotCount = 0
+flip_mode = 1.0
+ammunition_slot_count = 10
+accessory_slot_count = 0
 
 [resource]
 script = ExtResource("1_eonmo")
-weapon = ExtResource("3_wo011")
+weapon = SubResource("Resource_y2g54")
 name = "Bow"
 description = "An old fashioned weapon"
 sprite = ExtResource("2_1pou8")

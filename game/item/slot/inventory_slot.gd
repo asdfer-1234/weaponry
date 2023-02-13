@@ -22,7 +22,6 @@ signal changed
 
 func _ready():
 	super._ready()
-	#item_stack = item_stack
 
 func _primary_pressed():
 	if match_type(cursor):

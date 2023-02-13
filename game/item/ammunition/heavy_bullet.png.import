@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjrt64cv7oe75"
-path="res://.godot/imported/bow.png-76e7ca66bfbd6c7050b4af298bb9f77a.ctex"
+uid="uid://c1u5d8k0nh37t"
+path="res://.godot/imported/heavy_bullet.png-a486c989f6374bd8ca602103c3110c6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/bow/bow.png"
-dest_files=["res://.godot/imported/bow.png-76e7ca66bfbd6c7050b4af298bb9f77a.ctex"]
+source_file="res://game/item/ammunition/heavy_bullet.png"
+dest_files=["res://.godot/imported/heavy_bullet.png-a486c989f6374bd8ca602103c3110c6e.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

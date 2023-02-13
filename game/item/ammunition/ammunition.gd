@@ -7,7 +7,7 @@ class_name Ammunition
 func tooltip():
 	return (super.tooltip() +
 			RichTextBuilder.property_text(
-					"Damage", RichTextBuilder.multiplier_text(damage_multiplier)) + 
+					tr("DAMAGE"), RichTextBuilder.multiplier_text(damage_multiplier)) + 
 			RichTextBuilder.property_text(
-					"Attack speed", RichTextBuilder.multiplier_text(attack_speed_multiplier)))
+					tr("ATTACK_SPEED"), RichTextBuilder.multiplier_text(attack_speed_multiplier)))
 

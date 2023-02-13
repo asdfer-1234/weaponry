@@ -13,4 +13,7 @@ func _process(delta):
 	pass
 
 func tooltip():
-	return super.tooltip() + RichTextBuilder.property_text("SPEED", RichTextBuilder.color_text(speed, Palette.green))
+	return super.tooltip() + \
+			RichTextBuilder.property_text(tr("PROJECTILE_SPEED"), 
+					RichTextBuilder.color_text(str(speed), 
+							Palette.green))

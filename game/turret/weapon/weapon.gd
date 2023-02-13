@@ -4,9 +4,12 @@ class_name Weapon
 @export var slotCount = 0
 @export var flip_mode : SpriteFlipper.FlipMode = SpriteFlipper.FlipMode.NONE
 @export var ammunition_slot_count : int
+@export var accessory_slot_count : int
 const item_slot = preload("res://game/item/slot/item_slot.tscn")
 var ammunition_slots = []
 var ammunition = []
+var accesory_slots = []
+var accessory = []
 
 
 func _update():
@@ -21,11 +24,15 @@ func get_first_ammunition_slot():
 		if i.item_stack.item != null and i.item_stack.item is Ammunition:
 			return i
 
+func get_first_ammunition_stack():
+	for i in ammunition:
+		if i.item != null:
+			return i
+
 func get_first_ammunition():
-	var slot = get_first_ammunition_slot()
-	if slot == null:
-		return
-	return slot.item_stack.item
+	var first_ammunition_stack = get_first_ammunition_stack()
+	if first_ammunition_stack != null:
+		return first_ammunition_stack.item
 
 func get_damage_multiplier():
 	var first_ammunition = get_first_ammunition()
@@ -34,9 +41,9 @@ func get_damage_multiplier():
 	return 1
 
 func use_ammo():
-	var slot = get_first_ammunition_slot()
-	if slot != null:
-		slot.item_stack.count -= 1
+	var ammunition_stack = get_first_ammunition_stack()
+	if ammunition_stack != null:
+		ammunition_stack.count -= 1
 
 func _update_sprite():
 	if node.has_node("Sprite"):

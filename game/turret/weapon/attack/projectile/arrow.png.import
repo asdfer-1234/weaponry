@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://njinhmjt3e0r"
-path="res://.godot/imported/physical.png-0841c6d42fbb3ababc35cd6a7351ff34.ctex"
+uid="uid://4r5om4c7yhfr"
+path="res://.godot/imported/arrow.png-4477e647353a6fb7dc27d2a91ca0923c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/damage/icon/physical.png"
-dest_files=["res://.godot/imported/physical.png-0841c6d42fbb3ababc35cd6a7351ff34.ctex"]
+source_file="res://game/turret/weapon/attack/projectile/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-4477e647353a6fb7dc27d2a91ca0923c.ctex"]
 
 [params]
 
