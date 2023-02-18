@@ -48,7 +48,6 @@ ranger = SubResource("Resource_vlbws")
 attack_speed = 2.0
 attack = SubResource("Resource_1qtxw")
 sprite = ExtResource("3")
-slotCount = 0
 flip_mode = 0
 ammunition_slot_count = 0
 accessory_slot_count = 0

@@ -1,7 +1,5 @@
 extends Control
 
-
-
 @onready var label : RichTextLabel = $MarginContainer/RichTextLabel
 
 const topleft_position = Vector2(-3, -3)
@@ -26,10 +24,11 @@ func enter_tooltip(node):
 	hold = node
 	visible = true
 	reload_tooltip()
-	hold.changed.connect(reload_tooltip)
+	if hold.has_signal("changed"):
+		hold.changed.connect(reload_tooltip)
 
 func exit_tooltip(node):
-	if hold.changed.is_connected(reload_tooltip):
+	if hold.has_signal("changed") and hold.changed.is_connected(reload_tooltip):
 		hold.changed.disconnect(reload_tooltip)
 	if hold == node:
 		visible = false

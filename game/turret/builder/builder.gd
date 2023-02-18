@@ -6,6 +6,8 @@ const blocked_color = Palette.red
 const blocked_material = preload("res://graphics/red_outline.tres")
 const turret = preload("res://game/turret/turret.tscn")
 var hold : Turret
+var placed_turret = 0
+const price_per_turret = 10
 
 signal enter_build
 signal end_build
@@ -22,6 +24,11 @@ func _process(_delta):
 		else:
 			modulate = blocked_color
 			hold.get_node("Sprite").material = blocked_material
+
+func _on_build_button_pressed():
+	if price() <= %Gold.gold:
+		start_build()
+
 func start_build():
 	var instantiated : Node2D = turret.instantiate()
 	hold = instantiated
@@ -42,3 +49,8 @@ func place_build():
 	hold.building = false
 	hold = null
 	end_build.emit()
+	%Gold.gold -= price()
+	placed_turret += 1
+
+func price():
+	return placed_turret * 10

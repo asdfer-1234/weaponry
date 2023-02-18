@@ -68,6 +68,7 @@ func _draw():
 
 func tooltip():
 	var text = ""
+	text += super.tooltip()
 	if not infinite_swivel:
 		text += RichTextBuilder.property_text(
 				tr("SWIVEL"), RichTextBuilder.color_text(str(swivel_speed), Palette.green))

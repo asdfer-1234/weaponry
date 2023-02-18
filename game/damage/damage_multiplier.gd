@@ -7,6 +7,7 @@ class_name DamageMultiplier
 func multiply(damage : Damage):
 	damage = damage.duplicate()
 	if damage.type == type:
+		@warning_ignore("narrowing_conversion")
 		damage.damage *= multiplier
 	return damage
 	

@@ -1,7 +1,6 @@
 extends Behaviour
 class_name Weapon
 @export var sprite : Texture = load("res://game/turret/weapon/default_weapon/default_weapon_turret.png")
-@export var slotCount = 0
 @export var flip_mode : SpriteFlipper.FlipMode = SpriteFlipper.FlipMode.NONE
 @export var ammunition_slot_count : int
 @export var accessory_slot_count : int
@@ -73,7 +72,13 @@ func _mouse_exit():
 	pass
 
 func tooltip():
-	pass
+	var build = ""
+	if ammunition_slot_count != 0:
+		build += RichTextBuilder.property_text(tr("AMMUNITION") + " " + tr("SLOT_COUNT"),RichTextBuilder.color_text(str(ammunition_slot_count), Palette.yellow))
+	if accessory_slot_count != 0:
+		build += RichTextBuilder.property_text(tr("ACCESSORY") + " " + tr("SLOT_COUNT"),
+				RichTextBuilder.color_text(str(accessory_slot_count), Palette.yellow))
+	return build
 
 func set_weapon_slot(weapon_slot):
 	

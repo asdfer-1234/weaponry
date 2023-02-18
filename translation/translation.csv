@@ -39,3 +39,9 @@ EXTRA_GUNPOWDER_DESCRIPTION,Smokes,가루 날린다
 WEAPON_SLOT_DEPENDENCIES_NOT_CLEAR,Remove ammunition and accessories before replacing this item.,이 아이템을 제거하기 위해서는 총탄과 부착을 먼저 제거하세요.
 FLAMETHROWER,Flamethrower,화염방사기
 FLAMETHROWER_DESCRIPTION,Hot,뜨겁다
+DAMAGE_OVER_TIME_EFFECT,{damage} every {interval}s,{interval}초마다 {damage}
+APPLY_EFFECT,Apply effect,효과 적용
+EFFECT,Effect,효과
+FOR_DURATION,For {duration}s,{duration}초동안
+SLOT_COUNT,Slots,슬롯
+PRICE,Price,가격

@@ -8,3 +8,9 @@ func _ready():
 
 func expire():
 	queue_free()
+
+func tooltip():
+	return duration_tooltip() + "\n"
+
+func duration_tooltip():
+	return tr("FOR_DURATION").format({"duration" : RichTextBuilder.color_text(str(duration), Palette.red)})

@@ -1,9 +1,11 @@
 extends Area2D
 class_name Stone
 @onready var damage_effect_canvas = $"../../../DamageEffectCanvas"
-@export var speed : float = 10;
-@export var health : int = 10;
+@export var speed : float = 10
+@export var health : int = 10
 @export var damage_multipliers = DamageMultipliers.new([])
+@export var health_damage : int = 1
+@export var gold_reward : int = 1
 var progress = 0 : set = set_progress
 var died : bool = false
 var excluded_projectiles : Array = []
@@ -18,7 +20,7 @@ func set_progress(value):
 		position = path_follow.global_position
 		path_follow.progress_ratio = 1
 		if progress > path_follow.progress:
-			queue_free()
+			goal()
 
 func _ready():
 	set_progress(progress)
@@ -54,6 +56,7 @@ func die():
 		queue_free()
 		call_deferred("on_die")
 		spawn_particle()
+		$"../%Gold".gold += gold_reward
 
 func on_die():
 	pass
@@ -86,3 +89,7 @@ func get_nearby_stones_by_progress(backward_range, forward_range):
 				i.progress >= progress - backward_range):
 			result.append(i)
 	return result
+
+func goal():
+	queue_free()
+	$"../%Health".health -= health_damage

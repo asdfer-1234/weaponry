@@ -43,3 +43,9 @@ func add_other(other):
 
 func apply(value):
 	return value * multiplier + adder
+
+
+func __init(multiplier = 1, adder = 0):
+	self.multiplier = multiplier
+	self.adder = adder
+	

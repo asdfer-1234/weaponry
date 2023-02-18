@@ -1,12 +1,18 @@
-[gd_scene load_steps=28 format=3]
+[gd_scene load_steps=34 format=3 uid="uid://dx4hqbc3d44mf"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
+[ext_resource type="Theme" uid="uid://cvi5bb6plsvpo" path="res://ui/numeric_theme.tres" id="2_l1uk2"]
+[ext_resource type="Script" path="res://game/turret/builder/build_button.gd" id="2_xtpje"]
 [ext_resource type="Resource" uid="uid://bh8sh64sxssob" path="res://game/item/weapon/cannon_item.tres" id="3_6tu6f"]
-[ext_resource type="PackedScene" path="res://physics_timer.tscn" id="5"]
+[ext_resource type="Script" path="res://game/game_variable/health/health.gd" id="3_al0pa"]
+[ext_resource type="Texture2D" uid="uid://o4oybkbdydle" path="res://game/game_variable/health/heart.png" id="4_h4x8a"]
+[ext_resource type="PackedScene" uid="uid://btdvey0egui0s" path="res://physics_timer.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://beybo0dft6401" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
 [ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="5_3445w"]
+[ext_resource type="Script" path="res://game/game_variable/gold/gold.gd" id="5_l3b8w"]
+[ext_resource type="Texture2D" uid="uid://cds0h7bm6y7xd" path="res://game/game_variable/gold/gold.png" id="6_h6anp"]
 [ext_resource type="Resource" uid="uid://deqge5ma7xas" path="res://game/item/ammunition/medium_bullet.tres" id="6_nfisv"]
 [ext_resource type="Script" path="res://game/map.gd" id="6_q555l"]
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
@@ -68,11 +74,11 @@ anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource("1_bgo03")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+[node name="BuildButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -80,6 +86,35 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_bgo03")
 text = "BUILD_TURRET"
+script = ExtResource("2_xtpje")
+
+[node name="Health" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_l1uk2")
+bbcode_enabled = true
+text = "[img]res://game/health/heart.png[/img]50"
+fit_content = true
+scroll_active = false
+script = ExtResource("3_al0pa")
+value = 50
+icon = ExtResource("4_h4x8a")
+color = Color(1, 0.305882, 0.305882, 1)
+
+[node name="Gold" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_l1uk2")
+bbcode_enabled = true
+text = "[img]res://game/health/heart.png[/img]50"
+fit_content = true
+scroll_active = false
+script = ExtResource("5_l3b8w")
+value = 50
+icon = ExtResource("6_h6anp")
+color = Color(1, 0.85098, 0.541176, 1)
 
 [node name="ReserveInventory" type="GridContainer" parent="CanvasLayer/MarginContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -146,9 +181,6 @@ size_flags_vertical = 0
 mouse_filter = 2
 script = ExtResource("2_6iqjx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("6_q555l")
 enemy_scene = ExtResource("10_7211e")
@@ -196,9 +228,11 @@ offset_right = 16.0
 offset_bottom = 16.0
 
 [node name="Builder" type="Node2D" parent="CursorCanvas/CursorFollower"]
+unique_name_in_owner = true
 script = ExtResource("17_ym512")
 
-[node name="Tooltip" type="NinePatchRect" parent="CursorCanvas/CursorFollower" groups=["tooltip"]]
+[node name="Tooltip" type="NinePatchRect" parent="CursorCanvas/CursorFollower"]
+unique_name_in_owner = true
 offset_right = 16.0
 offset_bottom = 16.0
 size_flags_horizontal = 0
@@ -233,6 +267,8 @@ theme = ExtResource("1_bgo03")
 bbcode_enabled = true
 scroll_active = false
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/Button" to="CursorCanvas/CursorFollower/Builder" method="start_build"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" to="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" to="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]
 [connection signal="timeout" from="Map/GenerationTimer" to="Map" method="generate"]
 [connection signal="finished" from="CursorCanvas/CursorFollower/Tooltip/MarginContainer/RichTextLabel" to="CursorCanvas/CursorFollower/Tooltip" method="update_tooltip_size"]

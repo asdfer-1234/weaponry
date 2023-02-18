@@ -55,5 +55,3 @@ func tooltip():
 		return build
 	else:
 		return build + item_stack.item.tooltip()
-
-
