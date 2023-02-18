@@ -9,7 +9,8 @@ class_name AimWeapon
 @export var attack : Attack
 var shootable = true
 
-const shoot_angle = 2.0
+const shoot_angle = 2
+const maximum_attack_delay = 5
 
 func _process(delta):
 	if not node.building:
@@ -20,21 +21,25 @@ func _process(delta):
 					abs(_angle_difference(node.global_rotation,
 					(target.global_position - node.global_position).angle())) <
 					deg_to_rad(shoot_angle)):
-				shoot()
+				shoot(target)
 
-func shoot():
-	attack.attack(node, get_damage_multiplier())
+func shoot(target):
+	attack.attack(node, target, get_damage_boost())
 	shootable = false
 	var timer = node.get_tree().create_timer(get_attack_delay(), true, true)
 	timer.timeout.connect(_timer_timeout)
 	use_ammo()
 
 func get_attack_delay():
-	var delay = 1 / attack_speed
-	var ammunition = get_first_ammunition()
-	if ammunition != null:
-		delay /= ammunition.attack_speed_multiplier
-	return delay
+	var delay = 1 / get_attack_speed_boost().apply(attack_speed)
+	return min(delay, maximum_attack_delay)
+
+func get_attack_speed_boost():
+	var boosts = []
+	for i in get_all_modifiers():
+		if i.attack_speed != null:
+			boosts.append(i.attack_speed)
+	return boost_array(boosts)
 
 func _timer_timeout():
 	shootable = true

@@ -25,7 +25,6 @@ func _process(_delta):
 func start_build():
 	var instantiated : Node2D = turret.instantiate()
 	hold = instantiated
-	print(hold.get_parent())
 	hold.building = true
 	add_child(instantiated)
 	enter_build.emit()

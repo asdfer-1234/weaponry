@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cvi5bb6plsvpo"]
+
+[ext_resource type="FontFile" uid="uid://bncajrsgxbrh2" path="res://ui/CG pixel 3x5.ttf" id="1_5tat8"]
+
+[resource]
+default_font = ExtResource("1_5tat8")
+default_font_size = 5
+Label/colors/font_color = Color(1, 0.952941, 0.764706, 1)
+Label/colors/font_outline_color = Color(0.286275, 0.211765, 0.301961, 1)
+Label/colors/font_shadow_color = Color(0.286275, 0.211765, 0.301961, 1)
+Label/constants/line_spacing = 2
+Label/constants/outline_size = 3
+RichTextLabel/colors/default_color = Color(1, 0.952941, 0.764706, 1)
+RichTextLabel/colors/font_outline_color = Color(0.286275, 0.211765, 0.301961, 1)
+RichTextLabel/constants/line_separation = 2
+RichTextLabel/constants/outline_size = 3

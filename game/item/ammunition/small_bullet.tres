@@ -1,14 +1,29 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=3 format=3 uid="uid://bhcwnfwbynh8n"]
+[gd_resource type="Resource" script_class="Ammunition" load_steps=8 format=3 uid="uid://bhcwnfwbynh8n"]
 
+[ext_resource type="Script" path="res://game/item/boost.gd" id="1_s0iym"]
 [ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="1_ufoqq"]
 [ext_resource type="Texture2D" uid="uid://declqly6exg6s" path="res://game/item/ammunition/small_bullet.png" id="2_8hprx"]
+[ext_resource type="Script" path="res://game/item/modifier.gd" id="2_iwj24"]
+
+[sub_resource type="Resource" id="Resource_i5eu4"]
+script = ExtResource("1_s0iym")
+multiplier = 3.0
+adder = 0.0
+
+[sub_resource type="Resource" id="Resource_vcvc1"]
+script = ExtResource("1_s0iym")
+multiplier = 0.4
+adder = 0.0
+
+[sub_resource type="Resource" id="Resource_6w3y8"]
+script = ExtResource("2_iwj24")
+damage = SubResource("Resource_vcvc1")
+attack_speed = SubResource("Resource_i5eu4")
 
 [resource]
 script = ExtResource("1_ufoqq")
-attack_speed_multiplier = 3.0
-damage_multiplier = 0.5
+modifier = SubResource("Resource_6w3y8")
 stack_size = 1000
 name = "SMALL_BULLET"
-description = "smol"
 sprite = ExtResource("2_8hprx")
 type = 2

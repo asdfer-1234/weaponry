@@ -1,14 +1,23 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=3 format=3 uid="uid://deqge5ma7xas"]
+[gd_resource type="Resource" script_class="Ammunition" load_steps=7 format=3 uid="uid://deqge5ma7xas"]
 
+[ext_resource type="Script" path="res://game/item/boost.gd" id="1_6r7vc"]
 [ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="1_by1lh"]
 [ext_resource type="Texture2D" uid="uid://u2okd2ug1wvr" path="res://game/item/ammunition/medium_bullet.png" id="2_1lxkd"]
+[ext_resource type="Script" path="res://game/item/modifier.gd" id="2_l7d6o"]
+
+[sub_resource type="Resource" id="Resource_6on53"]
+script = ExtResource("1_6r7vc")
+multiplier = 1.0
+adder = 1.0
+
+[sub_resource type="Resource" id="Resource_nskfn"]
+script = ExtResource("2_l7d6o")
+damage = SubResource("Resource_6on53")
 
 [resource]
 script = ExtResource("1_by1lh")
-attack_speed_multiplier = 1.0
-damage_multiplier = 1.25
+modifier = SubResource("Resource_nskfn")
 stack_size = 250
 name = "MEDIUM_BULLET"
-description = "normal"
 sprite = ExtResource("2_1lxkd")
 type = 2

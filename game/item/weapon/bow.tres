@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://jim2sbclj0g8"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_eonmo"]
 [ext_resource type="Texture2D" uid="uid://d3b2n3qpiqtlp" path="res://game/item/weapon/bow.png" id="2_1pou8"]
@@ -57,6 +57,5 @@ accessory_slot_count = 0
 script = ExtResource("1_eonmo")
 weapon = SubResource("Resource_y2g54")
 name = "Bow"
-description = "An old fashioned weapon"
 sprite = ExtResource("2_1pou8")
 type = 1

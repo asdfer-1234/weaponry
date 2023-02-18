@@ -5,9 +5,9 @@ class_name ProjectileAttack
 @export var spread : float = 0
 @export var count : int = 1
 
-func attack(node, damage_multiplier):
+func attack(from, target, damage_multiplier = 1):
 	for i in range(count):
-		var projectile = projectile_behaviour.projectile(node)
+		var projectile = projectile_behaviour.projectile(from)
 		projectile.damage_multiplier = damage_multiplier
 		projectile.rotate(randf_range(deg_to_rad(spread), -deg_to_rad(spread)))
 

@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var projectile_behaviour : ProjectileBehaviour
-var damage_multiplier
+var damage_multiplier : Boost
 
 
 func _ready():

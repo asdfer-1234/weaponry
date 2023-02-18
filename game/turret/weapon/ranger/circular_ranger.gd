@@ -23,7 +23,7 @@ func _draw(node):
 func tooltip():
 	if(min_range <= 0):
 		return RichTextBuilder.property_text(tr("RANGE"), 
-				RichTextBuilder.color_text(str(max_range), Palette.green))
+				RichTextBuilder.color_text(str(max_range), Palette.yellow))
 	else:
 		return RichTextBuilder.property_text(tr("RANGE"),
 				RichTextBuilder.color_text(str(min_range), Palette.red) + "-" + 

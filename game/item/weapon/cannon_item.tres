@@ -39,6 +39,8 @@ damage = 10
 script = ExtResource("6_2lm7q")
 sprite = ExtResource("7_xcsbs")
 speed = 200.0
+acceleration = 0.0
+randomly_rotate = false
 pierce = 1
 size = 1.0
 damage = SubResource("Resource_venbm")
@@ -71,12 +73,11 @@ sprite = ExtResource("10_8opr8")
 slotCount = 0
 flip_mode = 0
 ammunition_slot_count = 2
-accessory_slot_count = 0
+accessory_slot_count = 2
 
 [resource]
 script = ExtResource("1_ugtql")
 weapon = SubResource("Resource_2x6kx")
 name = "CANNON"
-description = "Simply a bigger gun"
 sprite = ExtResource("2_2bbsa")
 type = 1

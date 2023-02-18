@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxvpa50on0m3h"]
+
+[ext_resource type="Script" path="res://game/effect/damage_over_time_effect.gd" id="1_j61np"]
+[ext_resource type="PackedScene" uid="uid://btdvey0egui0s" path="res://physics_timer.tscn" id="2_f0100"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="2_uywt7"]
+
+[sub_resource type="Resource" id="Resource_0wwo6"]
+script = ExtResource("2_uywt7")
+type = 4
+damage = 1
+
+[node name="Fire" type="Node"]
+script = ExtResource("1_j61np")
+interval = 0.5
+damage = SubResource("Resource_0wwo6")
+duration = 3.0
+
+[node name="DamageTimer" parent="." instance=ExtResource("2_f0100")]
+autostart = true
+
+[connection signal="timeout" from="DamageTimer" to="." method="damage_stone"]

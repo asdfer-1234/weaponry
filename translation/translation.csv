@@ -1,0 +1,41 @@
+keys,en,ko
+TITLE,weaponry,weaponry
+MAIN_MENU_START,Start,시작
+MAIN_MENU_QUIT,Quit,나가기
+DALMOORI_COPYRIGHT_NOTICE,Font “Dalmoori” used,달무리 폰트 사용
+WEAPON,weaponry,무기
+AMMUNITION,Ammunition,총탄
+ACCESSORY,Accessory,부착
+BUILD_TURRET,Build turret,포탑 건설
+SMALL_BULLET,Small Bullet,소형 총탄
+MEDIUM_BULLET,Medium Bullet,중형 총탄
+HEAVY_BULLET,Heavy Bullet,대형 총탄
+CANNON,Cannon,대포
+BOW,Bow,활
+ARROW,Arrow,화살
+CANNON_DESCRIPTION,Just a bigger gun,큰 총
+RANGE,Range,사거리
+ATTACK_SPEED,Attack speed,공격 속도
+ATTACK,Attack,공격
+TARGETING,Targeting,목표 설정
+LAST_TARGETER_TOOLTIP,Targets last,마지막 목표
+FIRST_TARGETER_TOOLTIP,Targets first,첫 목표
+UNLIMITED,Unlimited,무제한
+SWIVEL,Swivel,회전 속도
+SMALL_BULLET_DESCRIPTION,Smol,작다
+MEDIUM_BULLET_DESCRIPTION,Normal,적당하다
+HEAVY_BULLET_DESCRIPTION,Big!,크다!
+DAMAGE,Damage,피해
+PIERCE,Pierce,관통
+ON_HIT,On hit,적중 시
+PROJECTILE_SPEED,Speed,속도
+EXPLOSION_RADIUS,Radius,반경
+TRASH_SLOT,Trash slot,폐기
+TRASH_SLOT_DESCRIPTION,Put items here to trash it,아이템을 이곳에 배치하여 버리십시오
+ITEM_RESTRICTION_DESCRIPTION,This slot only accepts %s!,이 슬롯에는 %s만 넣을 수 있습니다!
+STACK_SIZE,Stack size,저장 한도
+EXTRA_GUNPOWDER,Extra Gunpowder,추가 화약
+EXTRA_GUNPOWDER_DESCRIPTION,Smokes,가루 날린다
+WEAPON_SLOT_DEPENDENCIES_NOT_CLEAR,Remove ammunition and accessories before replacing this item.,이 아이템을 제거하기 위해서는 총탄과 부착을 먼저 제거하세요.
+FLAMETHROWER,Flamethrower,화염방사기
+FLAMETHROWER_DESCRIPTION,Hot,뜨겁다

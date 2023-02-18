@@ -20,10 +20,10 @@ const placeholders = [
 ]
 
 const type_name = [
-	"None",
-	"Weapon",
-	"Ammunition",
-	"Accessory",
+	"NONE",
+	"WEAPON",
+	"AMMUNITION",
+	"ACCESSORY",
 ]
 @export var type : Type = Type.NONE
 

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1"]
 [ext_resource type="Script" path="res://scene_management/quit.gd" id="2"]
 [ext_resource type="Script" path="res://scene_management/change_scene.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://dj0ilc2w4osc" path="res://game/game.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://game/game.tscn" id="4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -34,7 +34,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("1")
-text = "WEAPONRY"
+text = "TITLE"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -46,7 +46,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1")
-text = "START"
+text = "MAIN_MENU_START"
 script = ExtResource("3")
 scene = ExtResource("4")
 
@@ -55,8 +55,16 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1")
-text = "QUIT"
+text = "MAIN_MENU_QUIT"
 script = ExtResource("2")
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("1")
+text = "DALMOORI_COPYRIGHT_NOTICE"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/StartButton" to="MarginContainer/VBoxContainer/HBoxContainer2/StartButton" method="change_scene"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/QuitButton" to="MarginContainer/VBoxContainer/HBoxContainer2/QuitButton" method="quit"]

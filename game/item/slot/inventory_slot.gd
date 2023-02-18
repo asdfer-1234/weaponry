@@ -24,11 +24,11 @@ func _ready():
 	super._ready()
 
 func _primary_pressed():
-	if match_type(cursor):
+	if item_acceptable(cursor):
 		primary(cursor)
 
 func _secondary_pressed():
-	if match_type(cursor):
+	if item_acceptable(cursor):
 		secondary(cursor)
 
 func primary(other):
@@ -36,6 +36,9 @@ func primary(other):
 
 func secondary(other):
 	pass
+
+func item_acceptable(other):
+	return match_type(other)
 
 func match_type(compare):
 	return (accept_type == Item.Type.NONE or
@@ -54,10 +57,8 @@ func tooltip():
 	var build = ""
 	if cursor.item_stack.item != null and not match_type(cursor):
 		build += RichTextBuilder.color_text(
-				"This slot only accepts " +
-				Item.type_name[accept_type] +
-				"!\n", Palette.red)
-	
+				tr("ITEM_RESTRICTION_DESCRIPTION") % \
+				tr(Item.type_name[accept_type]), Palette.red) + "\n"
 	return build
 
 func update_display():

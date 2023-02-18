@@ -42,7 +42,7 @@ var m_weapon_stack : ItemStack
 const normal_outline = preload("res://graphics/background_outline.tres")
 const highlight_outline = preload("res://graphics/red_outline.tres")
 const select_outline = preload("res://graphics/green_outline.tres")
-const inventory_slot = preload("res://game/item/slot/item_slot.tscn")
+const inventory_slot = preload("res://game/item/slot/weapon_slot.tscn")
 
 signal mouse_enter(turret)
 signal mouse_exit(turret)
@@ -71,7 +71,7 @@ func set_weapon_slot():
 	
 	weapon_slot.accept_type = Item.Type.WEAPON
 	weapon_slot.item_stack = weapon_stack
-	get_active_weapon().set_weapon_slot()
+	get_active_weapon().set_weapon_slot(weapon_slot)
 	weapon_slot.changed.connect(set_weapon_stack_from_inventory_slot)
 	
 

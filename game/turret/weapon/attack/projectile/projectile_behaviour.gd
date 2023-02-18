@@ -9,6 +9,7 @@ const default_projectile = preload("res://game/turret/weapon/attack/projectile/p
 @export var damage : Damage
 @export var lifetime : float = 2
 @export var attack_on_hit : Attack
+
 var hit = false
 
 func get_default_projectile():
@@ -27,26 +28,28 @@ func _set_defaults(node, instantiated):
 	instantiated.scale = size * Vector2.ONE
 	instantiated.position = node.position
 	instantiated.global_rotation = node.global_rotation
-	
 
 func _update():
 	super._update()
+	node.get_tree().create_timer(lifetime).timeout.connect(expire)
 
+func expire():
+	node.queue_free()
 
 func _on_hit(target):
 	if target.died:
 		return
 	pierce -= 1
 	
-	var new_damage = damage.duplicate()
-	new_damage.damage *= node.damage_multiplier
+	var applied_damage = damage.duplicate()
+	applied_damage.damage = node.damage_multiplier.apply(applied_damage.damage)
+	target.damage(applied_damage)
 	
-	target.damage(new_damage)
 	if pierce <= 0:
 		hit = true
 		node.queue_free()
 	if attack_on_hit != null:
-		attack_on_hit.attack(node, node.damage_multiplier)
+		attack_on_hit.attack(node, target, node.damage_multiplier)
 
 func tooltip():
 	var text = ""

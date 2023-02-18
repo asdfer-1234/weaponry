@@ -16,4 +16,4 @@ func trash_one(other):
 	other.item_stack.count -= 1
 
 func tooltip():
-	return RichTextBuilder.color_text("TRASH SLOT", Palette.red) + "\n" + RichTextBuilder.color_text("PLACE ITEMS HERE TO DELETE IT", Palette.secondary)
+	return RichTextBuilder.color_text(tr("TRASH_SLOT"), Palette.red) + "\n" + RichTextBuilder.color_text(tr("TRASH_SLOT_DESCRIPTION"), Palette.secondary)

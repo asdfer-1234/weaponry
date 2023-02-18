@@ -1,4 +1,4 @@
-[gd_scene format=2]
+[gd_scene format=3 uid="uid://btdvey0egui0s"]
 
 [node name="Timer" type="Timer"]
-process_mode = 0
+process_callback = 0

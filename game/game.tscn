@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dj0ilc2w4osc"]
+[gd_scene load_steps=28 format=3]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
@@ -11,9 +11,10 @@
 [ext_resource type="Script" path="res://game/map.gd" id="6_q555l"]
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="Resource" uid="uid://6rhn5trwe8dh" path="res://game/item/ammunition/heavy_bullet.tres" id="7_16477"]
+[ext_resource type="Resource" uid="uid://dvu8us053mbrv" path="res://game/item/accessory/extra_gunpowder.tres" id="8_hsnl6"]
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
+[ext_resource type="Resource" uid="uid://bnnqmwhq7x75k" path="res://game/item/weapon/flamethrower.tres" id="9_05r4t"]
 [ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="10_7211e"]
-[ext_resource type="PackedScene" uid="uid://5emjpu5gkguv" path="res://game/turret/turret.tscn" id="10_nsc7n"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="17_fox0a"]
 [ext_resource type="Script" path="res://game/tooltip.gd" id="17_ksa57"]
@@ -40,6 +41,16 @@ script = ExtResource("17_fox0a")
 item = ExtResource("7_16477")
 count = 10
 
+[sub_resource type="Resource" id="Resource_kwpms"]
+script = ExtResource("17_fox0a")
+item = ExtResource("8_hsnl6")
+count = 1
+
+[sub_resource type="Resource" id="Resource_yxfxu"]
+script = ExtResource("17_fox0a")
+item = ExtResource("9_05r4t")
+count = 1
+
 [sub_resource type="Curve2D" id="1"]
 _data = {
 "points": PackedVector2Array(-118.921, -120.11, 118.921, 120.11, 139, 182, -112, 68, 112, -68, 316, 96, -25, -32.5, 25, 32.5, 494, 127, 34, -50, -34, 50, 551, 284, -263, 21, 263, -21, 317, 240, 77, 89.5, -77, -89.5, 89, 292)
@@ -56,7 +67,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource("1_bgo03")
-metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
@@ -109,9 +119,11 @@ layout_mode = 2
 
 [node name="ItemSlot9" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_kwpms")
 
 [node name="ItemSlot10" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
 
 [node name="TrashSlot" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("5_7ufwh")]
 layout_mode = 2
@@ -120,6 +132,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+mouse_filter = 2
 
 [node name="SlotContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Container" groups=["turret_item_slot_container"]]
 layout_mode = 2
@@ -169,8 +182,7 @@ polygon = PackedVector2Array(88, 263, 177, 295, 251, 294, 217, 270, 233, 241, 31
 
 [node name="Turrets" type="Node2D" parent="." groups=["turrets"]]
 
-[node name="Turret" parent="Turrets" instance=ExtResource("10_nsc7n")]
-position = Vector2(203, 186)
+[node name="DamageEffectCanvas" type="CanvasLayer" parent="."]
 
 [node name="CursorCanvas" type="CanvasLayer" parent="."]
 

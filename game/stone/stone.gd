@@ -1,7 +1,6 @@
 extends Area2D
 class_name Stone
-@onready var map = $"../../.."
-
+@onready var damage_effect_canvas = $"../../../DamageEffectCanvas"
 @export var speed : float = 10;
 @export var health : int = 10;
 @export var damage_multipliers = DamageMultipliers.new([])
@@ -45,8 +44,9 @@ func damage(amount : Damage):
 func instantiate_damage_effect(damage : Damage):
 	var instantiated = damage_effect.instantiate()
 	instantiated.set_damage(damage)
-	get_parent().add_child(instantiated)
 	instantiated.global_position = global_position
+	damage_effect_canvas.add_child(instantiated)
+	
 
 func die():
 	if not died:
@@ -69,7 +69,7 @@ func spawn_stone(stone : PackedScene, amount : int = 1, spacing : float = 5):
 func spawn_particle():
 	var instantiated = particle.instantiate()
 	instantiated.global_position = global_position
-	$"../..".add_child(instantiated)
+	damage_effect_canvas.add_child(instantiated)
 
 func get_nearby_stones_by_distance(distance):
 	var result = []
