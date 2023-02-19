@@ -45,3 +45,5 @@ EFFECT,Effect,효과
 FOR_DURATION,For {duration}s,{duration}초동안
 SLOT_COUNT,Slots,슬롯
 PRICE,Price,가격
+INVENTORY,Inventory,인벤토리
+INVENTORY_SELECTED,Selected,선택한 포탑

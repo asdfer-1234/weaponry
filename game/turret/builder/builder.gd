@@ -41,10 +41,9 @@ func placable():
 	return hold.get_overlapping_areas().size() == 0;
 
 func place_build():
-	var new_parent = get_tree().get_nodes_in_group("turrets")[0]
 	var new_position = global_position;
 	remove_child(hold);
-	new_parent.add_child(hold)
+	%TurretCanvas.add_child(hold)
 	hold.global_position = new_position
 	hold.building = false
 	hold = null

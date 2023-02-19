@@ -8,9 +8,12 @@ var gold:
 
 
 func price_tooltip(value):
+	return RichTextBuilder.property_text(tr("PRICE"), minimal_price_tooltip(value))
+
+func minimal_price_tooltip(value):
 	if value == 0:
 		return RichTextBuilder.color_text(tr("FREE"), Palette.green)
 	var color = Palette.green
 	if value > gold:
 		color = Palette.red
-	return RichTextBuilder.property_text(tr("PRICE"), minimal_value_tooltip(value, color))
+	return minimal_value_tooltip(value, color)

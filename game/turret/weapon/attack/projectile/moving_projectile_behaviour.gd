@@ -3,7 +3,7 @@ class_name MovingProjectileBehaviour
 
 @export var shader : ShaderMaterial
 @export var sprite : Texture
-@export var speed : float = 200
+@export var speed : float = 500
 @export var acceleration : float = 0
 @export var randomly_rotate : bool = false
 
@@ -24,5 +24,5 @@ func _process(delta):
 func tooltip():
 	return super.tooltip() + \
 			RichTextBuilder.property_text(tr("PROJECTILE_SPEED"), 
-					RichTextBuilder.color_text(str(speed), 
-							Palette.green))
+			RichTextBuilder.color_text(str(speed), 
+			Palette.green))

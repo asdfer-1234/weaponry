@@ -8,6 +8,7 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 script = ExtResource("2_prns0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -17,6 +18,7 @@ offset_left = -32.0
 offset_top = -10.0
 offset_right = 32.0
 offset_bottom = 26.0
+mouse_filter = 2
 theme = ExtResource("2_p4eeg")
 bbcode_enabled = true
 text = "

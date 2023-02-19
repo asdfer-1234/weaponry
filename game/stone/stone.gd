@@ -93,3 +93,10 @@ func get_nearby_stones_by_progress(backward_range, forward_range):
 func goal():
 	queue_free()
 	$"../%Health".health -= health_damage
+
+func add_effect(effect):
+	var effect_path = NodePath(effect.get_state().get_node_name(0))
+	if has_node(effect_path):
+		get_node(effect_path).reload()
+	else:
+		add_child(effect.instantiate())

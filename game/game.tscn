@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dx4hqbc3d44mf"]
+[gd_scene load_steps=36 format=3 uid="uid://dx4hqbc3d44mf"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
@@ -26,6 +26,13 @@
 [ext_resource type="Script" path="res://game/tooltip.gd" id="17_ksa57"]
 [ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="17_mys5v"]
 [ext_resource type="Script" path="res://game/turret/builder/builder.gd" id="17_ym512"]
+[ext_resource type="PackedScene" uid="uid://oc6d2nkw7s8t" path="res://game/item/slot/sale_slot.tscn" id="21_im3vc"]
+
+[sub_resource type="Curve2D" id="1"]
+_data = {
+"points": PackedVector2Array(-118.921, -120.11, 118.921, 120.11, 139, 182, -112, 68, 112, -68, 316, 96, -25, -32.5, 25, 32.5, 494, 127, 34, -50, -34, 50, 551, 284, -263, 21, 263, -21, 317, 240, 77, 89.5, -77, -89.5, 89, 292)
+}
+point_count = 6
 
 [sub_resource type="Resource" id="Resource_1gg1x"]
 script = ExtResource("17_fox0a")
@@ -57,129 +64,12 @@ script = ExtResource("17_fox0a")
 item = ExtResource("9_05r4t")
 count = 1
 
-[sub_resource type="Curve2D" id="1"]
-_data = {
-"points": PackedVector2Array(-118.921, -120.11, 118.921, 120.11, 139, 182, -112, 68, 112, -68, 316, 96, -25, -32.5, 25, 32.5, 494, 127, 34, -50, -34, 50, 551, 284, -263, 21, 263, -21, 317, 240, 77, 89.5, -77, -89.5, 89, 292)
-}
-point_count = 6
+[sub_resource type="Resource" id="Resource_c0an4"]
+script = ExtResource("17_fox0a")
+item = ExtResource("5_3445w")
+count = 1000
 
 [node name="Game" type="Node"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-theme = ExtResource("1_bgo03")
-
-[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="BuildButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-theme = ExtResource("1_bgo03")
-text = "BUILD_TURRET"
-script = ExtResource("2_xtpje")
-
-[node name="Health" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_l1uk2")
-bbcode_enabled = true
-text = "[img]res://game/health/heart.png[/img]50"
-fit_content = true
-scroll_active = false
-script = ExtResource("3_al0pa")
-value = 50
-icon = ExtResource("4_h4x8a")
-color = Color(1, 0.305882, 0.305882, 1)
-
-[node name="Gold" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_l1uk2")
-bbcode_enabled = true
-text = "[img]res://game/health/heart.png[/img]50"
-fit_content = true
-scroll_active = false
-script = ExtResource("5_l3b8w")
-value = 50
-icon = ExtResource("6_h6anp")
-color = Color(1, 0.85098, 0.541176, 1)
-
-[node name="ReserveInventory" type="GridContainer" parent="CanvasLayer/MarginContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-mouse_filter = 2
-columns = 5
-
-[node name="ItemSlot" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-item_stack = SubResource("Resource_1gg1x")
-
-[node name="ItemSlot2" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-item_stack = SubResource("Resource_b8psj")
-
-[node name="ItemSlot3" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-item_stack = SubResource("Resource_780pe")
-
-[node name="ItemSlot4" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-item_stack = SubResource("Resource_om7la")
-
-[node name="ItemSlot5" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-
-[node name="ItemSlot6" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-
-[node name="ItemSlot7" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-
-[node name="ItemSlot8" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-
-[node name="ItemSlot9" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-item_stack = SubResource("Resource_kwpms")
-
-[node name="ItemSlot10" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
-layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
-
-[node name="TrashSlot" parent="CanvasLayer/MarginContainer/ReserveInventory" instance=ExtResource("5_7ufwh")]
-layout_mode = 2
-
-[node name="Container" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-mouse_filter = 2
-
-[node name="SlotContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/Container" groups=["turret_item_slot_container"]]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="TurretSelection" type="Control" parent="CanvasLayer" groups=["turret_selection"]]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-script = ExtResource("2_6iqjx")
 
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("6_q555l")
@@ -212,9 +102,155 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map/Area2D"]
 polygon = PackedVector2Array(88, 263, 177, 295, 251, 294, 217, 270, 233, 241, 311, 225, 415, 230, 422, 259, 386, 287, 483, 289, 543, 266, 538, 224, 467, 122, 418, 82, 342, 111, 280, 170, 247, 221, 216, 244, 172, 239, 108, 180, 139, 162, 200, 209, 212, 206, 258, 114, 334, 64, 397, 49, 457, 60, 531, 134, 584, 242, 567, 287, 515, 317, 374, 310, 340, 305, 269, 322, 193, 335, 124, 331, 71, 309)
 
-[node name="Turrets" type="Node2D" parent="." groups=["turrets"]]
+[node name="ProjectileCanvas" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="TurretCanvas" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="DamageEffectCanvas" type="CanvasLayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource("1_bgo03")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Health" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_l1uk2")
+bbcode_enabled = true
+text = "[img]res://game/health/heart.png[/img]50"
+fit_content = true
+scroll_active = false
+script = ExtResource("3_al0pa")
+value = 50
+icon = ExtResource("4_h4x8a")
+color = Color(1, 0.305882, 0.305882, 1)
+
+[node name="Gold" type="RichTextLabel" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_l1uk2")
+bbcode_enabled = true
+text = "[img]res://game/health/heart.png[/img]50"
+fit_content = true
+scroll_active = false
+script = ExtResource("5_l3b8w")
+value = 50
+icon = ExtResource("6_h6anp")
+color = Color(1, 0.85098, 0.541176, 1)
+
+[node name="BuildButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_bgo03")
+text = "BUILD_TURRET"
+script = ExtResource("2_xtpje")
+
+[node name="SelectedLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bgo03")
+text = "INVENTORY_SELECTED"
+
+[node name="SlotContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer" groups=["turret_item_slot_container"]]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="InventoryLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bgo03")
+text = "INVENTORY"
+
+[node name="ReserveInventory" type="GridContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+columns = 2
+
+[node name="ItemSlot" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_1gg1x")
+
+[node name="ItemSlot2" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_b8psj")
+
+[node name="ItemSlot3" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_780pe")
+
+[node name="ItemSlot4" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_om7la")
+
+[node name="ItemSlot5" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="ItemSlot6" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="ItemSlot7" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="ItemSlot8" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+
+[node name="ItemSlot9" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_kwpms")
+
+[node name="ItemSlot10" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
+
+[node name="TrashSlot" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("5_7ufwh")]
+layout_mode = 2
+
+[node name="ShopLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bgo03")
+text = "SHOP"
+
+[node name="ShopContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="SaleSlot" parent="CanvasLayer/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+layout_mode = 2
+item_stack = SubResource("Resource_c0an4")
+
+[node name="SaleSlot2" parent="CanvasLayer/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+layout_mode = 2
+
+[node name="SaleSlot3" parent="CanvasLayer/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+layout_mode = 2
+
+[node name="TurretSelection" type="Control" parent="CanvasLayer" groups=["turret_selection"]]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("2_6iqjx")
 
 [node name="CursorCanvas" type="CanvasLayer" parent="."]
 
@@ -267,8 +303,8 @@ theme = ExtResource("1_bgo03")
 bbcode_enabled = true
 scroll_active = false
 
+[connection signal="timeout" from="Map/GenerationTimer" to="Map" method="generate"]
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" to="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" to="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]
-[connection signal="timeout" from="Map/GenerationTimer" to="Map" method="generate"]
 [connection signal="finished" from="CursorCanvas/CursorFollower/Tooltip/MarginContainer/RichTextLabel" to="CursorCanvas/CursorFollower/Tooltip" method="update_tooltip_size"]

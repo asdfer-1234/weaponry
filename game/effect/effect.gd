@@ -2,9 +2,14 @@ extends Node
 class_name Effect
 
 @export var duration : float = 1
+var timer
 
 func _ready():
-	get_tree().create_timer(duration, true, true).timeout.connect(expire)
+	timer = get_tree().create_timer(duration, true, true)
+	timer.timeout.connect(expire)
+
+func reload():
+	timer.time_left = duration
 
 func expire():
 	queue_free()

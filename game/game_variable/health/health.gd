@@ -10,4 +10,4 @@ var health:
 
 func gameover():
 	print("gameover")
-
+	Engine.time_scale = 0

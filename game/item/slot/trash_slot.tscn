@@ -34,4 +34,5 @@ item_stack = SubResource("Resource_a51he")
 
 [connection signal="left_pressed" from="." to="." method="_primary_pressed"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="right_pressed" from="." to="." method="_secondary_pressed"]
