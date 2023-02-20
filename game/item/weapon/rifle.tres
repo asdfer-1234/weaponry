@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://p3jky4bixanq"]
+
+[ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_okevr"]
+[ext_resource type="Texture2D" uid="uid://bbksugl40sjb2" path="res://game/item/weapon/rifle.png" id="2_ydeu2"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_eisbe"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="4_1rol7"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/attack/projectile/projectile.png" id="5_713mt"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="6_gs0hg"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_gkoev"]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_wmpaw"]
+[ext_resource type="Texture2D" uid="uid://7y2oqu7ylmav" path="res://game/item/weapon/shotgun_turret.png" id="9_uwsms"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="10_1n1ow"]
+
+[sub_resource type="Resource" id="Resource_my61n"]
+script = ExtResource("3_eisbe")
+type = 0
+damage = 25
+
+[sub_resource type="Resource" id="Resource_vhocw"]
+script = ExtResource("4_1rol7")
+sprite = ExtResource("5_713mt")
+speed = 500.0
+acceleration = 0.0
+randomly_rotate = false
+pierce = 2
+size = 0.5
+damage = SubResource("Resource_my61n")
+lifetime = 2.0
+
+[sub_resource type="Resource" id="Resource_gpoqp"]
+script = ExtResource("6_gs0hg")
+projectile_behaviour = SubResource("Resource_vhocw")
+spread = 5.0
+count = 3
+delay = 0.075
+
+[sub_resource type="Resource" id="Resource_csivg"]
+script = ExtResource("7_gkoev")
+min_range = 0.0
+max_range = 80.0
+
+[sub_resource type="Resource" id="Resource_io0wl"]
+script = ExtResource("10_1n1ow")
+
+[sub_resource type="Resource" id="Resource_3tkw8"]
+script = ExtResource("8_wmpaw")
+infinite_swivel = false
+swivel_speed = 180.0
+targeter = SubResource("Resource_io0wl")
+ranger = SubResource("Resource_csivg")
+attack_speed = 1.5
+attack = SubResource("Resource_gpoqp")
+sprite = ExtResource("9_uwsms")
+flip_mode = 1
+ammunition_slot_count = 1
+accessory_slot_count = 1
+
+[resource]
+script = ExtResource("1_okevr")
+weapon = SubResource("Resource_3tkw8")
+name = "RIFLE"
+sprite = ExtResource("2_ydeu2")
+type = 1

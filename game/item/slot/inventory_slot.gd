@@ -5,7 +5,9 @@ class_name InventorySlot
 	get:
 		return $ItemStackDisplay.item_stack
 	set(value):
+		$ItemStackDisplay.changed.disconnect(_emit_changed)
 		$ItemStackDisplay.item_stack = value
+		$ItemStackDisplay.changed.connect(_emit_changed)
 		changed.emit()
 
 @export var accept_type : Item.Type = Item.Type.NONE:
@@ -22,6 +24,7 @@ signal changed
 
 func _ready():
 	super._ready()
+	$ItemStackDisplay.changed.connect(_emit_changed)
 
 func _primary_pressed():
 	if item_acceptable(cursor):
@@ -31,10 +34,10 @@ func _secondary_pressed():
 	if item_acceptable(cursor):
 		secondary(cursor)
 
-func primary(other):
+func primary(_other):
 	pass
 
-func secondary(other):
+func secondary(_other):
 	pass
 
 func item_acceptable(other):
@@ -64,3 +67,5 @@ func tooltip():
 func update_display():
 	$ItemStackDisplay.update_display()
 
+func _emit_changed():
+	changed.emit()

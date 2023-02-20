@@ -19,8 +19,10 @@ damage = 5
 [sub_resource type="Resource" id="Resource_vhocw"]
 script = ExtResource("4_1mwcf")
 sprite = ExtResource("5_gixe4")
-speed = 200.0
-pierce = 1
+speed = 500.0
+acceleration = 0.0
+randomly_rotate = false
+pierce = 2
 size = 0.25
 damage = SubResource("Resource_my61n")
 lifetime = 2.0
@@ -30,6 +32,7 @@ script = ExtResource("6_1rty6")
 projectile_behaviour = SubResource("Resource_vhocw")
 spread = 30.0
 count = 8
+delay = 0.0
 
 [sub_resource type="Resource" id="Resource_csivg"]
 script = ExtResource("7_haenc")
@@ -48,7 +51,6 @@ ranger = SubResource("Resource_csivg")
 attack_speed = 1.0
 attack = SubResource("Resource_gpoqp")
 sprite = ExtResource("9_vwh8r")
-slotCount = 0
 flip_mode = 1
 ammunition_slot_count = 1
 accessory_slot_count = 1
@@ -56,7 +58,6 @@ accessory_slot_count = 1
 [resource]
 script = ExtResource("1_w1u2s")
 weapon = SubResource("Resource_3tkw8")
-name = "Shotgun"
-description = "BANG!"
+name = "SHOTGUN"
 sprite = ExtResource("2_di30m")
 type = 1

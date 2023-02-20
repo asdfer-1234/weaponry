@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=21 format=3 uid="uid://ctntfpdpo0ftw"]
+
+[ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_vlr76"]
+[ext_resource type="Texture2D" uid="uid://1o3yyhmb7f5b" path="res://game/item/weapon/rocket_launcher.png" id="2_ctmk4"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_sppko"]
+[ext_resource type="Script" path="res://game/explosion/explosion.gd" id="4_iv262"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="5_j20ko"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="6_3yvcb"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_mruuf"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/attack/projectile/projectile.png" id="7_qfe3e"]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_vgtfy"]
+[ext_resource type="Texture2D" uid="uid://tfa25thyl81n" path="res://game/item/weapon/rocket_launcher_turret.png" id="9_wgbhl"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="10_sm3du"]
+
+[sub_resource type="Resource" id="Resource_fnas0"]
+script = ExtResource("3_sppko")
+type = 1
+damage = 2
+
+[sub_resource type="Resource" id="Resource_br8ty"]
+script = ExtResource("4_iv262")
+pierce = 100
+size = 0.3
+damage = SubResource("Resource_fnas0")
+lifetime = 2.0
+
+[sub_resource type="Resource" id="Resource_sget4"]
+script = ExtResource("5_j20ko")
+projectile_behaviour = SubResource("Resource_br8ty")
+spread = 0.0
+count = 1
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_2jpxa"]
+script = ExtResource("3_sppko")
+type = 0
+damage = 5
+
+[sub_resource type="Resource" id="Resource_5by82"]
+script = ExtResource("6_3yvcb")
+sprite = ExtResource("7_qfe3e")
+speed = 500.0
+acceleration = 100.0
+randomly_rotate = false
+pierce = 3
+size = 0.5
+damage = SubResource("Resource_2jpxa")
+lifetime = 3.0
+attack_on_hit = SubResource("Resource_sget4")
+
+[sub_resource type="Resource" id="Resource_yjh48"]
+script = ExtResource("5_j20ko")
+projectile_behaviour = SubResource("Resource_5by82")
+spread = 0.0
+count = 1
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_2asmi"]
+script = ExtResource("7_mruuf")
+min_range = 30.0
+max_range = 100.0
+
+[sub_resource type="Resource" id="Resource_10cr8"]
+script = ExtResource("10_sm3du")
+
+[sub_resource type="Resource" id="Resource_t4cf5"]
+script = ExtResource("8_vgtfy")
+infinite_swivel = false
+swivel_speed = 60.0
+targeter = SubResource("Resource_10cr8")
+ranger = SubResource("Resource_2asmi")
+attack_speed = 4.0
+attack = SubResource("Resource_yjh48")
+sprite = ExtResource("9_wgbhl")
+flip_mode = 0
+ammunition_slot_count = 1
+accessory_slot_count = 2
+
+[resource]
+script = ExtResource("1_vlr76")
+weapon = SubResource("Resource_t4cf5")
+name = "ROCKET_LAUNCHER"
+sprite = ExtResource("2_ctmk4")
+type = 1

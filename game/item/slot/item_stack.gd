@@ -2,8 +2,6 @@ extends Resource
 class_name ItemStack
 
 @export var item : Item:
-	get:
-		return item
 	set(value):
 		item = value
 		#if _item == null:

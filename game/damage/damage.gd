@@ -28,7 +28,6 @@ const type_color = [
 @export var type : Type = Type.PHYSICAL
 @export var damage : int = 10
 
-
 func tooltip():
 	return RichTextBuilder.property_text(tr("DAMAGE"), minimal_tooltip())
 

@@ -4,18 +4,23 @@ class_name ItemStackDisplay
 
 @export var item_stack : ItemStack:
 	set(value):
+		if item_stack != null:
+			item_stack.changed.disconnect(_emit_changed)
 		if value == null:
 			var new_item_stack = ItemStack.new()
 			new_item_stack.item = null
 			item_stack = new_item_stack
 		else:
+			
 			item_stack = value
 		for i in item_stack.changed.get_connections():
 			item_stack.changed.disconnect(i["callable"])
 		item_stack.changed.connect(self.update_display)
-		
+		item_stack.changed.connect(_emit_changed)
+		_emit_changed()
 		update_display()
 
+signal changed
 
 func _ready():
 	if item_stack == null:
@@ -36,3 +41,5 @@ func update_display():
 func _count_text(count : int) -> String:
 	return "\n" + RichTextBuilder.right(str(count))
 
+func _emit_changed():
+	changed.emit()

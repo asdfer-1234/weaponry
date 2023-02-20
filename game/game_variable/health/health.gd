@@ -9,5 +9,5 @@ var health:
 			gameover()
 
 func gameover():
-	print("gameover")
-	Engine.time_scale = 0
+	#Engine.time_scale = 0
+	pass

@@ -120,7 +120,7 @@ deselect_turret={
 [internationalization]
 
 locale/translations=PackedStringArray("res://translation/translation.en.translation", "res://translation/translation.ko.translation")
-locale/test="en"
+locale/test="ko"
 
 [layer_names]
 

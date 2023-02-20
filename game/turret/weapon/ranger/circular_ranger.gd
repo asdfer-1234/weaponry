@@ -29,7 +29,7 @@ func tooltip():
 				RichTextBuilder.color_text(str(min_range), Palette.red) + "-" + 
 				RichTextBuilder.color_text(str(max_range), Palette.green))
 
-func _draw_range_slowly(node, range, color):
+func _draw_range_slowly(node, radius, color):
 	var time = node.time_since_draw_weapon_details
-	node.draw_arc(Vector2.ZERO, ease(time / range_time, 0.2) * range, 0, TAU, 36, color, 1)
+	node.draw_arc(Vector2.ZERO, ease(time / range_time, 0.2) * radius, 0, TAU, 36, color, 1)
 	

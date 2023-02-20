@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dx4hqbc3d44mf"]
+[gd_scene load_steps=42 format=3 uid="uid://dx4hqbc3d44mf"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
@@ -26,6 +26,9 @@
 [ext_resource type="Script" path="res://game/tooltip.gd" id="17_ksa57"]
 [ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="17_mys5v"]
 [ext_resource type="Script" path="res://game/turret/builder/builder.gd" id="17_ym512"]
+[ext_resource type="Resource" uid="uid://be0ekdpt1a31d" path="res://game/item/weapon/shotgun.tres" id="18_8euiw"]
+[ext_resource type="Resource" uid="uid://ctntfpdpo0ftw" path="res://game/item/weapon/rocket_launcher.tres" id="19_eq5bg"]
+[ext_resource type="Resource" uid="uid://p3jky4bixanq" path="res://game/item/weapon/rifle.tres" id="19_fc03p"]
 [ext_resource type="PackedScene" uid="uid://oc6d2nkw7s8t" path="res://game/item/slot/sale_slot.tscn" id="21_im3vc"]
 
 [sub_resource type="Curve2D" id="1"]
@@ -53,6 +56,21 @@ count = 250
 script = ExtResource("17_fox0a")
 item = ExtResource("7_16477")
 count = 10
+
+[sub_resource type="Resource" id="Resource_7gjdv"]
+script = ExtResource("17_fox0a")
+item = ExtResource("18_8euiw")
+count = 1
+
+[sub_resource type="Resource" id="Resource_bbm1w"]
+script = ExtResource("17_fox0a")
+item = ExtResource("19_eq5bg")
+count = 1
+
+[sub_resource type="Resource" id="Resource_tbfu5"]
+script = ExtResource("17_fox0a")
+item = ExtResource("19_fc03p")
+count = 1
 
 [sub_resource type="Resource" id="Resource_kwpms"]
 script = ExtResource("17_fox0a")
@@ -205,12 +223,15 @@ layout_mode = 2
 
 [node name="ItemSlot6" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_7gjdv")
 
 [node name="ItemSlot7" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_bbm1w")
 
 [node name="ItemSlot8" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_tbfu5")
 
 [node name="ItemSlot9" parent="CanvasLayer/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2

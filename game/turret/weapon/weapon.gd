@@ -81,30 +81,29 @@ func tooltip():
 	return build
 
 func set_weapon_slot(weapon_slot):
-	
 	ammunition_slots = []
 	set_modifier_slots(
 			weapon_slot, ammunition_slot_count, Item.Type.AMMUNITION,
-			ammunition_slots, update_ammunition_slots)
+			ammunition, ammunition_slots, update_ammunition_slots)
 	accessory_slots = []
 	set_modifier_slots(
 			weapon_slot, accessory_slot_count, Item.Type.ACCESSORY,
-			accessory_slots, update_accessory_slots)
+			accessory, accessory_slots, update_accessory_slots)
 	
 
-func set_modifier_slots(weapon_slot, count, accept_type, array, update_callable):
+func set_modifier_slots(weapon_slot, count, accept_type, array, slot_array, update_callable):
 	var container = node.get_tree().get_first_node_in_group("turret_item_slot_container")
 	for i in range(count):
 		var instantiated = item_slot.instantiate()
-		instantiated.accept_type = accept_type
 		container.add_child(instantiated)
-		array.append(instantiated)
-		instantiated.item_stack = accessory[i]
+		instantiated.accept_type = accept_type
+		slot_array.append(instantiated)
+		slot_array[i].item_stack = array[i]
 		instantiated.changed.connect(update_callable)
 		weapon_slot.dependencies.append(instantiated)
 
-
 func update_ammunition_slots():
+	print("update_ammunition_slots")
 	for i in range(ammunition_slot_count):
 		ammunition[i] = ammunition_slots[i].item_stack
 

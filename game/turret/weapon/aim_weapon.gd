@@ -9,7 +9,7 @@ class_name AimWeapon
 @export var attack : Attack
 var shootable = true
 
-const shoot_angle = 2
+const shoot_angle = 5
 const maximum_attack_delay = 5
 
 func _process(delta):

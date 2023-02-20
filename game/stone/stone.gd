@@ -13,6 +13,8 @@ var excluded_projectiles : Array = []
 const particle = preload("res://graphics/temporary_particle.tscn")
 const damage_effect = preload("res://game/damage_effect/damage_effect.tscn")
 
+const min_damage = 1
+
 func set_progress(value):
 	progress = value
 	if has_node("../../HostilePaths/HostilePath/PathFollow2D"):
@@ -34,11 +36,10 @@ func movement_process(delta):
 
 func damage(amount : Damage):
 	var damage = damage_multipliers.multiply(amount).damage
-	health -= damage
-	
 	var effect_damage = Damage.new()
-	effect_damage.damage = damage
+	effect_damage.damage = max(damage, min_damage)
 	effect_damage.type = amount.type
+	health -= effect_damage.damage
 	instantiate_damage_effect(effect_damage)
 	if health <= 0:
 		die()
