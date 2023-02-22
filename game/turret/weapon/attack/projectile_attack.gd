@@ -7,13 +7,17 @@ class_name ProjectileAttack
 @export var delay : float = 0
 
 
-func attack(from, _target, damage_multiplier = 1):
+func attack(from, _target, modifier):
 	for i in range(count):
-		var projectile = projectile_behaviour.projectile(from)
-		projectile.damage_multiplier = damage_multiplier
+		var projectile = projectile_behaviour.projectile(from, modifier)
 		projectile.rotate(randf_range(deg_to_rad(spread), -deg_to_rad(spread)))
 		if delay != 0:
 			await from.get_tree().create_timer(delay).timeout
 
 func tooltip():
 	return projectile_behaviour.tooltip()
+
+func to_attack_array():
+	var new = AttackArray.new()
+	new.attacks = [self]
+	return new

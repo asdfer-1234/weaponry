@@ -51,7 +51,7 @@ attack_on_hit = SubResource("Resource_sget4")
 [sub_resource type="Resource" id="Resource_yjh48"]
 script = ExtResource("5_j20ko")
 projectile_behaviour = SubResource("Resource_5by82")
-spread = 0.0
+spread = 5.0
 count = 1
 delay = 0.0
 

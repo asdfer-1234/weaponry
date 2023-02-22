@@ -37,9 +37,10 @@ func signed_numeric(value):
 		return "+" + str(value)
 	return str(value)
 
-func add_other(other):
-	adder += other.adder
-	multiplier += other.multiplier - 1
+func add(other):
+	if other != null:
+		adder += other.adder
+		multiplier += other.additive_multiplier()
 
 func apply(value):
 	return value * multiplier + adder

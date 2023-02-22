@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://dor1u3wqnr44j"]
+
+[ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_dsesi"]
+[ext_resource type="Texture2D" uid="uid://bo04jinv3t0r0" path="res://game/item/weapon/revolver.png" id="2_3psj1"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_bdv2h"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="4_ky8au"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/attack/projectile/projectile.png" id="5_jr8t1"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="6_1xy74"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_72nsj"]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_yh27t"]
+[ext_resource type="Texture2D" uid="uid://qwxhy6qmoeie" path="res://game/item/weapon/revolver_turret.png" id="9_bmk2y"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="10_8uolu"]
+
+[sub_resource type="Resource" id="Resource_tsl24"]
+script = ExtResource("3_bdv2h")
+type = 0
+damage = 40
+
+[sub_resource type="Resource" id="Resource_rbdhb"]
+script = ExtResource("4_ky8au")
+sprite = ExtResource("5_jr8t1")
+speed = 500.0
+acceleration = 0.0
+randomly_rotate = false
+pierce = 1
+size = 0.5
+damage = SubResource("Resource_tsl24")
+lifetime = 2.0
+
+[sub_resource type="Resource" id="Resource_msshv"]
+script = ExtResource("6_1xy74")
+projectile_behaviour = SubResource("Resource_rbdhb")
+spread = 2.0
+count = 1
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_mf8yx"]
+script = ExtResource("7_72nsj")
+min_range = 0.0
+max_range = 70.0
+
+[sub_resource type="Resource" id="Resource_xtowc"]
+script = ExtResource("10_8uolu")
+
+[sub_resource type="Resource" id="Resource_y2g54"]
+script = ExtResource("8_yh27t")
+infinite_swivel = false
+swivel_speed = 720.0
+targeter = SubResource("Resource_xtowc")
+ranger = SubResource("Resource_mf8yx")
+attack_speed = 2.0
+attack = SubResource("Resource_msshv")
+sprite = ExtResource("9_bmk2y")
+flip_mode = 1.0
+ammunition_slot_count = 1
+accessory_slot_count = 3
+
+[resource]
+script = ExtResource("1_dsesi")
+weapon = SubResource("Resource_y2g54")
+name = "REVOLVER"
+sprite = ExtResource("2_3psj1")
+type = 1

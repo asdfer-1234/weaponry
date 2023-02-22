@@ -9,25 +9,29 @@ const default_projectile = preload("res://game/turret/weapon/attack/projectile/p
 @export var damage : Damage
 @export var lifetime : float = 2
 @export var attack_on_hit : Attack
-
+@export var attack_on_expire : Attack
+var modifier : WeaponModifier
 var hit = false
 
 func get_default_projectile():
 	return default_projectile
 
 
-func projectile(node):
+func projectile(node, new_modifier):
 	var instantiated = get_default_projectile().instantiate()
 	_set_defaults(node, instantiated)
 	node.get_node("../%ProjectileCanvas").call_deferred("add_child", instantiated)
+	instantiated.projectile_behaviour.modifier = new_modifier
+	if instantiated.projectile_behaviour.modifier.pierce != null:
+		instantiated.projectile_behaviour.pierce = instantiated.projectile_behaviour.modifier.pierce.apply(instantiated.projectile_behaviour.pierce)
 	return instantiated
 
 func _set_defaults(node, instantiated):
 	instantiated.projectile_behaviour = self.duplicate()
-	instantiated.projectile_behaviour.damage = instantiated.projectile_behaviour.damage.duplicate()
 	instantiated.scale = size * Vector2.ONE
 	instantiated.position = node.position
 	instantiated.global_rotation = node.global_rotation
+	
 
 func _update():
 	super._update()
@@ -42,14 +46,18 @@ func _on_hit(target):
 	pierce -= 1
 	
 	var applied_damage = damage.duplicate()
-	applied_damage.damage = node.damage_multiplier.apply(applied_damage.damage)
+	if modifier != null and modifier.damage != null:
+		applied_damage.damage = modifier.damage.apply(applied_damage.damage)
 	target.damage(applied_damage)
-	
 	if pierce <= 0:
 		hit = true
 		node.queue_free()
 	if attack_on_hit != null:
-		attack_on_hit.attack(node, target, node.damage_multiplier)
+		attack_on_hit.attack(node, target, modifier)
+
+func _on_expire(target):
+	if attack_on_expire != null:
+		attack_on_expire.attack(node, null, modifier)
 
 func tooltip():
 	var text = ""

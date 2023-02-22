@@ -35,12 +35,8 @@ func get_first_ammunition():
 	if first_ammunition_stack != null:
 		return first_ammunition_stack.item
 
-func get_damage_boost():
-	var boosts = []
-	for i in get_all_modifiers():
-		if i.damage != null:
-			boosts.append(i.damage)
-	return boost_array(boosts)
+func get_modifier():
+	return WeaponModifier.new().merge_array(get_all_modifiers())
 
 func get_all_modifiers():
 	var modifiers = []
@@ -103,16 +99,9 @@ func set_modifier_slots(weapon_slot, count, accept_type, array, slot_array, upda
 		weapon_slot.dependencies.append(instantiated)
 
 func update_ammunition_slots():
-	print("update_ammunition_slots")
 	for i in range(ammunition_slot_count):
 		ammunition[i] = ammunition_slots[i].item_stack
 
 func update_accessory_slots():
 	for i in range(accessory_slot_count):
 		accessory[i] = accessory_slots[i].item_stack
-
-func boost_array(boosts):
-	var new_boost = Boost.new()
-	for i in boosts:
-		new_boost.add_other(i)
-	return new_boost

@@ -1,11 +1,10 @@
 extends Area2D
 
 @export var projectile_behaviour : ProjectileBehaviour
-var damage_multiplier : Boost
+
 
 
 func _ready():
-	projectile_behaviour = projectile_behaviour.duplicate()
 	projectile_behaviour.update(self)
 
 func _physics_process(delta):

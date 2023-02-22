@@ -52,8 +52,8 @@ attack_speed = 1.5
 attack = SubResource("Resource_gpoqp")
 sprite = ExtResource("9_uwsms")
 flip_mode = 1
-ammunition_slot_count = 1
-accessory_slot_count = 1
+ammunition_slot_count = 2
+accessory_slot_count = 2
 
 [resource]
 script = ExtResource("1_okevr")

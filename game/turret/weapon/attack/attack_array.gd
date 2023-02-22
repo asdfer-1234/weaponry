@@ -8,7 +8,10 @@ func attack(from, target, damage_multiplier):
 	for i in attacks:
 		i.attack(from, target, damage_multiplier)
 
-func add_attack(other):
+func add(other):
 	var added = self.duplicate()
 	added.attacks.append(other)
 	return added
+
+func to_attack_array():
+	return self

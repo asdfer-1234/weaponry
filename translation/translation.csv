@@ -52,3 +52,11 @@ RIFLE,Rifle,소총
 SHOTGUN,Shotgun,산탄총
 RIFLE_DESCRIPTION,Pew pew pew,슈슈슉
 SHOTGUN_DESCRIPTION,Multiple projectiles,한번에 다량의 투사체 발사
+BOW,Bow,활
+REVOLVER,Revolver,리볼버
+BOW_DESCRIPTION,Old,오래됐다
+REVOLVER_DESCRIPTION,Bang,탕
+ROCKET_LAUNCHER,Rocket launcher,로켓 발사대
+ROCKET_LAUNCHER_DESCRIPTION,Powered by rockets(tm),Powered by rockets(tm)
+ARROW,Arrow,화살
+ARROW_DESCRIPTION,Pointy,뾰족하다

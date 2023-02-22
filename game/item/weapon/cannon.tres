@@ -29,6 +29,7 @@ script = ExtResource("5_tcbxf")
 projectile_behaviour = SubResource("Resource_edt2r")
 spread = null
 count = null
+delay = 0.0
 
 [sub_resource type="Resource" id="Resource_venbm"]
 script = ExtResource("3_go407")
@@ -52,6 +53,7 @@ script = ExtResource("5_tcbxf")
 projectile_behaviour = SubResource("Resource_kdcch")
 spread = null
 count = null
+delay = 0.0
 
 [sub_resource type="Resource" id="Resource_cd45c"]
 script = ExtResource("8_kfksq")
