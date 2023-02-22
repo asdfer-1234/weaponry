@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Ammunition" load_steps=11 format=3 uid="uid://b72qmdxop0sc1"]
+
+[ext_resource type="Script" path="res://game/item/boost.gd" id="1_3a5wk"]
+[ext_resource type="Script" path="res://game/item/modifier.gd" id="2_w05cc"]
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="3_1788d"]
+[ext_resource type="Texture2D" uid="uid://2vox3tne4cc6" path="res://game/item/ammunition/shotgun_shell.png" id="4_gflgy"]
+
+[sub_resource type="Resource" id="Resource_i0pbc"]
+script = ExtResource("1_3a5wk")
+multiplier = 0.5
+adder = 0.0
+
+[sub_resource type="Resource" id="Resource_upt7f"]
+script = ExtResource("1_3a5wk")
+multiplier = 3.0
+adder = 3.0
+
+[sub_resource type="Resource" id="Resource_6on53"]
+script = ExtResource("1_3a5wk")
+multiplier = 1.0
+adder = -3.0
+
+[sub_resource type="Resource" id="Resource_nh4c3"]
+script = ExtResource("1_3a5wk")
+multiplier = 1.0
+adder = -2.0
+
+[sub_resource type="Resource" id="Resource_osuoy"]
+script = ExtResource("1_3a5wk")
+multiplier = 1.0
+adder = 25.0
+
+[sub_resource type="Resource" id="Resource_nskfn"]
+script = ExtResource("2_w05cc")
+damage = SubResource("Resource_6on53")
+attack_speed = SubResource("Resource_i0pbc")
+pierce = SubResource("Resource_nh4c3")
+count = SubResource("Resource_upt7f")
+spread = SubResource("Resource_osuoy")
+
+[resource]
+script = ExtResource("3_1788d")
+modifier = SubResource("Resource_nskfn")
+stack_size = 250
+name = "SHOTGUN_SHELL"
+sprite = ExtResource("4_gflgy")
+type = 2

@@ -2,8 +2,6 @@ extends Area2D
 
 @export var projectile_behaviour : ProjectileBehaviour
 
-
-
 func _ready():
 	projectile_behaviour.update(self)
 

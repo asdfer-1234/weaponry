@@ -36,7 +36,7 @@ func get_first_ammunition():
 		return first_ammunition_stack.item
 
 func get_modifier():
-	return WeaponModifier.new().merge_array(get_all_modifiers())
+	return Modifier.new().merge_array(get_all_modifiers())
 
 func get_all_modifiers():
 	var modifiers = []

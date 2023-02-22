@@ -9,9 +9,9 @@ func attack(from, target, damage_multiplier):
 		i.attack(from, target, damage_multiplier)
 
 func add(other):
-	var added = self.duplicate()
-	added.attacks.append(other)
-	return added
+	if other == null:
+		return self
+	attacks.append(other)
 
 func to_attack_array():
 	return self

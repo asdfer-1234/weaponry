@@ -14,7 +14,7 @@ const maximum_attack_delay = 5
 
 func _process(delta):
 	if not node.building:
-		var target = targeter.get_target(node, self.ranger.get_targets(node))
+		var target = targeter.get_target(node, get_ranger().get_targets(node))
 		if target != null:
 			swivel(node, delta, target.global_position)
 			if (shootable and
@@ -38,6 +38,23 @@ func _timer_timeout():
 	shootable = true
 	pass
 
+func get_ranger():
+	var applied_ranger
+	if get_modifier().ranger == null:
+		applied_ranger = ranger
+	else:
+		applied_ranger = get_modifier().ranger
+	applied_ranger = applied_ranger.duplicate()
+	applied_ranger.apply_boost(get_modifier().range_boost)
+	return applied_ranger
+
+func get_targeter():
+	var modifier = get_modifier()
+	if modifier.targeter == null:
+		return targeter
+	else:
+		return modifier.targeter
+
 func swivel(node, delta, target):
 	var target_rotation = (target - node.global_position).angle()
 	if infinite_swivel:
@@ -57,7 +74,7 @@ func _angle_difference(from, to):
 	return ans
 
 func _draw():
-	ranger._draw(node)
+	get_ranger()._draw(node)
 
 func tooltip():
 	var text = ""

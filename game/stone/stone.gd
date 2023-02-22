@@ -44,6 +44,9 @@ func damage(amount : Damage):
 	if health <= 0:
 		die()
 
+func knockback(distance):
+	progress -= distance
+
 func instantiate_damage_effect(damage : Damage):
 	var instantiated = damage_effect.instantiate()
 	instantiated.set_damage(damage)
@@ -101,3 +104,5 @@ func add_effect(effect):
 		get_node(effect_path).reload()
 	else:
 		add_child(effect.instantiate())
+
+

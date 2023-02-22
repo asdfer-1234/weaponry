@@ -60,3 +60,24 @@ ROCKET_LAUNCHER,Rocket launcher,로켓 발사대
 ROCKET_LAUNCHER_DESCRIPTION,Powered by rockets(tm),Powered by rockets(tm)
 ARROW,Arrow,화살
 ARROW_DESCRIPTION,Pointy,뾰족하다
+ON_EXPIRE,On expire,적중 없이 끝날 시
+COUNT,Count,개수
+SPREAD,Spread,탄퍼짐
+DELAY,Delay,간격
+DOUBLE_BARREL,Double barrel,더블 배럴
+DOUBLE_BARREL_DESCRIPTION,More projectiles!,많은 투사체!
+GASOLINE,Gasoline,가솔린
+GASOLINE_DESCRIPTION,Oil in a barrel,배럴화
+SWORD,Sword,검
+SWORD_DESCRIPTION,or a knife maybe?,날카로운
+ACID,Acid,산
+ACID_DESCRIPTION,Melts,녹인다
+SHOTGUN_SHELL,Shotgun shell,산탄
+SHOTGUN_SHELL_DESCRIPTION,Even more projectiles!,더 많은 투사체!
+WATER_GUN,Water gun,물총
+WATER_GUN_DESCRIPTION,Actually a hose,화염 없는 화염방사기
+MACHINE_GUN,Machine gun,기관총
+MACHINE_GUN_DESCRIPTION,Ratatatatatata,난사
+OIL,Oil,기름
+OIL_DESCRIPTION,Fire aspect II,발화 II
+CLOSE_TARGETER_TOOLTIP,Targets closest,가장 가까운 목표

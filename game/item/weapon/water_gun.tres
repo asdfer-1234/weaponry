@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=19 format=3 uid="uid://dc74qskpvsaud"]
+
+[ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_gwq7n"]
+[ext_resource type="Texture2D" uid="uid://bjf2dp2vxcvui" path="res://game/item/weapon/water_gun.png" id="2_bof7t"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/knockback_attack.gd" id="3_o3p68"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_pmbe7"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="4_6ruef"]
+[ext_resource type="Texture2D" uid="uid://csjnwo4hc3jop" path="res://game/turret/weapon/attack/projectile/water.png" id="5_xwkst"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="6_82yir"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_epqpw"]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_yrrib"]
+[ext_resource type="Texture2D" uid="uid://dpmkenajcgomf" path="res://game/item/weapon/water_gun_turret.png" id="9_86jhd"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="10_g0ip1"]
+
+[sub_resource type="Resource" id="Resource_a1ldp"]
+script = ExtResource("3_o3p68")
+knockback = 3
+
+[sub_resource type="Resource" id="Resource_tsl24"]
+script = ExtResource("3_pmbe7")
+type = 2
+damage = 2
+
+[sub_resource type="Resource" id="Resource_rbdhb"]
+script = ExtResource("4_6ruef")
+sprite = ExtResource("5_xwkst")
+speed = 150.0
+acceleration = -100.0
+randomly_rotate = true
+pierce = 1
+size = 0.5
+damage = SubResource("Resource_tsl24")
+lifetime = 2.0
+attack_on_hit = SubResource("Resource_a1ldp")
+
+[sub_resource type="Resource" id="Resource_msshv"]
+script = ExtResource("6_82yir")
+projectile_behaviour = SubResource("Resource_rbdhb")
+spread = 2.0
+count = 1
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_mf8yx"]
+script = ExtResource("7_epqpw")
+min_range = 0.0
+max_range = 70.0
+
+[sub_resource type="Resource" id="Resource_xtowc"]
+script = ExtResource("10_g0ip1")
+
+[sub_resource type="Resource" id="Resource_y2g54"]
+script = ExtResource("8_yrrib")
+infinite_swivel = false
+swivel_speed = 400.0
+targeter = SubResource("Resource_xtowc")
+ranger = SubResource("Resource_mf8yx")
+attack_speed = 30.0
+attack = SubResource("Resource_msshv")
+sprite = ExtResource("9_86jhd")
+flip_mode = 0
+ammunition_slot_count = 1
+accessory_slot_count = 1
+
+[resource]
+script = ExtResource("1_gwq7n")
+weapon = SubResource("Resource_y2g54")
+name = "WATER_GUN"
+sprite = ExtResource("2_bof7t")
+type = 1

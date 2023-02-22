@@ -7,6 +7,9 @@ const explosion_audio = preload("res://game/explosion/noise_explosion.wav")
 
 var timer
 
+func projectile(node, new_modifier):
+	return super.projectile(node, new_modifier)
+
 func get_default_projectile():
 	return default_explosion_projectile
 

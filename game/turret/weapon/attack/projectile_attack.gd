@@ -8,14 +8,22 @@ class_name ProjectileAttack
 
 
 func attack(from, _target, modifier):
-	for i in range(count):
+	for i in range(modifier.count.apply(count)):
 		var projectile = projectile_behaviour.projectile(from, modifier)
-		projectile.rotate(randf_range(deg_to_rad(spread), -deg_to_rad(spread)))
+		var applied_spread = modifier.spread.apply(spread)
+		projectile.rotate(randf_range(deg_to_rad(applied_spread), -deg_to_rad(applied_spread)))
 		if delay != 0:
 			await from.get_tree().create_timer(delay).timeout
 
 func tooltip():
-	return projectile_behaviour.tooltip()
+	var build = ""
+	build += RichTextBuilder.property_text(tr("SPREAD"), RichTextBuilder.color_text(str(spread), Palette.red))
+	if count != 1:
+		build += RichTextBuilder.property_text(tr("COUNT"), RichTextBuilder.color_text(str(count), Palette.green))
+	if delay != 0:
+		build += RichTextBuilder.property_text(tr("DELAY"), RichTextBuilder.color_text(str(delay), Palette.yellow))
+	build += projectile_behaviour.tooltip()
+	return build
 
 func to_attack_array():
 	var new = AttackArray.new()

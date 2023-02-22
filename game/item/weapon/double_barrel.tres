@@ -1,26 +1,53 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=14 format=3 uid="uid://oc74ieijihew"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=20 format=3 uid="uid://oc74ieijihew"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_qhf8a"]
 [ext_resource type="Texture2D" uid="uid://d10ds5r2mg7hf" path="res://game/item/weapon/double_barrel.png" id="2_fx7rl"]
 [ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/projectile_behaviour.gd" id="3_dcrv1"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_m0isv"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="4_w70m2"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/attack/projectile/projectile.png" id="5_oktfv"]
 [ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="6_eg150"]
 [ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_umolm"]
 [ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_2htxj"]
 [ext_resource type="Texture2D" uid="uid://bbnarha6q6b56" path="res://game/item/weapon/double_barrel_turret.png" id="9_6sxxy"]
 [ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="10_ypgmh"]
 
+[sub_resource type="Resource" id="Resource_eknme"]
+script = ExtResource("3_m0isv")
+type = 0
+damage = 5
+
+[sub_resource type="Resource" id="Resource_2xq32"]
+script = ExtResource("4_w70m2")
+sprite = ExtResource("5_oktfv")
+speed = 500.0
+acceleration = 0.0
+randomly_rotate = false
+pierce = 1
+size = 0.25
+damage = SubResource("Resource_eknme")
+lifetime = 2.0
+
+[sub_resource type="Resource" id="Resource_2ncgn"]
+script = ExtResource("6_eg150")
+projectile_behaviour = SubResource("Resource_2xq32")
+spread = 30.0
+count = 8
+delay = 0.0
+
 [sub_resource type="Resource" id="Resource_hewaj"]
 script = ExtResource("3_dcrv1")
 pierce = 1
 size = 1.0
-lifetime = 2.0
+lifetime = 0.0
+attack_on_expire = SubResource("Resource_2ncgn")
 
 [sub_resource type="Resource" id="Resource_gpoqp"]
 script = ExtResource("6_eg150")
 projectile_behaviour = SubResource("Resource_hewaj")
-spread = 30.0
-count = 8
-delay = 0.0
+spread = 4.0
+count = 2
+delay = 0.1
 
 [sub_resource type="Resource" id="Resource_csivg"]
 script = ExtResource("7_umolm")

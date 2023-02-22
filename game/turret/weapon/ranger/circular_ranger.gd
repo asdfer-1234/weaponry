@@ -6,6 +6,8 @@ class_name CircularRanger
 
 const range_time = 0.5
 
+func extent():
+	return max_range
 
 func get_targets(node):
 	var targets : Array = []
@@ -33,3 +35,6 @@ func _draw_range_slowly(node, radius, color):
 	var time = node.time_since_draw_weapon_details
 	node.draw_arc(Vector2.ZERO, ease(time / range_time, 0.2) * radius, 0, TAU, 36, color, 1)
 	
+func apply_boost(boost):
+	max_range = boost.apply(max_range)
+	min_range = boost.apply(min_range)

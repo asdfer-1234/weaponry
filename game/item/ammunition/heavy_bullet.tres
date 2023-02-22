@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=8 format=3 uid="uid://6rhn5trwe8dh"]
+[gd_resource type="Resource" script_class="Ammunition" load_steps=9 format=3 uid="uid://6rhn5trwe8dh"]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_ba8oe"]
 [ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="1_yyp3t"]
@@ -15,10 +15,16 @@ script = ExtResource("1_ba8oe")
 multiplier = 2.0
 adder = 2.0
 
+[sub_resource type="Resource" id="Resource_7cg8k"]
+script = ExtResource("1_ba8oe")
+multiplier = 1.0
+adder = 1.0
+
 [sub_resource type="Resource" id="Resource_j5e0w"]
 script = ExtResource("2_xwys7")
 damage = SubResource("Resource_e6hw0")
 attack_speed = SubResource("Resource_8wfyb")
+pierce = SubResource("Resource_7cg8k")
 
 [resource]
 script = ExtResource("1_yyp3t")

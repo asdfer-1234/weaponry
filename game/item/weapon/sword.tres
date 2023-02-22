@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=16 format=3 uid="uid://bxnp4r0v83p7f"]
+
+[ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_q7cga"]
+[ext_resource type="Texture2D" uid="uid://dcgmbq1oe42wf" path="res://game/item/weapon/sword.png" id="2_cow62"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/swipe_projectile_behaviour.gd" id="3_8no3q"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_g4mhm"]
+[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="6_hn3i8"]
+[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_qiytt"]
+[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_os1o0"]
+[ext_resource type="Texture2D" uid="uid://dagfewpj5sv47" path="res://game/item/weapon/sword_turret.png" id="9_2yl41"]
+[ext_resource type="Script" path="res://game/turret/weapon/targeter/close_targeter.gd" id="9_5vri2"]
+
+[sub_resource type="Resource" id="Resource_qfr2f"]
+script = ExtResource("3_g4mhm")
+type = 0
+damage = 5
+
+[sub_resource type="Resource" id="Resource_r3y45"]
+script = ExtResource("3_8no3q")
+arc = 80.0
+pierce = 7
+size = 1.0
+damage = SubResource("Resource_qfr2f")
+lifetime = 0.1
+
+[sub_resource type="Resource" id="Resource_msshv"]
+script = ExtResource("6_hn3i8")
+projectile_behaviour = SubResource("Resource_r3y45")
+spread = 10.0
+count = 1
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_mf8yx"]
+script = ExtResource("7_qiytt")
+min_range = 0.0
+max_range = 70.0
+
+[sub_resource type="Resource" id="Resource_8jkbk"]
+script = ExtResource("9_5vri2")
+
+[sub_resource type="Resource" id="Resource_y2g54"]
+script = ExtResource("8_os1o0")
+infinite_swivel = false
+swivel_speed = 720.0
+targeter = SubResource("Resource_8jkbk")
+ranger = SubResource("Resource_mf8yx")
+attack_speed = 4.0
+attack = SubResource("Resource_msshv")
+sprite = ExtResource("9_2yl41")
+flip_mode = 1.0
+ammunition_slot_count = 1
+accessory_slot_count = 3
+
+[resource]
+script = ExtResource("1_q7cga")
+weapon = SubResource("Resource_y2g54")
+name = "SWORD"
+sprite = ExtResource("2_cow62")
+type = 1

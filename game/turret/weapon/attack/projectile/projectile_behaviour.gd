@@ -10,7 +10,7 @@ const default_projectile = preload("res://game/turret/weapon/attack/projectile/p
 @export var lifetime : float = 2
 @export var attack_on_hit : Attack
 @export var attack_on_expire : Attack
-var modifier : WeaponModifier
+var modifier : Modifier
 var hit = false
 
 func get_default_projectile():
@@ -34,10 +34,13 @@ func _set_defaults(node, instantiated):
 	
 
 func _update():
+	print("proj upd")
 	super._update()
 	node.get_tree().create_timer(lifetime).timeout.connect(expire)
 
 func expire():
+	print("expire")
+	_on_expire()
 	node.queue_free()
 
 func _on_hit(target):
@@ -54,15 +57,20 @@ func _on_hit(target):
 		node.queue_free()
 	if attack_on_hit != null:
 		attack_on_hit.attack(node, target, modifier)
+	modifier.attack_on_hit.attack(node, target, modifier)
 
-func _on_expire(target):
+func _on_expire():
 	if attack_on_expire != null:
 		attack_on_expire.attack(node, null, modifier)
+	#modifier.attack_on_expire.attack(node, null, modifier)
 
 func tooltip():
 	var text = ""
 	text += RichTextBuilder.property_text(tr("PIERCE"), RichTextBuilder.color_text(str(pierce), Palette.green))
-	text += damage.tooltip()
+	if damage != null:
+		text += damage.tooltip()
 	if attack_on_hit != null:
 		text += RichTextBuilder.subproperty(tr("ON_HIT"), attack_on_hit.tooltip())
+	if attack_on_expire != null:
+		text += RichTextBuilder.subproperty(tr("ON_EXPIRE"), attack_on_expire.tooltip())
 	return text
