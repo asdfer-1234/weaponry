@@ -1,0 +1,142 @@
+[gd_resource type="Resource" script_class="SaleGroup" load_steps=37 format=3 uid="uid://cfppywih3gcbw"]
+
+[ext_resource type="Resource" uid="uid://jim2sbclj0g8" path="res://game/item/weapon/bow.tres" id="1_jle47"]
+[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="2_wdwkf"]
+[ext_resource type="Script" path="res://game/shop/sale.gd" id="3_4dth5"]
+[ext_resource type="Resource" uid="uid://bh8sh64sxssob" path="res://game/item/weapon/cannon.tres" id="4_0w40e"]
+[ext_resource type="Resource" uid="uid://oc74ieijihew" path="res://game/item/weapon/double_barrel.tres" id="5_jrbkf"]
+[ext_resource type="Resource" uid="uid://bnnqmwhq7x75k" path="res://game/item/weapon/flamethrower.tres" id="6_5jli7"]
+[ext_resource type="Resource" uid="uid://cbyml5bi48aox" path="res://game/item/weapon/machine_gun.tres" id="7_fxl65"]
+[ext_resource type="Resource" uid="uid://dor1u3wqnr44j" path="res://game/item/weapon/revolver.tres" id="8_6flmy"]
+[ext_resource type="Resource" uid="uid://p3jky4bixanq" path="res://game/item/weapon/rifle.tres" id="9_hd2bj"]
+[ext_resource type="Resource" uid="uid://ctntfpdpo0ftw" path="res://game/item/weapon/rocket_launcher.tres" id="10_y30nv"]
+[ext_resource type="Resource" uid="uid://be0ekdpt1a31d" path="res://game/item/weapon/shotgun.tres" id="11_g63gj"]
+[ext_resource type="Resource" uid="uid://bxnp4r0v83p7f" path="res://game/item/weapon/sword.tres" id="12_icicy"]
+[ext_resource type="Resource" uid="uid://dc74qskpvsaud" path="res://game/item/weapon/water_gun.tres" id="13_dhb4h"]
+[ext_resource type="Script" path="res://game/shop/sale_group.gd" id="14_mlfsb"]
+
+[sub_resource type="Resource" id="Resource_1h15e"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("1_jle47")
+count = 1
+
+[sub_resource type="Resource" id="Resource_p2kvr"]
+script = ExtResource("3_4dth5")
+price = 100
+item_stack = SubResource("Resource_1h15e")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_rjiak"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("4_0w40e")
+count = 1
+
+[sub_resource type="Resource" id="Resource_sy2wx"]
+script = ExtResource("3_4dth5")
+price = 100
+item_stack = SubResource("Resource_rjiak")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_5fghf"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("5_jrbkf")
+count = 1
+
+[sub_resource type="Resource" id="Resource_kg3py"]
+script = ExtResource("3_4dth5")
+price = 70
+item_stack = SubResource("Resource_5fghf")
+availibility = 0.3
+
+[sub_resource type="Resource" id="Resource_35opb"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("6_5jli7")
+count = 1
+
+[sub_resource type="Resource" id="Resource_acees"]
+script = ExtResource("3_4dth5")
+price = 250
+item_stack = SubResource("Resource_35opb")
+availibility = 0.4
+
+[sub_resource type="Resource" id="Resource_75vhr"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("7_fxl65")
+count = 1
+
+[sub_resource type="Resource" id="Resource_8hbki"]
+script = ExtResource("3_4dth5")
+price = 100
+item_stack = SubResource("Resource_75vhr")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_jycv0"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("8_6flmy")
+count = 1
+
+[sub_resource type="Resource" id="Resource_6ujul"]
+script = ExtResource("3_4dth5")
+price = 120
+item_stack = SubResource("Resource_jycv0")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_j1ypw"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("9_hd2bj")
+count = 1
+
+[sub_resource type="Resource" id="Resource_fvspa"]
+script = ExtResource("3_4dth5")
+price = 120
+item_stack = SubResource("Resource_j1ypw")
+availibility = 0.8
+
+[sub_resource type="Resource" id="Resource_48npm"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("10_y30nv")
+count = 1
+
+[sub_resource type="Resource" id="Resource_xhc74"]
+script = ExtResource("3_4dth5")
+price = 300
+item_stack = SubResource("Resource_48npm")
+availibility = 0.0
+
+[sub_resource type="Resource" id="Resource_6lme5"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("11_g63gj")
+count = 1
+
+[sub_resource type="Resource" id="Resource_d41w6"]
+script = ExtResource("3_4dth5")
+price = 80
+item_stack = SubResource("Resource_6lme5")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_1yscm"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("12_icicy")
+count = 1
+
+[sub_resource type="Resource" id="Resource_53b1h"]
+script = ExtResource("3_4dth5")
+price = 90
+item_stack = SubResource("Resource_1yscm")
+availibility = 0.3
+
+[sub_resource type="Resource" id="Resource_yw8e2"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("13_dhb4h")
+count = 1
+
+[sub_resource type="Resource" id="Resource_kjohs"]
+script = ExtResource("3_4dth5")
+price = 140
+item_stack = SubResource("Resource_yw8e2")
+availibility = 0.4
+
+[resource]
+script = ExtResource("14_mlfsb")
+sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_p2kvr"), SubResource("Resource_sy2wx"), SubResource("Resource_kg3py"), SubResource("Resource_acees"), SubResource("Resource_8hbki"), SubResource("Resource_6ujul"), SubResource("Resource_fvspa"), SubResource("Resource_xhc74"), SubResource("Resource_d41w6"), SubResource("Resource_53b1h"), SubResource("Resource_kjohs")])
+availibility = 1.0

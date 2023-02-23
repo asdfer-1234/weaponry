@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Accessory" load_steps=9 format=3 uid="uid://b13hnlwavq16t"]
+
+[ext_resource type="Script" path="res://game/item/boost.gd" id="1_fiven"]
+[ext_resource type="Script" path="res://game/item/modifier.gd" id="3_csmsg"]
+[ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="4_h50a5"]
+[ext_resource type="Texture2D" uid="uid://t3uwnk5rkisd" path="res://game/item/accessory/scope.png" id="5_2y7qi"]
+
+[sub_resource type="Resource" id="Resource_jv262"]
+script = ExtResource("1_fiven")
+multiplier = 0.8
+adder = 0.0
+
+[sub_resource type="Resource" id="Resource_47wha"]
+script = ExtResource("1_fiven")
+multiplier = 2.0
+adder = 0.0
+
+[sub_resource type="Resource" id="Resource_845p2"]
+script = ExtResource("1_fiven")
+multiplier = 0.7
+adder = 0.0
+
+[sub_resource type="Resource" id="Resource_b7xfj"]
+script = ExtResource("3_csmsg")
+attack_speed = SubResource("Resource_jv262")
+spread = SubResource("Resource_845p2")
+range_boost = SubResource("Resource_47wha")
+
+[resource]
+script = ExtResource("4_h50a5")
+modifier = SubResource("Resource_b7xfj")
+name = "SCOPE"
+sprite = ExtResource("5_2y7qi")
+type = 3

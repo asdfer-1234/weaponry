@@ -4,8 +4,6 @@ class_name ItemStack
 @export var item : Item:
 	set(value):
 		item = value
-		#if _item == null:
-		#	_count = 0
 		emit_changed()
 
 @export var count : int:

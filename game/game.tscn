@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dc3ggetntmmgk"]
+[gd_scene load_steps=55 format=3 uid="uid://dc3ggetntmmgk"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
@@ -29,10 +29,16 @@
 [ext_resource type="Resource" uid="uid://ctntfpdpo0ftw" path="res://game/item/weapon/rocket_launcher.tres" id="19_eq5bg"]
 [ext_resource type="Resource" uid="uid://p3jky4bixanq" path="res://game/item/weapon/rifle.tres" id="19_fc03p"]
 [ext_resource type="PackedScene" uid="uid://oc6d2nkw7s8t" path="res://game/item/slot/sale_slot.tscn" id="21_im3vc"]
-[ext_resource type="Resource" uid="uid://1rkj2thxjqmu" path="res://game/item/ammunition/oil.tres" id="22_janmg"]
-[ext_resource type="Resource" uid="uid://bxnp4r0v83p7f" path="res://game/item/weapon/sword.tres" id="23_dfym7"]
+[ext_resource type="Resource" uid="uid://bxwitneyka7ax" path="res://game/item/accessory/gps.tres" id="22_puqkc"]
+[ext_resource type="Resource" uid="uid://b13hnlwavq16t" path="res://game/item/accessory/scope.tres" id="23_8dy44"]
+[ext_resource type="Script" path="res://game/reroll_button.gd" id="25_wvaa8"]
 [ext_resource type="Resource" uid="uid://dc74qskpvsaud" path="res://game/item/weapon/water_gun.tres" id="26_tgo2p"]
+[ext_resource type="Script" path="res://game/shop/shop.gd" id="26_vbd8u"]
+[ext_resource type="Script" path="res://game/shop/sale_group.gd" id="27_8cc0t"]
 [ext_resource type="Resource" uid="uid://cbyml5bi48aox" path="res://game/item/weapon/machine_gun.tres" id="27_ar0vl"]
+[ext_resource type="Resource" uid="uid://cfppywih3gcbw" path="res://game/shop/weapon_group.tres" id="27_nd8dp"]
+[ext_resource type="Resource" uid="uid://didmqxopakdha" path="res://game/shop/ammunition_group.tres" id="28_37ekd"]
+[ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="29_xmi0p"]
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -82,13 +88,18 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_kwpms"]
 script = ExtResource("17_fox0a")
-item = ExtResource("22_janmg")
+item = ExtResource("22_puqkc")
 count = 100
 
 [sub_resource type="Resource" id="Resource_yxfxu"]
 script = ExtResource("17_fox0a")
-item = ExtResource("23_dfym7")
+item = ExtResource("23_8dy44")
 count = 1
+
+[sub_resource type="Resource" id="Resource_1u1m7"]
+script = ExtResource("27_8cc0t")
+sales = Array[Resource("res://game/shop/sellable.gd")]([ExtResource("27_nd8dp"), ExtResource("28_37ekd"), ExtResource("29_xmi0p")])
+availibility = 1.0
 
 [sub_resource type="Resource" id="Resource_c0an4"]
 script = ExtResource("17_fox0a")
@@ -218,7 +229,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 2
-columns = 2
+columns = 4
 
 [node name="ItemSlot" parent="UICanvas/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
@@ -260,6 +271,14 @@ item_stack = SubResource("Resource_kwpms")
 layout_mode = 2
 item_stack = SubResource("Resource_yxfxu")
 
+[node name="ItemSlot11" parent="UICanvas/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
+
+[node name="ItemSlot12" parent="UICanvas/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
+
 [node name="TrashSlot" parent="UICanvas/MarginContainer/HBoxContainer/ReserveInventory" instance=ExtResource("5_7ufwh")]
 layout_mode = 2
 
@@ -268,11 +287,20 @@ layout_mode = 2
 theme = ExtResource("1_bgo03")
 text = "SHOP"
 
+[node name="RerollButton" type="Button" parent="UICanvas/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_bgo03")
+text = "REROLL"
+script = ExtResource("25_wvaa8")
+
 [node name="ShopContainer" type="GridContainer" parent="UICanvas/MarginContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/v_separation = 8
-columns = 2
+columns = 4
+script = ExtResource("26_vbd8u")
+sales = SubResource("Resource_1u1m7")
 
 [node name="SaleSlot" parent="UICanvas/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
 layout_mode = 2
@@ -283,6 +311,10 @@ layout_mode = 2
 item_stack = SubResource("Resource_23264")
 
 [node name="SaleSlot3" parent="UICanvas/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+layout_mode = 2
+item_stack = SubResource("Resource_3kcf7")
+
+[node name="SaleSlot4" parent="UICanvas/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_3kcf7")
 
@@ -349,4 +381,7 @@ scroll_active = false
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/HBoxContainer/BuildButton" to="UICanvas/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/HBoxContainer/BuildButton" to="UICanvas/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="UICanvas/MarginContainer/HBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]
+[connection signal="mouse_entered" from="UICanvas/MarginContainer/HBoxContainer/RerollButton" to="UICanvas/MarginContainer/HBoxContainer/RerollButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UICanvas/MarginContainer/HBoxContainer/RerollButton" to="UICanvas/MarginContainer/HBoxContainer/RerollButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UICanvas/MarginContainer/HBoxContainer/RerollButton" to="UICanvas/MarginContainer/HBoxContainer/ShopContainer" method="reroll"]
 [connection signal="finished" from="CursorCanvas/CursorFollower/Tooltip/MarginContainer/RichTextLabel" to="CursorCanvas/CursorFollower/Tooltip" method="update_tooltip_size"]

@@ -13,6 +13,14 @@ func price_tooltip(value):
 func minimal_price_tooltip(value):
 	if value == 0:
 		return RichTextBuilder.color_text(tr("FREE"), Palette.green)
+	return colored_minimal_value_tooltip(value)
+
+func numeric_minimal_price_tooltip(value):
+	if value == 0:
+		return RichTextBuilder.color_text(tr("NUMERIC_FREE"), Palette.green)
+	return colored_minimal_value_tooltip(value)
+
+func colored_minimal_value_tooltip(value):
 	var color = Palette.green
 	if value > gold:
 		color = Palette.red

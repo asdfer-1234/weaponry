@@ -81,3 +81,16 @@ MACHINE_GUN_DESCRIPTION,Ratatatatatata,난사
 OIL,Oil,기름
 OIL_DESCRIPTION,Fire aspect II,발화 II
 CLOSE_TARGETER_TOOLTIP,Targets closest,가장 가까운 목표
+SCOPE,Scope,스코프
+SCOPE_DESCRIPTION,2x zoom,2배율
+REROLL,Reroll,새로고침
+REROLL_TOOLTIP,Restocks the shop with random items,상점을 새로운 아이템으로 채웁니다.
+FREE,Free,무료
+NUMERIC_FREE,FREE,FREE
+GPS,GPS,GPS
+GPS_DESCRIPTION,’Til the end of the earth,지구 끝까지
+SOLD_OUT,SOLD,SOLD
+UTILIZING_AI,Utilizing AI,똑똑한 AI
+STUPID_AI,Stupid_AI,멍청한 AI
+UTILIZING_AI_DESCRIPTION,How do I utilize this?,이걸 어떻게 활용할까?
+STUPID_AI_DESCRIPTION,How do I use this?,이걸 어떻게 활용할까?

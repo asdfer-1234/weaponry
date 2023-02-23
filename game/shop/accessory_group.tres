@@ -1,0 +1,94 @@
+[gd_resource type="Resource" script_class="SaleGroup" load_steps=25 format=3 uid="uid://cv232h008kuso"]
+
+[ext_resource type="Resource" uid="uid://d2qhyt4ijsh2i" path="res://game/item/accessory/acid.tres" id="1_54n68"]
+[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="2_crd62"]
+[ext_resource type="Script" path="res://game/shop/sale.gd" id="3_3ib8s"]
+[ext_resource type="Resource" uid="uid://dvu8us053mbrv" path="res://game/item/accessory/extra_gunpowder.tres" id="4_vihjl"]
+[ext_resource type="Resource" uid="uid://cnlu7cugy8w4k" path="res://game/item/accessory/gasoline.tres" id="5_akgg3"]
+[ext_resource type="Resource" uid="uid://bxwitneyka7ax" path="res://game/item/accessory/gps.tres" id="6_tttii"]
+[ext_resource type="Resource" uid="uid://b13hnlwavq16t" path="res://game/item/accessory/scope.tres" id="7_ewuee"]
+[ext_resource type="Resource" uid="uid://bq0gwdnpvg0ct" path="res://game/item/accessory/stupid_ai.tres" id="8_3pdlc"]
+[ext_resource type="Resource" uid="uid://r8jcx820hguj" path="res://game/item/accessory/utilizing_ai.tres" id="9_1mrx4"]
+[ext_resource type="Script" path="res://game/shop/sale_group.gd" id="9_fw5bk"]
+
+[sub_resource type="Resource" id="Resource_1h15e"]
+script = ExtResource("2_crd62")
+item = ExtResource("1_54n68")
+count = 1
+
+[sub_resource type="Resource" id="Resource_p2kvr"]
+script = ExtResource("3_3ib8s")
+price = 500
+item_stack = SubResource("Resource_1h15e")
+availibility = 0.0
+
+[sub_resource type="Resource" id="Resource_rjiak"]
+script = ExtResource("2_crd62")
+item = ExtResource("4_vihjl")
+count = 1
+
+[sub_resource type="Resource" id="Resource_sy2wx"]
+script = ExtResource("3_3ib8s")
+price = 400
+item_stack = SubResource("Resource_rjiak")
+availibility = 0.5
+
+[sub_resource type="Resource" id="Resource_5fghf"]
+script = ExtResource("2_crd62")
+item = ExtResource("5_akgg3")
+count = 1
+
+[sub_resource type="Resource" id="Resource_kg3py"]
+script = ExtResource("3_3ib8s")
+price = 400
+item_stack = SubResource("Resource_5fghf")
+availibility = 0.3
+
+[sub_resource type="Resource" id="Resource_35opb"]
+script = ExtResource("2_crd62")
+item = ExtResource("6_tttii")
+count = 1
+
+[sub_resource type="Resource" id="Resource_acees"]
+script = ExtResource("3_3ib8s")
+price = 250
+item_stack = SubResource("Resource_35opb")
+availibility = 0.4
+
+[sub_resource type="Resource" id="Resource_75vhr"]
+script = ExtResource("2_crd62")
+item = ExtResource("7_ewuee")
+count = 1
+
+[sub_resource type="Resource" id="Resource_8hbki"]
+script = ExtResource("3_3ib8s")
+price = 100
+item_stack = SubResource("Resource_75vhr")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_tuhqi"]
+script = ExtResource("2_crd62")
+item = ExtResource("8_3pdlc")
+count = 1
+
+[sub_resource type="Resource" id="Resource_718s7"]
+script = ExtResource("3_3ib8s")
+price = 240
+item_stack = SubResource("Resource_tuhqi")
+availibility = 0.0
+
+[sub_resource type="Resource" id="Resource_dlc3x"]
+script = ExtResource("2_crd62")
+item = ExtResource("9_1mrx4")
+count = 1
+
+[sub_resource type="Resource" id="Resource_4mrnk"]
+script = ExtResource("3_3ib8s")
+price = 150
+item_stack = SubResource("Resource_dlc3x")
+availibility = 0.0
+
+[resource]
+script = ExtResource("9_fw5bk")
+sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_p2kvr"), SubResource("Resource_sy2wx"), SubResource("Resource_kg3py"), SubResource("Resource_acees"), SubResource("Resource_8hbki"), SubResource("Resource_718s7"), SubResource("Resource_4mrnk")])
+availibility = 0.0

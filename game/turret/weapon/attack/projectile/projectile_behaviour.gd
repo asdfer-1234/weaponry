@@ -34,7 +34,6 @@ func _set_defaults(node, instantiated):
 	
 
 func _update():
-	print("proj upd")
 	super._update()
 	node.get_tree().create_timer(lifetime).timeout.connect(expire)
 

@@ -19,6 +19,8 @@ func tooltip():
 		build += RichTextBuilder.property_text(tr("DAMAGE"), damage.minimal_tooltip())
 	if attack_speed != null:
 		build += RichTextBuilder.property_text(tr("ATTACK_SPEED"), attack_speed.minimal_tooltip())
+	if range_boost != null:
+		build += RichTextBuilder.property_text(tr("RANGE"), range_boost.minimal_tooltip())
 	return build
 
 func merge_array(array):
@@ -46,6 +48,7 @@ func add(other):
 	count.add(other.count)
 	spread.add(other.spread)
 	knockback.add(other.knockback)
+	range_boost.add(other.range_boost)
 	explosion.add(other.explosion)
 	attack_on_hit.add(other.attack_on_hit)
 	

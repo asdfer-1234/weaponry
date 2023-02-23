@@ -17,7 +17,7 @@ damage = SubResource("Resource_6on53")
 [resource]
 script = ExtResource("1_by1lh")
 modifier = SubResource("Resource_nskfn")
-stack_size = 250
+stack_size = 500
 name = "MEDIUM_BULLET"
 sprite = ExtResource("2_1lxkd")
 type = 2

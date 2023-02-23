@@ -58,6 +58,6 @@ accessory_slot_count = 1
 [resource]
 script = ExtResource("1_eonmo")
 weapon = SubResource("Resource_y2g54")
-name = "Bow"
+name = "BOW"
 sprite = ExtResource("2_1pou8")
 type = 1

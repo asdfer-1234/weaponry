@@ -45,7 +45,7 @@ randomly_rotate = false
 pierce = 3
 size = 0.5
 damage = SubResource("Resource_2jpxa")
-lifetime = 3.0
+lifetime = 4.0
 attack_on_hit = SubResource("Resource_sget4")
 
 [sub_resource type="Resource" id="Resource_yjh48"]
