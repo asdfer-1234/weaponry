@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=3 uid="uid://byccqwwcjfuqa"]
+
+[ext_resource type="Script" path="res://game/stone/stone.gd" id="1_jqubd"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_d6stw"]
+[ext_resource type="Script" path="res://game/damage/damage_multiplier.gd" id="2_eu8pl"]
+[ext_resource type="Script" path="res://game/damage/damage_multipliers.gd" id="3_e8yve"]
+[ext_resource type="Texture2D" uid="uid://hddqvsbjvjjo" path="res://game/stone/sand.png" id="3_onggy"]
+
+[sub_resource type="Resource" id="Resource_wifec"]
+script = ExtResource("2_eu8pl")
+type = 1
+multiplier = 2.0
+
+[sub_resource type="Resource" id="Resource_1j6mk"]
+script = ExtResource("2_eu8pl")
+type = 2
+multiplier = 2.0
+
+[sub_resource type="Resource" id="Resource_uyybj"]
+script = ExtResource("3_e8yve")
+damage_multipliers = Array[ExtResource("2_eu8pl")]([SubResource("Resource_wifec"), SubResource("Resource_1j6mk")])
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 2.0
+
+[node name="Sand" type="Area2D"]
+script = ExtResource("1_jqubd")
+speed = 120.0
+health = 1
+damage_multipliers = SubResource("Resource_uyybj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_d6stw")
+texture = ExtResource("3_onggy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

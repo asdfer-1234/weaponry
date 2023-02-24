@@ -38,7 +38,6 @@ func _update():
 	node.get_tree().create_timer(lifetime).timeout.connect(expire)
 
 func expire():
-	print("expire")
 	_on_expire()
 	node.queue_free()
 

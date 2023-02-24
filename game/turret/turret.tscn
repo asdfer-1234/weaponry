@@ -5,23 +5,23 @@
 [ext_resource type="Script" path="res://game/turret/turret.gd" id="4"]
 [ext_resource type="Script" path="res://game/turret/sprite_flipper.gd" id="4_fmkah"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wdius"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_juljn"]
 radius = 8.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b7hyr"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpmlh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogrcq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4l1p"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogo03"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kftke"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3do2t"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pv27r"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5ecj"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hve64"]
 
 [node name="Turret" type="Area2D" groups=["turret"]]
 process_priority = 1
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 4
 script = ExtResource("4")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -30,7 +30,7 @@ texture = ExtResource("3_fbfhr")
 script = ExtResource("4_fmkah")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_wdius")
+shape = SubResource("CircleShape2D_juljn")
 
 [node name="MouseHover" type="Button" parent="."]
 anchors_preset = 8
@@ -44,11 +44,11 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_b7hyr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ogrcq")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ogo03")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3do2t")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a5ecj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cpmlh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s4l1p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kftke")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pv27r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hve64")
 action_mode = 0
 
 [connection signal="mouse_entered" from="MouseHover" to="." method="_mouse_enter"]

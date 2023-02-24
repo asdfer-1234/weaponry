@@ -41,7 +41,7 @@ spread = SubResource("Resource_osuoy")
 [resource]
 script = ExtResource("3_1788d")
 modifier = SubResource("Resource_nskfn")
-stack_size = 250
+stack_size = 400
 name = "SHOTGUN_SHELL"
 sprite = ExtResource("4_gflgy")
 type = 2

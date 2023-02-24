@@ -3,9 +3,12 @@ class_name Stone
 @onready var damage_effect_canvas = $"../../../DamageEffectCanvas"
 @export var speed : float = 10
 @export var health : int = 10
-@export var damage_multipliers = DamageMultipliers.new([])
+@export var damage_multipliers : DamageMultipliers
 @export var health_damage : int = 1
 @export var gold_reward : int = 1
+
+
+
 var progress = 0 : set = set_progress
 var died : bool = false
 var excluded_projectiles : Array = []
@@ -35,7 +38,9 @@ func movement_process(delta):
 	set_progress(progress + speed * delta)
 
 func damage(amount : Damage):
-	var damage = damage_multipliers.multiply(amount).damage
+	var damage = amount
+	if damage_multipliers != null:
+		damage = damage_multipliers.multiply(damage).damage
 	var effect_damage = Damage.new()
 	effect_damage.damage = max(damage, min_damage)
 	effect_damage.type = amount.type

@@ -7,3 +7,6 @@ func tooltip():
 	return super.tooltip() + (
 			RichTextBuilder.property_text(tr("STACK_SIZE"),
 			RichTextBuilder.color_text(str(stack_size), Palette.yellow)))
+
+func get_stack_size():
+	return stack_size

@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://derrkyup6gp2k"]
+
+[ext_resource type="Script" path="res://game/stone/reward_stone/reward_stone.gd" id="1_4ldld"]
+[ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="2_rhjja"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="3_kyhfq"]
+[ext_resource type="Resource" uid="uid://d1ce1lof5dyf4" path="res://game/stone/reward_stone/gemstone_damage_multipliers.tres" id="3_nc1ke"]
+[ext_resource type="Texture2D" uid="uid://c2xx6uiktfn4b" path="res://game/stone/reward_stone/lapis.png" id="4_dron2"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.0
+
+[node name="Lapis" type="Area2D"]
+script = ExtResource("1_4ldld")
+reward = ExtResource("2_rhjja")
+speed = 80.0
+health = 120
+damage_multipliers = ExtResource("3_nc1ke")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("3_kyhfq")
+texture = ExtResource("4_dron2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

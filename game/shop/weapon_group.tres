@@ -1,6 +1,5 @@
-[gd_resource type="Resource" script_class="SaleGroup" load_steps=37 format=3 uid="uid://cfppywih3gcbw"]
+[gd_resource type="Resource" script_class="SaleGroup" load_steps=36 format=3 uid="uid://cfppywih3gcbw"]
 
-[ext_resource type="Resource" uid="uid://jim2sbclj0g8" path="res://game/item/weapon/bow.tres" id="1_jle47"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="2_wdwkf"]
 [ext_resource type="Script" path="res://game/shop/sale.gd" id="3_4dth5"]
 [ext_resource type="Resource" uid="uid://bh8sh64sxssob" path="res://game/item/weapon/cannon.tres" id="4_0w40e"]
@@ -17,12 +16,12 @@
 
 [sub_resource type="Resource" id="Resource_1h15e"]
 script = ExtResource("2_wdwkf")
-item = ExtResource("1_jle47")
+item = ExtResource("5_jrbkf")
 count = 1
 
 [sub_resource type="Resource" id="Resource_p2kvr"]
 script = ExtResource("3_4dth5")
-price = 100
+price = 0
 item_stack = SubResource("Resource_1h15e")
 availibility = 1.0
 

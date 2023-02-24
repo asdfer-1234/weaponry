@@ -11,6 +11,7 @@ var shootable = true
 
 const shoot_angle = 5
 const maximum_attack_delay = 5
+const minimum_attack_speed = 0.01
 
 func _process(delta):
 	if not node.building:
@@ -26,12 +27,13 @@ func _process(delta):
 func shoot(target):
 	attack.attack(node, target, get_modifier())
 	shootable = false
+	print(get_attack_delay())
 	var timer = node.get_tree().create_timer(get_attack_delay(), true, true)
 	timer.timeout.connect(_timer_timeout)
 	use_ammo()
 
 func get_attack_delay():
-	var delay = 1 / get_modifier().attack_speed.apply(attack_speed)
+	var delay = 1 / max(get_modifier().attack_speed.apply(attack_speed), minimum_attack_speed)
 	return min(delay, maximum_attack_delay)
 
 func _timer_timeout():

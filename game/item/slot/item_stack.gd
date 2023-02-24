@@ -14,12 +14,6 @@ class_name ItemStack
 			item = null
 		emit_changed()
 
-signal item_changed
-
-func emit_changed():
-	super.emit_changed()
-	item_changed.emit()
-
 
 var full:
 	get:
@@ -30,3 +24,12 @@ var full:
 var empty:
 	get:
 		return item == null or count <= 0
+
+signal item_changed
+
+func emit_changed():
+	super.emit_changed()
+	item_changed.emit()
+
+func get_stack_size():
+	return 1

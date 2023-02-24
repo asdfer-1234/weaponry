@@ -126,6 +126,7 @@ locale/test="ko"
 
 2d_physics/layer_1="Stone"
 2d_physics/layer_2="Build"
+2d_physics/layer_3="BuildBlock"
 
 [physics]
 

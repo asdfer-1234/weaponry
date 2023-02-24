@@ -24,20 +24,20 @@ var time_since_draw_weapon_details : float = 0
 var weapon_slot : ItemSlot
 var weapon_stack : ItemStack:
 	get:
-		return m_weapon_stack
+		return weapon_stack
 	set(value):
-		m_weapon_stack = value
-		if m_weapon_stack == null:
+		weapon_stack = value
+		if weapon_stack == null:
 			default_weapon.update(self)
 			
-		elif m_weapon_stack.item is WeaponItem:
-			m_weapon_stack.item.weapon = m_weapon_stack.item.weapon.duplicate()
-			m_weapon_stack.item.weapon.update(self)
+		elif weapon_stack.item is WeaponItem:
+			weapon_stack.item.weapon = weapon_stack.item.weapon.duplicate()
+			weapon_stack.item.weapon.update(self)
 		queue_redraw()
 		get_tree().get_first_node_in_group("turret_selection").update_slot_container()
-		
-		
-var m_weapon_stack : ItemStack
+
+
+var temporary_modifiers : Array[Modifier]
 
 const normal_outline = preload("res://graphics/background_outline.tres")
 const highlight_outline = preload("res://graphics/red_outline.tres")
@@ -133,3 +133,9 @@ func _draw():
 
 func tooltip():
 	return get_active_weapon().tooltip()
+
+func add_temporary_modifier(modifier):
+	temporary_modifiers.append(modifier)
+
+func remove_temporary_modifier(modifier):
+	temporary_modifiers.erase(modifier)

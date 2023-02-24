@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://yyqx4oqr57fu"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Texture2D" uid="uid://bxs1fbegbjwwl" path="res://game/stone/big_stone.png" id="1"]
-[ext_resource type="Script" path="res://game/stone/big_stone.gd" id="2"]
+[ext_resource type="Script" path="res://game/stone/split_stone.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="3"]
 [ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="3_gf6ly"]
 

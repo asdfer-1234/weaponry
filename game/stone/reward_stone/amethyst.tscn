@@ -1,0 +1,79 @@
+[gd_scene load_steps=22 format=3 uid="uid://6k0dhclr6dkl"]
+
+[ext_resource type="Script" path="res://game/stone/reward_stone/reward_stone.gd" id="1_1ahbk"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_l7xog"]
+[ext_resource type="Resource" uid="uid://d2qhyt4ijsh2i" path="res://game/item/accessory/acid.tres" id="2_ldtd2"]
+[ext_resource type="Resource" uid="uid://d1ce1lof5dyf4" path="res://game/stone/reward_stone/gemstone_damage_multipliers.tres" id="2_o7fk6"]
+[ext_resource type="Texture2D" uid="uid://cf6xhquyfb73s" path="res://game/stone/reward_stone/amethyst.png" id="3_m6acb"]
+[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="3_mhuk0"]
+[ext_resource type="Script" path="res://game/shop/sale.gd" id="4_p36d1"]
+[ext_resource type="Resource" uid="uid://dvu8us053mbrv" path="res://game/item/accessory/extra_gunpowder.tres" id="5_ao1om"]
+[ext_resource type="Resource" uid="uid://bxwitneyka7ax" path="res://game/item/accessory/gps.tres" id="6_kve4k"]
+[ext_resource type="Resource" uid="uid://r8jcx820hguj" path="res://game/item/accessory/utilizing_ai.tres" id="7_xrydn"]
+[ext_resource type="Script" path="res://game/shop/sale_group.gd" id="8_cet6q"]
+
+[sub_resource type="Resource" id="Resource_37m7c"]
+script = ExtResource("3_mhuk0")
+item = ExtResource("2_ldtd2")
+count = 1
+
+[sub_resource type="Resource" id="Resource_n7vx7"]
+script = ExtResource("4_p36d1")
+price = 0
+item_stack = SubResource("Resource_37m7c")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_1b13i"]
+script = ExtResource("3_mhuk0")
+item = ExtResource("5_ao1om")
+count = 1
+
+[sub_resource type="Resource" id="Resource_8q2ly"]
+script = ExtResource("4_p36d1")
+price = 0
+item_stack = SubResource("Resource_1b13i")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_qal6a"]
+script = ExtResource("3_mhuk0")
+item = ExtResource("6_kve4k")
+count = 1
+
+[sub_resource type="Resource" id="Resource_kdbed"]
+script = ExtResource("4_p36d1")
+price = 0
+item_stack = SubResource("Resource_qal6a")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_21wd1"]
+script = ExtResource("3_mhuk0")
+item = ExtResource("7_xrydn")
+count = 1
+
+[sub_resource type="Resource" id="Resource_ou0bt"]
+script = ExtResource("4_p36d1")
+price = 0
+item_stack = SubResource("Resource_21wd1")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_t6abm"]
+script = ExtResource("8_cet6q")
+sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_n7vx7"), SubResource("Resource_8q2ly"), SubResource("Resource_kdbed"), SubResource("Resource_ou0bt")])
+availibility = 0.0
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.0
+
+[node name="Amethyst" type="Area2D"]
+script = ExtResource("1_1ahbk")
+reward = SubResource("Resource_t6abm")
+speed = 70.0
+health = 400
+damage_multipliers = ExtResource("2_o7fk6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_l7xog")
+texture = ExtResource("3_m6acb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

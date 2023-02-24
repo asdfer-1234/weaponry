@@ -29,7 +29,7 @@ pierce = SubResource("Resource_urla5")
 [resource]
 script = ExtResource("3_ah0sr")
 modifier = SubResource("Resource_nskfn")
-stack_size = 250
+stack_size = 700
 name = "ARROW"
 sprite = ExtResource("4_ga07h")
 type = 2

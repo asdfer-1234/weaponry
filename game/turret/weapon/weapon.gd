@@ -46,6 +46,7 @@ func get_all_modifiers():
 	for i in accessory:
 		if i != null and i.item != null:
 			modifiers.append(i.item.modifier)
+	modifiers.append_array(node.temporary_modifiers)
 	return modifiers
 
 func use_ammo():

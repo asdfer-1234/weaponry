@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageMultipliers" load_steps=4 format=3 uid="uid://d1ce1lof5dyf4"]
+
+[ext_resource type="Script" path="res://game/damage/damage_multiplier.gd" id="1_0rccg"]
+[ext_resource type="Script" path="res://game/damage/damage_multipliers.gd" id="2_b88mj"]
+
+[sub_resource type="Resource" id="Resource_5c40b"]
+script = ExtResource("1_0rccg")
+type = 1
+multiplier = 1.5
+
+[resource]
+script = ExtResource("2_b88mj")
+damage_multipliers = Array[ExtResource("1_0rccg")]([SubResource("Resource_5c40b")])

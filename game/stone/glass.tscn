@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://yfj6iktrqnf5"]
+
+[ext_resource type="Script" path="res://game/stone/stone.gd" id="1_7pk2v"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_e2uyx"]
+[ext_resource type="Script" path="res://game/damage/damage_multiplier.gd" id="2_sbv5i"]
+[ext_resource type="Script" path="res://game/damage/damage_multipliers.gd" id="3_fc8yx"]
+[ext_resource type="Texture2D" uid="uid://c0rmr0xws45xh" path="res://game/stone/glass.png" id="5_tbidt"]
+
+[sub_resource type="Resource" id="Resource_ursuo"]
+script = ExtResource("2_sbv5i")
+type = 1
+multiplier = 1.5
+
+[sub_resource type="Resource" id="Resource_bwewc"]
+script = ExtResource("3_fc8yx")
+damage_multipliers = Array[ExtResource("2_sbv5i")]([SubResource("Resource_ursuo")])
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.0
+
+[node name="Glass" type="Area2D"]
+script = ExtResource("1_7pk2v")
+speed = 600.0
+damage_multipliers = SubResource("Resource_bwewc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_e2uyx")
+texture = ExtResource("5_tbidt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

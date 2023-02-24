@@ -1,0 +1,51 @@
+[gd_scene load_steps=13 format=3 uid="uid://r5wngqr1txek"]
+
+[ext_resource type="Script" path="res://game/stone/stone.gd" id="1_bu7nj"]
+[ext_resource type="Script" path="res://game/damage/damage_multiplier.gd" id="2_6c3ke"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_kit2k"]
+[ext_resource type="Script" path="res://game/damage/damage_multipliers.gd" id="3_yfpus"]
+[ext_resource type="Texture2D" uid="uid://crje7445ticxk" path="res://game/stone/iron.png" id="5_48w28"]
+
+[sub_resource type="Resource" id="Resource_bjicn"]
+script = ExtResource("2_6c3ke")
+type = 0
+multiplier = 0.2
+
+[sub_resource type="Resource" id="Resource_wjwjr"]
+script = ExtResource("2_6c3ke")
+type = 1
+multiplier = 0.2
+
+[sub_resource type="Resource" id="Resource_7kp1t"]
+script = ExtResource("2_6c3ke")
+type = 0
+multiplier = 0.2
+
+[sub_resource type="Resource" id="Resource_viocd"]
+script = ExtResource("2_6c3ke")
+type = 3
+multiplier = 0.3
+
+[sub_resource type="Resource" id="Resource_fs862"]
+script = ExtResource("2_6c3ke")
+type = 4
+multiplier = 0.2
+
+[sub_resource type="Resource" id="Resource_ddgdx"]
+script = ExtResource("3_yfpus")
+damage_multipliers = Array[ExtResource("2_6c3ke")]([SubResource("Resource_bjicn"), SubResource("Resource_wjwjr"), SubResource("Resource_7kp1t"), SubResource("Resource_viocd"), SubResource("Resource_fs862")])
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.0
+
+[node name="Iron" type="Area2D"]
+script = ExtResource("1_bu7nj")
+speed = 100.0
+damage_multipliers = SubResource("Resource_ddgdx")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_kit2k")
+texture = ExtResource("5_48w28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

@@ -4,7 +4,7 @@ class_name Ranger
 func extent():
 	return 0
 
-func get_targets(_node):
+func get_targets(_node, group = "stone"):
 	return []
 
 func _draw(_node):

@@ -1,0 +1,65 @@
+[gd_scene load_steps=18 format=3 uid="uid://bho4a3tqn56p2"]
+
+[ext_resource type="Script" path="res://game/stone/reward_stone/reward_stone.gd" id="1_20ch3"]
+[ext_resource type="Resource" uid="uid://by8wp8w0i4h4e" path="res://game/item/ammunition/arrow.tres" id="2_e3763"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_v5sfk"]
+[ext_resource type="Texture2D" uid="uid://db3swy1e4fdt4" path="res://game/stone/reward_stone/emerald.png" id="3_eurj3"]
+[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="3_malka"]
+[ext_resource type="Script" path="res://game/shop/sale.gd" id="4_djda5"]
+[ext_resource type="Resource" uid="uid://b72qmdxop0sc1" path="res://game/item/ammunition/shotgun_shell.tres" id="5_4fg2j"]
+[ext_resource type="Resource" uid="uid://1rkj2thxjqmu" path="res://game/item/ammunition/oil.tres" id="6_e5k0t"]
+[ext_resource type="Script" path="res://game/shop/sale_group.gd" id="7_u1y8n"]
+
+[sub_resource type="Resource" id="Resource_lp1vp"]
+script = ExtResource("3_malka")
+item = ExtResource("2_e3763")
+count = 700
+
+[sub_resource type="Resource" id="Resource_7gnxl"]
+script = ExtResource("4_djda5")
+price = 0
+item_stack = SubResource("Resource_lp1vp")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_gxycx"]
+script = ExtResource("3_malka")
+item = ExtResource("5_4fg2j")
+count = 400
+
+[sub_resource type="Resource" id="Resource_vstw0"]
+script = ExtResource("4_djda5")
+price = 0
+item_stack = SubResource("Resource_gxycx")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_kwlrr"]
+script = ExtResource("3_malka")
+item = ExtResource("6_e5k0t")
+count = 1000
+
+[sub_resource type="Resource" id="Resource_tfnp8"]
+script = ExtResource("4_djda5")
+price = 0
+item_stack = SubResource("Resource_kwlrr")
+availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_id1iu"]
+script = ExtResource("7_u1y8n")
+sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_7gnxl"), SubResource("Resource_vstw0"), SubResource("Resource_tfnp8")])
+availibility = 0.0
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.0
+
+[node name="Emerald" type="Area2D"]
+script = ExtResource("1_20ch3")
+reward = SubResource("Resource_id1iu")
+speed = 70.0
+health = 400
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_v5sfk")
+texture = ExtResource("3_eurj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
