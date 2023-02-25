@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://cbyml5bi48aox"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_wx3jt"]
 [ext_resource type="Texture2D" uid="uid://b0r6gsgpxqsry" path="res://game/item/weapon/machine_gun.png" id="2_dvrsl"]
 [ext_resource type="Script" path="res://game/damage/damage.gd" id="3_hixwk"]
-[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/moving_projectile_behaviour.gd" id="4_tiakq"]
-[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/turret/weapon/attack/projectile/projectile.png" id="5_ha4q7"]
-[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile_attack.gd" id="6_q36u7"]
-[ext_resource type="Script" path="res://game/turret/weapon/ranger/circular_ranger.gd" id="7_i5xvf"]
-[ext_resource type="Script" path="res://game/turret/weapon/aim_weapon.gd" id="8_8qlld"]
+[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="4_tiakq"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="5_ha4q7"]
+[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="6_q36u7"]
+[ext_resource type="Script" path="res://game/weapon/ranger/circular_ranger.gd" id="7_i5xvf"]
+[ext_resource type="Script" path="res://game/weapon/aim_weapon.gd" id="8_8qlld"]
 [ext_resource type="Texture2D" uid="uid://cinmkyggnyph3" path="res://game/item/weapon/machine_gun_turret.png" id="9_5d3c1"]
-[ext_resource type="Script" path="res://game/turret/weapon/targeter/first_targeter.gd" id="10_0oxo3"]
+[ext_resource type="Script" path="res://game/weapon/targeter/first_targeter.gd" id="10_0oxo3"]
 
 [sub_resource type="Resource" id="Resource_tsl24"]
 script = ExtResource("3_hixwk")

@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3 uid="uid://d2qhyt4ijsh2i"]
+[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3]
 
 [ext_resource type="PackedScene" uid="uid://ctwilheyxpsft" path="res://game/effect/acid.tscn" id="1_plhkn"]
-[ext_resource type="Script" path="res://game/turret/weapon/attack/effect_attack.gd" id="2_wdocu"]
+[ext_resource type="Script" path="res://game/weapon/attack/effect_attack.gd" id="2_wdocu"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="3_03wd6"]
 [ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="4_og12i"]
 [ext_resource type="Texture2D" uid="uid://csqee0engrwi8" path="res://game/item/accessory/acid.png" id="5_va31j"]

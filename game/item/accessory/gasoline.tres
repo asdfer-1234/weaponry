@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3 uid="uid://cnlu7cugy8w4k"]
+[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3]
 
 [ext_resource type="PackedScene" uid="uid://bxvpa50on0m3h" path="res://game/effect/fire.tscn" id="1_rlip8"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_flwej"]
-[ext_resource type="Script" path="res://game/turret/weapon/attack/effect_attack.gd" id="2_g7m8e"]
+[ext_resource type="Script" path="res://game/weapon/attack/effect_attack.gd" id="2_g7m8e"]
 [ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="3_fjnpl"]
 [ext_resource type="Texture2D" uid="uid://8qqofjex3l1q" path="res://game/item/accessory/gasoline.png" id="6_kj0rh"]
 

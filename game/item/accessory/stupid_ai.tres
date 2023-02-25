@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=10 format=3 uid="uid://bq0gwdnpvg0ct"]
+[gd_resource type="Resource" script_class="Accessory" load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_u0ul0"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_14fe0"]
 [ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="3_ppqts"]
-[ext_resource type="Script" path="res://game/turret/weapon/targeter/last_targeter.gd" id="3_srcqf"]
+[ext_resource type="Script" path="res://game/weapon/targeter/last_targeter.gd" id="3_srcqf"]
 [ext_resource type="Texture2D" uid="uid://dxqm623slvnua" path="res://game/item/accessory/stupid_ai.png" id="5_lphui"]
 
 [sub_resource type="Resource" id="Resource_n2sp0"]

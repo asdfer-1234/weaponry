@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo5y5kshcojkf"
-path="res://.godot/imported/default_weapon_turret.png-5aa0d03aa83844469418bcaaa5a69260.ctex"
+uid="uid://cubrbu205cy5q"
+path="res://.godot/imported/flame.png-589135c2774cde9b3ee5d551af0a1a22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/default_weapon/default_weapon_turret.png"
-dest_files=["res://.godot/imported/default_weapon_turret.png-5aa0d03aa83844469418bcaaa5a69260.ctex"]
+source_file="res://game/projectile/flame.png"
+dest_files=["res://.godot/imported/flame.png-589135c2774cde9b3ee5d551af0a1a22.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

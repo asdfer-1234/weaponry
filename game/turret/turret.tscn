@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://5emjpu5gkguv"]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_0x88a"]
-[ext_resource type="Texture2D" uid="uid://bo5y5kshcojkf" path="res://game/turret/weapon/default_weapon/default_weapon_turret.png" id="3_fbfhr"]
+[ext_resource type="Texture2D" uid="uid://bo5y5kshcojkf" path="res://game/weapon/default_weapon/default_weapon_turret.png" id="3_fbfhr"]
 [ext_resource type="Script" path="res://game/turret/turret.gd" id="4"]
 [ext_resource type="Script" path="res://game/turret/sprite_flipper.gd" id="4_fmkah"]
 

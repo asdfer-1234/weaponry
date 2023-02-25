@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boc088ydt4mcv"
-path="res://.godot/imported/swipe.png-28c26a4c114ac6891e10c99643b89794.ctex"
+uid="uid://bo5y5kshcojkf"
+path="res://.godot/imported/default_weapon_turret.png-6c279ddb019d5120030eca363e1700a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/attack/projectile/swipe.png"
-dest_files=["res://.godot/imported/swipe.png-28c26a4c114ac6891e10c99643b89794.ctex"]
+source_file="res://game/weapon/default_weapon/default_weapon_turret.png"
+dest_files=["res://.godot/imported/default_weapon_turret.png-6c279ddb019d5120030eca363e1700a7.ctex"]
 
 [params]
 
