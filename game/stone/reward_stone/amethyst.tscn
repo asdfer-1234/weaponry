@@ -54,7 +54,7 @@ count = 1
 script = ExtResource("4_p36d1")
 price = 0
 item_stack = SubResource("Resource_21wd1")
-availibility = 1.0
+availibility = 0.1
 
 [sub_resource type="Resource" id="Resource_t6abm"]
 script = ExtResource("8_cet6q")

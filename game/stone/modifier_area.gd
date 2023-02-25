@@ -9,7 +9,6 @@ func _ready():
 	area_exited.connect(_on_area_exit)
 
 func _on_area_enter(area):
-	print("enter")
 	area.add_temporary_modifier(modifier)
 
 func _on_area_exit(area):

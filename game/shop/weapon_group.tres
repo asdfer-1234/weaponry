@@ -21,9 +21,9 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_p2kvr"]
 script = ExtResource("3_4dth5")
-price = 0
+price = 140
 item_stack = SubResource("Resource_1h15e")
-availibility = 1.0
+availibility = 0.2
 
 [sub_resource type="Resource" id="Resource_rjiak"]
 script = ExtResource("2_wdwkf")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=55 format=3 uid="uid://dc3ggetntmmgk"]
+[gd_scene load_steps=56 format=3 uid="uid://dc3ggetntmmgk"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
+[ext_resource type="PackedScene" uid="uid://6k0dhclr6dkl" path="res://game/stone/reward_stone/amethyst.tscn" id="2_k58hd"]
 [ext_resource type="Theme" uid="uid://cvi5bb6plsvpo" path="res://ui/numeric_theme.tres" id="2_l1uk2"]
-[ext_resource type="PackedScene" uid="uid://dbfsysgv1a8kd" path="res://game/stone/ice.tscn" id="2_wqq1h"]
 [ext_resource type="Script" path="res://game/turret/builder/build_button.gd" id="2_xtpje"]
 [ext_resource type="Script" path="res://game/game_variable/health/health.gd" id="3_al0pa"]
 [ext_resource type="Texture2D" uid="uid://o4oybkbdydle" path="res://game/game_variable/health/heart.png" id="4_h4x8a"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://game/map.gd" id="6_q555l"]
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
+[ext_resource type="Script" path="res://game/item/slot/inventory.gd" id="12_n6huo"]
 [ext_resource type="Resource" uid="uid://bh8sh64sxssob" path="res://game/item/weapon/cannon.tres" id="13_0pg1n"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="17_fox0a"]
@@ -120,7 +121,7 @@ count = 1000
 
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("6_q555l")
-enemy_scene = ExtResource("2_wqq1h")
+enemy_scene = ExtResource("2_k58hd")
 
 [node name="HostilePaths" type="Node2D" parent="Map"]
 
@@ -166,11 +167,17 @@ anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource("1_bgo03")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="UICanvas/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Health" type="RichTextLabel" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvas/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Health" type="RichTextLabel" parent="UICanvas/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -184,7 +191,7 @@ value = 50
 icon = ExtResource("4_h4x8a")
 color = Color(1, 0.305882, 0.305882, 1)
 
-[node name="Gold" type="RichTextLabel" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="Gold" type="RichTextLabel" parent="UICanvas/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -198,7 +205,7 @@ value = 50
 icon = ExtResource("6_h6anp")
 color = Color(1, 0.85098, 0.541176, 1)
 
-[node name="BuildButton" type="Button" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="BuildButton" type="Button" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -208,22 +215,22 @@ theme = ExtResource("1_bgo03")
 text = "BUILD_TURRET"
 script = ExtResource("2_xtpje")
 
-[node name="SelectedLabel" type="Label" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="SelectedLabel" type="Label" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_bgo03")
 text = "INVENTORY_SELECTED"
 
-[node name="SlotContainer" type="HBoxContainer" parent="UICanvas/MarginContainer/HBoxContainer" groups=["turret_item_slot_container"]]
+[node name="SlotContainer" type="HBoxContainer" parent="UICanvas/MarginContainer/VBoxContainer" groups=["turret_item_slot_container"]]
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="InventoryLabel" type="Label" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="InventoryLabel" type="Label" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_bgo03")
 text = "INVENTORY"
 
-[node name="Inventory" type="GridContainer" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="Inventory" type="GridContainer" parent="UICanvas/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -231,71 +238,88 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 2
 columns = 4
+script = ExtResource("12_n6huo")
 
-[node name="ItemSlot" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_1gg1x")
 
-[node name="ItemSlot2" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot2" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_b8psj")
 
-[node name="ItemSlot3" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot3" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_780pe")
 
-[node name="ItemSlot4" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot4" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_om7la")
 
-[node name="ItemSlot5" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot5" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_gi6vf")
 
-[node name="ItemSlot6" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot6" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_7gjdv")
 
-[node name="ItemSlot7" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot7" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_bbm1w")
 
-[node name="ItemSlot8" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot8" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_tbfu5")
 
-[node name="ItemSlot9" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot9" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_kwpms")
 
-[node name="ItemSlot10" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot10" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_yxfxu")
 
-[node name="ItemSlot11" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot11" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_yxfxu")
 
-[node name="ItemSlot12" parent="UICanvas/MarginContainer/HBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+[node name="ItemSlot12" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 item_stack = SubResource("Resource_yxfxu")
 
-[node name="TrashSlot" parent="UICanvas/MarginContainer/HBoxContainer" instance=ExtResource("5_7ufwh")]
+[node name="ItemSlot13" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
+
+[node name="ItemSlot14" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
+
+[node name="ItemSlot15" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
+
+[node name="ItemSlot16" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+layout_mode = 2
+item_stack = SubResource("Resource_yxfxu")
+
+[node name="TrashSlot" parent="UICanvas/MarginContainer/VBoxContainer" instance=ExtResource("5_7ufwh")]
 layout_mode = 2
 
-[node name="ShopLabel" type="Label" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="ShopLabel" type="Label" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_bgo03")
 text = "SHOP"
 
-[node name="RerollButton" type="Button" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="RerollButton" type="Button" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("1_bgo03")
 text = "REROLL"
 script = ExtResource("25_wvaa8")
 
-[node name="ShopContainer" type="GridContainer" parent="UICanvas/MarginContainer/HBoxContainer"]
+[node name="ShopContainer" type="GridContainer" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/v_separation = 8
@@ -303,19 +327,19 @@ columns = 4
 script = ExtResource("26_vbd8u")
 sales = SubResource("Resource_1u1m7")
 
-[node name="SaleSlot" parent="UICanvas/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_c0an4")
 
-[node name="SaleSlot2" parent="UICanvas/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot2" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_23264")
 
-[node name="SaleSlot3" parent="UICanvas/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot3" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_3kcf7")
 
-[node name="SaleSlot4" parent="UICanvas/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot4" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_3kcf7")
 
@@ -330,6 +354,7 @@ script = ExtResource("2_6iqjx")
 [node name="CursorCanvas" type="CanvasLayer" parent="."]
 
 [node name="CursorFollower" type="Node2D" parent="CursorCanvas"]
+position = Vector2(-16, -16)
 script = ExtResource("7")
 
 [node name="ItemStackDisplay" parent="CursorCanvas/CursorFollower" groups=["item_cursor"] instance=ExtResource("14_egtcl")]
@@ -379,10 +404,10 @@ bbcode_enabled = true
 scroll_active = false
 
 [connection signal="timeout" from="Map/GenerationTimer" to="Map" method="generate"]
-[connection signal="mouse_entered" from="UICanvas/MarginContainer/HBoxContainer/BuildButton" to="UICanvas/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UICanvas/MarginContainer/HBoxContainer/BuildButton" to="UICanvas/MarginContainer/HBoxContainer/BuildButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="UICanvas/MarginContainer/HBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]
-[connection signal="mouse_entered" from="UICanvas/MarginContainer/HBoxContainer/RerollButton" to="UICanvas/MarginContainer/HBoxContainer/RerollButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UICanvas/MarginContainer/HBoxContainer/RerollButton" to="UICanvas/MarginContainer/HBoxContainer/RerollButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="UICanvas/MarginContainer/HBoxContainer/RerollButton" to="UICanvas/MarginContainer/HBoxContainer/ShopContainer" method="reroll"]
+[connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]
+[connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/ShopContainer" method="reroll"]
 [connection signal="finished" from="CursorCanvas/CursorFollower/Tooltip/MarginContainer/RichTextLabel" to="CursorCanvas/CursorFollower/Tooltip" method="update_tooltip_size"]

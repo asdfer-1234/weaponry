@@ -31,3 +31,6 @@ const type_name = [
 
 func tooltip():
 	return tr(name) + "\n" + RichTextBuilder.color_text(tr(name + "_DESCRIPTION"), Palette.secondary) + "\n"
+
+func get_stack_size():
+	return 1

@@ -15,7 +15,7 @@ const minimum_attack_speed = 0.01
 
 func _process(delta):
 	if not node.building:
-		var target = targeter.get_target(node, get_ranger().get_targets(node))
+		var target = get_targeter().get_target(node, get_ranger().get_targets(node))
 		if target != null:
 			swivel(node, delta, target.global_position)
 			if (shootable and
@@ -27,7 +27,6 @@ func _process(delta):
 func shoot(target):
 	attack.attack(node, target, get_modifier())
 	shootable = false
-	print(get_attack_delay())
 	var timer = node.get_tree().create_timer(get_attack_delay(), true, true)
 	timer.timeout.connect(_timer_timeout)
 	use_ammo()
@@ -53,8 +52,10 @@ func get_ranger():
 func get_targeter():
 	var modifier = get_modifier()
 	if modifier.targeter == null:
+		print("aaa")
 		return targeter
 	else:
+		print("fff")
 		return modifier.targeter
 
 func swivel(node, delta, target):
