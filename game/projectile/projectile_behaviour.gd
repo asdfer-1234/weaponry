@@ -2,7 +2,7 @@ extends Behaviour
 class_name ProjectileBehaviour
 
 
-const default_projectile = preload("res://game/turret/weapon/attack/projectile/projectile.tscn")
+const default_projectile = preload("res://game/projectile/projectile.tscn")
 
 @export var pierce = 1
 @export var size : float = 1

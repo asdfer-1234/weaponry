@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=9 format=3]
+[gd_resource type="Resource" script_class="Accessory" load_steps=9 format=3 uid="uid://b6riw8jdow3iv"]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_bhdes"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_3ji4c"]

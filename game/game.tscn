@@ -1,14 +1,16 @@
-[gd_scene load_steps=56 format=3 uid="uid://dc3ggetntmmgk"]
+[gd_scene load_steps=61 format=3 uid="uid://c4wsw75cehjvl"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
-[ext_resource type="PackedScene" uid="uid://6k0dhclr6dkl" path="res://game/stone/reward_stone/amethyst.tscn" id="2_k58hd"]
+[ext_resource type="Script" path="res://game/wave/stone_stream/multiple_stone_stream_segment.gd" id="2_jypby"]
 [ext_resource type="Theme" uid="uid://cvi5bb6plsvpo" path="res://ui/numeric_theme.tres" id="2_l1uk2"]
 [ext_resource type="Script" path="res://game/turret/builder/build_button.gd" id="2_xtpje"]
 [ext_resource type="Script" path="res://game/game_variable/health/health.gd" id="3_al0pa"]
+[ext_resource type="Script" path="res://game/wave/stone_stream/stone_stream_segment.gd" id="3_h5kty"]
+[ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="3_pkbvc"]
 [ext_resource type="Texture2D" uid="uid://o4oybkbdydle" path="res://game/game_variable/health/heart.png" id="4_h4x8a"]
-[ext_resource type="PackedScene" uid="uid://btdvey0egui0s" path="res://physics_timer.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://diqf8b0c4tsgv" path="res://game/stone/sandstone.tscn" id="4_pw5fo"]
 [ext_resource type="PackedScene" uid="uid://beybo0dft6401" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
 [ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="5_3445w"]
 [ext_resource type="Script" path="res://game/game_variable/gold/gold.gd" id="5_l3b8w"]
@@ -18,28 +20,46 @@
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
 [ext_resource type="Script" path="res://game/item/slot/inventory.gd" id="12_n6huo"]
-[ext_resource type="Resource" uid="uid://bh8sh64sxssob" path="res://game/item/weapon/cannon.tres" id="13_0pg1n"]
+[ext_resource type="Resource" uid="uid://xn8uqono5flm" path="res://game/item/weapon/cannon.tres" id="13_0pg1n"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="17_fox0a"]
 [ext_resource type="Script" path="res://game/tooltip.gd" id="17_ksa57"]
 [ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="17_mys5v"]
 [ext_resource type="Resource" uid="uid://dvu8us053mbrv" path="res://game/item/accessory/extra_gunpowder.tres" id="17_qxexg"]
 [ext_resource type="Script" path="res://game/turret/builder/builder.gd" id="17_ym512"]
-[ext_resource type="Resource" uid="uid://be0ekdpt1a31d" path="res://game/item/weapon/shotgun.tres" id="18_8euiw"]
+[ext_resource type="Resource" uid="uid://beovnhb5fjhdh" path="res://game/item/weapon/shotgun.tres" id="18_8euiw"]
 [ext_resource type="Resource" uid="uid://b72qmdxop0sc1" path="res://game/item/ammunition/shotgun_shell.tres" id="18_8um6i"]
-[ext_resource type="Resource" uid="uid://ctntfpdpo0ftw" path="res://game/item/weapon/rocket_launcher.tres" id="19_eq5bg"]
-[ext_resource type="Resource" uid="uid://p3jky4bixanq" path="res://game/item/weapon/rifle.tres" id="19_fc03p"]
+[ext_resource type="Resource" uid="uid://dfsnv42uq2axp" path="res://game/item/weapon/rocket_launcher.tres" id="19_eq5bg"]
+[ext_resource type="Resource" uid="uid://cq5i5fe6p1la2" path="res://game/item/weapon/rifle.tres" id="19_fc03p"]
 [ext_resource type="PackedScene" uid="uid://oc6d2nkw7s8t" path="res://game/item/slot/sale_slot.tscn" id="21_im3vc"]
-[ext_resource type="Resource" uid="uid://bxwitneyka7ax" path="res://game/item/accessory/gps.tres" id="22_puqkc"]
+[ext_resource type="Resource" uid="uid://b6riw8jdow3iv" path="res://game/item/accessory/gps.tres" id="22_puqkc"]
 [ext_resource type="Resource" uid="uid://b13hnlwavq16t" path="res://game/item/accessory/scope.tres" id="23_8dy44"]
 [ext_resource type="Script" path="res://game/reroll_button.gd" id="25_wvaa8"]
-[ext_resource type="Resource" uid="uid://dc74qskpvsaud" path="res://game/item/weapon/water_gun.tres" id="26_tgo2p"]
+[ext_resource type="Resource" uid="uid://c4bonh8ytc6fr" path="res://game/item/weapon/water_gun.tres" id="26_tgo2p"]
 [ext_resource type="Script" path="res://game/shop/shop.gd" id="26_vbd8u"]
 [ext_resource type="Script" path="res://game/shop/sale_group.gd" id="27_8cc0t"]
-[ext_resource type="Resource" uid="uid://cbyml5bi48aox" path="res://game/item/weapon/machine_gun.tres" id="27_ar0vl"]
+[ext_resource type="Resource" uid="uid://bs5blou1pn4jo" path="res://game/item/weapon/machine_gun.tres" id="27_ar0vl"]
 [ext_resource type="Resource" uid="uid://cfppywih3gcbw" path="res://game/shop/weapon_group.tres" id="27_nd8dp"]
 [ext_resource type="Resource" uid="uid://didmqxopakdha" path="res://game/shop/ammunition_group.tres" id="28_37ekd"]
 [ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="29_xmi0p"]
+
+[sub_resource type="Resource" id="Resource_v48dr"]
+script = ExtResource("3_h5kty")
+stone = ExtResource("4_pw5fo")
+delay = 1.0
+count = 30
+interval = 0.01
+
+[sub_resource type="Resource" id="Resource_gvyym"]
+script = ExtResource("3_h5kty")
+stone = ExtResource("3_pkbvc")
+delay = 2.0
+count = 10
+interval = 0.1
+
+[sub_resource type="Resource" id="Resource_lieae"]
+script = ExtResource("2_jypby")
+wave_segment = Array[ExtResource("3_h5kty")]([SubResource("Resource_v48dr"), SubResource("Resource_gvyym")])
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -121,7 +141,7 @@ count = 1000
 
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("6_q555l")
-enemy_scene = ExtResource("2_k58hd")
+wave = SubResource("Resource_lieae")
 
 [node name="HostilePaths" type="Node2D" parent="Map"]
 
@@ -138,10 +158,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(524310, 1, 5, 589846, 1, 6, 589847, 1, 4, 655383, 1, 3, 655384, 1, 1, 720920, 1, 5, 720921, 1, 2, 720922, 1, 4, 720923, 1, 2, 655387, 1, 0, 589850, 1, 5, 589849, 1, 0, 589848, 1, 5, 786458, 1, 1, 786459, 1, 2, 786460, 1, 2, 720924, 1, 1, 655386, 1, 2, 786457, 1, 1, 851995, 1, 1, 851996, 1, 2, 851997, 1, 1, 851998, 1, 3, 786462, 1, 3, 786461, 1, 6, 720925, 1, 2, 720919, 1, 5, 786456, 1, 0, 851993, 1, 6, 851994, 1, 3, 917532, 1, 3, 917533, 1, 6, 1048603, 1, 4, 983067, 1, 3, 1048604, 1, 0, 1048605, 1, 3, 1048606, 1, 0, 983070, 1, 5, 917534, 1, 6, 983069, 1, 4, 1048607, 1, 4, 983071, 1, 6, 917535, 1, 0, 983068, 1, 4, 983072, 1, 0, 1048608, 1, 0, 917536, 1, 2, 851999, 1, 0, 655388, 1, 0, 589852, 1, 3, 589851, 1, 2, 655389, 1, 4, 720926, 1, 1, 524313, 1, 0, 524312, 1, 3, 458776, 1, 3, 458775, 1, 2, 524311, 1, 4, 786449, 1, 6, 786450, 1, 1, 786451, 1, 4, 786452, 1, 1, 720916, 1, 5, 720917, 1, 4, 720918, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 1, 2, 786453, 1, 6, 786454, 1, 2, 786455, 1, 5, 851991, 1, 0, 851990, 1, 4, 851986, 1, 6, 851992, 1, 4, 917530, 1, 0, 917531, 1, 4, 655381, 1, 4, 655382, 1, 1, 655380, 1, 4, 720915, 1, 1, 589845, 1, 5, 589844, 1, 0, 655379, 1, 1, 720914, 1, 3, 720913, 65537, 3, 655378, 65537, 4, 589843, 65537, 3, 524308, 65537, 1, 524309, 1, 4, 458773, 65537, 1, 458774, 1, 0, 393239, 1, 4, 393240, 1, 3, 458777, 1, 6, 458778, 1, 1, 524314, 1, 2, 524315, 1, 2, 655385, 1, 1, 458779, 65537, 131073, 524316, 65537, 131075, 589853, 65537, 131072, 655390, 65537, 131077, 786463, 65537, 131072, 852000, 65537, 131074, 393241, 65537, 131072, 393238, 65537, 2, 786448, 65537, 4, 851984, 1, 1, 851985, 1, 2, 1114138, 1, 6, 1114139, 1, 1, 1114140, 1, 0, 1114141, 1, 3, 1114142, 1, 0, 720908, 1, 4, 655372, 1, 4, 589836, 1, 2, 524300, 1, 2, 458764, 1, 3, 458765, 1, 2, 393229, 1, 1, 393230, 1, 3, 327694, 1, 4, 327695, 1, 4, 262159, 1, 2, 327696, 1, 2, 262160, 1, 3, 262161, 1, 0, 196625, 1, 0, 196626, 1, 5, 131090, 1, 4, 131091, 1, 5, 131092, 1, 6, 65556, 1, 0, 65557, 1, 1, 65558, 1, 6, 196624, 1, 6, 524301, 1, 0, 458766, 1, 5, 393231, 1, 4, 393232, 1, 4, 327697, 1, 3, 262162, 1, 1, 196627, 1, 4, 131093, 1, 3, 131094, 1, 1, 131084, 1, 6, 131083, 1, 5, 131082, 1, 6, 131081, 1, 1, 131080, 1, 6, 131079, 1, 2, 196614, 1, 6, 196613, 1, 5, 262149, 1, 4, 262148, 1, 5, 327684, 1, 2, 393219, 1, 5, 458755, 1, 2, 393220, 1, 3, 393221, 1, 5, 327686, 1, 2, 327687, 1, 5, 262152, 1, 1, 262153, 1, 4, 262154, 1, 3, 196618, 1, 3, 196619, 1, 2, 196617, 1, 5, 262151, 1, 5, 458756, 1, 0, 458757, 1, 1, 458758, 1, 4, 393223, 1, 3, 393224, 1, 2, 327689, 1, 5, 327690, 1, 2, 262155, 1, 5, 196620, 1, 1, 196621, 1, 1, 131085, 1, 0, 327688, 1, 3, 458759, 1, 1, 458760, 1, 5, 393225, 1, 6, 393226, 1, 2, 327691, 1, 0, 327692, 1, 5, 262157, 1, 5, 262158, 1, 1, 131089, 1, 6, 131088, 1, 2, 131087, 1, 4, 131086, 1, 1, 196616, 1, 6, 196615, 1, 3, 262147, 1, 5, 327682, 1, 4, 327683, 1, 6, 327685, 1, 1, 262156, 1, 6, 196622, 1, 1, 196623, 1, 4, 393222, 1, 0, 1048587, 1, 3, 1048586, 1, 4, 983049, 1, 4, 983048, 1, 4, 917511, 1, 3, 917510, 1, 6, 851973, 1, 0, 851972, 1, 1, 786436, 1, 6, 786435, 1, 4, 720899, 1, 4, 131100, 1, 6, 131101, 1, 0, 196637, 1, 3, 196638, 1, 0, 196639, 1, 5, 196640, 1, 6, 262176, 1, 3, 262177, 1, 4, 262178, 1, 6, 327715, 1, 4, 327716, 1, 0, 393252, 1, 6, 393253, 1, 2, 458789, 1, 1, 458790, 1, 6, 524326, 1, 5, 589862, 1, 3, 524325, 1, 2, 524324, 1, 3, 458788, 1, 4, 458787, 1, 5, 393251, 1, 2, 393250, 1, 0, 327714, 1, 5, 327713, 1, 2, 458786, 1, 3, 589861, 1, 0, 655397, 1, 2, 655398, 1, 2, 720934, 1, 6, 524323, 1, 1, 589860, 1, 0, 720933, 1, 3, 786470, 1, 1, 655396, 1, 5, 720932, 1, 2, 786469, 1, 3, 852006, 1, 3, 917542, 1, 0, 983078, 1, 4, 1048614, 1, 1, 1114150, 1, 5)
 
 [node name="Stones" type="Node2D" parent="Map" groups=["stones"]]
-
-[node name="GenerationTimer" parent="Map" instance=ExtResource("5")]
-wait_time = 0.2
-autostart = true
 
 [node name="Area2D" type="Area2D" parent="Map"]
 collision_layer = 4
@@ -403,7 +419,6 @@ theme = ExtResource("1_bgo03")
 bbcode_enabled = true
 scroll_active = false
 
-[connection signal="timeout" from="Map/GenerationTimer" to="Map" method="generate"]
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]

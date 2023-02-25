@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=11 format=3]
+[gd_resource type="Resource" script_class="Ammunition" load_steps=11 format=3 uid="uid://cltbu0dwyiqsw"]
 
 [ext_resource type="PackedScene" uid="uid://bxvpa50on0m3h" path="res://game/effect/fire.tscn" id="1_48o4a"]
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_fea0g"]

@@ -1,6 +1,6 @@
 extends Node2D
 class_name Turret
-var default_weapon = preload("res://game/turret/weapon/default_weapon/default_weapon.tres")
+var default_weapon = preload("res://game/weapon/default_weapon/default_weapon.tres")
 var building : bool = false
 
 var highlighted = false:

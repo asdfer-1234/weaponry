@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dduaxvnj5btmu"]
+
+[ext_resource type="Script" path="res://game/stone/andesite.gd" id="1_2c0q6"]
+[ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_j1t3j"]
+[ext_resource type="Texture2D" uid="uid://bkjrlsjo2rprn" path="res://game/stone/granite.png" id="3_yfvsb"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 8.0
+
+[node name="Granite" type="Area2D"]
+script = ExtResource("1_2c0q6")
+speed = null
+health = 50
+health_damage = null
+gold_reward = null
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = ExtResource("2_j1t3j")
+texture = ExtResource("3_yfvsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")

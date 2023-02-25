@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3 uid="uid://bectuf5hjlcv3"]
 
 [ext_resource type="PackedScene" uid="uid://bxvpa50on0m3h" path="res://game/effect/fire.tscn" id="1_rlip8"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_flwej"]

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://game/shop/sale.gd" id="3_i4ha2"]
 [ext_resource type="Resource" uid="uid://6rhn5trwe8dh" path="res://game/item/ammunition/heavy_bullet.tres" id="4_t5vpm"]
 [ext_resource type="Resource" uid="uid://deqge5ma7xas" path="res://game/item/ammunition/medium_bullet.tres" id="5_b035q"]
-[ext_resource type="Resource" uid="uid://1rkj2thxjqmu" path="res://game/item/ammunition/oil.tres" id="6_3menc"]
+[ext_resource type="Resource" uid="uid://cltbu0dwyiqsw" path="res://game/item/ammunition/oil.tres" id="6_3menc"]
 [ext_resource type="Resource" uid="uid://b72qmdxop0sc1" path="res://game/item/ammunition/shotgun_shell.tres" id="7_tmecl"]
 [ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="8_wo4g7"]
 [ext_resource type="Script" path="res://game/shop/sale_group.gd" id="14_o885b"]

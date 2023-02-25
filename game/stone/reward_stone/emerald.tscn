@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="3_malka"]
 [ext_resource type="Script" path="res://game/shop/sale.gd" id="4_djda5"]
 [ext_resource type="Resource" uid="uid://b72qmdxop0sc1" path="res://game/item/ammunition/shotgun_shell.tres" id="5_4fg2j"]
-[ext_resource type="Resource" uid="uid://1rkj2thxjqmu" path="res://game/item/ammunition/oil.tres" id="6_e5k0t"]
+[ext_resource type="Resource" uid="uid://cltbu0dwyiqsw" path="res://game/item/ammunition/oil.tres" id="6_e5k0t"]
 [ext_resource type="Script" path="res://game/shop/sale_group.gd" id="7_u1y8n"]
 
 [sub_resource type="Resource" id="Resource_lp1vp"]
