@@ -52,10 +52,8 @@ func get_ranger():
 func get_targeter():
 	var modifier = get_modifier()
 	if modifier.targeter == null:
-		print("aaa")
 		return targeter
 	else:
-		print("fff")
 		return modifier.targeter
 
 func swivel(node, delta, target):
