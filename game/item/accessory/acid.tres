@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3 uid="uid://ck88pcrohgaha"]
 
 [ext_resource type="PackedScene" uid="uid://ctwilheyxpsft" path="res://game/effect/acid.tscn" id="1_plhkn"]
 [ext_resource type="Script" path="res://game/weapon/attack/effect_attack.gd" id="2_wdocu"]

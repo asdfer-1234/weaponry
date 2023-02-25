@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=21 format=3]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=21 format=3 uid="uid://xn8uqono5flm"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_ugtql"]
 [ext_resource type="Texture2D" uid="uid://11yie08x43cr" path="res://game/item/weapon/cannon.png" id="2_2bbsa"]

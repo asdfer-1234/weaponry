@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://bs5blou1pn4jo"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_wx3jt"]
 [ext_resource type="Texture2D" uid="uid://b0r6gsgpxqsry" path="res://game/item/weapon/machine_gun.png" id="2_dvrsl"]

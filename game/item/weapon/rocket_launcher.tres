@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=21 format=3]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=21 format=3 uid="uid://dfsnv42uq2axp"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_vlr76"]
 [ext_resource type="Texture2D" uid="uid://1o3yyhmb7f5b" path="res://game/item/weapon/rocket_launcher.png" id="2_ctmk4"]

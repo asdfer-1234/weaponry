@@ -1,0 +1,552 @@
+[gd_resource type="Resource" script_class="Waves" load_steps=113 format=3 uid="uid://d0c2l34ye5exs"]
+
+[ext_resource type="Script" path="res://game/wave/waves.gd" id="1_7wah0"]
+[ext_resource type="Script" path="res://game/wave/wave.gd" id="2_2waoc"]
+[ext_resource type="Script" path="res://game/wave/stone_stream/multiple_stone_stream_segment.gd" id="3_njt1g"]
+[ext_resource type="Script" path="res://game/wave/stone_stream/stone_stream_segment.gd" id="4_hdg2o"]
+[ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="5_adi1n"]
+[ext_resource type="PackedScene" path="res://game/stone/big_stone.tscn" id="6_ouvsk"]
+[ext_resource type="PackedScene" uid="uid://ffw4obfc1nuy" path="res://game/stone/gold.tscn" id="7_y2ian"]
+[ext_resource type="PackedScene" uid="uid://diqf8b0c4tsgv" path="res://game/stone/sandstone.tscn" id="8_a0q7i"]
+[ext_resource type="PackedScene" uid="uid://byccqwwcjfuqa" path="res://game/stone/sand.tscn" id="9_2iid7"]
+[ext_resource type="PackedScene" uid="uid://dbfsysgv1a8kd" path="res://game/stone/ice.tscn" id="10_ppsyj"]
+[ext_resource type="PackedScene" uid="uid://bg3ppft2f5jnt" path="res://game/stone/andesite.tscn" id="11_1876h"]
+[ext_resource type="PackedScene" uid="uid://d2hxqddkb3ql0" path="res://game/stone/diorite.tscn" id="12_i7pus"]
+[ext_resource type="PackedScene" uid="uid://3vjo3hngndmi" path="res://game/stone/reward_stone/ruby.tscn" id="13_nqx6u"]
+[ext_resource type="PackedScene" uid="uid://dduaxvnj5btmu" path="res://game/stone/granite.tscn" id="14_55f3x"]
+[ext_resource type="PackedScene" uid="uid://c8x8uce6yvc65" path="res://game/stone/reward_stone/topaz.tscn" id="15_4odju"]
+[ext_resource type="PackedScene" uid="uid://derrkyup6gp2k" path="res://game/stone/reward_stone/lapis.tscn" id="16_0o22g"]
+[ext_resource type="PackedScene" uid="uid://6k0dhclr6dkl" path="res://game/stone/reward_stone/amethyst.tscn" id="17_2o34k"]
+[ext_resource type="PackedScene" uid="uid://bho4a3tqn56p2" path="res://game/stone/reward_stone/emerald.tscn" id="18_tgnbq"]
+[ext_resource type="PackedScene" uid="uid://b6q53desehu8n" path="res://game/stone/reward_stone/diamond.tscn" id="19_ma01c"]
+[ext_resource type="PackedScene" uid="uid://cnl73dfmuib12" path="res://game/stone/magnet.tscn" id="20_kbsxg"]
+[ext_resource type="PackedScene" uid="uid://r5wngqr1txek" path="res://game/stone/iron.tscn" id="21_0omgh"]
+[ext_resource type="PackedScene" uid="uid://yfj6iktrqnf5" path="res://game/stone/glass.tscn" id="22_54w1o"]
+[ext_resource type="PackedScene" uid="uid://b08r4u2r7j2pp" path="res://game/stone/bedrock.tscn" id="23_oereh"]
+
+[sub_resource type="Resource" id="Resource_fvco5"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("5_adi1n")
+delay = 0.0
+count = 10
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_pg48y"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_fvco5")])
+
+[sub_resource type="Resource" id="Resource_xb7xy"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_pg48y")
+description = ""
+
+[sub_resource type="Resource" id="Resource_4alxs"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("5_adi1n")
+delay = 0.0
+count = 10
+interval = 0.7
+
+[sub_resource type="Resource" id="Resource_6c85r"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("6_ouvsk")
+delay = 7.0
+count = 3
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_ls3px"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_4alxs"), SubResource("Resource_6c85r")])
+
+[sub_resource type="Resource" id="Resource_8c43c"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_ls3px")
+description = ""
+
+[sub_resource type="Resource" id="Resource_80h8y"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("6_ouvsk")
+delay = 0.0
+count = 8
+interval = 1.2
+
+[sub_resource type="Resource" id="Resource_dg025"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_80h8y")])
+
+[sub_resource type="Resource" id="Resource_n0hlx"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_dg025")
+description = ""
+
+[sub_resource type="Resource" id="Resource_ea21n"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("7_y2ian")
+delay = 0.0
+count = 2
+interval = 0.5
+
+[sub_resource type="Resource" id="Resource_2biuo"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("5_adi1n")
+delay = 1.0
+count = 10
+interval = 0.2
+
+[sub_resource type="Resource" id="Resource_sh8cp"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_ea21n"), SubResource("Resource_2biuo")])
+
+[sub_resource type="Resource" id="Resource_7gwsv"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_sh8cp")
+description = ""
+
+[sub_resource type="Resource" id="Resource_vnpot"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("8_a0q7i")
+delay = 0.5
+count = 3
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_06at8"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("9_2iid7")
+delay = 0.0
+count = 30
+interval = 0.1
+
+[sub_resource type="Resource" id="Resource_tau3s"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_vnpot"), SubResource("Resource_06at8")])
+
+[sub_resource type="Resource" id="Resource_06u1g"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_tau3s")
+description = ""
+
+[sub_resource type="Resource" id="Resource_nexyf"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("10_ppsyj")
+delay = 2.0
+count = 3
+interval = 4.0
+
+[sub_resource type="Resource" id="Resource_lvme6"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("6_ouvsk")
+delay = 6.6
+count = 2
+interval = 6.6
+
+[sub_resource type="Resource" id="Resource_osuwa"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("5_adi1n")
+delay = 0.0
+count = 15
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_gcqn3"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_nexyf"), SubResource("Resource_lvme6"), SubResource("Resource_osuwa")])
+
+[sub_resource type="Resource" id="Resource_tp24u"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_gcqn3")
+description = ""
+
+[sub_resource type="Resource" id="Resource_q0h5t"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("11_1876h")
+delay = 0.0
+count = 10
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_n7130"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("12_i7pus")
+delay = 0.25
+count = 2
+interval = 5.0
+
+[sub_resource type="Resource" id="Resource_j2lns"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("13_nqx6u")
+delay = 10.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_udojy"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_q0h5t"), SubResource("Resource_n7130"), SubResource("Resource_j2lns")])
+
+[sub_resource type="Resource" id="Resource_3kbjn"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_udojy")
+description = ""
+
+[sub_resource type="Resource" id="Resource_aff1y"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("14_55f3x")
+delay = 0.0
+count = 12
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_ohxo7"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("11_1876h")
+delay = 2.0
+count = 3
+interval = 6.0
+
+[sub_resource type="Resource" id="Resource_58t8d"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("15_4odju")
+delay = 12.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_571tv"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_aff1y"), SubResource("Resource_ohxo7"), SubResource("Resource_58t8d")])
+
+[sub_resource type="Resource" id="Resource_qhaq2"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_571tv")
+description = ""
+
+[sub_resource type="Resource" id="Resource_hptun"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("12_i7pus")
+delay = 0.0
+count = 14
+interval = 0.8
+
+[sub_resource type="Resource" id="Resource_61gvi"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("14_55f3x")
+delay = 1.0
+count = 4
+interval = 2.0
+
+[sub_resource type="Resource" id="Resource_cvhxf"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("16_0o22g")
+delay = 11.2
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_u1sfw"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_hptun"), SubResource("Resource_61gvi"), SubResource("Resource_cvhxf")])
+
+[sub_resource type="Resource" id="Resource_lbt0r"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_u1sfw")
+description = ""
+
+[sub_resource type="Resource" id="Resource_ufoq7"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("11_1876h")
+delay = 0.0
+count = 14
+interval = 0.5
+
+[sub_resource type="Resource" id="Resource_bk60h"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("14_55f3x")
+delay = 1.0
+count = 4
+interval = 3.5
+
+[sub_resource type="Resource" id="Resource_5v1i8"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("17_2o34k")
+delay = 7.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_yrj24"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_ufoq7"), SubResource("Resource_bk60h"), SubResource("Resource_5v1i8")])
+
+[sub_resource type="Resource" id="Resource_7jt3r"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_yrj24")
+description = ""
+
+[sub_resource type="Resource" id="Resource_uxtvw"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("12_i7pus")
+delay = 0.4
+count = 16
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_dxekb"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("11_1876h")
+delay = 0.2
+count = 6
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_p8v6x"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("18_tgnbq")
+delay = 6.4
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_0gc8w"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_uxtvw"), SubResource("Resource_dxekb"), SubResource("Resource_p8v6x")])
+
+[sub_resource type="Resource" id="Resource_phyan"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_0gc8w")
+description = ""
+
+[sub_resource type="Resource" id="Resource_6m53s"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("14_55f3x")
+delay = 0.0
+count = 17
+interval = 0.3
+
+[sub_resource type="Resource" id="Resource_o8kpx"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("12_i7pus")
+delay = 0.1
+count = 7
+interval = 0.7
+
+[sub_resource type="Resource" id="Resource_lqmcu"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("19_ma01c")
+delay = 5.1
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_3yl7a"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_6m53s"), SubResource("Resource_o8kpx"), SubResource("Resource_lqmcu")])
+
+[sub_resource type="Resource" id="Resource_kpc85"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_3yl7a")
+description = ""
+
+[sub_resource type="Resource" id="Resource_60m7a"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("20_kbsxg")
+delay = 1.25
+count = 2
+interval = 2.5
+
+[sub_resource type="Resource" id="Resource_u5nh1"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("5_adi1n")
+delay = 0.0
+count = 10
+interval = 0.5
+
+[sub_resource type="Resource" id="Resource_gnol5"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_60m7a"), SubResource("Resource_u5nh1")])
+
+[sub_resource type="Resource" id="Resource_o5cv8"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_gnol5")
+description = ""
+
+[sub_resource type="Resource" id="Resource_a3bfq"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("21_0omgh")
+delay = 5.0
+count = 10
+interval = 0.9
+
+[sub_resource type="Resource" id="Resource_r4trf"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("5_adi1n")
+delay = 0.0
+count = 20
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_td0wq"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_a3bfq"), SubResource("Resource_r4trf")])
+
+[sub_resource type="Resource" id="Resource_5x72s"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_td0wq")
+description = ""
+
+[sub_resource type="Resource" id="Resource_oei0o"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("8_a0q7i")
+delay = 0.5
+count = 10
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_atlxy"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("22_54w1o")
+delay = 0.0
+count = 10
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_pc3ll"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_oei0o"), SubResource("Resource_atlxy")])
+
+[sub_resource type="Resource" id="Resource_oq0c5"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_pc3ll")
+description = ""
+
+[sub_resource type="Resource" id="Resource_07rck"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("10_ppsyj")
+delay = 0.0
+count = 20
+interval = 1.0
+
+[sub_resource type="Resource" id="Resource_o0xth"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("22_54w1o")
+delay = 0.5
+count = 5
+interval = 5.0
+
+[sub_resource type="Resource" id="Resource_04uok"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_07rck"), SubResource("Resource_o0xth")])
+
+[sub_resource type="Resource" id="Resource_a1njr"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_04uok")
+description = ""
+
+[sub_resource type="Resource" id="Resource_qhdup"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("22_54w1o")
+delay = 0.0
+count = 30
+interval = 0.5
+
+[sub_resource type="Resource" id="Resource_bw86c"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_qhdup")])
+
+[sub_resource type="Resource" id="Resource_t6fk6"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_bw86c")
+description = ""
+
+[sub_resource type="Resource" id="Resource_12et8"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("6_ouvsk")
+delay = 0.0
+count = 100
+interval = 0.1
+
+[sub_resource type="Resource" id="Resource_8y50f"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_12et8")])
+
+[sub_resource type="Resource" id="Resource_30buf"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_8y50f")
+description = ""
+
+[sub_resource type="Resource" id="Resource_v25qg"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("20_kbsxg")
+delay = 5.0
+count = 3
+interval = 10.0
+
+[sub_resource type="Resource" id="Resource_ima2q"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("22_54w1o")
+delay = 0.0
+count = 5
+interval = 0.3
+
+[sub_resource type="Resource" id="Resource_s1656"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("21_0omgh")
+delay = 5.0
+count = 5
+interval = 5.0
+
+[sub_resource type="Resource" id="Resource_6l3o2"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("10_ppsyj")
+delay = 0.0
+count = 10
+interval = 3.0
+
+[sub_resource type="Resource" id="Resource_uvbk0"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("19_ma01c")
+delay = 30.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_ldqb5"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("12_i7pus")
+delay = 15.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_d4i11"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("11_1876h")
+delay = 5.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_es2nx"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("14_55f3x")
+delay = 10.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_ijcl3"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_v25qg"), SubResource("Resource_ima2q"), SubResource("Resource_s1656"), SubResource("Resource_6l3o2"), SubResource("Resource_uvbk0"), SubResource("Resource_ldqb5"), SubResource("Resource_d4i11"), SubResource("Resource_es2nx")])
+
+[sub_resource type="Resource" id="Resource_fx08u"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_ijcl3")
+description = ""
+
+[sub_resource type="Resource" id="Resource_s1b4y"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("23_oereh")
+delay = 0.0
+count = 1
+interval = 0.0
+
+[sub_resource type="Resource" id="Resource_n036o"]
+script = ExtResource("4_hdg2o")
+stone = ExtResource("5_adi1n")
+delay = 0.0
+count = 100
+interval = 2.0
+
+[sub_resource type="Resource" id="Resource_8oqx1"]
+script = ExtResource("3_njt1g")
+wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_s1b4y"), SubResource("Resource_n036o")])
+
+[sub_resource type="Resource" id="Resource_jq5vl"]
+script = ExtResource("2_2waoc")
+stone_stream = SubResource("Resource_8oqx1")
+description = ""
+
+[resource]
+script = ExtResource("1_7wah0")
+waves = Array[ExtResource("2_2waoc")]([SubResource("Resource_xb7xy"), SubResource("Resource_8c43c"), SubResource("Resource_n0hlx"), SubResource("Resource_7gwsv"), SubResource("Resource_06u1g"), SubResource("Resource_tp24u"), SubResource("Resource_3kbjn"), SubResource("Resource_qhaq2"), SubResource("Resource_lbt0r"), SubResource("Resource_7jt3r"), SubResource("Resource_phyan"), SubResource("Resource_kpc85"), SubResource("Resource_o5cv8"), SubResource("Resource_5x72s"), SubResource("Resource_oq0c5"), SubResource("Resource_a1njr"), SubResource("Resource_t6fk6"), SubResource("Resource_30buf"), SubResource("Resource_fx08u"), SubResource("Resource_jq5vl")])

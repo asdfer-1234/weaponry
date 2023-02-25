@@ -1,7 +1,7 @@
 extends ProjectileBehaviour
 class_name SwipeProjectileBehaviour
 @export var arc : float
-const swipe_projectile = preload("res://game/turret/weapon/attack/projectile/swipe_projectile.tscn")
+const swipe_projectile = preload("res://game/projectile/swipe_projectile.tscn")
 
 func get_default_projectile():
 	return swipe_projectile

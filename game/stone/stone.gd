@@ -1,7 +1,7 @@
 extends Area2D
 class_name Stone
 @onready var damage_effect_canvas = $"../../../DamageEffectCanvas"
-@export var speed : float = 10
+@export var speed : float = 100
 @export var health : int = 10
 @export var damage_multipliers : DamageMultipliers
 @export var health_damage : int = 1
@@ -38,11 +38,11 @@ func movement_process(delta):
 	set_progress(progress + speed * delta)
 
 func damage(amount : Damage):
-	var damage = amount
+	var new_damage = amount
 	if damage_multipliers != null:
-		damage = damage_multipliers.multiply(damage).damage
-	var effect_damage = Damage.new()
-	effect_damage.damage = max(damage, min_damage)
+		new_damage = damage_multipliers.multiply(amount)
+	var effect_damage : Damage = Damage.new()
+	effect_damage.damage = max(new_damage.damage, min_damage)
 	effect_damage.type = amount.type
 	health -= effect_damage.damage
 	instantiate_damage_effect(effect_damage)
