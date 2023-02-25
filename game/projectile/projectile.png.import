@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cubrbu205cy5q"
-path="res://.godot/imported/flame.png-9d1a6b87f25e8b492b74af5ca90d051f.ctex"
+uid="uid://cpxk1cnu3l0ty"
+path="res://.godot/imported/projectile.png-05cd1045736fb277dfcbfa7b190f6d18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/attack/projectile/flame.png"
-dest_files=["res://.godot/imported/flame.png-9d1a6b87f25e8b492b74af5ca90d051f.ctex"]
+source_file="res://game/projectile/projectile.png"
+dest_files=["res://.godot/imported/projectile.png-05cd1045736fb277dfcbfa7b190f6d18.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/proj.gd" id="1_x5t5u"]
+[ext_resource type="Script" path="res://game/projectile/proj.gd" id="1_x5t5u"]
 [ext_resource type="Texture2D" uid="uid://cu75tx7tmesbb" path="res://game/explosion/explosion.png" id="3_vshgy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bytyj"]

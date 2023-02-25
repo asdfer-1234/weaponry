@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt8cvr3u5gm1g"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://game/turret/weapon/attack/projectile/proj.gd" id="1_x4nnp"]
-[ext_resource type="Texture2D" uid="uid://boc088ydt4mcv" path="res://game/turret/weapon/attack/projectile/swipe.png" id="2_qvson"]
+[ext_resource type="Script" path="res://game/projectile/proj.gd" id="1_x4nnp"]
+[ext_resource type="Texture2D" uid="uid://boc088ydt4mcv" path="res://game/projectile/swipe.png" id="2_qvson"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hua3w"]
 size = Vector2(16, 4)

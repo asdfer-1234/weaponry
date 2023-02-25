@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=9 format=3 uid="uid://bxwitneyka7ax"]
+[gd_resource type="Resource" script_class="Accessory" load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_bhdes"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_3ji4c"]
-[ext_resource type="Script" path="res://game/turret/weapon/ranger/global_ranger.gd" id="2_meb8i"]
+[ext_resource type="Script" path="res://game/weapon/ranger/global_ranger.gd" id="2_meb8i"]
 [ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="3_f72fc"]
 [ext_resource type="Texture2D" uid="uid://dlndr8kovv7d4" path="res://game/item/accessory/gps.png" id="5_5l266"]
 

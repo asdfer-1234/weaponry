@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=11 format=3 uid="uid://1rkj2thxjqmu"]
+[gd_resource type="Resource" script_class="Ammunition" load_steps=11 format=3]
 
 [ext_resource type="PackedScene" uid="uid://bxvpa50on0m3h" path="res://game/effect/fire.tscn" id="1_48o4a"]
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_fea0g"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_8nhbd"]
-[ext_resource type="Script" path="res://game/turret/weapon/attack/effect_attack.gd" id="2_lgupt"]
+[ext_resource type="Script" path="res://game/weapon/attack/effect_attack.gd" id="2_lgupt"]
 [ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="3_51mrx"]
 [ext_resource type="Texture2D" uid="uid://burlfritnemdg" path="res://game/item/ammunition/oil.png" id="4_8aren"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csjnwo4hc3jop"
-path="res://.godot/imported/water.png-ede1140511abafd193905893ddde55a1.ctex"
+uid="uid://boc088ydt4mcv"
+path="res://.godot/imported/swipe.png-0ba6bac45246392d75d9c6aeebbd7c07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/turret/weapon/attack/projectile/water.png"
-dest_files=["res://.godot/imported/water.png-ede1140511abafd193905893ddde55a1.ctex"]
+source_file="res://game/projectile/swipe.png"
+dest_files=["res://.godot/imported/swipe.png-0ba6bac45246392d75d9c6aeebbd7c07.ctex"]
 
 [params]
 
