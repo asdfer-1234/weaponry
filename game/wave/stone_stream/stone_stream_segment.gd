@@ -17,5 +17,5 @@ func spawn(map):
 	spawn_finish.emit()
 
 func _spawn_stone(map):
-	map.spawn_stone(stone)
+	map.spawn_stone_begin(stone)
 

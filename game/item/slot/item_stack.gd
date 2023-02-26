@@ -25,11 +25,6 @@ var empty:
 	get:
 		return item == null or count <= 0
 
-signal item_changed
-
-func emit_changed():
-	super.emit_changed()
-	item_changed.emit()
 
 func get_stack_size():
 	return 1

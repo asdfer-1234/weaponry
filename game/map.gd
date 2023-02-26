@@ -1,8 +1,8 @@
 extends Node
 
 @onready var wave = %WaveCount
-@onready var hostile_path = $HostilePaths/HostilePath/PathFollow2D
-@onready var stones = $Stones
+
+@onready var stones = $"../StoneCanvas"
 @onready var next_wave_button = $"../UICanvas/MarginContainer/VBoxContainer2/NextWaveButton"
 
 signal wave_cleared
@@ -12,7 +12,7 @@ var generatable = true:
 	set(value):
 		generatable = value
 		next_wave_button.visible = value
-
+var hostile_path_index : int = 0
 
 func next_wave():
 	if generatable:
@@ -35,12 +35,21 @@ func generate():
 func on_spawn_finish():
 	spawn_finished = true
 
-func spawn_stone(stone : PackedScene, progress = 0):
-	
-	var instantiated = stone.instantiate()
-	hostile_path.progress = progress
-	instantiated.global_position = hostile_path.global_position
+func get_hostile_path():
+	var returner = $"../MapUnique/HostilePaths".get_child(hostile_path_index)
+	hostile_path_index += 1
+	if hostile_path_index >= $"../MapUnique/HostilePaths".get_child_count():
+		hostile_path_index = 0
+	return returner
+
+func spawn_stone_begin(stone : PackedScene):
+	spawn_stone(stone, get_hostile_path())
+
+func spawn_stone(stone : PackedScene, hostile_path : Path2D, progress = 0):
+	var instantiated : Stone = stone.instantiate()
+	instantiated.path = hostile_path
 	instantiated.progress = progress
+	instantiated.global_position = instantiated.path.get_node("PathFollow2D").global_position
 	stones.add_child(instantiated)
 	instantiated.disappear.connect(check_stone_clear)
 	return instantiated

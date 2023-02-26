@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmgks6riu4jc4"]
+
+[ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_w2dv2"]
+[ext_resource type="Script" path="res://map_select/map_select_button.gd" id="2_ucks4"]
+[ext_resource type="Texture2D" uid="uid://cxvko7vqepnth" path="res://map_select/map_preview/spiral_map_preview.png" id="3_6sgl3"]
+
+[node name="MapSelectButton" type="Button"]
+custom_minimum_size = Vector2(52, 52)
+offset_right = 52.0
+offset_bottom = 52.0
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("1_w2dv2")
+script = ExtResource("2_ucks4")
+map_name = "asdfasdf"
+
+[node name="Preview" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_6sgl3")
+
+[node name="MapName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MAP_SPIRAL
+"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

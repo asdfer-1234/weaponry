@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://yj160mw1ye8f"]
+
+[ext_resource type="Texture2D" uid="uid://cs0y5tjdl8c3g" path="res://game/map/curve_map_background.png" id="1_atsi4"]
+
+[sub_resource type="Curve2D" id="1"]
+_data = {
+"points": PackedVector2Array(51.3605, -143.655, -51.3605, 143.655, 199, -34, -41.8262, -2.85723, 41.8262, 2.85723, 198, 169, -52.1568, 40.4415, 52.1568, -40.4415, 313, 113, -34.1276, -110.68, 34.1276, 110.68, 516, 165, 72.4837, 5.52142, -72.4837, -5.52142, 380, 322, 31.3725, 15.3981, -31.3725, -15.3981, 289, 311, -71.8155, 19.5288, 71.8155, -19.5288, 315, 216, 27.3285, -34.0443, -27.3285, 34.0443, 366, 294, 55.5358, -0.231707, -55.5358, 0.231707, 240, 325, -25.8813, -28.5736, 25.8813, 28.5736, 152, 387)
+}
+point_count = 10
+
+[node name="MapUnique" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_atsi4")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="HostilePaths" type="Node2D" parent="."]
+
+[node name="HostilePath" type="Path2D" parent="HostilePaths"]
+curve = SubResource("1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="HostilePaths/HostilePath"]
+position = Vector2(199, -34)
+rotation = 1.91416
+
+[node name="BuildBlocker" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildBlocker"]
+polygon = PackedVector2Array(195, -39, 172, 29, 161, 90, 159, 140, 169, 160, 196, 173, 230, 173, 291, 141, 310, 124, 339, 103, 367, 92, 404, 88, 439, 91, 469, 103, 494, 128, 505, 151, 516, 194, 510, 241, 492, 277, 465, 301, 426, 311, 358, 314, 311, 311, 287, 304, 272, 285, 267, 262, 274, 244, 314, 220, 346, 218, 372, 233, 373, 245, 369, 271, 354, 298, 328, 311, 280, 317, 217, 319, 189, 326, 149, 346, 141, 361, 146, 391, 162, 393, 159, 360, 169, 350, 190, 341, 225, 334, 274, 331, 290, 330, 318, 329, 360, 311, 377, 289, 387, 259, 385, 230, 373, 217, 346, 207, 314, 206, 282, 221, 261, 238, 253, 258, 252, 282, 271, 306, 281, 314, 332, 328, 358, 327, 393, 327, 453, 320, 483, 304, 507, 276, 525, 237, 529, 185, 518, 147, 500, 119, 472, 90, 442, 79, 407, 76, 370, 79, 328, 94, 285, 130, 228, 161, 199, 161, 173, 143, 169, 106, 178, 54, 189, 3, 203, -29, 207, -37)

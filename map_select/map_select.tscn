@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm4odvsmu6cn1"]
+
+[ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_t0tav"]
+[ext_resource type="Script" path="res://scene_management/change_scene_by_string.gd" id="2_ey3ek"]
+[ext_resource type="PackedScene" uid="uid://dmgks6riu4jc4" path="res://map_select/map_select_button.tscn" id="2_jo40t"]
+[ext_resource type="PackedScene" uid="uid://cprl8gbksb0el" path="res://game/map/spiral.tscn" id="4_163df"]
+[ext_resource type="Texture2D" uid="uid://b1t65horoqy10" path="res://map_select/map_preview/curve_map_preview.png" id="4_k5xbx"]
+[ext_resource type="Texture2D" uid="uid://cxvko7vqepnth" path="res://map_select/map_preview/spiral_map_preview.png" id="5_7gw3a"]
+[ext_resource type="PackedScene" uid="uid://yj160mw1ye8f" path="res://game/map/curves.tscn" id="6_5i4ro"]
+[ext_resource type="Texture2D" uid="uid://c55copko85npl" path="res://map_select/map_preview/pinches_map_preview.png" id="6_cbap7"]
+[ext_resource type="PackedScene" uid="uid://botdeyltlvhex" path="res://game/map/pinches.tscn" id="8_br206"]
+
+[node name="MapSelect" type="Node"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t0tav")
+
+[node name="BackButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+text = "BACK"
+script = ExtResource("2_ey3ek")
+scene = "main_menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SELECT_MAP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Spiral" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_jo40t")]
+layout_mode = 2
+map_unique = ExtResource("4_163df")
+map_name = "MAP_SPIRAL"
+preview = ExtResource("5_7gw3a")
+
+[node name="Curves" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_jo40t")]
+layout_mode = 2
+map_unique = ExtResource("6_5i4ro")
+map_name = "MAP_CURVES"
+preview = ExtResource("4_k5xbx")
+
+[node name="Pinches" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_jo40t")]
+layout_mode = 2
+map_unique = ExtResource("8_br206")
+map_name = "MAP_PINCHES"
+preview = ExtResource("6_cbap7")
+
+[connection signal="pressed" from="MarginContainer/BackButton" to="MarginContainer/BackButton" method="change_scene"]

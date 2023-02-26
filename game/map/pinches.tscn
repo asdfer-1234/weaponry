@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://botdeyltlvhex"]
+
+[ext_resource type="Texture2D" uid="uid://cugub0c12q7d8" path="res://game/map/pinches_map_background.png" id="1_udu6p"]
+
+[sub_resource type="Curve2D" id="Curve2D_i13bi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 239, -19, 0, 0, 0, 0, 239, 140, 0, 0, 0, 0, 341, 140, 0, 0, 0, 0, 341, 88, 0, 0, 0, 0, 433, 88, 0, 0, 0, 0, 433, 141, 0, 0, 0, 0, 535, 141, 0, 0, 0, 0, 535, -21)
+}
+point_count = 8
+
+[node name="MapUnique" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_udu6p")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="HostilePaths" type="Node2D" parent="."]
+
+[node name="HostilePath" type="Path2D" parent="HostilePaths"]
+curve = SubResource("Curve2D_i13bi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="HostilePaths/HostilePath"]
+position = Vector2(239, -19)
+rotation = 1.5708
+
+[node name="HostilePath2" type="Path2D" parent="HostilePaths"]
+position = Vector2(775, 360)
+rotation = 3.14159
+curve = SubResource("Curve2D_i13bi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="HostilePaths/HostilePath2"]
+position = Vector2(239, -19)
+rotation = 1.5708
+
+[node name="BuildBlocker" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildBlocker"]
+polygon = PackedVector2Array(232, 0, 232, 148, 348, 148, 348, 95, 426, 95, 426, 148, 542, 148, 542, 0, 528, 0, 528, 134, 440, 134, 440, 81, 334, 81, 334, 134, 246, 134, 246, 0)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BuildBlocker"]
+position = Vector2(774, 360)
+rotation = 3.14159
+polygon = PackedVector2Array(232, 0, 232, 148, 348, 148, 348, 95, 426, 95, 426, 148, 542, 148, 542, 0, 528, 0, 528, 134, 440, 134, 440, 81, 334, 81, 334, 134, 246, 134, 246, 0)

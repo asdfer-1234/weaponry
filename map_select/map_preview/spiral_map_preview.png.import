@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ke5f850ph3h"
-path="res://.godot/imported/tile.png-9d715a1598ab95d74830bb4972eca09c.ctex"
+uid="uid://cxvko7vqepnth"
+path="res://.godot/imported/spiral_map_preview.png-e8b09bb118ad414608353435c37b9bac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/map/tile.png"
-dest_files=["res://.godot/imported/tile.png-9d715a1598ab95d74830bb4972eca09c.ctex"]
+source_file="res://map_select/map_preview/spiral_map_preview.png"
+dest_files=["res://.godot/imported/spiral_map_preview.png-e8b09bb118ad414608353435c37b9bac.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
