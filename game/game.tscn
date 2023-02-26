@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c4wsw75cehjvl"]
+[gd_scene load_steps=31 format=3 uid="uid://c4wsw75cehjvl"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
@@ -8,36 +8,23 @@
 [ext_resource type="Script" path="res://game/game_variable/health/health.gd" id="3_al0pa"]
 [ext_resource type="Texture2D" uid="uid://o4oybkbdydle" path="res://game/game_variable/health/heart.png" id="4_h4x8a"]
 [ext_resource type="PackedScene" uid="uid://beybo0dft6401" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
-[ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="5_3445w"]
 [ext_resource type="Script" path="res://game/game_variable/gold/gold.gd" id="5_l3b8w"]
 [ext_resource type="Texture2D" uid="uid://cds0h7bm6y7xd" path="res://game/game_variable/gold/gold.png" id="6_h6anp"]
-[ext_resource type="Resource" uid="uid://deqge5ma7xas" path="res://game/item/ammunition/medium_bullet.tres" id="6_nfisv"]
 [ext_resource type="Script" path="res://game/map.gd" id="6_q555l"]
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
 [ext_resource type="Script" path="res://game/game_variable/wave_count/wave_count.gd" id="9_hd4ur"]
 [ext_resource type="Resource" uid="uid://d0c2l34ye5exs" path="res://game/wave/waves/waves.tres" id="10_06msr"]
 [ext_resource type="Script" path="res://game/item/slot/inventory.gd" id="12_n6huo"]
-[ext_resource type="Resource" uid="uid://xn8uqono5flm" path="res://game/item/weapon/cannon.tres" id="13_0pg1n"]
 [ext_resource type="Texture2D" uid="uid://cp82nxufomsbb" path="res://game/game_variable/wave_count/wave.png" id="14_1xlua"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
-[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="17_fox0a"]
 [ext_resource type="Script" path="res://game/tooltip.gd" id="17_ksa57"]
 [ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="17_mys5v"]
-[ext_resource type="Resource" uid="uid://dvu8us053mbrv" path="res://game/item/accessory/extra_gunpowder.tres" id="17_qxexg"]
 [ext_resource type="Script" path="res://game/turret/builder/builder.gd" id="17_ym512"]
-[ext_resource type="Resource" uid="uid://beovnhb5fjhdh" path="res://game/item/weapon/shotgun.tres" id="18_8euiw"]
-[ext_resource type="Resource" uid="uid://b72qmdxop0sc1" path="res://game/item/ammunition/shotgun_shell.tres" id="18_8um6i"]
-[ext_resource type="Resource" uid="uid://dfsnv42uq2axp" path="res://game/item/weapon/rocket_launcher.tres" id="19_eq5bg"]
-[ext_resource type="Resource" uid="uid://cq5i5fe6p1la2" path="res://game/item/weapon/rifle.tres" id="19_fc03p"]
 [ext_resource type="PackedScene" uid="uid://oc6d2nkw7s8t" path="res://game/item/slot/sale_slot.tscn" id="21_im3vc"]
-[ext_resource type="Resource" uid="uid://b6riw8jdow3iv" path="res://game/item/accessory/gps.tres" id="22_puqkc"]
-[ext_resource type="Resource" uid="uid://b13hnlwavq16t" path="res://game/item/accessory/scope.tres" id="23_8dy44"]
 [ext_resource type="Script" path="res://game/reroll_button.gd" id="25_wvaa8"]
-[ext_resource type="Resource" uid="uid://c4bonh8ytc6fr" path="res://game/item/weapon/water_gun.tres" id="26_tgo2p"]
 [ext_resource type="Script" path="res://game/shop/shop.gd" id="26_vbd8u"]
 [ext_resource type="Script" path="res://game/shop/sale_group.gd" id="27_8cc0t"]
-[ext_resource type="Resource" uid="uid://bs5blou1pn4jo" path="res://game/item/weapon/machine_gun.tres" id="27_ar0vl"]
 [ext_resource type="Resource" uid="uid://cfppywih3gcbw" path="res://game/shop/weapon_group.tres" id="27_nd8dp"]
 [ext_resource type="Resource" uid="uid://didmqxopakdha" path="res://game/shop/ammunition_group.tres" id="28_37ekd"]
 [ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="29_xmi0p"]
@@ -48,75 +35,10 @@ _data = {
 }
 point_count = 8
 
-[sub_resource type="Resource" id="Resource_1gg1x"]
-script = ExtResource("17_fox0a")
-item = ExtResource("13_0pg1n")
-count = 1
-
-[sub_resource type="Resource" id="Resource_b8psj"]
-script = ExtResource("17_fox0a")
-item = ExtResource("5_3445w")
-count = 100
-
-[sub_resource type="Resource" id="Resource_780pe"]
-script = ExtResource("17_fox0a")
-item = ExtResource("6_nfisv")
-count = 250
-
-[sub_resource type="Resource" id="Resource_om7la"]
-script = ExtResource("17_fox0a")
-item = ExtResource("17_qxexg")
-count = 1
-
-[sub_resource type="Resource" id="Resource_gi6vf"]
-script = ExtResource("17_fox0a")
-item = ExtResource("18_8um6i")
-count = 250
-
-[sub_resource type="Resource" id="Resource_7gjdv"]
-script = ExtResource("17_fox0a")
-item = ExtResource("18_8euiw")
-count = 1
-
-[sub_resource type="Resource" id="Resource_bbm1w"]
-script = ExtResource("17_fox0a")
-item = ExtResource("19_eq5bg")
-count = 1
-
-[sub_resource type="Resource" id="Resource_tbfu5"]
-script = ExtResource("17_fox0a")
-item = ExtResource("19_fc03p")
-count = 1
-
-[sub_resource type="Resource" id="Resource_kwpms"]
-script = ExtResource("17_fox0a")
-item = ExtResource("22_puqkc")
-count = 100
-
-[sub_resource type="Resource" id="Resource_yxfxu"]
-script = ExtResource("17_fox0a")
-item = ExtResource("23_8dy44")
-count = 1
-
 [sub_resource type="Resource" id="Resource_1u1m7"]
 script = ExtResource("27_8cc0t")
 sales = Array[Resource("res://game/shop/sellable.gd")]([ExtResource("27_nd8dp"), ExtResource("28_37ekd"), ExtResource("29_xmi0p")])
 availibility = 1.0
-
-[sub_resource type="Resource" id="Resource_c0an4"]
-script = ExtResource("17_fox0a")
-item = ExtResource("5_3445w")
-count = 1000
-
-[sub_resource type="Resource" id="Resource_23264"]
-script = ExtResource("17_fox0a")
-item = ExtResource("26_tgo2p")
-count = 1
-
-[sub_resource type="Resource" id="Resource_3kcf7"]
-script = ExtResource("17_fox0a")
-item = ExtResource("27_ar0vl")
-count = 1000
 
 [node name="Game" type="Node"]
 
@@ -238,67 +160,51 @@ script = ExtResource("12_n6huo")
 
 [node name="ItemSlot" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_1gg1x")
 
 [node name="ItemSlot2" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_b8psj")
 
 [node name="ItemSlot3" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_780pe")
 
 [node name="ItemSlot4" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_om7la")
 
 [node name="ItemSlot5" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_gi6vf")
 
 [node name="ItemSlot6" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_7gjdv")
 
 [node name="ItemSlot7" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_bbm1w")
 
 [node name="ItemSlot8" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_tbfu5")
 
 [node name="ItemSlot9" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_kwpms")
 
 [node name="ItemSlot10" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
 
 [node name="ItemSlot11" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
 
 [node name="ItemSlot12" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
 
 [node name="ItemSlot13" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
 
 [node name="ItemSlot14" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
 
 [node name="ItemSlot15" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
 
 [node name="ItemSlot16" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
-item_stack = SubResource("Resource_yxfxu")
 
 [node name="TrashSlot" parent="UICanvas/MarginContainer/VBoxContainer" instance=ExtResource("5_7ufwh")]
 layout_mode = 2
@@ -326,19 +232,15 @@ sales = SubResource("Resource_1u1m7")
 
 [node name="SaleSlot" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
-item_stack = SubResource("Resource_c0an4")
 
 [node name="SaleSlot2" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
-item_stack = SubResource("Resource_23264")
 
 [node name="SaleSlot3" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
-item_stack = SubResource("Resource_3kcf7")
 
 [node name="SaleSlot4" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
-item_stack = SubResource("Resource_3kcf7")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UICanvas/MarginContainer"]
 layout_mode = 2
