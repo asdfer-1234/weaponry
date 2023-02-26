@@ -100,3 +100,7 @@ MAP_CURVES,Curves,곡선
 MAP_PINCHES,Pinches,직각
 SELECT_MAP,Select map,맵 선택
 BACK,Back,뒤로
+PAUSE_TITLE,Paused,일시 정지
+QUIT_TO_MAIN_MENU,Quit to menu,메뉴로 나가기
+QUIT_PROGRAM,Quit program,프로그램 종료
+RESUME,Resume,재개
