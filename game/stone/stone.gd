@@ -7,16 +7,20 @@ class_name Stone
 @export var health_damage : int = 1
 @export var gold_reward : int = 1
 
-
-
 var progress = 0 : set = set_progress
 var died : bool = false
+var disappeared : bool = false
 var excluded_projectiles : Array = []
 @onready var path_follow = $"../../HostilePaths/HostilePath/PathFollow2D"
+@onready var map = $"../.."
 const particle = preload("res://graphics/temporary_particle.tscn")
 const damage_effect = preload("res://game/damage_effect/damage_effect.tscn")
 
 const min_damage = 1
+
+signal death
+signal goaled
+signal disappear
 
 func set_progress(value):
 	progress = value
@@ -30,6 +34,8 @@ func set_progress(value):
 func _ready():
 	set_progress(progress)
 	add_to_group("stone")
+	death.connect(_emit_disappear)
+	goaled.connect(_emit_disappear)
 
 func _physics_process(delta):
 	movement_process(delta)
@@ -66,17 +72,21 @@ func die():
 		call_deferred("on_die")
 		spawn_particle()
 		$"../%Gold".gold += gold_reward
+		call_deferred("die_signal")
 
 func on_die():
 	pass
 
+func die_signal():
+	disappeared = true
+	death.emit()
+
 func spawn_stone(stone : PackedScene, amount : int = 1, spacing : float = 5):
 	var offset = -(amount * spacing / 2.0)
 	for i in range(amount):
+		map.spawn_stone(stone, progress + offset + spacing * i)
 		var instantiated : Node = stone.instantiate()
-		instantiated.progress = progress + offset + spacing * i
 		instantiated.excluded_projectiles = excluded_projectiles.duplicate()
-		get_parent().add_child(instantiated)
 
 func spawn_particle():
 	var instantiated = particle.instantiate()
@@ -102,6 +112,8 @@ func get_nearby_stones_by_progress(backward_range, forward_range):
 func goal():
 	queue_free()
 	$"../%Health".health -= health_damage
+	disappeared = true
+	goaled.emit()
 
 func add_effect(effect):
 	var effect_path = NodePath(effect.get_state().get_node_name(0))
@@ -110,4 +122,5 @@ func add_effect(effect):
 	else:
 		add_child(effect.instantiate())
 
-
+func _emit_disappear():
+	disappear.emit()

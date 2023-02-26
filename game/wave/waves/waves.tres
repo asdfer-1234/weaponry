@@ -278,9 +278,9 @@ description = ""
 [sub_resource type="Resource" id="Resource_uxtvw"]
 script = ExtResource("4_hdg2o")
 stone = ExtResource("12_i7pus")
-delay = 0.4
+delay = 0.0
 count = 16
-interval = 0.0
+interval = 0.4
 
 [sub_resource type="Resource" id="Resource_dxekb"]
 script = ExtResource("4_hdg2o")
