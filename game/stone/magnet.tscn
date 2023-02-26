@@ -13,6 +13,7 @@ speed = 60.0
 health = 30
 
 [node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
 material = ExtResource("2_fex3r")
 texture = ExtResource("2_3lr7d")
 

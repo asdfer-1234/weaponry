@@ -1,16 +1,12 @@
-[gd_scene load_steps=61 format=3 uid="uid://c4wsw75cehjvl"]
+[gd_scene load_steps=57 format=3 uid="uid://c4wsw75cehjvl"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
 [ext_resource type="Script" path="res://game/turret/turret_selection.gd" id="2_6iqjx"]
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
-[ext_resource type="Script" path="res://game/wave/stone_stream/multiple_stone_stream_segment.gd" id="2_jypby"]
 [ext_resource type="Theme" uid="uid://cvi5bb6plsvpo" path="res://ui/numeric_theme.tres" id="2_l1uk2"]
 [ext_resource type="Script" path="res://game/turret/builder/build_button.gd" id="2_xtpje"]
 [ext_resource type="Script" path="res://game/game_variable/health/health.gd" id="3_al0pa"]
-[ext_resource type="Script" path="res://game/wave/stone_stream/stone_stream_segment.gd" id="3_h5kty"]
-[ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="3_pkbvc"]
 [ext_resource type="Texture2D" uid="uid://o4oybkbdydle" path="res://game/game_variable/health/heart.png" id="4_h4x8a"]
-[ext_resource type="PackedScene" uid="uid://diqf8b0c4tsgv" path="res://game/stone/sandstone.tscn" id="4_pw5fo"]
 [ext_resource type="PackedScene" uid="uid://beybo0dft6401" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
 [ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="5_3445w"]
 [ext_resource type="Script" path="res://game/game_variable/gold/gold.gd" id="5_l3b8w"]
@@ -19,8 +15,11 @@
 [ext_resource type="Script" path="res://game/map.gd" id="6_q555l"]
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="TileSet" uid="uid://bg6062i6bjqli" path="res://game/map/map_tile_set.tres" id="8_i48p8"]
+[ext_resource type="Script" path="res://game/game_variable/wave_count/wave_count.gd" id="9_hd4ur"]
+[ext_resource type="Resource" uid="uid://d0c2l34ye5exs" path="res://game/wave/waves/waves.tres" id="10_06msr"]
 [ext_resource type="Script" path="res://game/item/slot/inventory.gd" id="12_n6huo"]
 [ext_resource type="Resource" uid="uid://xn8uqono5flm" path="res://game/item/weapon/cannon.tres" id="13_0pg1n"]
+[ext_resource type="Texture2D" uid="uid://cp82nxufomsbb" path="res://game/game_variable/wave_count/wave.png" id="14_1xlua"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="17_fox0a"]
 [ext_resource type="Script" path="res://game/tooltip.gd" id="17_ksa57"]
@@ -42,24 +41,6 @@
 [ext_resource type="Resource" uid="uid://cfppywih3gcbw" path="res://game/shop/weapon_group.tres" id="27_nd8dp"]
 [ext_resource type="Resource" uid="uid://didmqxopakdha" path="res://game/shop/ammunition_group.tres" id="28_37ekd"]
 [ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="29_xmi0p"]
-
-[sub_resource type="Resource" id="Resource_v48dr"]
-script = ExtResource("3_h5kty")
-stone = ExtResource("4_pw5fo")
-delay = 1.0
-count = 30
-interval = 0.01
-
-[sub_resource type="Resource" id="Resource_gvyym"]
-script = ExtResource("3_h5kty")
-stone = ExtResource("3_pkbvc")
-delay = 2.0
-count = 10
-interval = 0.1
-
-[sub_resource type="Resource" id="Resource_lieae"]
-script = ExtResource("2_jypby")
-wave_segment = Array[ExtResource("3_h5kty")]([SubResource("Resource_v48dr"), SubResource("Resource_gvyym")])
 
 [sub_resource type="Curve2D" id="1"]
 _data = {
@@ -141,7 +122,6 @@ count = 1000
 
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("6_q555l")
-wave = SubResource("Resource_lieae")
 
 [node name="HostilePaths" type="Node2D" parent="Map"]
 
@@ -335,7 +315,8 @@ theme = ExtResource("1_bgo03")
 text = "REROLL"
 script = ExtResource("25_wvaa8")
 
-[node name="ShopContainer" type="GridContainer" parent="UICanvas/MarginContainer/VBoxContainer"]
+[node name="Shop" type="GridContainer" parent="UICanvas/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/v_separation = 8
@@ -343,21 +324,48 @@ columns = 4
 script = ExtResource("26_vbd8u")
 sales = SubResource("Resource_1u1m7")
 
-[node name="SaleSlot" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_c0an4")
 
-[node name="SaleSlot2" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot2" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_23264")
 
-[node name="SaleSlot3" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot3" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_3kcf7")
 
-[node name="SaleSlot4" parent="UICanvas/MarginContainer/VBoxContainer/ShopContainer" instance=ExtResource("21_im3vc")]
+[node name="SaleSlot4" parent="UICanvas/MarginContainer/VBoxContainer/Shop" instance=ExtResource("21_im3vc")]
 layout_mode = 2
 item_stack = SubResource("Resource_3kcf7")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UICanvas/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="WaveCount" type="RichTextLabel" parent="UICanvas/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_l1uk2")
+bbcode_enabled = true
+text = "[img]res://game/health/heart.png[/img]50"
+fit_content = true
+scroll_active = false
+script = ExtResource("9_hd4ur")
+waves = ExtResource("10_06msr")
+icon = ExtResource("14_1xlua")
+color = Color(1, 0.952941, 0.764706, 1)
+
+[node name="NextWaveButton" type="Button" parent="UICanvas/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("1_bgo03")
+text = "NEXT_WAVE"
 
 [node name="TurretSelection" type="Control" parent="UICanvas" groups=["turret_selection"]]
 layout_mode = 3
@@ -424,5 +432,6 @@ scroll_active = false
 [connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/ShopContainer" method="reroll"]
+[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/Shop" method="reroll"]
+[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer2/NextWaveButton" to="Map" method="next_wave"]
 [connection signal="finished" from="CursorCanvas/CursorFollower/Tooltip/MarginContainer/RichTextLabel" to="CursorCanvas/CursorFollower/Tooltip" method="update_tooltip_size"]

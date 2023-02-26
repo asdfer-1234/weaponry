@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/stone/stone.gd" id="2"]
 [ext_resource type="Material" uid="uid://ce2cc4hw4yx2q" path="res://graphics/background_outline.tres" id="2_bppck"]
 
-[sub_resource type="CircleShape2D" id="1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7uwsm"]
 radius = 8.0
 
 [node name="Stone" type="Area2D"]
@@ -15,4 +15,4 @@ material = ExtResource("2_bppck")
 texture = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
+shape = SubResource("CircleShape2D_7uwsm")

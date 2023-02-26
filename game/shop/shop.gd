@@ -7,4 +7,4 @@ func _ready():
 
 func reroll():
 	for i in get_children():
-		i.set_sale(sales.pick(0))
+		i.set_sale(sales.pick(%WaveCount.progress()))
