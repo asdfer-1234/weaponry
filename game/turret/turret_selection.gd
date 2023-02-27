@@ -15,9 +15,11 @@ var select_turret : Turret:
 		select_turret = value
 		if select_turret != null:
 			select_turret.selected = true
+		sell_button.visible = select_turret != null
 		update_slot_container()
 var building = false
 @onready var builder = $"../../CursorCanvas/CursorFollower/Builder"
+@onready var sell_button = $"../MarginContainer/VBoxContainer/HBoxContainer2/SellButton"
 
 
 func mouse_enter(turret):
@@ -68,3 +70,15 @@ func update_slot_container():
 	if select_turret != null:
 		select_turret.set_weapon_slot()
 
+
+
+func _on_sell_button_pressed():
+	if sellable():
+		sell()
+
+func sellable():
+	return select_turret.weapon_slot.dependencies_clear() and select_turret.weapon_slot.item_stack.empty
+
+func sell():
+	select_turret.sell()
+	deselect()

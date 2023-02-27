@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://game/wave/stone_stream/multiple_stone_stream_segment.gd" id="3_njt1g"]
 [ext_resource type="Script" path="res://game/wave/stone_stream/stone_stream_segment.gd" id="4_hdg2o"]
 [ext_resource type="PackedScene" uid="uid://c2xs4wmk5vcj7" path="res://game/stone/stone.tscn" id="5_adi1n"]
-[ext_resource type="PackedScene" path="res://game/stone/big_stone.tscn" id="6_ouvsk"]
+[ext_resource type="PackedScene" uid="uid://bafn6aeo5li7g" path="res://game/stone/big_stone.tscn" id="6_ouvsk"]
 [ext_resource type="PackedScene" uid="uid://ffw4obfc1nuy" path="res://game/stone/gold.tscn" id="7_y2ian"]
 [ext_resource type="PackedScene" uid="uid://diqf8b0c4tsgv" path="res://game/stone/sandstone.tscn" id="8_a0q7i"]
 [ext_resource type="PackedScene" uid="uid://byccqwwcjfuqa" path="res://game/stone/sand.tscn" id="9_2iid7"]
