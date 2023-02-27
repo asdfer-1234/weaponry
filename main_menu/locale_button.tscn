@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjuamowf4e8e4"]
+
+[ext_resource type="Script" path="res://main_menu/locale_button.gd" id="1_aqok0"]
+
+[node name="LocaleButton" type="TextureButton"]
+script = ExtResource("1_aqok0")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c4wsw75cehjvl"]
+[gd_scene load_steps=31 format=3 uid="uid://bh2wmb27vw25k"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_33em8"]
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://cfppywih3gcbw" path="res://game/shop/weapon_group.tres" id="27_nd8dp"]
 [ext_resource type="Resource" uid="uid://didmqxopakdha" path="res://game/shop/ammunition_group.tres" id="28_37ekd"]
 [ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="29_xmi0p"]
+[ext_resource type="PackedScene" uid="uid://dmvf3axbf7hmd" path="res://game/game_end/game_end.tscn" id="31_5ue8y"]
 
 [sub_resource type="Resource" id="Resource_1u1m7"]
 script = ExtResource("27_8cc0t")
@@ -38,6 +39,7 @@ availibility = 1.0
 script = ExtResource("1_33em8")
 
 [node name="Map" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("6_q555l")
 
 [node name="StoneCanvas" type="CanvasLayer" parent="."]
@@ -75,7 +77,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_l1uk2")
 bbcode_enabled = true
-text = "[img]res://game/health/heart.png[/img]50"
+text = "HEALTH"
 fit_content = true
 scroll_active = false
 script = ExtResource("3_al0pa")
@@ -89,7 +91,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_l1uk2")
 bbcode_enabled = true
-text = "[img]res://game/health/heart.png[/img]50"
+text = "GOLD"
 fit_content = true
 scroll_active = false
 script = ExtResource("5_l3b8w")
@@ -252,6 +254,7 @@ mouse_filter = 2
 script = ExtResource("2_6iqjx")
 
 [node name="CursorCanvas" type="CanvasLayer" parent="."]
+layer = 5
 
 [node name="CursorFollower" type="Node2D" parent="CursorCanvas"]
 position = Vector2(-16, -16)
@@ -302,6 +305,9 @@ mouse_filter = 2
 theme = ExtResource("1_bgo03")
 bbcode_enabled = true
 scroll_active = false
+
+[node name="GameEnd" parent="." instance=ExtResource("31_5ue8y")]
+unique_name_in_owner = true
 
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_exited"]

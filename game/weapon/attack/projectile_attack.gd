@@ -7,9 +7,10 @@ class_name ProjectileAttack
 @export var delay : float = 0
 
 
-func attack(from, _target, modifier):
+func attack(from, _target, modifier, modifier_attack_used = false):
 	for i in range(modifier.count.apply(count)):
 		var projectile = projectile_behaviour.projectile(from, modifier)
+		projectile.projectile_behaviour.modifier_attack_used = modifier_attack_used
 		var applied_spread = modifier.spread.apply(spread)
 		projectile.rotate(randf_range(deg_to_rad(applied_spread), -deg_to_rad(applied_spread)))
 		if delay != 0:

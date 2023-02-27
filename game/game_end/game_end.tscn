@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmvf3axbf7hmd"]
+
+[ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_cmox8"]
+[ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="2_5nmw8"]
+[ext_resource type="Script" path="res://game/game_end/game_end.gd" id="2_t0rjj"]
+[ext_resource type="PackedScene" uid="uid://b2kmvc8jt670n" path="res://ui/button.tscn" id="3_4ojr1"]
+
+[node name="GameEnd" type="CanvasLayer"]
+layer = 3
+script = ExtResource("2_t0rjj")
+
+[node name="GameEndEnable" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(240, 100)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -50.0
+offset_right = 45.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cmox8")
+
+[node name="Background" type="NinePatchRect" parent="GameEndEnable"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_cmox8")
+texture = ExtResource("2_5nmw8")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameEndEnable"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameEndEnable/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="GameEndEnable/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GAME_END_TITLE"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameEndEnable/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Wave" type="RichTextLabel" parent="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "WAVE"
+fit_content = true
+scroll_active = false
+
+[node name="Health" type="RichTextLabel" parent="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "HEALTH"
+fit_content = true
+scroll_active = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GameEndEnable/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button2" parent="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_4ojr1")]
+layout_mode = 2
+text = "QUIT_TO_MAIN_MENU"
+
+[node name="Button3" parent="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_4ojr1")]
+layout_mode = 2
+text = "QUIT_TO_MAP_SELECT"

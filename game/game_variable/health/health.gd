@@ -6,8 +6,7 @@ var health:
 	set(set_value):
 		value = set_value
 		if value <= 0:
-			gameover()
-
-func gameover():
-	#Engine.time_scale = 0
-	pass
+			value = 0
+			if not %GameEnd.game_over:
+				%GameEnd.defeat()
+	

@@ -3,7 +3,8 @@ class_name EffectAttack
 
 @export var effect : PackedScene
 
-func attack(_from, target, _damage_multiplier = 1):
+func attack(_from, target, _damage_multiplier = 1, _modifier_attack_used = false
+):
 	target.add_effect(effect)
 
 func tooltip():
