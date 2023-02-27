@@ -4,9 +4,9 @@ class_name AttackArray
 
 @export var attacks : Array[Attack] = []
 
-func attack(from, target, damage_multiplier):
+func attack(from, target, damage_multiplier, modifier_attack_used = false):
 	for i in attacks:
-		i.attack(from, target, damage_multiplier)
+		i.attack(from, target, damage_multiplier, modifier_attack_used)
 
 func add(other):
 	if other == null:

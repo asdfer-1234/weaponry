@@ -104,3 +104,9 @@ PAUSE_TITLE,Paused,일시 정지
 QUIT_TO_MAIN_MENU,Quit to menu,메뉴로 나가기
 QUIT_PROGRAM,Quit program,프로그램 종료
 RESUME,Resume,재개
+VICTORY_TITLE,Game end,승리
+DEFEAT_TITLE,Defeat,패배
+GAME_WIN_TITLE,Victory,승리
+AIRBURST_DARTS,Airburst darts,공중분해 다트
+AIRBURST_DARTS_DESCRIPTION,Great for popping bloons,풍선 터뜨리기 좋다
+QUIT_TO_MAP_SELECT,Select map,맵 선택

@@ -12,6 +12,7 @@ const default_projectile = preload("res://game/projectile/projectile.tscn")
 @export var attack_on_expire : Attack
 var modifier : Modifier
 var hit = false
+var modifier_attack_used = false
 
 func get_default_projectile():
 	return default_projectile
@@ -55,11 +56,12 @@ func _on_hit(target):
 		node.queue_free()
 	if attack_on_hit != null:
 		attack_on_hit.attack(node, target, modifier)
-	modifier.attack_on_hit.attack(node, target, modifier)
+	elif not modifier_attack_used:
+		modifier.attack_on_hit.attack(node, target, modifier, true)
 
 func _on_expire():
 	if attack_on_expire != null:
-		attack_on_expire.attack(node, null, modifier)
+		attack_on_expire.attack(node, null, modifier, true)
 	#modifier.attack_on_expire.attack(node, null, modifier)
 
 func tooltip():

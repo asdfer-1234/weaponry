@@ -5,6 +5,8 @@ var wave : int:
 		return value
 	set(set_value):
 		value = set_value
+		if value == len(waves.waves):
+			%GameEnd.victory()
 @export var waves : Waves
 
 

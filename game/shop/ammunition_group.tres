@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaleGroup" load_steps=22 format=3 uid="uid://didmqxopakdha"]
+[gd_resource type="Resource" script_class="SaleGroup" load_steps=28 format=3 uid="uid://didmqxopakdha"]
 
 [ext_resource type="Resource" uid="uid://by8wp8w0i4h4e" path="res://game/item/ammunition/arrow.tres" id="1_pc84c"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="2_kaplv"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://cltbu0dwyiqsw" path="res://game/item/ammunition/oil.tres" id="6_3menc"]
 [ext_resource type="Resource" uid="uid://b72qmdxop0sc1" path="res://game/item/ammunition/shotgun_shell.tres" id="7_tmecl"]
 [ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="8_wo4g7"]
+[ext_resource type="Resource" uid="uid://bt6j6f5v624u5" path="res://game/item/ammunition/bomb.tres" id="9_j0uri"]
+[ext_resource type="Resource" uid="uid://c2p2kqvupwong" path="res://game/item/ammunition/airburst_darts.tres" id="10_tewf5"]
 [ext_resource type="Script" path="res://game/shop/sale_group.gd" id="14_o885b"]
 
 [sub_resource type="Resource" id="Resource_1h15e"]
@@ -76,7 +78,29 @@ price = 40
 item_stack = SubResource("Resource_jycv0")
 availibility = 1.0
 
+[sub_resource type="Resource" id="Resource_ysof0"]
+script = ExtResource("2_kaplv")
+item = ExtResource("9_j0uri")
+count = 100
+
+[sub_resource type="Resource" id="Resource_n6o70"]
+script = ExtResource("3_i4ha2")
+price = 50
+item_stack = SubResource("Resource_ysof0")
+availibility = 0.2
+
+[sub_resource type="Resource" id="Resource_82tf7"]
+script = ExtResource("2_kaplv")
+item = ExtResource("10_tewf5")
+count = 100
+
+[sub_resource type="Resource" id="Resource_ujpi3"]
+script = ExtResource("3_i4ha2")
+price = 50
+item_stack = SubResource("Resource_82tf7")
+availibility = 0.2
+
 [resource]
 script = ExtResource("14_o885b")
-sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_p2kvr"), SubResource("Resource_sy2wx"), SubResource("Resource_kg3py"), SubResource("Resource_acees"), SubResource("Resource_8hbki"), SubResource("Resource_6ujul")])
+sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_p2kvr"), SubResource("Resource_sy2wx"), SubResource("Resource_kg3py"), SubResource("Resource_acees"), SubResource("Resource_8hbki"), SubResource("Resource_6ujul"), SubResource("Resource_n6o70"), SubResource("Resource_ujpi3")])
 availibility = 0.25

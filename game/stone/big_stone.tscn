@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://bafn6aeo5li7g"]
 
 [ext_resource type="Texture2D" uid="uid://bxs1fbegbjwwl" path="res://game/stone/big_stone.png" id="1"]
 [ext_resource type="Script" path="res://game/stone/split_stone.gd" id="2"]
@@ -11,8 +11,8 @@ radius = 12.0
 [node name="BigStone" type="Area2D"]
 script = ExtResource("2")
 child_stone = ExtResource("3")
-speed = 100.0
 health = 20
+health_damage = 2
 
 [node name="Sprite" type="Sprite2D" parent="."]
 material = ExtResource("3_gf6ly")

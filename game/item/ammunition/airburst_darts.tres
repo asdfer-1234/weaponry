@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Ammunition" load_steps=12 format=3 uid="uid://c2p2kqvupwong"]
+
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="1_75345"]
+[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="2_0vdle"]
+[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="2_ajv81"]
+[ext_resource type="Script" path="res://game/item/modifier.gd" id="2_krpbn"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="3_fhw1h"]
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="3_jhwtb"]
+[ext_resource type="Texture2D" uid="uid://wtsl73v0kfof" path="res://game/item/ammunition/airburst_darts.png" id="8_2ihwk"]
+
+[sub_resource type="Resource" id="Resource_iule8"]
+script = ExtResource("1_75345")
+type = 0
+damage = 4
+
+[sub_resource type="Resource" id="Resource_j1x7k"]
+script = ExtResource("2_ajv81")
+sprite = ExtResource("3_fhw1h")
+speed = 500.0
+acceleration = 0.0
+randomly_rotate = false
+pierce = 1
+size = 1.0
+damage = SubResource("Resource_iule8")
+lifetime = 2.0
+
+[sub_resource type="Resource" id="Resource_xxx8e"]
+script = ExtResource("2_0vdle")
+projectile_behaviour = SubResource("Resource_j1x7k")
+spread = 40.0
+count = 3
+delay = 0.0
+
+[sub_resource type="Resource" id="Resource_6w3y8"]
+script = ExtResource("2_krpbn")
+attack_on_hit = SubResource("Resource_xxx8e")
+
+[resource]
+script = ExtResource("3_jhwtb")
+modifier = SubResource("Resource_6w3y8")
+stack_size = 100
+name = "AIRBURST_DARTS"
+sprite = ExtResource("8_2ihwk")
+type = 2

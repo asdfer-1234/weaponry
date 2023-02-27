@@ -60,3 +60,6 @@ func check_stone_clear():
 			if not i.disappeared:
 				return
 		wave_cleared.emit()
+
+func end():
+	wave_cleared.disconnect(ready_for_next_wave)

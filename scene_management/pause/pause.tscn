@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://doer0jxhwrmc1"]
+[gd_scene load_steps=8 format=3 uid="uid://n0nv1ck1gyvs"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_fav46"]
 [ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="1_vii4k"]
@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://b2kmvc8jt670n" path="res://ui/button.tscn" id="3_anp5i"]
 [ext_resource type="Script" path="res://scene_management/quit.gd" id="4_cdbyh"]
 [ext_resource type="Script" path="res://scene_management/change_scene.gd" id="4_nb74x"]
-[ext_resource type="PackedScene" uid="uid://ckmnkv3a1d2g8" path="res://ui/main_menu.tscn" id="5_w7ueo"]
+[ext_resource type="PackedScene" uid="uid://ckmnkv3a1d2g8" path="res://main_menu/main_menu.tscn" id="6_a061u"]
 
-[node name="Pause" type="Node"]
+[node name="Pause" type="CanvasLayer"]
+layer = 4
 script = ExtResource("1_ypv2k")
 
 [node name="PauseEnable" type="Control" parent="."]
 editor_description = "Blocking clicks intended"
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +69,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "QUIT_TO_MAIN_MENU"
 script = ExtResource("4_nb74x")
-scene = ExtResource("5_w7ueo")
+scene = ExtResource("6_a061u")
 
 [node name="QuitProgramButton" parent="PauseEnable/NinePatchRect/MarginContainer/VBoxContainer" instance=ExtResource("3_anp5i")]
 layout_mode = 2
