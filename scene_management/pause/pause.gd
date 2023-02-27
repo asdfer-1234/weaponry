@@ -11,7 +11,7 @@ var paused = false:
 
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and ($"../Game/%Builder" == null or $"../Game/%Builder".hold == null):
 		paused = not paused
 
 func pause():

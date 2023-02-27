@@ -18,12 +18,13 @@ func _process(_delta):
 			modulate = placable_color
 			hold.get_node("Sprite").material = placable_material
 			hold.draw_weapon_details = true
-			if Input.is_action_pressed("place_turret") and hold != null:
+			if Input.is_action_pressed("place_turret"):
 				place_build()
-			
 		else:
 			modulate = blocked_color
 			hold.get_node("Sprite").material = blocked_material
+		if Input.is_action_pressed("deselect_turret"):
+			abort_build()
 
 func _on_build_button_pressed():
 	if price() <= %Gold.gold:
@@ -50,6 +51,10 @@ func place_build():
 	end_build.emit()
 	%Gold.gold -= price()
 	placed_turret += 1
+
+func abort_build():
+	hold.queue_free()
+	hold = null
 
 func price():
 	return placed_turret * 10
