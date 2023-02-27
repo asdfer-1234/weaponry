@@ -110,3 +110,5 @@ GAME_WIN_TITLE,Victory,승리
 AIRBURST_DARTS,Airburst darts,공중분해 다트
 AIRBURST_DARTS_DESCRIPTION,Great for popping bloons,풍선 터뜨리기 좋다
 QUIT_TO_MAP_SELECT,Select map,맵 선택
+SELL_TURRET,Sell,판매
+TURRET_SELL_DEPENDENCIES_NOT_CLEAR,Remove items from this turret to sell this turret.,이 포탑을 판매하기 위해선 포탑의 모든 아이템을 제거하세요.

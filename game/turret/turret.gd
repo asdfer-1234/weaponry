@@ -44,6 +44,8 @@ const highlight_outline = preload("res://graphics/red_outline.tres")
 const select_outline = preload("res://graphics/green_outline.tres")
 const inventory_slot = preload("res://game/item/slot/weapon_slot.tscn")
 
+const sell_price = 5
+
 signal mouse_enter(turret)
 signal mouse_exit(turret)
 signal button_press(turret)
@@ -139,3 +141,8 @@ func add_temporary_modifier(modifier):
 
 func remove_temporary_modifier(modifier):
 	temporary_modifiers.erase(modifier)
+
+func sell():
+	$"../%Builder".placed_turret -= 1
+	$"../%Gold".gold += $"../%Builder".placed_turret * sell_price
+	queue_free()

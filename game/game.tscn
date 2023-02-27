@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bh2wmb27vw25k"]
+[gd_scene load_steps=33 format=3 uid="uid://bh2wmb27vw25k"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_33em8"]
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="Script" path="res://game/game_variable/wave_count/wave_count.gd" id="9_hd4ur"]
 [ext_resource type="Resource" uid="uid://d0c2l34ye5exs" path="res://game/wave/waves/waves.tres" id="10_06msr"]
+[ext_resource type="PackedScene" uid="uid://b2kmvc8jt670n" path="res://ui/button.tscn" id="10_87wuu"]
+[ext_resource type="Script" path="res://game/turret/sell_button.gd" id="11_ic726"]
 [ext_resource type="Script" path="res://game/item/slot/inventory.gd" id="12_n6huo"]
 [ext_resource type="Texture2D" uid="uid://cp82nxufomsbb" path="res://game/game_variable/wave_count/wave.png" id="14_1xlua"]
 [ext_resource type="PackedScene" uid="uid://cglt2cpwbw18l" path="res://game/item/slot/item_stack_display.tscn" id="14_egtcl"]
@@ -114,10 +116,21 @@ layout_mode = 2
 theme = ExtResource("1_bgo03")
 text = "INVENTORY_SELECTED"
 
-[node name="SlotContainer" type="HBoxContainer" parent="UICanvas/MarginContainer/VBoxContainer" groups=["turret_item_slot_container"]]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UICanvas/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SlotContainer" type="HBoxContainer" parent="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2" groups=["turret_item_slot_container"]]
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_horizontal = 0
+
+[node name="SellButton" parent="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("10_87wuu")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "SELL_TURRET"
+script = ExtResource("11_ic726")
 
 [node name="InventoryLabel" type="Label" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -312,6 +325,9 @@ unique_name_in_owner = true
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="CursorCanvas/CursorFollower/Builder" method="_on_build_button_pressed"]
+[connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2/SellButton" to="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2/SellButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2/SellButton" to="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2/SellButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2/SellButton" to="UICanvas/TurretSelection" method="_on_sell_button_pressed"]
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/Shop" method="reroll"]

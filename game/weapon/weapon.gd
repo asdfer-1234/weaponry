@@ -1,6 +1,6 @@
 extends Behaviour
 class_name Weapon
-@export var sprite : Texture = load("res://game/turret/weapon/default_weapon/default_weapon_turret.png")
+@export var sprite : Texture = load("res://game/weapon/default_weapon/default_weapon_turret.png")
 @export var flip_mode : SpriteFlipper.FlipMode = SpriteFlipper.FlipMode.NONE
 @export var ammunition_slot_count : int
 @export var accessory_slot_count : int
