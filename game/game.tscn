@@ -330,6 +330,6 @@ unique_name_in_owner = true
 [connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2/SellButton" to="UICanvas/TurretSelection" method="_on_sell_button_pressed"]
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/RerollButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/Shop" method="reroll"]
+[connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer/RerollButton" to="UICanvas/MarginContainer/VBoxContainer/Shop" method="reroll_with_price"]
 [connection signal="pressed" from="UICanvas/MarginContainer/VBoxContainer2/NextWaveButton" to="Map" method="next_wave"]
 [connection signal="finished" from="CursorCanvas/CursorFollower/Tooltip/MarginContainer/RichTextLabel" to="CursorCanvas/CursorFollower/Tooltip" method="update_tooltip_size"]
