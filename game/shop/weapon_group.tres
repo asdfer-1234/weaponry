@@ -21,7 +21,7 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_p2kvr"]
 script = ExtResource("3_4dth5")
-price = 140
+price = 70
 item_stack = SubResource("Resource_1h15e")
 availibility = 0.2
 
@@ -32,7 +32,7 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_sy2wx"]
 script = ExtResource("3_4dth5")
-price = 100
+price = 30
 item_stack = SubResource("Resource_rjiak")
 availibility = 1.0
 
@@ -76,7 +76,7 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_6ujul"]
 script = ExtResource("3_4dth5")
-price = 120
+price = 40
 item_stack = SubResource("Resource_jycv0")
 availibility = 1.0
 
@@ -87,7 +87,7 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_fvspa"]
 script = ExtResource("3_4dth5")
-price = 120
+price = 100
 item_stack = SubResource("Resource_j1ypw")
 availibility = 0.8
 
@@ -109,7 +109,7 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_d41w6"]
 script = ExtResource("3_4dth5")
-price = 80
+price = 30
 item_stack = SubResource("Resource_6lme5")
 availibility = 1.0
 
@@ -120,7 +120,7 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_53b1h"]
 script = ExtResource("3_4dth5")
-price = 90
+price = 20
 item_stack = SubResource("Resource_1yscm")
 availibility = 0.3
 
@@ -131,7 +131,7 @@ count = 1
 
 [sub_resource type="Resource" id="Resource_kjohs"]
 script = ExtResource("3_4dth5")
-price = 140
+price = 70
 item_stack = SubResource("Resource_yw8e2")
 availibility = 0.4
 
