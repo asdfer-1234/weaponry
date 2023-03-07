@@ -39,7 +39,7 @@ damage = 10
 [sub_resource type="Resource" id="Resource_kdcch"]
 script = ExtResource("6_2lm7q")
 sprite = ExtResource("7_xcsbs")
-speed = 200.0
+speed = 400.0
 acceleration = 0.0
 randomly_rotate = false
 pierce = 1

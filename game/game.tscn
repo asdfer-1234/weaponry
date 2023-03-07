@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bh2wmb27vw25k"]
+[gd_scene load_steps=35 format=3 uid="uid://kgnlgltrpr3d"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_33em8"]
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://game/turret/builder/CursorFollower.gd" id="7"]
 [ext_resource type="Script" path="res://game/game_variable/wave_count/wave_count.gd" id="9_hd4ur"]
 [ext_resource type="Resource" uid="uid://d0c2l34ye5exs" path="res://game/wave/waves/waves.tres" id="10_06msr"]
-[ext_resource type="PackedScene" uid="uid://b2kmvc8jt670n" path="res://ui/button.tscn" id="10_87wuu"]
+[ext_resource type="PackedScene" path="res://ui/button.tscn" id="10_87wuu"]
 [ext_resource type="Script" path="res://game/turret/sell_button.gd" id="11_ic726"]
 [ext_resource type="Script" path="res://game/item/slot/inventory.gd" id="12_n6huo"]
 [ext_resource type="Texture2D" uid="uid://cp82nxufomsbb" path="res://game/game_variable/wave_count/wave.png" id="14_1xlua"]
@@ -31,6 +31,8 @@
 [ext_resource type="Resource" uid="uid://didmqxopakdha" path="res://game/shop/ammunition_group.tres" id="28_37ekd"]
 [ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="29_xmi0p"]
 [ext_resource type="PackedScene" uid="uid://dmvf3axbf7hmd" path="res://game/game_end/game_end.tscn" id="31_5ue8y"]
+[ext_resource type="Script" path="res://audio/music/music_loader.gd" id="32_otw54"]
+[ext_resource type="AudioStream" uid="uid://b6dsaqhgrhy04" path="res://game/game.wav" id="33_relkb"]
 
 [sub_resource type="Resource" id="Resource_1u1m7"]
 script = ExtResource("27_8cc0t")
@@ -62,6 +64,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource("1_bgo03")
+
+[node name="WaveDescription" type="Label" parent="UICanvas/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/MarginContainer"]
 layout_mode = 2
@@ -101,13 +108,10 @@ value = 50
 icon = ExtResource("6_h6anp")
 color = Color(1, 0.85098, 0.541176, 1)
 
-[node name="BuildButton" type="Button" parent="UICanvas/MarginContainer/VBoxContainer"]
+[node name="BuildButton" parent="UICanvas/MarginContainer/VBoxContainer" instance=ExtResource("10_87wuu")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-theme = ExtResource("1_bgo03")
 text = "BUILD_TURRET"
 script = ExtResource("2_xtpje")
 
@@ -118,6 +122,7 @@ text = "INVENTORY_SELECTED"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="UICanvas/MarginContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="SlotContainer" type="HBoxContainer" parent="UICanvas/MarginContainer/VBoxContainer/HBoxContainer2" groups=["turret_item_slot_container"]]
 custom_minimum_size = Vector2(0, 22)
@@ -163,6 +168,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ItemSlot6" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
+visible = false
 layout_mode = 2
 
 [node name="ItemSlot7" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
@@ -203,10 +209,10 @@ layout_mode = 2
 theme = ExtResource("1_bgo03")
 text = "SHOP"
 
-[node name="RerollButton" type="Button" parent="UICanvas/MarginContainer/VBoxContainer"]
+[node name="RerollButton" parent="UICanvas/MarginContainer/VBoxContainer" instance=ExtResource("10_87wuu")]
 layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("1_bgo03")
+size_flags_vertical = 0
 text = "REROLL"
 script = ExtResource("25_wvaa8")
 
@@ -250,12 +256,10 @@ waves = ExtResource("10_06msr")
 icon = ExtResource("14_1xlua")
 color = Color(1, 0.952941, 0.764706, 1)
 
-[node name="NextWaveButton" type="Button" parent="UICanvas/MarginContainer/VBoxContainer2"]
+[node name="NextWaveButton" parent="UICanvas/MarginContainer/VBoxContainer2" instance=ExtResource("10_87wuu")]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
-focus_mode = 0
-theme = ExtResource("1_bgo03")
+size_flags_vertical = 4
 text = "NEXT_WAVE"
 
 [node name="TurretSelection" type="Control" parent="UICanvas" groups=["turret_selection"]]
@@ -321,6 +325,10 @@ scroll_active = false
 
 [node name="GameEnd" parent="." instance=ExtResource("31_5ue8y")]
 unique_name_in_owner = true
+
+[node name="MusicLoader" type="Node" parent="."]
+script = ExtResource("32_otw54")
+music = ExtResource("33_relkb")
 
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_exited"]

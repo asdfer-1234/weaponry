@@ -10,7 +10,8 @@ func _physics_process(delta):
 
 
 func _on_enter(target):
-	if not projectile_behaviour.hit:
+	if not projectile_behaviour.hit and not target.excluded_projectiles.has(self):
+		target.excluded_projectiles.append(self)
 		projectile_behaviour._on_hit(target)
 
 func _draw():

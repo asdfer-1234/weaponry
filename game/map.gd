@@ -4,6 +4,8 @@ extends Node
 
 @onready var stones = $"../StoneCanvas"
 @onready var next_wave_button = $"../UICanvas/MarginContainer/VBoxContainer2/NextWaveButton"
+@onready var wave_description = $"../UICanvas/MarginContainer/WaveDescription"
+
 
 signal wave_cleared
 
@@ -20,14 +22,17 @@ func next_wave():
 
 func _ready():
 	wave_cleared.connect(ready_for_next_wave)
+	update_wave_description()
 
 func ready_for_next_wave():
 	spawn_finished = false
 	generatable = true
 	%Shop.reroll()
 	wave.wave += 1
+	update_wave_description()
 
 func generate():
+	clear_wave_description()
 	generatable = false
 	wave.current_wave().spawn(self)
 	wave.current_wave().spawn_finish.connect(on_spawn_finish)
@@ -45,13 +50,14 @@ func get_hostile_path():
 func spawn_stone_begin(stone : PackedScene):
 	spawn_stone(stone, get_hostile_path())
 
-func spawn_stone(stone : PackedScene, hostile_path : Path2D, progress = 0):
+func spawn_stone(stone : PackedScene, hostile_path : Path2D, progress = 0, excluded_projectiles = []):
 	var instantiated : Stone = stone.instantiate()
 	instantiated.path = hostile_path
 	instantiated.progress = progress
 	instantiated.global_position = instantiated.path.get_node("PathFollow2D").global_position
 	stones.add_child(instantiated)
 	instantiated.disappear.connect(check_stone_clear)
+	instantiated.excluded_projectiles = excluded_projectiles.duplicate()
 	return instantiated
 
 func check_stone_clear():
@@ -63,3 +69,12 @@ func check_stone_clear():
 
 func end():
 	wave_cleared.disconnect(ready_for_next_wave)
+func update_wave_description():
+	if wave.wave < len(wave.waves.waves):
+		var translation_key = "TUTORIAL_" + str(wave.wave)
+		var translated = tr(translation_key)
+		if translation_key != translated:
+			wave_description.text = translated
+func clear_wave_description():
+	wave_description.text = ""
+

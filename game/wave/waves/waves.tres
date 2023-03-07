@@ -38,7 +38,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_fvco5")])
 [sub_resource type="Resource" id="Resource_xb7xy"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_pg48y")
-description = ""
 
 [sub_resource type="Resource" id="Resource_4alxs"]
 script = ExtResource("4_hdg2o")
@@ -61,7 +60,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_4alxs"), Sub
 [sub_resource type="Resource" id="Resource_8c43c"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_ls3px")
-description = ""
 
 [sub_resource type="Resource" id="Resource_80h8y"]
 script = ExtResource("4_hdg2o")
@@ -77,7 +75,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_80h8y")])
 [sub_resource type="Resource" id="Resource_n0hlx"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_dg025")
-description = ""
 
 [sub_resource type="Resource" id="Resource_ea21n"]
 script = ExtResource("4_hdg2o")
@@ -100,7 +97,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_ea21n"), Sub
 [sub_resource type="Resource" id="Resource_7gwsv"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_sh8cp")
-description = ""
 
 [sub_resource type="Resource" id="Resource_vnpot"]
 script = ExtResource("4_hdg2o")
@@ -123,7 +119,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_vnpot"), Sub
 [sub_resource type="Resource" id="Resource_06u1g"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_tau3s")
-description = ""
 
 [sub_resource type="Resource" id="Resource_nexyf"]
 script = ExtResource("4_hdg2o")
@@ -153,7 +148,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_nexyf"), Sub
 [sub_resource type="Resource" id="Resource_tp24u"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_gcqn3")
-description = ""
 
 [sub_resource type="Resource" id="Resource_q0h5t"]
 script = ExtResource("4_hdg2o")
@@ -183,7 +177,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_q0h5t"), Sub
 [sub_resource type="Resource" id="Resource_3kbjn"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_udojy")
-description = ""
 
 [sub_resource type="Resource" id="Resource_aff1y"]
 script = ExtResource("4_hdg2o")
@@ -213,7 +206,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_aff1y"), Sub
 [sub_resource type="Resource" id="Resource_qhaq2"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_571tv")
-description = ""
 
 [sub_resource type="Resource" id="Resource_hptun"]
 script = ExtResource("4_hdg2o")
@@ -243,7 +235,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_hptun"), Sub
 [sub_resource type="Resource" id="Resource_lbt0r"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_u1sfw")
-description = ""
 
 [sub_resource type="Resource" id="Resource_ufoq7"]
 script = ExtResource("4_hdg2o")
@@ -273,7 +264,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_ufoq7"), Sub
 [sub_resource type="Resource" id="Resource_7jt3r"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_yrj24")
-description = ""
 
 [sub_resource type="Resource" id="Resource_uxtvw"]
 script = ExtResource("4_hdg2o")
@@ -303,7 +293,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_uxtvw"), Sub
 [sub_resource type="Resource" id="Resource_phyan"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_0gc8w")
-description = ""
 
 [sub_resource type="Resource" id="Resource_6m53s"]
 script = ExtResource("4_hdg2o")
@@ -333,7 +322,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_6m53s"), Sub
 [sub_resource type="Resource" id="Resource_kpc85"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_3yl7a")
-description = ""
 
 [sub_resource type="Resource" id="Resource_60m7a"]
 script = ExtResource("4_hdg2o")
@@ -356,7 +344,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_60m7a"), Sub
 [sub_resource type="Resource" id="Resource_o5cv8"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_gnol5")
-description = ""
 
 [sub_resource type="Resource" id="Resource_a3bfq"]
 script = ExtResource("4_hdg2o")
@@ -379,7 +366,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_a3bfq"), Sub
 [sub_resource type="Resource" id="Resource_5x72s"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_td0wq")
-description = ""
 
 [sub_resource type="Resource" id="Resource_oei0o"]
 script = ExtResource("4_hdg2o")
@@ -402,7 +388,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_oei0o"), Sub
 [sub_resource type="Resource" id="Resource_oq0c5"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_pc3ll")
-description = ""
 
 [sub_resource type="Resource" id="Resource_07rck"]
 script = ExtResource("4_hdg2o")
@@ -425,7 +410,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_07rck"), Sub
 [sub_resource type="Resource" id="Resource_a1njr"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_04uok")
-description = ""
 
 [sub_resource type="Resource" id="Resource_qhdup"]
 script = ExtResource("4_hdg2o")
@@ -441,7 +425,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_qhdup")])
 [sub_resource type="Resource" id="Resource_t6fk6"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_bw86c")
-description = ""
 
 [sub_resource type="Resource" id="Resource_12et8"]
 script = ExtResource("4_hdg2o")
@@ -457,7 +440,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_12et8")])
 [sub_resource type="Resource" id="Resource_30buf"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_8y50f")
-description = ""
 
 [sub_resource type="Resource" id="Resource_v25qg"]
 script = ExtResource("4_hdg2o")
@@ -522,7 +504,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_v25qg"), Sub
 [sub_resource type="Resource" id="Resource_fx08u"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_ijcl3")
-description = ""
 
 [sub_resource type="Resource" id="Resource_s1b4y"]
 script = ExtResource("4_hdg2o")
@@ -545,7 +526,6 @@ wave_segment = Array[ExtResource("4_hdg2o")]([SubResource("Resource_s1b4y"), Sub
 [sub_resource type="Resource" id="Resource_jq5vl"]
 script = ExtResource("2_2waoc")
 stone_stream = SubResource("Resource_8oqx1")
-description = ""
 
 [resource]
 script = ExtResource("1_7wah0")

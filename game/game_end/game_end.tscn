@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmvf3axbf7hmd"]
+[gd_scene load_steps=6 format=3 uid="uid://dmvf3axbf7hmd"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_cmox8"]
 [ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="2_5nmw8"]
 [ext_resource type="Script" path="res://game/game_end/game_end.gd" id="2_t0rjj"]
-[ext_resource type="PackedScene" uid="uid://b2kmvc8jt670n" path="res://ui/button.tscn" id="3_4ojr1"]
+[ext_resource type="PackedScene" path="res://ui/button.tscn" id="3_4ojr1"]
+[ext_resource type="Script" path="res://scene_management/change_scene_by_string.gd" id="5_00y23"]
 
 [node name="GameEnd" type="CanvasLayer"]
 layer = 3
@@ -89,7 +90,14 @@ alignment = 1
 [node name="Button2" parent="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_4ojr1")]
 layout_mode = 2
 text = "QUIT_TO_MAIN_MENU"
+script = ExtResource("5_00y23")
+scene = "main_menu"
 
 [node name="Button3" parent="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_4ojr1")]
 layout_mode = 2
 text = "QUIT_TO_MAP_SELECT"
+script = ExtResource("5_00y23")
+scene = "map_select"
+
+[connection signal="pressed" from="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2/Button2" to="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2/Button2" method="change_scene"]
+[connection signal="pressed" from="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2/Button3" to="GameEndEnable/MarginContainer/VBoxContainer/HBoxContainer2/Button3" method="change_scene"]

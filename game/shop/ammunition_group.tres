@@ -103,4 +103,4 @@ availibility = 0.2
 [resource]
 script = ExtResource("14_o885b")
 sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_p2kvr"), SubResource("Resource_sy2wx"), SubResource("Resource_kg3py"), SubResource("Resource_acees"), SubResource("Resource_8hbki"), SubResource("Resource_6ujul"), SubResource("Resource_n6o70"), SubResource("Resource_ujpi3")])
-availibility = 0.25
+availibility = 0.5

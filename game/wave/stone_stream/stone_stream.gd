@@ -3,6 +3,6 @@ class_name StoneStream
 
 signal spawn_finish
 
-func spawn(map):
+func spawn(_map):
 	spawn_finish.emit()
 

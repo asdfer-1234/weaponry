@@ -112,3 +112,23 @@ AIRBURST_DARTS_DESCRIPTION,Great for popping bloons,풍선 터뜨리기 좋다
 QUIT_TO_MAP_SELECT,Select map,맵 선택
 SELL_TURRET,Sell,판매
 TURRET_SELL_DEPENDENCIES_NOT_CLEAR,Remove items from this turret to sell this turret.,이 포탑을 판매하기 위해선 포탑의 모든 아이템을 제거하세요.
+TUTORIAL_0,Click “Build turret” to build a turret. Obviously.,포탑 건설 버튼을 눌러 포탑을 건설하세요(당연히)
+TUTORIAL_1,Click a turret you’ve built to select it.,건설한 포탑을 클릭해 선택하세요.
+TUTORIAL_2,Buy a weapon from the shop and put it in a turret.,상점에서 무기를 구매해 포탑에 장착하세요
+TUTORIAL_3,Gold gives you extra gold,금은 더 많은 금을 줍니다.
+TUTORIAL_4,Stars in the universe or the molecules of sand?,우주에 있는 별들? 또는 모래 알갱이들?
+TUTORIAL_5,"Ice slows down nearby turrets, Beware!","얼음은 주위의 포탑들을 느려지게 만듭니다, 조심하세요!"
+TUTORIAL_6,"Andesite, Diorite, Granite, These three stones boost each other when nearby.","섬록암, 안산암, 화강암은 서로를 도우며 살아갑니다."
+TUTORIAL_7,Notice the gem? They give items when you destroy them.,보석을 봤나요? 보석들은 파괴할 때 아이템을 줍니다.
+TUTORIAL_8,,
+TUTORIAL_9,,
+TUTORIAL_10,,
+TUTORIAL_11,,
+TUTORIAL_12,Yes. Magnets pull everything.,자석은 모든 걸 끌어당기죠.
+TUTORIAL_13,A star boils their inner contents until iron pops up. Iron is so stable that a star cannot pressure it and turn it into a higher-number material.,별은 철이 나올 때까지 내용물을 찝니다. 철은 너무 안정적이라서 별이 더 많은 압력을 가할 수 없어 더 높은 번호의 원소가 되지 않죠.
+TUTORIAL_14,I wonder what happens when you heat up sand?,모래를 구우면?
+TUTORIAL_15,,
+TUTORIAL_16,,
+TUTORIAL_17,,
+TUTORIAL_18,Here’s a bit of everything.,모든 것들이 모입니다.
+TUTORIAL_19,"Last stage, The infamous bedrock is here, good luck.",마지막 웨이브입니다. 그 유명한 기반암이 여기 옵니다. 행운을 빕니다.

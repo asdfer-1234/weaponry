@@ -9,7 +9,7 @@ const range_time = 0.5
 func extent():
 	return max_range
 
-func get_targets(node, group = "stone"):
+func get_targets(node, _group = "stone"):
 	var targets : Array = []
 	for i in node.get_tree().get_nodes_in_group("stone"):
 		var distance : float= node.position.distance_to(i.position)

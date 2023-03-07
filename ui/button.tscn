@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://b2kmvc8jt670n"]
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" uid="uid://b5jc7uq63tagu" path="res://ui/button_audio.tscn" id="1_kvj5h"]
 
 [node name="Button" type="Button"]
 focus_mode = 0
+
+[node name="ButtonSound" parent="." instance=ExtResource("1_kvj5h")]

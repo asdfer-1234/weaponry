@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckmnkv3a1d2g8"]
+[gd_scene load_steps=10 format=3 uid="uid://ckmnkv3a1d2g8"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_wkydj"]
+[ext_resource type="PackedScene" path="res://ui/button.tscn" id="2_6tqgp"]
 [ext_resource type="Script" path="res://scene_management/change_scene.gd" id="2_q8nej"]
 [ext_resource type="PackedScene" uid="uid://cm4odvsmu6cn1" path="res://map_select/map_select.tscn" id="3_fwyrm"]
 [ext_resource type="Script" path="res://scene_management/quit.gd" id="4_hi6rh"]
 [ext_resource type="PackedScene" uid="uid://cjuamowf4e8e4" path="res://main_menu/locale_button.tscn" id="5_2j4co"]
 [ext_resource type="Texture2D" uid="uid://chcy1sunubw4w" path="res://main_menu/english.png" id="5_625yv"]
 [ext_resource type="Texture2D" uid="uid://ha75en5o6cwe" path="res://main_menu/korean.png" id="6_af1q7"]
+[ext_resource type="PackedScene" path="res://menu_music.tscn" id="8_reuem"]
 
 [node name="MainMenu" type="Node"]
 
@@ -40,20 +42,14 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="StartButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_6tqgp")]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("1_wkydj")
 text = "MAIN_MENU_START"
 script = ExtResource("2_q8nej")
 scene = ExtResource("3_fwyrm")
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="QuitButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_6tqgp")]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("1_wkydj")
 text = "MAIN_MENU_QUIT"
 script = ExtResource("4_hi6rh")
 
@@ -80,6 +76,8 @@ theme = ExtResource("1_wkydj")
 text = "DALMOORI_COPYRIGHT_NOTICE"
 horizontal_alignment = 2
 vertical_alignment = 2
+
+[node name="MusicLoader" parent="." instance=ExtResource("8_reuem")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/StartButton" to="MarginContainer/VBoxContainer/HBoxContainer2/StartButton" method="change_scene"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/QuitButton" to="MarginContainer/VBoxContainer/HBoxContainer2/QuitButton" method="quit"]

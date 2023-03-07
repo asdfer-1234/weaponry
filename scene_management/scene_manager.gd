@@ -33,3 +33,8 @@ func change_scene_by_string(string : String):
 
 func reload_scene():
 	scene = scene
+
+func play_music(stream):
+	if $Music.stream != stream:
+		$Music.stream = stream
+		$Music.play()

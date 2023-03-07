@@ -15,6 +15,7 @@ var excluded_projectiles : Array = []
 var path : Path2D
 const particle = preload("res://graphics/temporary_particle.tscn")
 const damage_effect = preload("res://game/damage_effect/damage_effect.tscn")
+var death_audio = load("res://game/stone/death.wav")
 
 const min_damage = 1
 
@@ -67,6 +68,7 @@ func instantiate_damage_effect(damage : Damage):
 func die():
 	if not died:
 		died = true
+		Audio.play_audio(death_audio)
 		queue_free()
 		call_deferred("on_die")
 		spawn_particle()
@@ -83,9 +85,7 @@ func die_signal():
 func spawn_stone(stone : PackedScene, amount : int = 1, spacing : float = 5):
 	var offset = -(amount * spacing / 2.0)
 	for i in range(amount):
-		map.spawn_stone(stone, path, progress + offset + spacing * i)
-		var instantiated : Node = stone.instantiate()
-		instantiated.excluded_projectiles = excluded_projectiles.duplicate()
+		map.spawn_stone(stone, path, progress + offset + spacing * i, excluded_projectiles)
 
 func spawn_particle():
 	var instantiated = particle.instantiate()
