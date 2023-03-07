@@ -67,6 +67,8 @@ func _on_expire():
 func tooltip():
 	var text = ""
 	text += RichTextBuilder.property_text(tr("PIERCE"), RichTextBuilder.color_text(str(pierce), Palette.green))
+	if size != 1:
+		text += RichTextBuilder.property_text(tr("SIZE"), RichTextBuilder.color_text(str(size), Palette.green))
 	if damage != null:
 		text += damage.tooltip()
 	if attack_on_hit != null:

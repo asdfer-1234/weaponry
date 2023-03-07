@@ -13,3 +13,6 @@ func _update():
 	node.rotate(-deg_to_rad(arc) / 2)
 	var tween = node.get_tree().create_tween()
 	tween.tween_property(node, "rotation", node.rotation + deg_to_rad(arc), lifetime)
+
+func tooltip():
+	return RichTextBuilder.property_text(tr("ARC"), RichTextBuilder.color_text(str(arc), Palette.yellow)) + super.tooltip()
