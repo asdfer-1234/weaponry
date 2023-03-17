@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8gbxmxw3r7bi"]
+
+[ext_resource type="PackedScene" uid="uid://ei6d4iyvyq24" path="res://game/map/hostile_path.tscn" id="1_o48ns"]
+
+[sub_resource type="Curve2D" id="Curve2D_syals"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 483, -12, 0, 0, 0, 0, 522, 55, 0, 0, 0, 0, 438, 170, 0, 0, 0, 0, 284, 147, 0, 0, 0, 0, 332, 248, 0, 0, 0, 0, 444, 275, 0, 0, 0, 0, 593, 172, 0, 0, 0, 0, 658, 217)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_bj3k7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 372, -12, 0, 0, 0, 0, 338, 63, 0, 0, 0, 0, 547, 137, 0, 0, 0, 0, 519, 199, 0, 0, 0, 0, 559, 259, 0, 0, 0, 0, 455, 332, 0, 0, 0, 0, 288, 311, 0, 0, 0, 0, 317, 374)
+}
+point_count = 8
+
+[node name="MapUnique" type="Node"]
+
+[node name="HostilePaths" type="Node" parent="."]
+
+[node name="HostilePath2" parent="HostilePaths" instance=ExtResource("1_o48ns")]
+curve = SubResource("Curve2D_syals")
+
+[node name="HostilePath3" parent="HostilePaths" instance=ExtResource("1_o48ns")]
+curve = SubResource("Curve2D_bj3k7")

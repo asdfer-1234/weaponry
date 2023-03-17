@@ -1,32 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://cprl8gbksb0el"]
 
-[ext_resource type="Texture2D" uid="uid://cdu5dysr112ba" path="res://game/map/spiral_map_background.png" id="1_8wyl1"]
+[ext_resource type="PackedScene" uid="uid://ei6d4iyvyq24" path="res://game/map/hostile_path.tscn" id="1_xh8j7"]
 
-[sub_resource type="Curve2D" id="Curve2D_j4ob3"]
+[sub_resource type="Curve2D" id="Curve2D_c4a1u"]
 _data = {
-"points": PackedVector2Array(13.6862, -13.9221, -13.6862, 13.9221, 352, -11, 8.50447, -30.5531, -8.50447, 30.5531, 257, 124, -26.4583, -24.2535, 26.4583, 24.2535, 285, 271, -48.8219, -2.83482, 48.8219, 2.83482, 397, 310, -39.6875, 23.3085, 39.6875, -23.3085, 521, 284, 22.3636, 12.9142, -22.3636, -12.9142, 522, 103, 18.4936, -27.0585, -18.4936, 27.0585, 454, 123, 18.2689, -20.1587, -18.2689, 20.1587, 422, 229, 11.6543, 26.1434, -11.6543, -26.1434, 348, 215, -33.4276, 34.9628, 33.4276, -34.9628, 384, 81, -38.4271, -3.96811, 38.4271, 3.96811, 490, 39, -25.6917, -58.3237, 25.6917, 58.3237, 600, 137, 5.16497, -32.6468, -5.16497, 32.6468, 610, 369, 0, 0, 0, 0, 615, 370)
+"points": PackedVector2Array(34.2889, -20.1767, -34.2889, 20.1767, 311, -20, -24.0944, -108.323, 24.0944, 108.323, 256, 183, -54.3136, 34.8356, 54.3136, -34.8356, 482, 275, 0.374577, 55.4374, -0.374577, -55.4374, 541, 169, 0.264866, -83.1678, -0.264866, 83.1678, 445, 157, 8.61527, 49.0696, -8.61527, -49.0696, 346, 147, -35.3953, 18.4055, 35.3953, -18.4055, 413, 38, -52.9732, -58.8002, 52.9732, 58.8002, 568, 69, 75.7516, -102.768, -75.7516, 102.768, 567, 389)
 }
-point_count = 14
+point_count = 9
 
 [node name="MapUnique" type="Node"]
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_8wyl1")
-centered = false
-metadata/_edit_lock_ = true
+[node name="HostilePaths" type="Node" parent="."]
 
-[node name="HostilePaths" type="Node2D" parent="."]
-
-[node name="HostilePath" type="Path2D" parent="HostilePaths"]
-curve = SubResource("Curve2D_j4ob3")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="HostilePaths/HostilePath"]
-position = Vector2(352, -11)
-rotation = 2.34765
-
-[node name="BuildBlocker" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildBlocker"]
-polygon = PackedVector2Array(349, -23, 362, -9, 334, 21, 303, 58, 283, 87, 267, 124, 261, 155, 263, 195, 275, 237, 280, 255, 294, 269, 308, 278, 333, 291, 386, 301, 424, 300, 458, 296, 495, 287, 519, 276, 533, 251, 538, 212, 536, 167, 532, 142, 521, 113, 514, 104, 486, 110, 461, 125, 450, 162, 446, 192, 440, 220, 423, 239, 396, 247, 375, 248, 357, 240, 344, 226, 336, 208, 339, 171, 349, 127, 372, 82, 402, 52, 432, 37, 485, 28, 532, 42, 558, 62, 582, 91, 604, 131, 622, 199, 627, 280, 620, 379, 604, 370, 612, 300, 609, 227, 595, 154, 587, 133, 566, 93, 542, 69, 496, 45, 461, 46, 419, 59, 391, 82, 368, 120, 359, 149, 351, 204, 359, 220, 375, 230, 397, 231, 414, 227, 426, 214, 432, 179, 441, 133, 452, 118, 470, 98, 494, 90, 514, 88, 523, 92, 534, 105, 544, 128, 552, 166, 553, 216, 547, 252, 536, 278, 521, 292, 467, 310, 414, 317, 370, 315, 325, 304, 302, 293, 285, 281, 266, 260, 257, 235, 246, 189, 245, 150, 251, 126, 262, 93, 285, 56, 316, 19)
+[node name="HostilePath" parent="HostilePaths" instance=ExtResource("1_xh8j7")]
+curve = SubResource("Curve2D_c4a1u")

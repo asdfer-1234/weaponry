@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ei6d4iyvyq24"]
+
+[ext_resource type="Script" path="res://game/map/hostile_path.gd" id="1_nb4bg"]
+
+[sub_resource type="Curve2D" id="Curve2D_q7urw"]
+
+[node name="HostilePath" type="Path2D"]
+curve = SubResource("Curve2D_q7urw")
+script = ExtResource("1_nb4bg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(483, -12)
+rotation = 1.04365
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 16.0
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 1
+
+[node name="BuildBlocker" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
