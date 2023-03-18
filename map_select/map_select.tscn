@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cm4odvsmu6cn1"]
+[gd_scene load_steps=14 format=3 uid="uid://cm4odvsmu6cn1"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_t0tav"]
 [ext_resource type="Script" path="res://scene_management/change_scene_by_string.gd" id="2_ey3ek"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c55copko85npl" path="res://map_select/map_preview/pinches_map_preview.png" id="6_cbap7"]
 [ext_resource type="PackedScene" uid="uid://botdeyltlvhex" path="res://game/map/pinches.tscn" id="8_br206"]
 [ext_resource type="PackedScene" path="res://menu_music.tscn" id="10_ys64l"]
+[ext_resource type="PackedScene" uid="uid://c8gbxmxw3r7bi" path="res://game/map/lightning.tscn" id="11_evimk"]
+[ext_resource type="Texture2D" uid="uid://dpmwbt4xsur1m" path="res://map_select/map_preview/lightning_map_preview.png" id="12_od5w0"]
 
 [node name="MapSelect" type="Node"]
 
@@ -65,6 +67,12 @@ layout_mode = 2
 map_unique = ExtResource("8_br206")
 map_name = "MAP_PINCHES"
 preview = ExtResource("6_cbap7")
+
+[node name="Lightning" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_jo40t")]
+layout_mode = 2
+map_unique = ExtResource("11_evimk")
+map_name = "MAP_LIGHTNING"
+preview = ExtResource("12_od5w0")
 
 [node name="MusicLoader" parent="." instance=ExtResource("10_ys64l")]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdu5dysr112ba"
-path="res://.godot/imported/spiral_map_background.png-9cf47872a8a713c0f0d29661289a83b0.ctex"
+uid="uid://dpmwbt4xsur1m"
+path="res://.godot/imported/lightning_map_preview.png-049b6269322bce0b733bf757be1bf63c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/map/spiral_map_background.png"
-dest_files=["res://.godot/imported/spiral_map_background.png-9cf47872a8a713c0f0d29661289a83b0.ctex"]
+source_file="res://map_select/map_preview/lightning_map_preview.png"
+dest_files=["res://.godot/imported/lightning_map_preview.png-049b6269322bce0b733bf757be1bf63c.ctex"]
 
 [params]
 
