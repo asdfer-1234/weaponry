@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://kgnlgltrpr3d"]
+[gd_scene load_steps=36 format=3 uid="uid://kgnlgltrpr3d"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_33em8"]
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://u4cq125gjdyc" path="res://game/item/slot/item_slot.tscn" id="2_7gne5"]
 [ext_resource type="Theme" uid="uid://cvi5bb6plsvpo" path="res://ui/numeric_theme.tres" id="2_l1uk2"]
 [ext_resource type="Script" path="res://game/turret/builder/build_button.gd" id="2_xtpje"]
+[ext_resource type="Texture2D" uid="uid://os7304mp6mip" path="res://game/frame.png" id="3_615y3"]
 [ext_resource type="Script" path="res://game/game_variable/health/health.gd" id="3_al0pa"]
 [ext_resource type="Texture2D" uid="uid://o4oybkbdydle" path="res://game/game_variable/health/heart.png" id="4_h4x8a"]
 [ext_resource type="PackedScene" uid="uid://beybo0dft6401" path="res://game/item/slot/trash_slot.tscn" id="5_7ufwh"]
@@ -54,9 +55,13 @@ unique_name_in_owner = true
 [node name="TurretCanvas" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
-[node name="DamageEffectCanvas" type="CanvasLayer" parent="."]
+[node name="FrameCanvas" type="CanvasLayer" parent="."]
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
+
+[node name="Frame" type="Sprite2D" parent="UICanvas"]
+texture = ExtResource("3_615y3")
+centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="UICanvas"]
 anchors_preset = 15
@@ -64,11 +69,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 theme = ExtResource("1_bgo03")
-
-[node name="WaveDescription" type="Label" parent="UICanvas/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/MarginContainer"]
 layout_mode = 2
@@ -86,7 +86,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_l1uk2")
 bbcode_enabled = true
-text = "HEALTH"
+text = "[img]res://game/game_variable/health/heart.png[/img]HEALTH"
 fit_content = true
 scroll_active = false
 script = ExtResource("3_al0pa")
@@ -100,7 +100,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_l1uk2")
 bbcode_enabled = true
-text = "GOLD"
+text = "[img]res://game/game_variable/gold/gold.png[/img]GOLD"
 fit_content = true
 scroll_active = false
 script = ExtResource("5_l3b8w")
@@ -248,7 +248,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("2_l1uk2")
 bbcode_enabled = true
-text = "WAVE"
+text = "[right][img]res://game/game_variable/wave_count/wave.png[/img]WAVE[/right]"
 fit_content = true
 scroll_active = false
 script = ExtResource("9_hd4ur")
@@ -269,6 +269,24 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 script = ExtResource("2_6iqjx")
+
+[node name="FrameControl" type="Control" parent="UICanvas"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 352.0
+
+[node name="WaveDescription" type="Label" parent="UICanvas/FrameControl"]
+offset_left = -104.0
+offset_top = 336.0
+offset_right = 520.0
+offset_bottom = 359.0
+size_flags_vertical = 8
+horizontal_alignment = 1
+
+[node name="DamageEffectCanvas" type="CanvasLayer" parent="."]
 
 [node name="CursorCanvas" type="CanvasLayer" parent="."]
 layer = 5
