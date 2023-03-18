@@ -34,4 +34,6 @@ func tooltip():
 
 func set_sale(sale : Sale):
 	item_stack = sale.item_stack.duplicate()
+	if not(item_stack.item is StackableItem):
+		item_stack.item = sale.item_stack.item.duplicate()
 	price = sale.price
