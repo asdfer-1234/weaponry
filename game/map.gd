@@ -4,7 +4,7 @@ extends Node
 
 @onready var stones = $"../StoneCanvas"
 @onready var next_wave_button = $"../UICanvas/MarginContainer/VBoxContainer2/NextWaveButton"
-@onready var wave_description = $"../UICanvas/MarginContainer/WaveDescription"
+@onready var wave_description = $"../UICanvas/FrameControl/WaveDescription"
 
 
 signal wave_cleared
