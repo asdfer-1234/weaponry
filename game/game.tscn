@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://kgnlgltrpr3d"]
+[gd_scene load_steps=41 format=3 uid="uid://kgnlgltrpr3d"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_33em8"]
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
@@ -39,6 +39,21 @@
 script = ExtResource("27_8cc0t")
 sales = Array[Resource("res://game/shop/sellable.gd")]([ExtResource("27_nd8dp"), ExtResource("28_37ekd"), ExtResource("29_xmi0p")])
 availibility = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhqj0"]
+size = Vector2(112, 360)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17hot"]
+size = Vector2(465, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0qkf"]
+size = Vector2(520, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oo8q"]
+size = Vector2(8, 319)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0mhg"]
+size = Vector2(63, 41)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_33em8")
@@ -293,6 +308,30 @@ size_flags_vertical = 8
 theme = ExtResource("1_bgo03")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="UICanvas"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="UICanvas/Area2D"]
+position = Vector2(56, 180)
+shape = SubResource("RectangleShape2D_hhqj0")
+
+[node name="Top" type="CollisionShape2D" parent="UICanvas/Area2D"]
+position = Vector2(344.5, 4)
+shape = SubResource("RectangleShape2D_17hot")
+
+[node name="Bottom" type="CollisionShape2D" parent="UICanvas/Area2D"]
+position = Vector2(372, 356)
+shape = SubResource("RectangleShape2D_v0qkf")
+
+[node name="Right" type="CollisionShape2D" parent="UICanvas/Area2D"]
+position = Vector2(636, 200.5)
+shape = SubResource("RectangleShape2D_4oo8q")
+
+[node name="Corner" type="CollisionShape2D" parent="UICanvas/Area2D"]
+position = Vector2(608.5, 20.5)
+shape = SubResource("RectangleShape2D_n0mhg")
 
 [node name="DamageEffectCanvas" type="CanvasLayer" parent="."]
 
