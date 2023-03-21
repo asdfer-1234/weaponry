@@ -9,6 +9,7 @@
 [sub_resource type="Resource" id="Resource_8bgoc"]
 script = ExtResource("2_wdocu")
 effect = ExtResource("1_plhkn")
+infinite_use = true
 
 [sub_resource type="Resource" id="Resource_b7xfj"]
 script = ExtResource("3_03wd6")

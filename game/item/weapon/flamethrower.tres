@@ -16,6 +16,7 @@
 [sub_resource type="Resource" id="Resource_fr3pq"]
 script = ExtResource("4_ijxwl")
 effect = ExtResource("3_vvv7v")
+infinite_use = false
 
 [sub_resource type="Resource" id="Resource_v6op4"]
 script = ExtResource("3_at2lb")
@@ -40,6 +41,7 @@ projectile_behaviour = SubResource("Resource_mdhk6")
 spread = 10.0
 count = 1
 delay = 0.0
+infinite_use = false
 
 [sub_resource type="Resource" id="Resource_dy2y6"]
 script = ExtResource("6_cxwe6")
@@ -59,8 +61,8 @@ attack_speed = 100.0
 attack = SubResource("Resource_2lgpb")
 sprite = ExtResource("9_b7v33")
 flip_mode = 1
-ammunition_slot_count = 0
-accessory_slot_count = 0
+ammunition_slot_count = 2
+accessory_slot_count = 2
 
 [resource]
 script = ExtResource("1_yylal")

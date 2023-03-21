@@ -29,6 +29,7 @@ projectile_behaviour = SubResource("Resource_r3y45")
 spread = 10.0
 count = 1
 delay = 0.0
+infinite_use = false
 
 [sub_resource type="Resource" id="Resource_mf8yx"]
 script = ExtResource("7_qiytt")
