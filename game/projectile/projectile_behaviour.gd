@@ -56,8 +56,10 @@ func _on_hit(target):
 		node.queue_free()
 	if attack_on_hit != null:
 		attack_on_hit.attack(node, target, modifier)
-	elif not modifier_attack_used:
-		modifier.attack_on_hit.attack(node, target, modifier, true)
+	var new_modifier = modifier.duplicate()
+	new_modifier.attack_on_hit = new_modifier.attack_on_hit.duplicate()
+	new_modifier.attack_on_hit.remove_non_infinite_use()
+	modifier.attack_on_hit.attack(node, target, new_modifier, true)
 
 func _on_expire():
 	if attack_on_expire != null:

@@ -15,3 +15,10 @@ func add(other):
 
 func to_attack_array():
 	return self
+
+func remove_non_infinite_use():
+	var index = 0
+	while index < len(attacks):
+		while index < len(attacks) and not attacks[index].infinite_use:
+			attacks.remove_at(index)
+		index += 1;

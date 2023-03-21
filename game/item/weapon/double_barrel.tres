@@ -34,6 +34,7 @@ projectile_behaviour = SubResource("Resource_2xq32")
 spread = 30.0
 count = 8
 delay = 0.0
+infinite_use = false
 
 [sub_resource type="Resource" id="Resource_hewaj"]
 script = ExtResource("3_dcrv1")
@@ -48,6 +49,7 @@ projectile_behaviour = SubResource("Resource_hewaj")
 spread = 4.0
 count = 2
 delay = 0.1
+infinite_use = false
 
 [sub_resource type="Resource" id="Resource_csivg"]
 script = ExtResource("7_umolm")
