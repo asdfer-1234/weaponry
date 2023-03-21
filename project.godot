@@ -15,8 +15,7 @@ config/description="A prequel to Weaponry. A school game jam submission."
 run/main_scene="res://scene_management/scene_manager.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/bg_color=Color(0.286275, 0.211765, 0.301961, 1)
-boot_splash/image="res://asdfer.png"
-boot_splash/fullsize=false
+boot_splash/image="res://splash.png"
 boot_splash/use_filter=false
 config/icon="res://game/stone/stone.png"
 
@@ -35,6 +34,7 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
