@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://dpqspaifkxic4"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_eonmo"]
 [ext_resource type="Texture2D" uid="uid://d3b2n3qpiqtlp" path="res://game/item/weapon/bow.png" id="2_1pou8"]
@@ -19,7 +19,7 @@ damage = 10
 [sub_resource type="Resource" id="Resource_rbdhb"]
 script = ExtResource("4_4uki1")
 sprite = ExtResource("5_hyc0o")
-speed = 200.0
+speed = 500.0
 acceleration = 0.0
 randomly_rotate = false
 pierce = 10
@@ -33,6 +33,7 @@ projectile_behaviour = SubResource("Resource_rbdhb")
 spread = 2.0
 count = 1
 delay = 0.0
+infinite_use = false
 
 [sub_resource type="Resource" id="Resource_mf8yx"]
 script = ExtResource("7_vu3e3")

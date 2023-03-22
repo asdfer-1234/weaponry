@@ -121,7 +121,7 @@ text = "[img]res://game/game_variable/gold/gold.png[/img]GOLD"
 fit_content = true
 scroll_active = false
 script = ExtResource("5_l3b8w")
-value = 50
+value = 10000
 icon = ExtResource("6_h6anp")
 color = Color(1, 0.85098, 0.541176, 1)
 
@@ -264,6 +264,7 @@ script = ExtResource("11_ic726")
 [node name="VBoxContainer2" type="VBoxContainer" parent="UICanvas/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="WaveCount" type="RichTextLabel" parent="UICanvas/MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
@@ -362,7 +363,7 @@ offset_bottom = 16.0
 unique_name_in_owner = true
 script = ExtResource("17_ym512")
 
-[node name="Tooltip" type="NinePatchRect" parent="CursorCanvas/CursorFollower"]
+[node name="Tooltip" type="NinePatchRect" parent="CursorCanvas/CursorFollower" groups=["tooltip"]]
 unique_name_in_owner = true
 offset_right = 16.0
 offset_bottom = 16.0

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="SaleGroup" load_steps=36 format=3 uid="uid://cfppywih3gcbw"]
+[gd_resource type="Resource" script_class="SaleGroup" load_steps=37 format=3 uid="uid://cfppywih3gcbw"]
 
+[ext_resource type="Resource" uid="uid://dpqspaifkxic4" path="res://game/item/weapon/bow.tres" id="1_vajl3"]
 [ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="2_wdwkf"]
 [ext_resource type="Script" path="res://game/shop/sale.gd" id="3_4dth5"]
 [ext_resource type="Resource" uid="uid://xn8uqono5flm" path="res://game/item/weapon/cannon.tres" id="4_0w40e"]
@@ -14,26 +15,15 @@
 [ext_resource type="Resource" uid="uid://c4bonh8ytc6fr" path="res://game/item/weapon/water_gun.tres" id="13_dhb4h"]
 [ext_resource type="Script" path="res://game/shop/sale_group.gd" id="14_mlfsb"]
 
-[sub_resource type="Resource" id="Resource_1h15e"]
+[sub_resource type="Resource" id="Resource_my1ls"]
 script = ExtResource("2_wdwkf")
-item = ExtResource("5_jrbkf")
+item = ExtResource("1_vajl3")
 count = 1
 
-[sub_resource type="Resource" id="Resource_p2kvr"]
+[sub_resource type="Resource" id="Resource_avkuu"]
 script = ExtResource("3_4dth5")
-price = 70
-item_stack = SubResource("Resource_1h15e")
-availibility = 0.2
-
-[sub_resource type="Resource" id="Resource_rjiak"]
-script = ExtResource("2_wdwkf")
-item = ExtResource("4_0w40e")
-count = 1
-
-[sub_resource type="Resource" id="Resource_sy2wx"]
-script = ExtResource("3_4dth5")
-price = 30
-item_stack = SubResource("Resource_rjiak")
+price = 50
+item_stack = SubResource("Resource_my1ls")
 availibility = 1.0
 
 [sub_resource type="Resource" id="Resource_5fghf"]
@@ -46,6 +36,17 @@ script = ExtResource("3_4dth5")
 price = 40
 item_stack = SubResource("Resource_5fghf")
 availibility = 0.3
+
+[sub_resource type="Resource" id="Resource_rjiak"]
+script = ExtResource("2_wdwkf")
+item = ExtResource("4_0w40e")
+count = 1
+
+[sub_resource type="Resource" id="Resource_sy2wx"]
+script = ExtResource("3_4dth5")
+price = 30
+item_stack = SubResource("Resource_rjiak")
+availibility = 1.0
 
 [sub_resource type="Resource" id="Resource_35opb"]
 script = ExtResource("2_wdwkf")
@@ -137,5 +138,5 @@ availibility = 0.4
 
 [resource]
 script = ExtResource("14_mlfsb")
-sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_p2kvr"), SubResource("Resource_sy2wx"), SubResource("Resource_kg3py"), SubResource("Resource_acees"), SubResource("Resource_8hbki"), SubResource("Resource_6ujul"), SubResource("Resource_fvspa"), SubResource("Resource_xhc74"), SubResource("Resource_d41w6"), SubResource("Resource_53b1h"), SubResource("Resource_kjohs")])
+sales = Array[Resource("res://game/shop/sellable.gd")]([SubResource("Resource_avkuu"), SubResource("Resource_kg3py"), SubResource("Resource_sy2wx"), SubResource("Resource_acees"), SubResource("Resource_8hbki"), SubResource("Resource_6ujul"), SubResource("Resource_fvspa"), SubResource("Resource_xhc74"), SubResource("Resource_d41w6"), SubResource("Resource_53b1h"), SubResource("Resource_kjohs")])
 availibility = 1.0

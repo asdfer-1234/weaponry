@@ -10,7 +10,6 @@ func spawn(map):
 	for i in wave_segment:
 		i.spawn(map)
 		i.spawn_finish.connect(_on_spawn_finish)
-	var finished = 0
 	for i in wave_segment:
 		await wave_segment_spawn_finish
 	spawn_finish.emit()

@@ -20,4 +20,4 @@ func current_wave():
 	return waves.waves[wave]
 
 func progress():
-	return wave / len(waves.waves)
+	return float(wave) / float(len(waves.waves))

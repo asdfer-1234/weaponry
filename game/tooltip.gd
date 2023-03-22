@@ -28,12 +28,16 @@ func enter_tooltip(node):
 		hold.changed.connect(reload_tooltip)
 
 func exit_tooltip(node):
-	if hold.has_signal("changed") and hold.changed.is_connected(reload_tooltip):
+	if hold != null and hold.has_signal("changed") and hold.changed.is_connected(reload_tooltip):
 		hold.changed.disconnect(reload_tooltip)
 	if hold == node:
-		visible = false
-		hold = null
-	
+		clear()
+func clear():
+	if hold != null and hold.has_signal("changed") and hold.changed.is_connected(reload_tooltip):
+		hold.changed.disconnect(reload_tooltip)
+	visible = false
+	hold = null
+
 
 func reload_tooltip():
 	

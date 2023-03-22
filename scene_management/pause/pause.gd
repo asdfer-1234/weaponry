@@ -5,6 +5,9 @@ var paused = false:
 		paused = value
 		$PauseEnable.visible = paused
 		if paused:
+			var tooltip = get_tree().get_first_node_in_group("tooltip")
+			if tooltip != null:
+				tooltip.clear()
 			Engine.time_scale = 0
 		else:
 			Engine.time_scale = 1
@@ -16,6 +19,7 @@ func _input(event):
 
 func pause():
 	paused = true
+	
 func unpause():
 	paused = false
 

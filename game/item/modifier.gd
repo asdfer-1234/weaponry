@@ -30,7 +30,7 @@ func tooltip():
 	if range_boost != null:
 		build += RichTextBuilder.property_text(tr("RANGE"), range_boost.minimal_tooltip())
 	if ranger != null:
-		build += RichTextBuilder.subproperty("RANGE", ranger.tooltip())
+		build += RichTextBuilder.subproperty(tr("RANGE"), ranger.tooltip())
 	if targeter != null:
 		build += targeter.tooltip()
 	if explosion != null:

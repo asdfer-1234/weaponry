@@ -34,7 +34,7 @@ infinite_use = false
 [sub_resource type="Resource" id="Resource_mf8yx"]
 script = ExtResource("7_qiytt")
 min_range = 0.0
-max_range = 70.0
+max_range = 30.0
 
 [sub_resource type="Resource" id="Resource_8jkbk"]
 script = ExtResource("9_5vri2")
