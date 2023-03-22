@@ -118,10 +118,9 @@ size_flags_horizontal = 3
 theme = ExtResource("2_l1uk2")
 bbcode_enabled = true
 text = "[img]res://game/game_variable/gold/gold.png[/img]GOLD"
-fit_content = true
 scroll_active = false
 script = ExtResource("5_l3b8w")
-value = 10000
+value = 50
 icon = ExtResource("6_h6anp")
 color = Color(1, 0.85098, 0.541176, 1)
 
