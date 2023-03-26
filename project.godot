@@ -40,6 +40,11 @@ window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/vsync/use_vsync=false
 
+[editor]
+
+movie_writer/mix_rate=44100
+movie_writer/movie_file="/home/asdfer/personal/weaponary-2/movie/start.avi"
+
 [filesystem]
 
 import/blender/enabled=false
