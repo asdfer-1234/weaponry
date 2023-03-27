@@ -4,5 +4,10 @@
 # build files
 build/
 
+# movie/trailer
+movie/
+trailer/
+
 # zip files
 *.zip
+
