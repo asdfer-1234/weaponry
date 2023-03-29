@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckmnkv3a1d2g8"]
+[gd_scene load_steps=12 format=3 uid="uid://ckmnkv3a1d2g8"]
 
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_wkydj"]
 [ext_resource type="PackedScene" path="res://ui/button.tscn" id="2_6tqgp"]
+[ext_resource type="Texture2D" uid="uid://6n3npciitpbh" path="res://title.png" id="2_ognf1"]
 [ext_resource type="Script" path="res://scene_management/change_scene.gd" id="2_q8nej"]
 [ext_resource type="PackedScene" uid="uid://cm4odvsmu6cn1" path="res://map_select/map_select.tscn" id="3_fwyrm"]
+[ext_resource type="PackedScene" uid="uid://mykdcr4w3afo" path="res://ui/margin.tscn" id="3_ofbos"]
 [ext_resource type="Script" path="res://scene_management/quit.gd" id="4_hi6rh"]
 [ext_resource type="PackedScene" uid="uid://cjuamowf4e8e4" path="res://main_menu/locale_button.tscn" id="5_2j4co"]
 [ext_resource type="Texture2D" uid="uid://chcy1sunubw4w" path="res://main_menu/english.png" id="5_625yv"]
@@ -31,11 +33,12 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("1_wkydj")
-text = "TITLE"
+texture = ExtResource("2_ognf1")
+
+[node name="Margin" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_ofbos")]
+layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
