@@ -57,7 +57,7 @@ func spawn_stone(stone : PackedScene, hostile_path : Path2D, progress = 0, exclu
 	instantiated.global_position = instantiated.path.get_node("PathFollow2D").global_position
 	stones.add_child(instantiated)
 	instantiated.disappear.connect(check_stone_clear)
-	instantiated.excluded_projectiles = excluded_projectiles.duplicate()
+	instantiated.excluded_projectiles = excluded_projectiles
 	return instantiated
 
 func check_stone_clear():

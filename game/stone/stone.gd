@@ -11,7 +11,7 @@ class_name Stone
 var progress = 0 : set = set_progress
 var died : bool = false
 var disappeared : bool = false
-var excluded_projectiles : Array = []
+var excluded_projectiles : Array[int] = []
 var path : Path2D
 const particle = preload("res://graphics/temporary_particle.tscn")
 const damage_effect = preload("res://game/damage_effect/damage_effect.tscn")
@@ -85,7 +85,7 @@ func die_signal():
 func spawn_stone(stone : PackedScene, amount : int = 1, spacing : float = 5):
 	var offset = -(amount * spacing / 2.0)
 	for i in range(amount):
-		map.spawn_stone(stone, path, progress + offset + spacing * i, excluded_projectiles)
+		map.spawn_stone(stone, path, progress + offset + spacing * i, excluded_projectiles.duplicate())
 
 func spawn_particle():
 	var instantiated = particle.instantiate()

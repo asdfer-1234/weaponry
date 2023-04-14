@@ -9,7 +9,11 @@ class_name ProjectileAttack
 
 func attack(from, _target, modifier, modifier_attack_used = false):
 	for i in range(modifier.count.apply(count)):
-		var projectile = projectile_behaviour.projectile(from, modifier)
+		var projectile = projectile_behaviour.projectile(
+				from, modifier, 
+				from.get_tree().get_first_node_in_group(
+				"projectile_id_provider")
+				.get_next_id())
 		projectile.projectile_behaviour.modifier_attack_used = modifier_attack_used
 		var applied_spread = modifier.spread.apply(spread)
 		projectile.rotate(randf_range(deg_to_rad(applied_spread), -deg_to_rad(applied_spread)))
@@ -18,11 +22,20 @@ func attack(from, _target, modifier, modifier_attack_used = false):
 
 func tooltip():
 	var build = ""
-	build += RichTextBuilder.property_text(tr("SPREAD"), RichTextBuilder.color_text(str(spread), Palette.red))
+	build += RichTextBuilder.property_text(
+			tr("SPREAD"), 
+			RichTextBuilder.color_text(str(spread), 
+			Palette.red))
 	if count != 1:
-		build += RichTextBuilder.property_text(tr("COUNT"), RichTextBuilder.color_text(str(count), Palette.green))
+		build += RichTextBuilder.property_text(
+				tr("COUNT"), 
+				RichTextBuilder.color_text(str(count), 
+				Palette.green))
 	if delay != 0:
-		build += RichTextBuilder.property_text(tr("DELAY"), RichTextBuilder.color_text(str(delay), Palette.yellow))
+		build += RichTextBuilder.property_text(
+				tr("DELAY"), 
+				RichTextBuilder.color_text(str(delay), 
+				Palette.yellow))
 	build += projectile_behaviour.tooltip()
 	return build
 

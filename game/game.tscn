@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://kgnlgltrpr3d"]
+[gd_scene load_steps=65 format=3 uid="uid://kgnlgltrpr3d"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_33em8"]
 [ext_resource type="Theme" uid="uid://vxs3lu15fk42" path="res://ui/theme.tres" id="1_bgo03"]
@@ -27,20 +27,82 @@
 [ext_resource type="Texture2D" uid="uid://ciwuh3sef01fi" path="res://ui/button_normal.png" id="17_mys5v"]
 [ext_resource type="Script" path="res://game/turret/builder/builder.gd" id="17_ym512"]
 [ext_resource type="PackedScene" uid="uid://oc6d2nkw7s8t" path="res://game/item/slot/sale_slot.tscn" id="21_im3vc"]
+[ext_resource type="Resource" uid="uid://bs5blou1pn4jo" path="res://game/item/weapon/machine_gun.tres" id="22_b7l8t"]
+[ext_resource type="Resource" uid="uid://bdo6yhfpbedow" path="res://game/item/weapon/revolver.tres" id="22_j66ec"]
+[ext_resource type="Script" path="res://game/item/slot/item_stack.gd" id="23_13q24"]
+[ext_resource type="Resource" uid="uid://6rhn5trwe8dh" path="res://game/item/ammunition/heavy_bullet.tres" id="24_31wu3"]
+[ext_resource type="Resource" uid="uid://c2p2kqvupwong" path="res://game/item/ammunition/airburst_darts.tres" id="25_4hlkx"]
+[ext_resource type="Resource" uid="uid://xn8uqono5flm" path="res://game/item/weapon/cannon.tres" id="25_ji5f6"]
 [ext_resource type="Script" path="res://game/reroll_button.gd" id="25_wvaa8"]
+[ext_resource type="Resource" uid="uid://b6riw8jdow3iv" path="res://game/item/accessory/gps.tres" id="26_0r3mx"]
+[ext_resource type="Resource" uid="uid://by8wp8w0i4h4e" path="res://game/item/ammunition/arrow.tres" id="26_psu0d"]
 [ext_resource type="Script" path="res://game/shop/shop.gd" id="26_vbd8u"]
 [ext_resource type="Script" path="res://game/shop/sale_group.gd" id="27_8cc0t"]
 [ext_resource type="Resource" uid="uid://cfppywih3gcbw" path="res://game/shop/weapon_group.tres" id="27_nd8dp"]
 [ext_resource type="Resource" uid="uid://didmqxopakdha" path="res://game/shop/ammunition_group.tres" id="28_37ekd"]
+[ext_resource type="Resource" uid="uid://cq5i5fe6p1la2" path="res://game/item/weapon/rifle.tres" id="29_4keb4"]
 [ext_resource type="Resource" uid="uid://cv232h008kuso" path="res://game/shop/accessory_group.tres" id="29_xmi0p"]
+[ext_resource type="Resource" uid="uid://bhcwnfwbynh8n" path="res://game/item/ammunition/small_bullet.tres" id="30_1dhys"]
 [ext_resource type="PackedScene" uid="uid://dmvf3axbf7hmd" path="res://game/game_end/game_end.tscn" id="31_5ue8y"]
+[ext_resource type="Resource" uid="uid://ck88pcrohgaha" path="res://game/item/accessory/acid.tres" id="32_jm3yk"]
 [ext_resource type="Script" path="res://audio/music/music_loader.gd" id="32_otw54"]
 [ext_resource type="AudioStream" uid="uid://b6dsaqhgrhy04" path="res://game/game.wav" id="33_relkb"]
+[ext_resource type="Script" path="res://game/projectile_id_provider.gd" id="48_116b0"]
 
 [sub_resource type="Resource" id="Resource_1u1m7"]
 script = ExtResource("27_8cc0t")
 sales = Array[Resource("res://game/shop/sellable.gd")]([ExtResource("27_nd8dp"), ExtResource("28_37ekd"), ExtResource("29_xmi0p")])
 availibility = 1.0
+
+[sub_resource type="Resource" id="Resource_cguue"]
+script = ExtResource("23_13q24")
+item = ExtResource("22_j66ec")
+count = 1
+
+[sub_resource type="Resource" id="Resource_ur8dy"]
+script = ExtResource("23_13q24")
+item = ExtResource("24_31wu3")
+count = 30
+
+[sub_resource type="Resource" id="Resource_62wu4"]
+script = ExtResource("23_13q24")
+item = ExtResource("25_4hlkx")
+count = 100
+
+[sub_resource type="Resource" id="Resource_ejdrn"]
+script = ExtResource("23_13q24")
+item = ExtResource("26_0r3mx")
+count = 1
+
+[sub_resource type="Resource" id="Resource_4eqix"]
+script = ExtResource("23_13q24")
+item = ExtResource("25_ji5f6")
+count = 1
+
+[sub_resource type="Resource" id="Resource_5vu36"]
+script = ExtResource("23_13q24")
+item = ExtResource("26_psu0d")
+count = 40
+
+[sub_resource type="Resource" id="Resource_w6up6"]
+script = ExtResource("23_13q24")
+item = ExtResource("22_b7l8t")
+count = 1
+
+[sub_resource type="Resource" id="Resource_p0b0j"]
+script = ExtResource("23_13q24")
+item = ExtResource("30_1dhys")
+count = 1000
+
+[sub_resource type="Resource" id="Resource_2oy4f"]
+script = ExtResource("23_13q24")
+item = ExtResource("29_4keb4")
+count = 1
+
+[sub_resource type="Resource" id="Resource_1c8uh"]
+script = ExtResource("23_13q24")
+item = ExtResource("32_jm3yk")
+count = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhqj0"]
 size = Vector2(112, 360)
@@ -188,21 +250,27 @@ script = ExtResource("12_n6huo")
 
 [node name="ItemSlot" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_cguue")
 
 [node name="ItemSlot2" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_ur8dy")
 
 [node name="ItemSlot3" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_62wu4")
 
 [node name="ItemSlot4" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_ejdrn")
 
 [node name="ItemSlot5" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_4eqix")
 
 [node name="ItemSlot6" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_5vu36")
 
 [node name="ItemSlot7" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
@@ -218,18 +286,22 @@ layout_mode = 2
 
 [node name="ItemSlot11" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_w6up6")
 
 [node name="ItemSlot12" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_p0b0j")
 
 [node name="ItemSlot13" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_2oy4f")
 
 [node name="ItemSlot14" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
 
 [node name="ItemSlot15" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("2_7gne5")]
 layout_mode = 2
+item_stack = SubResource("Resource_1c8uh")
 
 [node name="TrashSlot" parent="UICanvas/MarginContainer/VBoxContainer/Inventory" instance=ExtResource("5_7ufwh")]
 layout_mode = 2
@@ -277,6 +349,7 @@ fit_content = true
 scroll_active = false
 script = ExtResource("9_hd4ur")
 waves = ExtResource("10_06msr")
+value = 9
 icon = ExtResource("14_1xlua")
 color = Color(1, 0.952941, 0.764706, 1)
 
@@ -404,6 +477,9 @@ unique_name_in_owner = true
 [node name="MusicLoader" type="Node" parent="."]
 script = ExtResource("32_otw54")
 music = ExtResource("33_relkb")
+
+[node name="ProjectileIDProvider" type="Node" parent="." groups=["projectile_id_provider"]]
+script = ExtResource("48_116b0")
 
 [connection signal="mouse_entered" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UICanvas/MarginContainer/VBoxContainer/BuildButton" to="UICanvas/MarginContainer/VBoxContainer/BuildButton" method="_on_mouse_exited"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cds32btxgompy"
-path="res://.godot/imported/kah_splash.png-b969b4fd06634c43e2bb03880bed07dc.ctex"
+uid="uid://nm0joov34ovx"
+path="res://.godot/imported/banner.png-8ee27b3b5af0c6e04c667908bd5698ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kah_splash.png"
-dest_files=["res://.godot/imported/kah_splash.png-b969b4fd06634c43e2bb03880bed07dc.ctex"]
+source_file="res://banner.png"
+dest_files=["res://.godot/imported/banner.png-8ee27b3b5af0c6e04c667908bd5698ae.ctex"]
 
 [params]
 

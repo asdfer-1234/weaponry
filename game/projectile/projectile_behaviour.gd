@@ -18,7 +18,7 @@ func get_default_projectile():
 	return default_projectile
 
 
-func projectile(node, new_modifier):
+func projectile(node, new_modifier, id):
 	var instantiated = get_default_projectile().instantiate()
 	_set_defaults(node, instantiated)
 	node.get_node("../%ProjectileCanvas").call_deferred("add_child", instantiated)

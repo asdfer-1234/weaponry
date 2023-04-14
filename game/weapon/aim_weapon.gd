@@ -13,7 +13,7 @@ const shoot_angle = 5
 const maximum_attack_delay = 5
 const minimum_attack_speed = 0.01
 const shoot_audio = preload("res://game/turret/shoot.wav")
-const decibel_multiplier = 20
+const decibel_multiplier = 1
 
 func _process(delta):
 	if not node.building:
