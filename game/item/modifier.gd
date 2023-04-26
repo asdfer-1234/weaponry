@@ -12,6 +12,7 @@ class_name Modifier
 @export var targeter : Targeter
 @export var explosion : Boost
 @export var attack_on_hit : Attack
+@export var attack_on_expire : Attack
 
 func tooltip():
 	var build = ""
@@ -37,6 +38,8 @@ func tooltip():
 		build += RichTextBuilder.property_text(tr("EXPLOSION"), explosion.minimal_tooltip())
 	if attack_on_hit != null:
 		build += RichTextBuilder.subproperty(tr("ON_HIT"), attack_on_hit.tooltip())
+	if attack_on_expire != null:
+		build += RichTextBuilder.subproperty(tr("ON_EXPIRE"), attack_on_expire.tooltip())
 	return build
 
 func merge_array(array):
@@ -56,6 +59,7 @@ func initialize_merge():
 	range_boost = Boost.new()
 	explosion = Boost.new()
 	attack_on_hit = AttackArray.new()
+	attack_on_expire = AttackArray.new()
 
 func add(other):
 	damage.add(other.damage)
@@ -67,6 +71,7 @@ func add(other):
 	range_boost.add(other.range_boost)
 	explosion.add(other.explosion)
 	attack_on_hit.add(other.attack_on_hit)
+	attack_on_expire.add(other.attack_on_expire)
 	
 	if ranger == null:
 		ranger = other.ranger

@@ -11,14 +11,14 @@ const default_projectile = preload("res://game/projectile/projectile.tscn")
 @export var attack_on_hit : Attack
 @export var attack_on_expire : Attack
 var modifier : Modifier
-var hit = false
-var modifier_attack_used = false
+var hit : bool = false
+var modifier_attack_used : bool = false
 
 func get_default_projectile():
 	return default_projectile
 
 
-func projectile(node, new_modifier, id):
+func projectile(node, new_modifier):
 	var instantiated = get_default_projectile().instantiate()
 	_set_defaults(node, instantiated)
 	node.get_node("../%ProjectileCanvas").call_deferred("add_child", instantiated)
@@ -42,29 +42,38 @@ func expire():
 	_on_expire()
 	node.queue_free()
 
-func _on_hit(target):
-	if target.died:
-		return
+func _on_hit(target : Stone):
 	pierce -= 1
 	
 	var applied_damage = damage.duplicate()
 	if modifier != null and modifier.damage != null:
 		applied_damage.damage = modifier.damage.apply(applied_damage.damage)
 	target.damage(applied_damage)
+	
+	var push_excluded : bool = false
+	
 	if pierce <= 0:
 		hit = true
 		node.queue_free()
+	else:
+		push_excluded = true
+		
 	if attack_on_hit != null:
 		attack_on_hit.attack(node, target, modifier)
+		push_excluded = true
+	if push_excluded:
+		target.excluded_projectiles.push_back(node.id)
+	
 	var new_modifier = modifier.duplicate()
 	new_modifier.attack_on_hit = new_modifier.attack_on_hit.duplicate()
 	new_modifier.attack_on_hit.remove_non_infinite_use()
-	modifier.attack_on_hit.attack(node, target, new_modifier, true)
+	modifier.attack_on_hit.attack(node, target, new_modifier)
+	
 
 func _on_expire():
 	if attack_on_expire != null:
-		attack_on_expire.attack(node, null, modifier, true)
-	#modifier.attack_on_expire.attack(node, null, modifier)
+		attack_on_expire.attack(node, null, modifier)
+	modifier.attack_on_expire.attack(node, null, modifier)
 
 func tooltip():
 	var text = ""
