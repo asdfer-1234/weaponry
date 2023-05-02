@@ -24,6 +24,7 @@ config/icon="res://game/stone/stone.png"
 Audio="*res://audio/audio.gd"
 Palette="*res://graphics/palette.gd"
 RichTextBuilder="*res://graphics/rich_text_builder.gd"
+Global="*res://global/global.gd"
 
 [debug]
 

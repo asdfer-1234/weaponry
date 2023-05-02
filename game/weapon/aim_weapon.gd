@@ -9,29 +9,28 @@ class_name AimWeapon
 @export var attack : Attack
 var shootable = true
 
-const shoot_angle = 5
-const maximum_attack_delay = 5
-const minimum_attack_speed = 0.01
-const shoot_audio = preload("res://game/turret/shoot.wav")
-const decibel_multiplier = 1
+const shoot_angle : float = 5
+const maximum_attack_delay : float = 5
+const minimum_attack_speed : float = 0.01
+const shoot_audio : AudioStream = preload("res://game/turret/shoot.wav")
 
 func _process(delta):
 	if not node.building:
-		var target = get_targeter().get_target(node, get_ranger().get_targets(node))
+		var target = targeter.get_target(node, ranger.get_targets(node))
 		if target != null:
 			swivel(node, delta, target.global_position)
-			if (shootable and
-					abs(_angle_difference(node.global_rotation,
-					(target.global_position - node.global_position).angle())) <
-					deg_to_rad(shoot_angle)):
+			if shootable and _shoot_narrow_angle(target):
 				shoot(target)
+
+func _shoot_narrow_angle(target):
+	return abs(_angle_difference(node.global_rotation, (target.global_position - node.global_position).angle())) < deg_to_rad(shoot_angle)
 
 func shoot(target):
 	attack.attack(node, target, get_modifier())
 	shootable = false
 	var timer = node.get_tree().create_timer(get_attack_delay(), true, true)
 	timer.timeout.connect(_timer_timeout)
-	Audio.play_audio(shoot_audio, get_attack_delay() * decibel_multiplier)
+	Audio.play_audio(shoot_audio, get_attack_delay())
 	use_ammo()
 
 func get_attack_delay():
@@ -41,23 +40,6 @@ func get_attack_delay():
 func _timer_timeout():
 	shootable = true
 	pass
-
-func get_ranger():
-	var applied_ranger
-	if get_modifier().ranger == null:
-		applied_ranger = ranger
-	else:
-		applied_ranger = get_modifier().ranger
-	applied_ranger = applied_ranger.duplicate()
-	applied_ranger.apply_boost(get_modifier().range_boost)
-	return applied_ranger
-
-func get_targeter():
-	var modifier = get_modifier()
-	if modifier.targeter == null:
-		return targeter
-	else:
-		return modifier.targeter
 
 func swivel(node, delta, target):
 	var target_rotation = (target - node.global_position).angle()
@@ -78,7 +60,7 @@ func _angle_difference(from, to):
 	return ans
 
 func _draw():
-	get_ranger()._draw(node)
+	ranger._draw(node)
 
 func tooltip():
 	var text = ""
@@ -91,5 +73,14 @@ func tooltip():
 	text += RichTextBuilder.subproperty(tr("RANGE"), ranger.tooltip())
 	text += RichTextBuilder.subproperty(tr("ATTACK"), attack.tooltip())
 	text += RichTextBuilder.subproperty(tr("TARGETING"), targeter.tooltip())
-	
 	return text
+
+func get_modified(modifier : Modifier):
+	var modified := self.duplicate()
+	attack_speed = modifier.attack_speed.apply(attack_speed)
+	if modifier.targeter != null:
+		modified.targeter = modifier.targeter
+	if modifier.ranger != null:
+		modified.ranger = modifier.ranger
+	attack.get_modified(modifier)
+	return modified

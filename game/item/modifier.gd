@@ -42,14 +42,7 @@ func tooltip():
 		build += RichTextBuilder.subproperty(tr("ON_EXPIRE"), attack_on_expire.tooltip())
 	return build
 
-func merge_array(array):
-	var new = Modifier.new()
-	new.initialize_merge()
-	for i in array:
-		new.add(i)
-	return new
-
-func initialize_merge():
+func _init():
 	damage = Boost.new()
 	attack_speed = Boost.new()
 	pierce = Boost.new()

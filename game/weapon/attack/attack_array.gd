@@ -22,3 +22,12 @@ func remove_non_infinite_use():
 		while index < len(attacks) and not attacks[index].infinite_use:
 			attacks.remove_at(index)
 		index += 1;
+
+func get_modified(modifier : Modifier):
+	var modified_array : Array[Attack] = []
+	for i in range(len(attacks)):
+		modified_array = attacks[i].get_modified(modifier)
+	AttackArray.new(modified_array)
+
+func _init(attacks : Array[Attack] = []):
+	self.attacks = attacks

@@ -19,12 +19,8 @@ func secondary(other):
 
 func swap_other(other):
 	var swapper = other.item_stack.duplicate()
-	#other.item_stack = item_stack
-	other.item_stack.count = item_stack.count
-	other.item_stack.item = item_stack.item
-	item_stack.item = swapper.item
-	item_stack.count = swapper.count
-	#item_stack = swapper
+	other.item_stack = item_stack
+	item_stack = swapper
 
 func merge(other):
 	var total = other.item_stack.count + item_stack.count

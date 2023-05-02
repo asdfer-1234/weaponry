@@ -61,8 +61,6 @@ func _on_hit(target : Stone):
 	if attack_on_hit != null:
 		attack_on_hit.attack(node, target, modifier)
 		push_excluded = true
-	if push_excluded:
-		target.excluded_projectiles.push_back(node.id)
 	
 	var new_modifier = modifier.duplicate()
 	new_modifier.attack_on_hit = new_modifier.attack_on_hit.duplicate()

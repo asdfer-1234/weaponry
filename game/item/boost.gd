@@ -8,6 +8,8 @@ func additive_multiplier():
 	return multiplier - 1
 
 func minimal_tooltip():
+	if multiplier == 1 and adder == 0:
+		return ""
 	return multiplier_tooltip() + adder_tooltip()
 
 func multiplier_tooltip():

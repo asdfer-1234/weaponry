@@ -10,11 +10,9 @@ var ammunition = []
 var accessory_slots = []
 var accessory = []
 
-
 func _update():
 	super._update()
 	_update_sprite()
-	
 	for i in range(ammunition_slot_count):
 		ammunition.append(ItemStack.new())
 	for i in range(accessory_slot_count):
@@ -39,6 +37,7 @@ func get_modifier():
 	return Modifier.new().merge_array(get_all_modifiers())
 
 func get_all_modifiers():
+	return []
 	var modifiers = []
 	var first_ammunition = get_first_ammunition()
 	if first_ammunition != null:
@@ -101,8 +100,12 @@ func set_modifier_slots(weapon_slot, count, accept_type, array, slot_array, upda
 
 func update_ammunition_slots():
 	for i in range(ammunition_slot_count):
+		print("update_ammunition_slots is called!!!!!!")
 		ammunition[i] = ammunition_slots[i].item_stack
 
 func update_accessory_slots():
 	for i in range(accessory_slot_count):
 		accessory[i] = accessory_slots[i].item_stack
+
+func get_modified(modifier : Modifier):
+	pass

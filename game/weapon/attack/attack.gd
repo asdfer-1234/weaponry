@@ -8,3 +8,6 @@ func attack(_from, _target, _modifier):
 
 func tooltip():
 	return ""
+
+func get_modified(modifer : Modifier):
+	pass

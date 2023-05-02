@@ -21,10 +21,11 @@ var draw_weapon_details = false:
 
 var time_since_draw_weapon_details : float = 0
 
-var weapon_slot : ItemSlot
+var weapon_slot : ItemSlot:
+	set(value):
+		weapon_slot = value
+
 var weapon_stack : ItemStack:
-	get:
-		return weapon_stack
 	set(value):
 		weapon_stack = value
 		if weapon_stack == null:
@@ -35,6 +36,11 @@ var weapon_stack : ItemStack:
 			weapon_stack.item.weapon.update(self)
 		queue_redraw()
 		get_tree().get_first_node_in_group("turret_selection").update_slot_container()
+		update_modified_weapon()
+
+var modifier_stack : Array[ItemStack]
+
+var modified_weapon : Weapon
 
 
 var temporary_modifiers : Array[Modifier]
@@ -57,15 +63,12 @@ func get_active_weapon() -> Weapon:
 		return default_weapon
 	return weapon_stack.item.weapon
 
-func duplicate_default_weapon():
-	default_weapon = default_weapon.duplicate()
-	default_weapon.update(self)
 
 # processing the weapons
 
 func _ready():
-	duplicate_default_weapon()
 	_connect_turret_selection()
+	update_modified_weapon()
 
 func set_weapon_slot():
 	weapon_slot = inventory_slot.instantiate()
@@ -73,7 +76,7 @@ func set_weapon_slot():
 	
 	weapon_slot.accept_type = Item.Type.WEAPON
 	weapon_slot.item_stack = weapon_stack
-	get_active_weapon().set_weapon_slot(weapon_slot)
+	modified_weapon.set_weapon_slot(weapon_slot)
 	weapon_slot.changed.connect(set_weapon_stack_from_inventory_slot)
 	
 
@@ -93,7 +96,11 @@ func _physics_process(delta):
 		_turret_process(delta)
 
 func _turret_process(delta):
-	get_active_weapon()._process(delta)
+	modified_weapon._process(delta)
+
+func update_modified_weapon():
+	modified_weapon = get_active_weapon().get_modified(get_active_weapon().get_modifier())
+	modified_weapon.update(self)
 
 # Mouse Signal Conveying
 func _mouse_enter():
@@ -130,11 +137,11 @@ func _connect_turret_selection():
 # information drawing
 
 func _draw():
-	if draw_weapon_details:
-		get_active_weapon()._draw()
+	if modified_weapon.node != null && draw_weapon_details:
+		modified_weapon._draw()
 
 func tooltip():
-	return get_active_weapon().tooltip()
+	return modified_weapon.tooltip()
 
 func add_temporary_modifier(modifier):
 	temporary_modifiers.append(modifier)
