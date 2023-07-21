@@ -5,6 +5,7 @@ class_name Modifier
 @export var attack_speed : Boost
 @export var pierce : Boost
 @export var count : Boost
+@export var swivel_speed : Boost
 @export var spread : Boost
 @export var knockback : Boost
 @export var range_boost : Boost
@@ -24,6 +25,8 @@ func tooltip():
 		build += RichTextBuilder.property_text(tr("PIERCE"), pierce.minimal_tooltip())
 	if count != null:
 		build += RichTextBuilder.property_text(tr("COUNT"), count.minimal_tooltip())
+	if swivel_speed != null:
+		build += RichTextBuilder.property_text(tr("SWIVEL_SPEED"), swivel_speed.minimal_tooltip())
 	if spread != null:
 		build += RichTextBuilder.property_text(tr("SPREAD"), spread.minimal_tooltip())
 	if knockback != null:
@@ -47,6 +50,7 @@ func _init():
 	attack_speed = Boost.new()
 	pierce = Boost.new()
 	count = Boost.new()
+	swivel_speed = Boost.new()
 	spread = Boost.new()
 	knockback = Boost.new()
 	range_boost = Boost.new()
@@ -59,6 +63,7 @@ func add(other):
 	attack_speed.add(other.attack_speed)
 	pierce.add(other.pierce)
 	count.add(other.count)
+	swivel_speed.add(other.swivel_speed)
 	spread.add(other.spread)
 	knockback.add(other.knockback)
 	range_boost.add(other.range_boost)

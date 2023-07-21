@@ -9,7 +9,7 @@ func _ready():
 	$DamageTimer.start()
 
 func damage_stone():
-	$"..".damage(damage)
+	$"..".recieve_damage(damage)
 
 func tooltip():
 	return tr("DAMAGE_OVER_TIME_EFFECT").format({"damage" : damage.minimal_tooltip(), "interval" : RichTextBuilder.color_text(str(interval), Palette.yellow)}) + " " + duration_tooltip() + "\n"

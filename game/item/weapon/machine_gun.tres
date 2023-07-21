@@ -1,64 +1,68 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://bs5blou1pn4jo"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=19 format=3 uid="uid://bs5blou1pn4jo"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_wx3jt"]
 [ext_resource type="Texture2D" uid="uid://b0r6gsgpxqsry" path="res://game/item/weapon/machine_gun.png" id="2_dvrsl"]
-[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_hixwk"]
-[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="4_tiakq"]
-[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="5_ha4q7"]
-[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="6_q36u7"]
+[ext_resource type="Script" path="res://game/weapon/modifiable_weapon.gd" id="3_2h4wl"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="4_q1y5h"]
+[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="5_en54j"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="6_bkwyi"]
 [ext_resource type="Script" path="res://game/weapon/ranger/circular_ranger.gd" id="7_i5xvf"]
+[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="7_l3adq"]
 [ext_resource type="Script" path="res://game/weapon/aim_weapon.gd" id="8_8qlld"]
-[ext_resource type="Texture2D" uid="uid://cinmkyggnyph3" path="res://game/item/weapon/machine_gun_turret.png" id="9_5d3c1"]
 [ext_resource type="Script" path="res://game/weapon/targeter/first_targeter.gd" id="10_0oxo3"]
+[ext_resource type="Texture2D" uid="uid://cinmkyggnyph3" path="res://game/item/weapon/machine_gun_turret.png" id="10_ndlnd"]
 
-[sub_resource type="Resource" id="Resource_tsl24"]
-script = ExtResource("3_hixwk")
+[sub_resource type="Resource" id="Resource_ki7qw"]
+script = ExtResource("4_q1y5h")
 type = 0
-damage = 4
+damage = 10
 
-[sub_resource type="Resource" id="Resource_rbdhb"]
-script = ExtResource("4_tiakq")
-sprite = ExtResource("5_ha4q7")
+[sub_resource type="Resource" id="Resource_4x40v"]
+script = ExtResource("5_en54j")
+sprite = ExtResource("6_bkwyi")
 speed = 500.0
 acceleration = 0.0
 randomly_rotate = false
 pierce = 1
 size = 0.5
-damage = SubResource("Resource_tsl24")
+damage = SubResource("Resource_ki7qw")
 lifetime = 2.0
 
-[sub_resource type="Resource" id="Resource_msshv"]
-script = ExtResource("6_q36u7")
-projectile_behaviour = SubResource("Resource_rbdhb")
-spread = 10.0
+[sub_resource type="Resource" id="Resource_k78ua"]
+script = ExtResource("7_l3adq")
+projectile_behaviour = SubResource("Resource_4x40v")
+spread = 0.0
 count = 1
 delay = 0.0
-infinite_use = false
 
-[sub_resource type="Resource" id="Resource_mf8yx"]
+[sub_resource type="Resource" id="Resource_434eq"]
 script = ExtResource("7_i5xvf")
 min_range = 0.0
-max_range = 70.0
+max_range = 100.0
 
-[sub_resource type="Resource" id="Resource_xtowc"]
+[sub_resource type="Resource" id="Resource_s7bh0"]
 script = ExtResource("10_0oxo3")
 
-[sub_resource type="Resource" id="Resource_y2g54"]
+[sub_resource type="Resource" id="Resource_24f0h"]
 script = ExtResource("8_8qlld")
 infinite_swivel = false
-swivel_speed = 80.0
-targeter = SubResource("Resource_xtowc")
-ranger = SubResource("Resource_mf8yx")
-attack_speed = 12.0
-attack = SubResource("Resource_msshv")
-sprite = ExtResource("9_5d3c1")
-flip_mode = 1.0
+swivel_speed = 180.0
+targeter = SubResource("Resource_s7bh0")
+ranger = SubResource("Resource_434eq")
+attack_speed = 10.0
+attack = SubResource("Resource_k78ua")
+sprite = ExtResource("10_ndlnd")
+flip_mode = 1
+
+[sub_resource type="Resource" id="Resource_rmp2j"]
+script = ExtResource("3_2h4wl")
+weapon = SubResource("Resource_24f0h")
 ammunition_slot_count = 5
 accessory_slot_count = 2
 
 [resource]
 script = ExtResource("1_wx3jt")
-weapon = SubResource("Resource_y2g54")
+weapon = SubResource("Resource_rmp2j")
 name = "MACHINE_GUN"
 sprite = ExtResource("2_dvrsl")
-type = 1
+stack_size = 0

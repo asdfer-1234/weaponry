@@ -1,64 +1,68 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://beovnhb5fjhdh"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=19 format=3 uid="uid://beovnhb5fjhdh"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_w1u2s"]
 [ext_resource type="Texture2D" uid="uid://dvm8l8s32qmas" path="res://game/item/weapon/shotgun.png" id="2_di30m"]
-[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_7lmiv"]
-[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="4_1mwcf"]
-[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="5_gixe4"]
-[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="6_1rty6"]
-[ext_resource type="Script" path="res://game/weapon/ranger/circular_ranger.gd" id="7_haenc"]
+[ext_resource type="Script" path="res://game/weapon/modifiable_weapon.gd" id="3_2khdp"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="4_n648a"]
+[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="5_jkyl4"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="6_2ljt8"]
+[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="6_q5m6v"]
+[ext_resource type="Script" path="res://game/weapon/ranger/circular_ranger.gd" id="7_rcvac"]
 [ext_resource type="Script" path="res://game/weapon/aim_weapon.gd" id="8_rkkwp"]
-[ext_resource type="Texture2D" uid="uid://7y2oqu7ylmav" path="res://game/item/weapon/shotgun_turret.png" id="9_vwh8r"]
-[ext_resource type="Script" path="res://game/weapon/targeter/first_targeter.gd" id="10_32ibc"]
+[ext_resource type="Texture2D" uid="uid://7y2oqu7ylmav" path="res://game/item/weapon/shotgun_turret.png" id="9_3f8y2"]
+[ext_resource type="Script" path="res://game/weapon/targeter/first_targeter.gd" id="10_a3ae4"]
 
-[sub_resource type="Resource" id="Resource_my61n"]
-script = ExtResource("3_7lmiv")
+[sub_resource type="Resource" id="Resource_qdso0"]
+script = ExtResource("4_n648a")
 type = 0
-damage = 5
+damage = 4
 
-[sub_resource type="Resource" id="Resource_vhocw"]
-script = ExtResource("4_1mwcf")
-sprite = ExtResource("5_gixe4")
+[sub_resource type="Resource" id="Resource_17bek"]
+script = ExtResource("5_jkyl4")
+sprite = ExtResource("6_2ljt8")
 speed = 500.0
 acceleration = 0.0
 randomly_rotate = false
-pierce = 2
+pierce = 1
 size = 0.25
-damage = SubResource("Resource_my61n")
+damage = SubResource("Resource_qdso0")
 lifetime = 2.0
 
-[sub_resource type="Resource" id="Resource_gpoqp"]
-script = ExtResource("6_1rty6")
-projectile_behaviour = SubResource("Resource_vhocw")
-spread = 30.0
-count = 8
+[sub_resource type="Resource" id="Resource_c61m1"]
+script = ExtResource("6_q5m6v")
+projectile_behaviour = SubResource("Resource_17bek")
+spread = 40.0
+count = 12
 delay = 0.0
-infinite_use = false
 
-[sub_resource type="Resource" id="Resource_csivg"]
-script = ExtResource("7_haenc")
+[sub_resource type="Resource" id="Resource_1ej81"]
+script = ExtResource("7_rcvac")
 min_range = 0.0
 max_range = 50.0
 
-[sub_resource type="Resource" id="Resource_io0wl"]
-script = ExtResource("10_32ibc")
+[sub_resource type="Resource" id="Resource_h8gpk"]
+script = ExtResource("10_a3ae4")
 
-[sub_resource type="Resource" id="Resource_3tkw8"]
+[sub_resource type="Resource" id="Resource_hot1v"]
 script = ExtResource("8_rkkwp")
 infinite_swivel = false
 swivel_speed = 360.0
-targeter = SubResource("Resource_io0wl")
-ranger = SubResource("Resource_csivg")
-attack_speed = 1.0
-attack = SubResource("Resource_gpoqp")
-sprite = ExtResource("9_vwh8r")
+targeter = SubResource("Resource_h8gpk")
+ranger = SubResource("Resource_1ej81")
+attack_speed = 1.7
+attack = SubResource("Resource_c61m1")
+sprite = ExtResource("9_3f8y2")
 flip_mode = 1
+
+[sub_resource type="Resource" id="Resource_na4ta"]
+script = ExtResource("3_2khdp")
+weapon = SubResource("Resource_hot1v")
 ammunition_slot_count = 1
 accessory_slot_count = 1
 
 [resource]
 script = ExtResource("1_w1u2s")
-weapon = SubResource("Resource_3tkw8")
+weapon = SubResource("Resource_na4ta")
 name = "SHOTGUN"
 sprite = ExtResource("2_di30m")
-type = 1
+stack_size = 0

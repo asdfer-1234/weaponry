@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=20 format=3 uid="uid://dnfjg2uphirwu"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=22 format=3 uid="uid://dnfjg2uphirwu"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_qhf8a"]
 [ext_resource type="Texture2D" uid="uid://d10ds5r2mg7hf" path="res://game/item/weapon/double_barrel.png" id="2_fx7rl"]
+[ext_resource type="Script" path="res://game/weapon/modifiable_weapon.gd" id="3_0wufr"]
 [ext_resource type="Script" path="res://game/projectile/projectile_behaviour.gd" id="3_dcrv1"]
 [ext_resource type="Script" path="res://game/damage/damage.gd" id="3_m0isv"]
 [ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="4_w70m2"]
@@ -12,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bbnarha6q6b56" path="res://game/item/weapon/double_barrel_turret.png" id="9_6sxxy"]
 [ext_resource type="Script" path="res://game/weapon/targeter/first_targeter.gd" id="10_ypgmh"]
 
-[sub_resource type="Resource" id="Resource_eknme"]
+[sub_resource type="Resource" id="Resource_2e8pf"]
 script = ExtResource("3_m0isv")
 type = 0
-damage = 5
+damage = 4
 
-[sub_resource type="Resource" id="Resource_2xq32"]
+[sub_resource type="Resource" id="Resource_a3c14"]
 script = ExtResource("4_w70m2")
 sprite = ExtResource("5_oktfv")
 speed = 500.0
@@ -25,56 +26,58 @@ acceleration = 0.0
 randomly_rotate = false
 pierce = 1
 size = 0.25
-damage = SubResource("Resource_eknme")
+damage = SubResource("Resource_2e8pf")
 lifetime = 2.0
 
-[sub_resource type="Resource" id="Resource_2ncgn"]
+[sub_resource type="Resource" id="Resource_01jtb"]
 script = ExtResource("6_eg150")
-projectile_behaviour = SubResource("Resource_2xq32")
-spread = 30.0
-count = 8
+projectile_behaviour = SubResource("Resource_a3c14")
+spread = 60.0
+count = 9
 delay = 0.0
-infinite_use = false
 
-[sub_resource type="Resource" id="Resource_hewaj"]
+[sub_resource type="Resource" id="Resource_4h7rl"]
 script = ExtResource("3_dcrv1")
-pierce = null
-size = null
+pierce = 1
+size = 1.0
 lifetime = 0.0
-attack_on_expire = SubResource("Resource_2ncgn")
+attack_on_expire = SubResource("Resource_01jtb")
 
-[sub_resource type="Resource" id="Resource_gpoqp"]
+[sub_resource type="Resource" id="Resource_be30r"]
 script = ExtResource("6_eg150")
-projectile_behaviour = SubResource("Resource_hewaj")
-spread = 4.0
+projectile_behaviour = SubResource("Resource_4h7rl")
+spread = 2.0
 count = 2
 delay = 0.1
-infinite_use = false
 
-[sub_resource type="Resource" id="Resource_csivg"]
+[sub_resource type="Resource" id="Resource_y0tw0"]
 script = ExtResource("7_umolm")
 min_range = 0.0
-max_range = 40.0
+max_range = 60.0
 
-[sub_resource type="Resource" id="Resource_io0wl"]
+[sub_resource type="Resource" id="Resource_610wc"]
 script = ExtResource("10_ypgmh")
 
-[sub_resource type="Resource" id="Resource_3tkw8"]
+[sub_resource type="Resource" id="Resource_i88r5"]
 script = ExtResource("8_2htxj")
 infinite_swivel = false
-swivel_speed = 360.0
-targeter = SubResource("Resource_io0wl")
-ranger = SubResource("Resource_csivg")
-attack_speed = 1.0
-attack = SubResource("Resource_gpoqp")
+swivel_speed = 400.0
+targeter = SubResource("Resource_610wc")
+ranger = SubResource("Resource_y0tw0")
+attack_speed = 2.0
+attack = SubResource("Resource_be30r")
 sprite = ExtResource("9_6sxxy")
 flip_mode = 1
+
+[sub_resource type="Resource" id="Resource_rmhf6"]
+script = ExtResource("3_0wufr")
+weapon = SubResource("Resource_i88r5")
 ammunition_slot_count = 2
-accessory_slot_count = 2
+accessory_slot_count = 1
 
 [resource]
 script = ExtResource("1_qhf8a")
-weapon = SubResource("Resource_3tkw8")
+weapon = SubResource("Resource_rmhf6")
 name = "DOUBLE_BARREL"
 sprite = ExtResource("2_fx7rl")
-type = 1
+stack_size = 0

@@ -44,7 +44,7 @@ func add(other):
 		adder += other.adder
 		multiplier += other.additive_multiplier()
 
-func apply(value):
+func applied(value):
 	return value * multiplier + adder
 
 

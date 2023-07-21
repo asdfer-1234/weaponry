@@ -1,0 +1,19 @@
+root:WeaponItem
+	name="REVOLVER"
+	sprite=res://game/item/weapon/revolver.png
+	type=Weapon
+	weapon:AimWeapon
+		swivel_speed=720
+		ranger:CircularRanger
+			max_range=70
+		attack_speed=2zzzzzzz
+		attack:ProjectileAttack
+			projectile_behaviour:MovingProjectileBehaviour
+			size=0.5
+			damage:Damage
+				type=Physical
+				damage=40
+			spread=2
+			flip_mode=Horizontal
+			ammunition_slot_count=1
+			accessory_slot_count=3

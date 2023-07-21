@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=8 format=3 uid="uid://ck88pcrohgaha"]
+[gd_resource type="Resource" script_class="AccessoryItem" load_steps=8 format=3 uid="uid://ck88pcrohgaha"]
 
 [ext_resource type="PackedScene" uid="uid://ctwilheyxpsft" path="res://game/effect/acid.tscn" id="1_plhkn"]
 [ext_resource type="Script" path="res://game/weapon/attack/effect_attack.gd" id="2_wdocu"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="3_03wd6"]
-[ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="4_og12i"]
+[ext_resource type="Script" path="res://game/item/accessory/accessory_item.gd" id="4_og12i"]
 [ext_resource type="Texture2D" uid="uid://csqee0engrwi8" path="res://game/item/accessory/acid.png" id="5_va31j"]
 
 [sub_resource type="Resource" id="Resource_8bgoc"]
 script = ExtResource("2_wdocu")
 effect = ExtResource("1_plhkn")
-infinite_use = true
 
 [sub_resource type="Resource" id="Resource_b7xfj"]
 script = ExtResource("3_03wd6")
@@ -20,4 +19,4 @@ script = ExtResource("4_og12i")
 modifier = SubResource("Resource_b7xfj")
 name = "ACID"
 sprite = ExtResource("5_va31j")
-type = 3
+stack_size = 0

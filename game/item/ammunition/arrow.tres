@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=9 format=3 uid="uid://by8wp8w0i4h4e"]
+[gd_resource type="Resource" script_class="AmmunitionItem" load_steps=9 format=3 uid="uid://by8wp8w0i4h4e"]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_ofqn1"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_42oc2"]
-[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="3_ah0sr"]
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition_item.gd" id="3_ah0sr"]
 [ext_resource type="Texture2D" uid="uid://dytmxwjfuewbn" path="res://game/item/ammunition/arrow.png" id="4_ga07h"]
 
 [sub_resource type="Resource" id="Resource_sfcmx"]
@@ -29,7 +29,6 @@ pierce = SubResource("Resource_urla5")
 [resource]
 script = ExtResource("3_ah0sr")
 modifier = SubResource("Resource_nskfn")
-stack_size = 700
 name = "ARROW"
 sprite = ExtResource("4_ga07h")
-type = 2
+stack_size = 700

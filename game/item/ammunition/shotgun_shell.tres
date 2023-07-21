@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=11 format=3 uid="uid://b72qmdxop0sc1"]
+[gd_resource type="Resource" script_class="AmmunitionItem" load_steps=11 format=3 uid="uid://b72qmdxop0sc1"]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_3a5wk"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_w05cc"]
-[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="3_1788d"]
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition_item.gd" id="3_1788d"]
 [ext_resource type="Texture2D" uid="uid://2vox3tne4cc6" path="res://game/item/ammunition/shotgun_shell.png" id="4_gflgy"]
 
 [sub_resource type="Resource" id="Resource_i0pbc"]
@@ -41,7 +41,6 @@ spread = SubResource("Resource_osuoy")
 [resource]
 script = ExtResource("3_1788d")
 modifier = SubResource("Resource_nskfn")
-stack_size = 400
 name = "SHOTGUN_SHELL"
 sprite = ExtResource("4_gflgy")
-type = 2
+stack_size = 400

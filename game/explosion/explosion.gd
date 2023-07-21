@@ -24,7 +24,7 @@ func _process(delta):
 	node.queue_redraw()
 
 func _end_explosion():
-	hit = true
+	node.hit = true
 
 func _on_animation_finish(_string):
 	_finish_explosion()

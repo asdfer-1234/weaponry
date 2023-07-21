@@ -1,13 +1,23 @@
 extends Resource
 class_name Attack
 
-@export var infinite_use : bool = false
-
-func attack(_from, _target, _modifier):
+func attack(_from, _target):
 	pass
 
 func tooltip():
 	return ""
 
-func get_modified(modifer : Modifier):
+# Modifier stuff
+func apply(_modifier):
 	pass
+
+func applied(modifier):
+	var build = duplicate(true)
+	build.apply(modifier)
+	return build
+
+# AttackArray stuff
+func added(attack : Attack):
+	var build : AttackArray = AttackArray.new()
+	build.add(attack)
+	return build

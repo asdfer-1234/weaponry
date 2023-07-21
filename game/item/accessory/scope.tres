@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=9 format=3 uid="uid://b13hnlwavq16t"]
+[gd_resource type="Resource" script_class="AccessoryItem" load_steps=9 format=3 uid="uid://b13hnlwavq16t"]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_fiven"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="3_csmsg"]
-[ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="4_h50a5"]
+[ext_resource type="Script" path="res://game/item/accessory/accessory_item.gd" id="4_h50a5"]
 [ext_resource type="Texture2D" uid="uid://t3uwnk5rkisd" path="res://game/item/accessory/scope.png" id="5_2y7qi"]
 
 [sub_resource type="Resource" id="Resource_jv262"]
@@ -31,4 +31,4 @@ script = ExtResource("4_h50a5")
 modifier = SubResource("Resource_b7xfj")
 name = "SCOPE"
 sprite = ExtResource("5_2y7qi")
-type = 3
+stack_size = 0

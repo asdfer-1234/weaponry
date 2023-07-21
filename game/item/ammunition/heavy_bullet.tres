@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=9 format=3 uid="uid://6rhn5trwe8dh"]
+[gd_resource type="Resource" script_class="AmmunitionItem" load_steps=9 format=3 uid="uid://6rhn5trwe8dh"]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_ba8oe"]
-[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="1_yyp3t"]
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition_item.gd" id="1_yyp3t"]
 [ext_resource type="Texture2D" uid="uid://c1u5d8k0nh37t" path="res://game/item/ammunition/heavy_bullet.png" id="2_2du6q"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_xwys7"]
 
@@ -29,7 +29,6 @@ pierce = SubResource("Resource_7cg8k")
 [resource]
 script = ExtResource("1_yyp3t")
 modifier = SubResource("Resource_j5e0w")
-stack_size = 100
 name = "HEAVY_BULLET"
 sprite = ExtResource("2_2du6q")
-type = 2
+stack_size = 100

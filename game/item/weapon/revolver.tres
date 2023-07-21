@@ -1,64 +1,68 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=17 format=3 uid="uid://bdo6yhfpbedow"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=19 format=3 uid="uid://bdo6yhfpbedow"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_dsesi"]
 [ext_resource type="Texture2D" uid="uid://bo04jinv3t0r0" path="res://game/item/weapon/revolver.png" id="2_3psj1"]
-[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_bdv2h"]
-[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="4_ky8au"]
-[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="5_jr8t1"]
-[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="6_1xy74"]
+[ext_resource type="Script" path="res://game/weapon/modifiable_weapon.gd" id="3_ojte8"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="4_3x5w4"]
+[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="5_h5av1"]
+[ext_resource type="Texture2D" uid="uid://cpxk1cnu3l0ty" path="res://game/projectile/projectile.png" id="6_l64kh"]
+[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="6_m4jp4"]
 [ext_resource type="Script" path="res://game/weapon/ranger/circular_ranger.gd" id="7_72nsj"]
 [ext_resource type="Script" path="res://game/weapon/aim_weapon.gd" id="8_yh27t"]
-[ext_resource type="Texture2D" uid="uid://qwxhy6qmoeie" path="res://game/item/weapon/revolver_turret.png" id="9_bmk2y"]
+[ext_resource type="Texture2D" uid="uid://qwxhy6qmoeie" path="res://game/item/weapon/revolver_turret.png" id="9_rfj8t"]
 [ext_resource type="Script" path="res://game/weapon/targeter/first_targeter.gd" id="10_8uolu"]
 
-[sub_resource type="Resource" id="Resource_tsl24"]
-script = ExtResource("3_bdv2h")
+[sub_resource type="Resource" id="Resource_khhoe"]
+script = ExtResource("4_3x5w4")
 type = 0
 damage = 40
 
-[sub_resource type="Resource" id="Resource_rbdhb"]
-script = ExtResource("4_ky8au")
-sprite = ExtResource("5_jr8t1")
+[sub_resource type="Resource" id="Resource_jwdjk"]
+script = ExtResource("5_h5av1")
+sprite = ExtResource("6_l64kh")
 speed = 500.0
 acceleration = 0.0
 randomly_rotate = false
 pierce = 1
-size = 0.5
-damage = SubResource("Resource_tsl24")
+size = 0.3
+damage = SubResource("Resource_khhoe")
 lifetime = 2.0
 
-[sub_resource type="Resource" id="Resource_msshv"]
-script = ExtResource("6_1xy74")
-projectile_behaviour = SubResource("Resource_rbdhb")
+[sub_resource type="Resource" id="Resource_1nkkx"]
+script = ExtResource("6_m4jp4")
+projectile_behaviour = SubResource("Resource_jwdjk")
 spread = 2.0
 count = 1
 delay = 0.0
-infinite_use = false
 
-[sub_resource type="Resource" id="Resource_mf8yx"]
+[sub_resource type="Resource" id="Resource_bqmxv"]
 script = ExtResource("7_72nsj")
 min_range = 0.0
-max_range = 70.0
+max_range = 60.0
 
-[sub_resource type="Resource" id="Resource_xtowc"]
+[sub_resource type="Resource" id="Resource_7oqcq"]
 script = ExtResource("10_8uolu")
 
-[sub_resource type="Resource" id="Resource_y2g54"]
+[sub_resource type="Resource" id="Resource_t1hw1"]
 script = ExtResource("8_yh27t")
 infinite_swivel = false
-swivel_speed = 720.0
-targeter = SubResource("Resource_xtowc")
-ranger = SubResource("Resource_mf8yx")
+swivel_speed = 360.0
+targeter = SubResource("Resource_7oqcq")
+ranger = SubResource("Resource_bqmxv")
 attack_speed = 2.0
-attack = SubResource("Resource_msshv")
-sprite = ExtResource("9_bmk2y")
-flip_mode = 1.0
-ammunition_slot_count = 1
-accessory_slot_count = 3
+attack = SubResource("Resource_1nkkx")
+sprite = ExtResource("9_rfj8t")
+flip_mode = 1
+
+[sub_resource type="Resource" id="Resource_wuvih"]
+script = ExtResource("3_ojte8")
+weapon = SubResource("Resource_t1hw1")
+ammunition_slot_count = 2
+accessory_slot_count = 1
 
 [resource]
 script = ExtResource("1_dsesi")
-weapon = SubResource("Resource_y2g54")
+weapon = SubResource("Resource_wuvih")
 name = "REVOLVER"
 sprite = ExtResource("2_3psj1")
-type = 1
+stack_size = 0

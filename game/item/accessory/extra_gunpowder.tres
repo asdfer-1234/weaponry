@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=7 format=3 uid="uid://dvu8us053mbrv"]
+[gd_resource type="Resource" script_class="AccessoryItem" load_steps=7 format=3 uid="uid://dvu8us053mbrv"]
 
-[ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="1_qc83x"]
+[ext_resource type="Script" path="res://game/item/accessory/accessory_item.gd" id="1_qc83x"]
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_rqdh6"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_rtakn"]
 [ext_resource type="Texture2D" uid="uid://chf4akg4citb7" path="res://game/item/accessory/extra_gunpowder.png" id="4_f1ibs"]
@@ -19,4 +19,4 @@ script = ExtResource("1_qc83x")
 modifier = SubResource("Resource_b7xfj")
 name = "EXTRA_GUNPOWDER"
 sprite = ExtResource("4_f1ibs")
-type = 3
+stack_size = 0

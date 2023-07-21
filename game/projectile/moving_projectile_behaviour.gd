@@ -1,16 +1,15 @@
 extends ProjectileBehaviour
 class_name MovingProjectileBehaviour
 
-@export var shader : ShaderMaterial
 @export var sprite : Texture
 @export var speed : float = 500
 @export var acceleration : float = 0
 @export var randomly_rotate : bool = false
+var hit_stone_ids : Array[int] = []
 
 func _update():
 	super._update()
 	node.get_node("Sprite2D").texture = sprite
-	node.get_node("Sprite2D").material = shader
 	if randomly_rotate:
 		node.get_node("Sprite2D").rotation = randf_range(0, TAU)
 

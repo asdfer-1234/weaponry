@@ -50,30 +50,32 @@ func get_hostile_path():
 func spawn_stone_begin(stone : PackedScene):
 	spawn_stone(stone, get_hostile_path())
 
-func spawn_stone(stone : PackedScene, hostile_path : Path2D, progress = 0) -> Stone:
+func spawn_stone(stone : PackedScene, hostile_path : Path2D, progress : float = 0, inherited_id : Array[int] = []) -> Stone:
 	var instantiated : Stone = stone.instantiate()
 	instantiated.path = hostile_path
 	instantiated.progress = progress
-	instantiated.global_position = instantiated.path.get_node("PathFollow2D").global_position
+	instantiated.inherited_id = inherited_id
 	stones.add_child(instantiated)
-	instantiated.disappear.connect(check_stone_clear)
+	instantiated.expire.connect(check_stone_clear)
 	return instantiated
 
 func check_stone_clear():
 	if spawn_finished:
 		for i in stones.get_children():
-			if not i.disappeared:
+			if not i.expired:
 				return
 		wave_cleared.emit()
 
 func end():
 	wave_cleared.disconnect(ready_for_next_wave)
+
 func update_wave_description():
 	if wave.wave < len(wave.waves.waves):
 		var translation_key = "TUTORIAL_" + str(wave.wave)
 		var translated = tr(translation_key)
 		if translation_key != translated:
 			wave_description.text = translated
+
 func clear_wave_description():
 	wave_description.text = ""
 

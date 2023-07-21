@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=7 format=3 uid="uid://capk6es8bddax"]
+[gd_resource type="Resource" script_class="AccessoryItem" load_steps=7 format=3 uid="uid://capk6es8bddax"]
 
 [ext_resource type="Script" path="res://game/weapon/targeter/close_targeter.gd" id="2_7vusl"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_hapsj"]
-[ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="3_u42u3"]
+[ext_resource type="Script" path="res://game/item/accessory/accessory_item.gd" id="3_u42u3"]
 [ext_resource type="Texture2D" uid="uid://78818hcvfgtg" path="res://game/item/accessory/utilizing_ai.png" id="4_ubh7r"]
 
 [sub_resource type="Resource" id="Resource_65itp"]
@@ -17,4 +17,4 @@ script = ExtResource("3_u42u3")
 modifier = SubResource("Resource_b7xfj")
 name = "UTILIZING_AI"
 sprite = ExtResource("4_ubh7r")
-type = 3
+stack_size = 0

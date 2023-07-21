@@ -1,71 +1,74 @@
-[gd_resource type="Resource" script_class="WeaponItem" load_steps=19 format=3 uid="uid://c4bonh8ytc6fr"]
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=21 format=3 uid="uid://c4bonh8ytc6fr"]
 
 [ext_resource type="Script" path="res://game/item/weapon/weapon_item.gd" id="1_gwq7n"]
 [ext_resource type="Texture2D" uid="uid://bjf2dp2vxcvui" path="res://game/item/weapon/water_gun.png" id="2_bof7t"]
-[ext_resource type="Script" path="res://game/weapon/attack/knockback_attack.gd" id="3_o3p68"]
-[ext_resource type="Script" path="res://game/damage/damage.gd" id="3_pmbe7"]
-[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="4_6ruef"]
-[ext_resource type="Texture2D" uid="uid://csjnwo4hc3jop" path="res://game/projectile/water.png" id="5_xwkst"]
-[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="6_82yir"]
+[ext_resource type="Script" path="res://game/weapon/modifiable_weapon.gd" id="3_kd5gx"]
+[ext_resource type="Script" path="res://game/weapon/attack/knockback_attack.gd" id="4_pub6h"]
+[ext_resource type="Script" path="res://game/damage/damage.gd" id="5_jewak"]
+[ext_resource type="Script" path="res://game/projectile/moving_projectile_behaviour.gd" id="6_8ceqp"]
 [ext_resource type="Script" path="res://game/weapon/ranger/circular_ranger.gd" id="7_epqpw"]
+[ext_resource type="Texture2D" uid="uid://csjnwo4hc3jop" path="res://game/projectile/water.png" id="7_r8aj4"]
+[ext_resource type="Script" path="res://game/weapon/attack/projectile_attack.gd" id="8_2c4t6"]
 [ext_resource type="Script" path="res://game/weapon/aim_weapon.gd" id="8_yrrib"]
-[ext_resource type="Texture2D" uid="uid://dpmkenajcgomf" path="res://game/item/weapon/water_gun_turret.png" id="9_86jhd"]
 [ext_resource type="Script" path="res://game/weapon/targeter/first_targeter.gd" id="10_g0ip1"]
+[ext_resource type="Texture2D" uid="uid://dpmkenajcgomf" path="res://game/item/weapon/water_gun_turret.png" id="11_1so4y"]
 
-[sub_resource type="Resource" id="Resource_a1ldp"]
-script = ExtResource("3_o3p68")
+[sub_resource type="Resource" id="Resource_phkpn"]
+script = ExtResource("4_pub6h")
 knockback = 3
-infinite_use = false
 
-[sub_resource type="Resource" id="Resource_tsl24"]
-script = ExtResource("3_pmbe7")
+[sub_resource type="Resource" id="Resource_5fojc"]
+script = ExtResource("5_jewak")
 type = 2
-damage = 2
+damage = 1
 
-[sub_resource type="Resource" id="Resource_rbdhb"]
-script = ExtResource("4_6ruef")
-sprite = ExtResource("5_xwkst")
-speed = 150.0
+[sub_resource type="Resource" id="Resource_n3i76"]
+script = ExtResource("6_8ceqp")
+sprite = ExtResource("7_r8aj4")
+speed = 300.0
 acceleration = -100.0
 randomly_rotate = true
 pierce = 1
 size = 0.5
-damage = SubResource("Resource_tsl24")
+damage = SubResource("Resource_5fojc")
 lifetime = 2.0
-attack_on_hit = SubResource("Resource_a1ldp")
+attack_on_hit = SubResource("Resource_phkpn")
 
-[sub_resource type="Resource" id="Resource_msshv"]
-script = ExtResource("6_82yir")
-projectile_behaviour = SubResource("Resource_rbdhb")
-spread = 2.0
+[sub_resource type="Resource" id="Resource_4co2w"]
+script = ExtResource("8_2c4t6")
+projectile_behaviour = SubResource("Resource_n3i76")
+spread = 0.0
 count = 1
 delay = 0.0
-infinite_use = false
 
-[sub_resource type="Resource" id="Resource_mf8yx"]
+[sub_resource type="Resource" id="Resource_stcak"]
 script = ExtResource("7_epqpw")
 min_range = 0.0
-max_range = 70.0
+max_range = 40.0
 
-[sub_resource type="Resource" id="Resource_xtowc"]
+[sub_resource type="Resource" id="Resource_jkdt0"]
 script = ExtResource("10_g0ip1")
 
-[sub_resource type="Resource" id="Resource_y2g54"]
+[sub_resource type="Resource" id="Resource_4eh14"]
 script = ExtResource("8_yrrib")
 infinite_swivel = false
-swivel_speed = 400.0
-targeter = SubResource("Resource_xtowc")
-ranger = SubResource("Resource_mf8yx")
-attack_speed = 30.0
-attack = SubResource("Resource_msshv")
-sprite = ExtResource("9_86jhd")
+swivel_speed = 360.0
+targeter = SubResource("Resource_jkdt0")
+ranger = SubResource("Resource_stcak")
+attack_speed = 20.0
+attack = SubResource("Resource_4co2w")
+sprite = ExtResource("11_1so4y")
 flip_mode = 0
+
+[sub_resource type="Resource" id="Resource_u4j5e"]
+script = ExtResource("3_kd5gx")
+weapon = SubResource("Resource_4eh14")
 ammunition_slot_count = 1
 accessory_slot_count = 1
 
 [resource]
 script = ExtResource("1_gwq7n")
-weapon = SubResource("Resource_y2g54")
+weapon = SubResource("Resource_u4j5e")
 name = "WATER_GUN"
 sprite = ExtResource("2_bof7t")
-type = 1
+stack_size = 0

@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="Ammunition" load_steps=11 format=3 uid="uid://cltbu0dwyiqsw"]
+[gd_resource type="Resource" script_class="AmmunitionItem" load_steps=11 format=3 uid="uid://cltbu0dwyiqsw"]
 
 [ext_resource type="PackedScene" uid="uid://bxvpa50on0m3h" path="res://game/effect/fire.tscn" id="1_48o4a"]
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_fea0g"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_8nhbd"]
 [ext_resource type="Script" path="res://game/weapon/attack/effect_attack.gd" id="2_lgupt"]
-[ext_resource type="Script" path="res://game/item/ammunition/ammunition.gd" id="3_51mrx"]
+[ext_resource type="Script" path="res://game/item/ammunition/ammunition_item.gd" id="3_51mrx"]
 [ext_resource type="Texture2D" uid="uid://burlfritnemdg" path="res://game/item/ammunition/oil.png" id="4_8aren"]
 
 [sub_resource type="Resource" id="Resource_q4en4"]
 script = ExtResource("2_lgupt")
 effect = ExtResource("1_48o4a")
-infinite_use = true
 
 [sub_resource type="Resource" id="Resource_7f0l8"]
 script = ExtResource("1_fea0g")
@@ -31,7 +30,6 @@ attack_on_hit = SubResource("Resource_q4en4")
 [resource]
 script = ExtResource("3_51mrx")
 modifier = SubResource("Resource_nskfn")
-stack_size = 1000
 name = "OIL"
 sprite = ExtResource("4_8aren")
-type = 2
+stack_size = 1000

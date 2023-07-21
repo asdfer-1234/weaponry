@@ -1,8 +1,6 @@
 extends InventorySlot
 class_name ItemSlot
 
-
-
 func primary(other):
 	if item_stack.item == cursor.item_stack.item and item_stack.item is StackableItem:
 		merge(other)
@@ -54,5 +52,3 @@ func tooltip():
 		return build
 	else:
 		return build + item_stack.item.tooltip()
-
-

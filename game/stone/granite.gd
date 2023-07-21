@@ -8,4 +8,4 @@ func damage(amount : Damage):
 		if i is Diorite:
 			amount.damage *= diorite_damage_multiplier
 			break
-	super.damage(amount)
+	super.recieve_damage(amount)

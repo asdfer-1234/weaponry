@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Accessory" load_steps=10 format=3 uid="uid://o3rmbyrc0lu5"]
+[gd_resource type="Resource" script_class="AccessoryItem" load_steps=10 format=3 uid="uid://o3rmbyrc0lu5"]
 
 [ext_resource type="Script" path="res://game/item/boost.gd" id="1_u0ul0"]
 [ext_resource type="Script" path="res://game/item/modifier.gd" id="2_14fe0"]
-[ext_resource type="Script" path="res://game/item/accessory/accessory.gd" id="3_ppqts"]
+[ext_resource type="Script" path="res://game/item/accessory/accessory_item.gd" id="3_ppqts"]
 [ext_resource type="Script" path="res://game/weapon/targeter/last_targeter.gd" id="3_srcqf"]
 [ext_resource type="Texture2D" uid="uid://dxqm623slvnua" path="res://game/item/accessory/stupid_ai.png" id="5_lphui"]
 
@@ -30,4 +30,4 @@ script = ExtResource("3_ppqts")
 modifier = SubResource("Resource_b7xfj")
 name = "STUPID_AI"
 sprite = ExtResource("5_lphui")
-type = 3
+stack_size = 0

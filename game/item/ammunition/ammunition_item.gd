@@ -1,5 +1,5 @@
 extends Item
-class_name Accessory
+class_name AmmunitionItem
 
 @export var modifier : Modifier
 

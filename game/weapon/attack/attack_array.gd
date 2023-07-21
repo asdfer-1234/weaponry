@@ -1,27 +1,23 @@
 extends Attack
 class_name AttackArray
 
-
 @export var attacks : Array[Attack] = []
 
-func attack(from, target, damage_multiplier, modifier_attack_used = false):
+func attack(from, target):
 	for i in attacks:
-		i.attack(from, target, damage_multiplier)
+		i.attack(from, target)
 
-func add(other):
-	if other == null:
-		return self
+func add(other : Attack):
 	attacks.append(other)
 
-func to_attack_array():
-	return self
-
-func remove_non_infinite_use():
-	var index = 0
-	while index < len(attacks):
-		while index < len(attacks) and not attacks[index].infinite_use:
-			attacks.remove_at(index)
-		index += 1;
+func added(other : Attack):
+	var build = attacks.duplicate()
+	for i in range(0, len(build)):
+		build[i] = build[i].duplicate()
+	if other is AttackArray:
+		attacks.append_array(other.attacks)
+	else:
+		add(other)
 
 func get_modified(modifier : Modifier):
 	var modified_array : Array[Attack] = []
@@ -31,3 +27,9 @@ func get_modified(modifier : Modifier):
 
 func _init(attacks : Array[Attack] = []):
 	self.attacks = attacks
+
+func applied(modifier : Modifier) -> Attack:
+	var build = duplicate()
+	for i in range(len(attacks)):
+		build.attacks[i] = attacks[i].applied(modifier)
+	return build

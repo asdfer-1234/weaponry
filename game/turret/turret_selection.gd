@@ -68,9 +68,7 @@ func update_slot_container():
 	for i in container.get_children():
 		i.queue_free()
 	if select_turret != null:
-		select_turret.set_weapon_slot()
-
-
+		select_turret.set_turret_slots()
 
 func _on_sell_button_pressed():
 	if sellable():

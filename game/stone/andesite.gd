@@ -10,7 +10,7 @@ func movement_process(delta):
 			granite_nearby = true
 			break
 	if granite_nearby:
-		set_progress(progress + speed * delta * granite_speed_boost)
+		progress += speed * delta * granite_speed_boost
 	else:
 		super.movement_process(delta)
 	

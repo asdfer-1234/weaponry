@@ -7,12 +7,11 @@ class_name ProjectileAttack
 @export var delay : float = 0
 
 
-func attack(from, _target, modifier):
-	super.attack(from, _target, modifier)
-	for i in range(modifier.count.apply(count)):
-		var projectile = projectile_behaviour.projectile(from, modifier)
-		var applied_spread = modifier.spread.apply(spread)
-		projectile.rotate(randf_range(deg_to_rad(applied_spread), -deg_to_rad(applied_spread)))
+func attack(from, _target):
+	super.attack(from, _target)
+	for i in range(count):
+		var projectile = projectile_behaviour.projectile(from)
+		projectile.rotate(randf_range(deg_to_rad(spread), -deg_to_rad(spread)))
 		if delay != 0:
 			await from.get_tree().create_timer(delay).timeout
 
@@ -39,3 +38,8 @@ func to_attack_array():
 	var new = AttackArray.new()
 	new.attacks = [self]
 	return new
+
+func apply(modifier):
+	projectile_behaviour.apply(modifier)
+	count = modifier.count.applied(count)
+	spread = modifier.spread.applied(spread)

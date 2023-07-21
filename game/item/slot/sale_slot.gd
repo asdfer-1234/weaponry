@@ -12,19 +12,20 @@ func _ready():
 	price = price
 
 func update_price_text():
-	if item_stack.empty:
+	if item_stack == null or item_stack.empty():
 		$PriceLabel.text = RichTextBuilder.color_text(tr("SOLD_OUT"), Palette.secondary)
 	else:
 		$PriceLabel.text = %Gold.numeric_minimal_price_tooltip(price)
 
 func primary(other):
-	if not item_stack.empty and other.item_stack.empty and %Gold.gold >= price:
+	if (not item_stack.empty()) and other.item_stack.empty() and %Gold.gold >= price:
 		buy()
 
 func buy():
 	%Gold.gold -= price
 	cursor.item_stack = item_stack
 	item_stack = null
+	cursor.item_stack.item.on_buy()
 	update_price_text()
 
 func tooltip():

@@ -15,18 +15,17 @@ const minimum_attack_speed : float = 0.01
 const shoot_audio : AudioStream = preload("res://game/turret/shoot.wav")
 
 func _process(delta):
-	if not node.building:
-		var target = targeter.get_target(node, ranger.get_targets(node))
-		if target != null:
-			swivel(node, delta, target.global_position)
-			if shootable and _shoot_narrow_angle(target):
-				shoot(target)
+	var target = targeter.get_target(node, ranger.get_targets(node))
+	if target != null:
+		swivel(node, delta, target.global_position)
+		if shootable and _shoot_narrow_angle(target):
+			shoot(target)
 
 func _shoot_narrow_angle(target):
 	return abs(_angle_difference(node.global_rotation, (target.global_position - node.global_position).angle())) < deg_to_rad(shoot_angle)
 
 func shoot(target):
-	attack.attack(node, target, get_modifier())
+	attack.attack(node, target)
 	shootable = false
 	var timer = node.get_tree().create_timer(get_attack_delay(), true, true)
 	timer.timeout.connect(_timer_timeout)
@@ -34,8 +33,7 @@ func shoot(target):
 	use_ammo()
 
 func get_attack_delay():
-	var delay = 1 / max(get_modifier().attack_speed.apply(attack_speed), minimum_attack_speed)
-	return min(delay, maximum_attack_delay)
+	return 1.0 / attack_speed
 
 func _timer_timeout():
 	shootable = true
@@ -75,12 +73,11 @@ func tooltip():
 	text += RichTextBuilder.subproperty(tr("TARGETING"), targeter.tooltip())
 	return text
 
-func get_modified(modifier : Modifier):
-	var modified := self.duplicate()
-	attack_speed = modifier.attack_speed.apply(attack_speed)
+func apply(modifier : Modifier):
+	attack_speed = modifier.attack_speed.applied(attack_speed)
+	swivel_speed = modifier.swivel_speed.applied(swivel_speed)
 	if modifier.targeter != null:
-		modified.targeter = modifier.targeter
+		targeter = modifier.targeter
 	if modifier.ranger != null:
-		modified.ranger = modifier.ranger
-	attack.get_modified(modifier)
-	return modified
+		ranger = modifier.ranger
+	attack.apply(modifier)

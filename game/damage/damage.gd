@@ -33,3 +33,9 @@ func tooltip():
 
 func minimal_tooltip():
 	return RichTextBuilder.color_text(RichTextBuilder.image(type_icon[int(type)]) + str(damage), type_color[int(type)])
+
+func apply(modifier : Modifier):
+	damage = modifier.damage.applied(damage)
+
+func applied(modifier : Modifier):
+	return duplicate(true).apply(modifier)

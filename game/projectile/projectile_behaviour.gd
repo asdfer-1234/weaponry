@@ -10,21 +10,16 @@ const default_projectile = preload("res://game/projectile/projectile.tscn")
 @export var lifetime : float = 2
 @export var attack_on_hit : Attack
 @export var attack_on_expire : Attack
-var modifier : Modifier
-var hit : bool = false
-var modifier_attack_used : bool = false
+var expired : bool = false
 
 func get_default_projectile():
 	return default_projectile
 
 
-func projectile(node, new_modifier):
+func projectile(node):
 	var instantiated = get_default_projectile().instantiate()
 	_set_defaults(node, instantiated)
-	node.get_node("../%ProjectileCanvas").call_deferred("add_child", instantiated)
-	instantiated.projectile_behaviour.modifier = new_modifier
-	if instantiated.projectile_behaviour.modifier.pierce != null:
-		instantiated.projectile_behaviour.pierce = instantiated.projectile_behaviour.modifier.pierce.apply(instantiated.projectile_behaviour.pierce)
+	node.get_node("../%ProjectileCanvas").add_child.call_deferred(instantiated)
 	return instantiated
 
 func _set_defaults(node, instantiated):
@@ -32,7 +27,6 @@ func _set_defaults(node, instantiated):
 	instantiated.scale = size * Vector2.ONE
 	instantiated.position = node.position
 	instantiated.global_rotation = node.global_rotation
-	
 
 func _update():
 	super._update()
@@ -44,34 +38,24 @@ func expire():
 
 func _on_hit(target : Stone):
 	pierce -= 1
-	
-	var applied_damage = damage.duplicate()
-	if modifier != null and modifier.damage != null:
-		applied_damage.damage = modifier.damage.apply(applied_damage.damage)
-	target.damage(applied_damage)
+	if damage != null:
+		target.recieve_damage(damage)
 	
 	var push_excluded : bool = false
-	
 	if pierce <= 0:
-		hit = true
+		expired = true
 		node.queue_free()
 	else:
 		push_excluded = true
-		
+	
 	if attack_on_hit != null:
-		attack_on_hit.attack(node, target, modifier)
+		print("eeeeeeeeeeeeoooooooo")
+		attack_on_hit.attack(node, target)
 		push_excluded = true
-	
-	var new_modifier = modifier.duplicate()
-	new_modifier.attack_on_hit = new_modifier.attack_on_hit.duplicate()
-	new_modifier.attack_on_hit.remove_non_infinite_use()
-	modifier.attack_on_hit.attack(node, target, new_modifier)
-	
 
 func _on_expire():
 	if attack_on_expire != null:
-		attack_on_expire.attack(node, null, modifier)
-	modifier.attack_on_expire.attack(node, null, modifier)
+		attack_on_expire.attack(node, null)
 
 func tooltip():
 	var text = ""
@@ -85,3 +69,21 @@ func tooltip():
 	if attack_on_expire != null:
 		text += RichTextBuilder.subproperty(tr("ON_EXPIRE"), attack_on_expire.tooltip())
 	return text
+
+func apply(modifier : Modifier):
+	if damage != null:
+		damage = damage.applied(modifier)
+	pierce = modifier.pierce.applied(pierce)
+
+	attack_on_hit = _add_attack(attack_on_hit, modifier.attack_on_hit)
+	attack_on_expire = _add_attack(attack_on_expire, modifier.attack_on_expire)
+
+func _add_attack(a : Attack, b : Attack):
+	if a == null:
+		return b
+	return a.added(b)
+
+func applied(modifier : Modifier):
+	var build = duplicate(true)
+	build.apply(modifier)
+	return build

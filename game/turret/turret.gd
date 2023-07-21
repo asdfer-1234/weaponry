@@ -1,6 +1,10 @@
 extends Node2D
 class_name Turret
-var default_weapon = preload("res://game/weapon/default_weapon/default_weapon.tres")
+
+# Default weapon
+const default_weapon := preload("res://game/weapon/default_weapon/default_weapon.tres")
+
+# Player building and selection
 var building : bool = false
 
 var highlighted = false:
@@ -21,6 +25,12 @@ var draw_weapon_details = false:
 
 var time_since_draw_weapon_details : float = 0
 
+# Items
+var weapon_item : WeaponItem
+var accessory_item : AccessoryItem
+var ammunition_item : AmmunitionItem
+
+
 var weapon_slot : ItemSlot:
 	set(value):
 		weapon_slot = value
@@ -30,20 +40,13 @@ var weapon_stack : ItemStack:
 		weapon_stack = value
 		if weapon_stack == null:
 			default_weapon.update(self)
-			
-		elif weapon_stack.item is WeaponItem:
-			weapon_stack.item.weapon = weapon_stack.item.weapon.duplicate()
-			weapon_stack.item.weapon.update(self)
-		queue_redraw()
 		get_tree().get_first_node_in_group("turret_selection").update_slot_container()
 		update_modified_weapon()
 
 var modifier_stack : Array[ItemStack]
-
-var modified_weapon : Weapon
-
-
 var temporary_modifiers : Array[Modifier]
+
+var product_weapon : Weapon
 
 const normal_outline = preload("res://graphics/background_outline.tres")
 const highlight_outline = preload("res://graphics/red_outline.tres")
@@ -56,35 +59,41 @@ signal mouse_enter(turret)
 signal mouse_exit(turret)
 signal button_press(turret)
 
-# Getting the Weapons
+# modifying the weapons
 
-func get_active_weapon() -> Weapon:
-	if weapon_stack == null or weapon_stack.item == null or weapon_stack.item.weapon == null:
-		return default_weapon
-	return weapon_stack.item.weapon
+## The target function that needs to be called every change at the items
 
+func update_modified_weapon():
+	product_weapon = weapon.applied(get_modifier())
+	modified_weapon.update(node)
 
-# processing the weapons
-
-func _ready():
-	_connect_turret_selection()
-	update_modified_weapon()
-
-func set_weapon_slot():
+func set_turret_slots():
 	weapon_slot = inventory_slot.instantiate()
-	get_tree().get_first_node_in_group("turret_item_slot_container").add_child(weapon_slot)
+	
+	var container = get_tree().get_first_node_in_group("turret_item_slot_container")
+	for i in container.get_children():
+		i.queue_free()
+	
+	container.add_child(weapon_slot)
 	
 	weapon_slot.accept_type = Item.Type.WEAPON
 	weapon_slot.item_stack = weapon_stack
-	modified_weapon.set_weapon_slot(weapon_slot)
-	weapon_slot.changed.connect(set_weapon_stack_from_inventory_slot)
-	
+	weapon_slot.changed.connect(update_weapon_stack)
+	if weapon_stack != null and weapon_stack.item != null:
+		weapon_stack.item.weapon.set_weapon_slots()
 
-func set_weapon_stack_from_inventory_slot():
+func update_weapon_stack():
 	if weapon_slot.item_stack.item is WeaponItem:
 		weapon_stack = weapon_slot.item_stack
 	else:
 		weapon_stack = null
+	get_modifiable_weapon()
+
+# make the weapons work here
+
+func _ready():
+	_connect_turret_mouse_selection()
+	update_modified_weapon()
 
 func _process(delta):
 	time_since_draw_weapon_details += delta
@@ -93,16 +102,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	if not Engine.is_editor_hint() and not building:
-		_turret_process(delta)
+		get_modified_weapon()._process(delta)
 
-func _turret_process(delta):
-	modified_weapon._process(delta)
-
-func update_modified_weapon():
-	modified_weapon = get_active_weapon().get_modified(get_active_weapon().get_modifier())
-	modified_weapon.update(self)
-
-# Mouse Signal Conveying
+# mouse
 func _mouse_enter():
 	if not building:
 		mouse_enter.emit(self)
@@ -115,8 +117,6 @@ func _button_press():
 	if not building:
 		button_press.emit(self)
 
-# Mouse Signal Receiving
-
 func update_mouse():
 	if selected:
 		draw_weapon_details = true
@@ -128,7 +128,7 @@ func update_mouse():
 		draw_weapon_details = false
 		$Sprite.material = normal_outline
 
-func _connect_turret_selection():
+func _connect_turret_mouse_selection():
 	var turret_selection = get_tree().get_nodes_in_group("turret_selection")[0]
 	mouse_enter.connect(turret_selection.mouse_enter)
 	mouse_exit.connect(turret_selection.mouse_exit)
@@ -137,17 +137,19 @@ func _connect_turret_selection():
 # information drawing
 
 func _draw():
-	if modified_weapon.node != null && draw_weapon_details:
-		modified_weapon._draw()
+	if get_modified_weapon().node != null && draw_weapon_details:
+		get_modified_weapon()._draw()
 
 func tooltip():
-	return modified_weapon.tooltip()
+	return get_modified_weapon().tooltip()
 
 func add_temporary_modifier(modifier):
 	temporary_modifiers.append(modifier)
 
 func remove_temporary_modifier(modifier):
 	temporary_modifiers.erase(modifier)
+
+# selling
 
 func sell():
 	$"../%Builder".placed_turret -= 1

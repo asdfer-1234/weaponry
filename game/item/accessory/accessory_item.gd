@@ -1,5 +1,5 @@
-extends StackableItem
-class_name Ammunition
+extends Item
+class_name AccessoryItem
 
 @export var modifier : Modifier
 
