@@ -13,7 +13,7 @@ config_version=5
 config/name="Weaponry 2"
 config/description="A prequel to Weaponry. A school game jam submission."
 run/main_scene="res://scene_management/scene_manager.tscn"
-config/features=PackedStringArray("4.0")
+config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.286275, 0.211765, 0.301961, 1)
 boot_splash/image="res://kah_splash.png"
 config/icon="res://game/stone/stone.png"
@@ -106,12 +106,12 @@ font_data_dynamic={
 
 place_turret={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 select_turret={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 deselect_turret={
@@ -142,9 +142,9 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.286275, 0.211765, 0.301961, 1)
-textures/canvas_textures/default_texture_filter=0
 2d/snapping/use_gpu_pixel_snap=true
 2d/options/ninepatch_mode=0
 environment/default_clear_color=Color(0.286275, 0.211765, 0.301961, 1)
