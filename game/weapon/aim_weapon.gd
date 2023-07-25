@@ -1,8 +1,8 @@
 extends Weapon
 class_name AimWeapon
 
-@export var infinite_swivel = false
-@export var swivel_speed = 360.0
+@export var infinite_swivel : bool = false
+@export var swivel_speed : float = 360.0
 @export var targeter : Targeter
 @export var ranger : Ranger
 @export var attack_speed : float = 2
