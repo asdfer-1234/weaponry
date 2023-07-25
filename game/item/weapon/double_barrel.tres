@@ -61,8 +61,8 @@ script = ExtResource("10_ypgmh")
 
 [sub_resource type="Resource" id="Resource_3tkw8"]
 script = ExtResource("8_2htxj")
-infinite_swivel = false
-swivel_speed = 360.0
+infinite_swivel = null
+swivel_speed = null
 targeter = SubResource("Resource_io0wl")
 ranger = SubResource("Resource_csivg")
 attack_speed = 1.0

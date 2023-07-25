@@ -43,13 +43,13 @@ script = ExtResource("5")
 
 [resource]
 script = ExtResource("1")
-infinite_swivel = false
-swivel_speed = 360.0
+infinite_swivel = null
+swivel_speed = null
 targeter = SubResource("Resource_2fgmb")
 ranger = SubResource("Resource_vlbws")
-attack_speed = 2.0
+attack_speed = null
 attack = SubResource("Resource_1qtxw")
 sprite = ExtResource("3")
-flip_mode = 0
-ammunition_slot_count = 0
-accessory_slot_count = 0
+flip_mode = null
+ammunition_slot_count = null
+accessory_slot_count = null

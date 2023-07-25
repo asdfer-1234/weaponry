@@ -52,7 +52,7 @@ ranger = SubResource("Resource_mf8yx")
 attack_speed = 2.0
 attack = SubResource("Resource_msshv")
 sprite = ExtResource("9_bmk2y")
-flip_mode = 1.0
+flip_mode = 0
 ammunition_slot_count = 1
 accessory_slot_count = 3
 

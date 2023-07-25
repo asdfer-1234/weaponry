@@ -45,7 +45,7 @@ script = ExtResource("10_1n1ow")
 
 [sub_resource type="Resource" id="Resource_3tkw8"]
 script = ExtResource("8_wmpaw")
-infinite_swivel = false
+infinite_swivel = null
 swivel_speed = 180.0
 targeter = SubResource("Resource_io0wl")
 ranger = SubResource("Resource_csivg")
