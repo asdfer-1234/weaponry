@@ -13,7 +13,6 @@ const shoot_angle = 5
 const maximum_attack_delay = 5
 const minimum_attack_speed = 0.01
 const shoot_audio = preload("res://game/turret/shoot.wav")
-const decibel_multiplier = 20
 
 func _process(delta):
 	if not node.building:
@@ -31,7 +30,7 @@ func shoot(target):
 	shootable = false
 	var timer = node.get_tree().create_timer(get_attack_delay(), true, true)
 	timer.timeout.connect(_timer_timeout)
-	Audio.play_audio(shoot_audio, get_attack_delay() * decibel_multiplier)
+	Audio.play_audio(shoot_audio, get_attack_delay())
 	use_ammo()
 
 func get_attack_delay():
